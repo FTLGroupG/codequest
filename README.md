@@ -18,6 +18,7 @@ Project Code Repository Links
 ## Project Overview
 
 Add a quick summary of what your project theme and objectives are. 
+
 Week 4:
 The goals for this week is to...
 
