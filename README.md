@@ -22,8 +22,11 @@ Week 4:
 The goals for this week is to...
 
 [x] create a shared Github repo for your project based on the capstone project template.
+
 [x] brainstorm problem statements and solutions for potential capstone projects.
+
 [] meet your pod mentors in your first pod sync and present your initial project ideas.
+
 [] submit your project proposal by Friday, June 30th at 9:00pm PDT.
 
 Problem Statements and Solutions: 
