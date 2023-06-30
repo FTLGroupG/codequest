@@ -17,7 +17,8 @@ Project Code Repository Links
 
 ## Project Overview
 
-Add a quick summary of what your project theme and objectives are. 
+- A children’s application to learn about coding, programming topics and facts. 
+- Developing an immersive web application utilizing the PERN (PostgreSQL, Express, React, Node.js) stack to foster interactive learning experiences and empower kids  in mastering coding principles and concepts.
 
 Week 4:
 The goals for this week is to...
@@ -26,12 +27,13 @@ The goals for this week is to...
 
 [x] brainstorm problem statements and solutions for potential capstone projects.
 
-[] meet your pod mentors in your first pod sync and present your initial project ideas.
+[x] meet your pod mentors in your first pod sync and present your initial project ideas.
 
-[] submit your project proposal by Friday, June 30th at 9:00pm PDT.
+[x] submit your project proposal by Friday, June 30th at 9:00pm PDT.
 
-Problem Statements and Solutions: 
+## Problem Statements and Solutions: 
 
+Addressing the challenge of engaging kids in the process of learning coding by developing an interactive web application, built on the PERN stack, that offers a gamified learning environment, intuitive tutorials, and real-time coding practice, to instill fundamental programming skills and ignite a passion for computer science.
 
 
 Deployment Website: **Add Link to Deployed Project**
