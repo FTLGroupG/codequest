@@ -68,7 +68,7 @@ Track user progress and user profiles.
 ## Stretch features:
 - Leaderboard by tracking user progress
 
-# Problem:
+# Project Plan:
 
 ## Users Roles
 
