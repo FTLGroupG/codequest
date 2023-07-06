@@ -77,18 +77,18 @@ Track user progress and user profiles.
 - Unauthorized User
 
 ## Users Personas
-Child:
+**Child:**
 1. Sam is a 10-year-old elementary school student living in the San Francisco, California Bay Area. His mother works as a full-time Software Engineer remotely, so he is always able to watch her while she works. Sam is curious about how her mother creates all those amazing apps by just writing pieces of codes. Her mother has influenced Sam’s interest in learning how to code from a young age. Now Sam is determined to live by his mother’s dream.
    
 2. Lola is a 7- year old student living in Orlando, Florida. Her parents have latino heritage and most of the time her family, including her, speaks in Spanish, even though she is fluent in English too. Lola has always had a sense of curiosity and a passion for science and math, so when she found out about coding through a school program for kids in STEM, she grew an interest in learning more about this field. Lola tends to get bored easily, so she would love to be able to learn about coding while having a fun interactive experience.
 
-Child’s Caretaker/Parent: 
+**Child’s Caretaker/Parent:** 
 1. Carol is a full-time nanny and is employed by a married couple that wants their 7 year old child (Jamie) to learn how to code while he’s young. Carol lives in the city of Dallas and commutes to the Dallas suburbs where her clients live whenever her services are needed. Carol is 52 years old and is not very tech savvy. She will need instructions from the parents on how to use the app and get it set up for their child. 
 Carol wants her clients to see her dedication in getting Jamie to learn in their absence and wants to be able to show his daily progress in an easily accessible way
 
 2. Helen is a parent who is interested in teaching her child to code. She lives in Texas and understands that programming is a useful skill to have and needs an application that is child friendly and easy to navigate.
 
-Unauthorized user:
+**Unauthorized user:**
 
 1. Veronica is a 27-year-old mother. She works full-time as an Information Technology Specialist. Ever since she was little, she was passionate about technology and she hopes to help her daughter grow an interest in tech. She’s looking  for a  good educational app that she can use to teach her daughter how to code.
 
