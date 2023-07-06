@@ -6,7 +6,7 @@ Cohort: **Salesforce x CodePath**
 
 Team Member Names:**Kennedy Parks, Favour Onukogu, Alejandro Irizarry**
 
-Mentors Names: **Anal Shah, Nitika Aggarwal **
+Mentors Names: **Anal Shah, Nitika Aggarwal**
 
 Project Code Repository Links
 
