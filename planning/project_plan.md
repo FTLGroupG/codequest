@@ -43,10 +43,21 @@ Child’s Caretaker/Parent:
 ## Pages/Screens
 
 List all the pages and screens in the app. Include wireframes for at least 3 of them.
+- Home Page
+- LogIn Page
+- Registration Page
+- Loading Page
+- Modules Page
+- Results Page
+- NotFound Page
 
 ## Data Model
 
 Describe your app's data model using diagrams or tables
+| ID_PK         | USERNAME      | FIRSTNAME     | LASTNAME     |  EMAIL        | PASSWORD     | CREATED_AT    | 
+| ------------- |:-------------:| -------------:|-------------:| -------------:|-------------:| -------------:|
+| number        | text          | text          | text         | text          | text         | timestamp     |
+
 
 ## Endpoints
 
