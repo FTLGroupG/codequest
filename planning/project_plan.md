@@ -54,13 +54,37 @@ List all the pages and screens in the app. Include wireframes for at least 3 of 
 ## Data Model
 
 Describe your app's data model using diagrams or tables
+
+USER'S TABLE
 | ID_PK         | USERNAME      | FIRSTNAME     | LASTNAME     |  EMAIL        | PASSWORD     | CREATED_AT    | 
 | ------------- |:-------------:| -------------:|-------------:| -------------:|-------------:| -------------:|
 | number        | text          | text          | text         | text          | text         | timestamp     |
 
+QUESTIONS TABLE
+| ID_PK         | QUESTION      | ANSWER        | ID_MODULE_FK |  Q_SPANISH    | A_SPANISH    |
+| ------------- |:-------------:| -------------:|-------------:| -------------:|-------------:| 
+| number        | text          | text          | number       | text          | text         | 
+
+PROFILES TABLE
+| ID_PK         | NAME          | ID_USER_FK    |
+| ------------- |:-------------:| -------------:|
+| number        | text          | number        |
+
+MODULES TABLE
+| ID_PK         | NAME          | 
+| ------------- |:-------------:|
+| number        | text          | 
 
 ## Endpoints
 
 List the API endpoints you will need to implement.
+
+Homepage - "/"
+LogIn Page - "/login"
+Register Page - "/auth/register"
+Loading - "/loading"
+Modules Page - "/modules"
+Module Details - "/modules/id"
+Results Page - "results"
 
 ***Don't forget to set up your Issues, Milestones, and Project Board!***
