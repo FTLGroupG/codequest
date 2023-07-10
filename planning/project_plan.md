@@ -79,12 +79,12 @@ MODULES TABLE
 
 List the API endpoints you will need to implement.
 
-Homepage - "/"
-LogIn Page - "/login"
-Register Page - "/auth/register"
-Loading - "/loading"
-Modules Page - "/modules"
-Module Details - "/modules/id"
-Results Page - "results"
+- Homepage - "/"
+- LogIn Page - "/login"
+- Register Page - "/auth/register"
+- Loading - "/loading"
+- Modules Page - "/modules"
+- Module Details - "/modules/id"
+- Results Page - "results"
 
 ***Don't forget to set up your Issues, Milestones, and Project Board!***
