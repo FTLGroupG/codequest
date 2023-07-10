@@ -57,22 +57,22 @@ Describe your app's data model using diagrams or tables
 
 USER'S TABLE
 | ID_PK         | USERNAME      | FIRSTNAME     | LASTNAME     |  EMAIL        | PASSWORD     | CREATED_AT    | 
-| ------------- |:-------------:| -------------:|-------------:| -------------:|-------------:| -------------:|
+|:-------------:|:-------------:|:-------------:|:------------:|:-------------:|:------------:|:-------------:|
 | number        | text          | text          | text         | text          | text         | timestamp     |
 
 QUESTIONS TABLE
 | ID_PK         | QUESTION      | ANSWER        | ID_MODULE_FK |  Q_SPANISH    | A_SPANISH    |
-| ------------- |:-------------:| -------------:|-------------:| -------------:|-------------:| 
+|:-------------:|:-------------:|:-------------:|:------------:|:-------------:|:------------:| 
 | number        | text          | text          | number       | text          | text         | 
 
 PROFILES TABLE
 | ID_PK         | NAME          | ID_USER_FK    |
-| ------------- |:-------------:| -------------:|
+|:-------------:|:-------------:|:-------------:|
 | number        | text          | number        |
 
 MODULES TABLE
 | ID_PK         | NAME          | 
-| ------------- |:-------------:|
+|:-------------:|:-------------:|
 | number        | text          | 
 
 ## Endpoints
