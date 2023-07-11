@@ -65,15 +65,10 @@ QUESTIONS TABLE
 |:-------------:|:-------------:|:-------------:|:------------:|:-------------:|:------------:| 
 | number        | text          | text          | number       | text          | text         | 
 
-PROFILES TABLE
-| ID_PK         | NAME          | ID_USER_FK    |
-|:-------------:|:-------------:|:-------------:|
-| number        | text          | number        |
-
 MODULES TABLE
-| ID_PK         | NAME          | DESCRIPTION   |  LEVELS       |           
-|:-------------:|:-------------:|:-------------:|:-------------:|
-| number        | text          | text          | number        | 
+| ID_PK         | NAME          | DESCRIPTION   | NO_QUESTIONS  | RESOURCES     |             
+|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
+| number        | text          | text          | number        | text          | 
 
 ## Endpoints
 
