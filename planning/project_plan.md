@@ -71,9 +71,9 @@ PROFILES TABLE
 | number        | text          | number        |
 
 MODULES TABLE
-| ID_PK         | NAME          | 
-|:-------------:|:-------------:|
-| number        | text          | 
+| ID_PK         | NAME          | DESCRIPTION   |  LEVELS       |           
+|:-------------:|:-------------:|:-------------:|:-------------:|
+| number        | text          | text          | number        | 
 
 ## Endpoints
 
