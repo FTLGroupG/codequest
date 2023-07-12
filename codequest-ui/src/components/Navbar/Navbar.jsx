@@ -1,5 +1,6 @@
 import React from "react";
 import "./Navbar.css";
+import { useNavigate } from "react-router-dom";
 
 
 export default function Navbar({ isLoggedIn, setIsLoggedIn }) {
@@ -43,10 +44,10 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn }) {
           </li>
 
           <li onClick={checkLogin}>
-            <a href={isLoggedIn ? "/register" : "/login"}>Sign Up</a>
+            <a href={isLoggedIn ? "/register" : "/register"}>Sign Up</a>
           </li>
           <li onClick={checkLogin}>
-            <a href={isLoggedIn ? "/modules" : "/login"}>Modules</a>
+            <a href={isLoggedIn ? "/modules" : "/modules"}>Modules</a>
           </li>
         </ul>
       </div>

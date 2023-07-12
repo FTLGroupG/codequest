@@ -1,0 +1,86 @@
+.Modules {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.moduleCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    min-width: 300px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.282);
+}
+
+.moduleCard h1 {
+    text-decoration: underline;
+}
+
+.moduleCircles {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    min-width: 300px;
+    margin-top: 20px;
+}
+
+.circle {
+  height: 150px;
+  width: 150px;
+  background-color: #a7a7a7;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 20px;
+
+}
+
+.circle h4 {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 1.3em;  
+    color: #4b4b4b;
+}
+
+.selectedCircle {
+  height: 150px;
+  width: 150px;
+  background-color: #fce864;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 20px;
+  box-shadow: 8px 10px 10px rgba(155, 132, 39, 0.261);
+}
+
+.selectedCircle h4 {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 1.3em;  
+}
+
+.selectedCircle:hover {
+    height: 150px;
+    width: 150px;
+    background-color: #fcd664;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 20px;
+    box-shadow: 12px 14px 15px rgba(77, 65, 20, 0.261);
+    transition: .3s;
+    cursor: pointer;
+  }
