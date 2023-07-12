@@ -1,4 +1,3 @@
-const config = require("./config");
 require("dotenv").config();
 
 describe("config can come from env", function () {

@@ -32,7 +32,7 @@ function getDatabaseUri() {
 
 const BCRYPT_WORK_FACTOR = IS_TESTING ? 1 : 13;
 
-console.log("Lifetracker Config:".red);
+console.log("Codequest Config:".red);
 console.log("PORT:".blue, PORT);
 console.log("Database URI:".blue, getDatabaseUri());
 console.log("------".yellow);
