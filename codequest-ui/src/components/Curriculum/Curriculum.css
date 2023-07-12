@@ -1,0 +1,26 @@
+.Curriculum {
+    align-items: center;
+}
+
+.curriculumCard {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+
+    height: 100%;
+}
+
+.curriculumCardText {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin: 30px;
+    text-align: left;
+    max-width: 800px;
+}
+
+.curriculumCardCode {
+    width: 300px;
+}
