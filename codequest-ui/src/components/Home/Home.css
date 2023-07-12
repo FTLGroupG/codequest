@@ -1,0 +1,80 @@
+.Home {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.Hero {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    width: 70%;
+    margin: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.Hero img {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.455);
+    border-radius: 1%;
+}
+
+.Card{
+    width: 100%;
+    background-color: rgb(116, 120, 120);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    padding: 30px;
+}
+
+.pythonCard{
+    background-color: #ffffff;
+    color: #fff;
+    padding: 2em;
+    border-radius: 4px;
+    margin-bottom: 2em;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,.1);
+}
+
+.pythonCard h5 {
+    margin-top: 0;
+    margin-bottom: 1em;
+
+}
+
+.pythonCard img {
+    width: 50%;
+    margin: 20px;
+}
+.playGamesCard{
+    background-color: #ffffff;
+    color: #fff;
+    padding: 2em;
+    border-radius: 4px;
+    margin-bottom: 2em;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,.1);
+}
+
+.cardTextFloatRight{
+    text-align: right;
+}
+
+.playGamesCard button {
+    background-color: #000000;
+    color: #fff;
+    padding: 1em 2em;
+    border-radius: 4px;
+    border: none;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .1s ease;
+    margin-top: 1em;
+    float: right;
+    margin-right: 20px;
+}
