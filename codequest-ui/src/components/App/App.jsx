@@ -7,8 +7,6 @@ import Home from "../Home/Home";
 import Footer from "../Footer/Footer";
 
 function App() {
-  
-
   return (
     <>
       <div className="App">
@@ -17,7 +15,7 @@ function App() {
           <Home />
           <Footer />
         </BrowserRouter>
-        </div>
+      </div>
     </>
   );
 }
