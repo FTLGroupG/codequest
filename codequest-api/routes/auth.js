@@ -2,9 +2,9 @@ const express = require("express");
 const User = require("../models/user");
 const router = express.Router();
 const { createUserJwt } = require("../utils/tokens");
-//const security = require("../middleware/security");
+const security = require("../middleware/security");
 
-router.get("/me", async (req, res, next) => {
+router.get("/me", security.verifyAuthUser, async (req, res, next) => {
   try {
     const { email } = res.locals.user;
     const user = await User.fetchUserByEmail(email);

@@ -6,6 +6,13 @@ const { NotFoundError } = require("./utils/errors");
 const config = require("./config");
 const app = express();
 
+// middleware security
+const security = require("./middleware/security");
+app.use(security.extractUserFromJwt);
+
+// importing routes
+const authRoutes = require("./routes/auth");
+
 // Enable CORS middleware to handle cros-sorigin requests
 app.use(cors());
 
@@ -14,6 +21,9 @@ app.use(morgan("tiny"));
 
 // Parse incoming requests with JSON payloads
 app.use(express.json());
+
+// set up routes for user authentication
+app.use("/auth", authRoutes);
 
 //test GET request
 app.get("/", (req, res, next) => {
