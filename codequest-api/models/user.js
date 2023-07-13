@@ -145,7 +145,7 @@ class User {
    * @param {username} username - the username of the requested user
    * @returns user
    */
-  static async fetchUserbyUsername(username) {
+  static async fetchUserByUsername(username) {
     if (!username) {
       throw new BadRequestError("No username provided");
     }
