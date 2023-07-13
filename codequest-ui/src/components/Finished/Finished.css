@@ -1,0 +1,15 @@
+.Finished {
+    align-items: center;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+}
+
+.Finished button {
+    margin: auto;
+}
+
+.finishedContent {
+    display: flex;
+    flex-direction: column;
+}

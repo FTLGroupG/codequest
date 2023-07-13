@@ -9,6 +9,8 @@ import Login from "../Login/Login";
 import Register from "../Register/Register";
 import Modules from "../Modules/Modules";
 import Curriculum from "../Curriculum/Curriculum";
+import Finished from "../Finished/Finished"
+import Quiz from "../Quiz/Quiz"
 
 function App() {
   
@@ -24,6 +26,8 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/modules" element={<Modules />} />
             <Route path="/curriculum" element={<Curriculum />}  />
+            <Route path="/finished" element={<Finished />}  />
+            <Route path="/quiz" element={<Quiz />}  />
           </Routes>
           <Footer />
         </BrowserRouter>
