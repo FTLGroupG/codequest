@@ -17,6 +17,7 @@
 .Hero img {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.455);
     border-radius: 1%;
+    max-width: 500px;
 }
 
 .Card{
@@ -77,4 +78,10 @@
     margin-top: 1em;
     float: right;
     margin-right: 20px;
+}
+
+@media (max-width: 1030px) {
+    .Hero {
+        flex-direction: column;
+    }
 }
