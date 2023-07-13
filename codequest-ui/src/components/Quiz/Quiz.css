@@ -1,0 +1,26 @@
+.Quiz {
+
+}
+
+.quizContent {
+margin: auto;
+text-align: center;
+}
+
+.question {
+
+    align-items: center;
+    text-align: center;
+}
+
+.answerRectangle {
+    display: inline;
+    height: 50px;
+    width: 100px;
+    background-color: #555;
+}
+
+.answers {
+    display: flex;
+    justify-content: space-around;
+}
