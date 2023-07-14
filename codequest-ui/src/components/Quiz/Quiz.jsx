@@ -1,22 +1,25 @@
-import React from 'react'
-import './Quiz.css'
+import React from "react";
+import QuestionSelect from "../QuestionSelect/QuestionSelect";
+import QuestionDrag from "../QuestionDrag/QuestionDrag";
+import "./Quiz.css";
 
 export default function Quiz() {
   return (
-    <div className='Quiz'>
-      <div className='quizContent'>
+    <div className="Quiz">
+      <div className="quizContent">
         <h2>Question 1/10</h2>
-        <div className='question'>
-          <h2>A data type that represents a whole number is a(n)</h2>
-          <div className='answerRectangle'></div>
-        </div>
-        <div className='answers'>
-            <button>Float</button>
-            <button>String</button>
-            <button>Integer</button>
-            <button>Boolean</button>
-        </div>
+        <QuestionSelect />
+      </div>
+
+      <div className="curriculumCardButtonCard">
+        <a href="/curriculum">
+          <button className="curriculumCardButton">Back</button>
+        </a>
+
+        <a href="/question2">
+          <button className="curriculumCardButton">Next</button>
+        </a>
       </div>
     </div>
-  )
+  );
 }
