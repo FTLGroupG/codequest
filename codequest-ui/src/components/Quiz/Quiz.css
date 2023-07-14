@@ -1,22 +1,66 @@
+.quizCard {
+    width: 90%;
+    padding: 30px 0px;
+    margin: auto;
+    margin-top: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.282);
+}
+
+
 .quizContent {
-margin: auto;
-text-align: center;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
 }
 
 .question {
-
+    display: flex;
     align-items: center;
     text-align: center;
 }
 
 .answerRectangle {
-    display: inline;
     height: 50px;
     width: 100px;
-    background-color: #555;
+    background-color: #b1b1b183;
+    border: solid .5px black;
+    border-radius: 5px;
+    margin-left: 5px;
 }
 
-.answers {
+.questionRectangle {
+    width: 40px;
+    height: 100px;
+    background-color: #16161683;
+    border: solid .5px black;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+.horizontalAnswers {
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.verticalAnswers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+}
+
+.horizontalAnswers button, .verticalAnswers button {
+    margin: 10px;
+    display: flex;
+}
+
+.verticalAnswers button h5 {
+    color: white;
+}
+
+.questionRectangle pre code {
+    color: white;
 }
