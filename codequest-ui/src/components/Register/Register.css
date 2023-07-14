@@ -50,6 +50,10 @@ h2 {
     margin-inline-end: 0px;
 }
 
+.Register .card a {
+    color: #51b97c;
+}
+
 .Register .card .form {
     display: flex;
     flex-direction: column;

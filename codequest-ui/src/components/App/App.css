@@ -4,10 +4,6 @@
   overflow: hidden;
 }
 
-
-
-
-
 #root {
   margin: 0 auto;
   text-align: center;
@@ -20,7 +16,7 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em #51b97c);
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
