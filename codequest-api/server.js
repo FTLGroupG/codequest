@@ -10,6 +10,8 @@ const security = require("./middleware/security");
 // importing routes
 const authRoutes = require("./routes/auth");
 
+const questionRoutes = require("./routes/questions");
+
 // Enable CORS middleware to handle cross-origin requests
 app.use(cors());
 
@@ -24,6 +26,9 @@ app.use(security.extractUserFromJwt);
 
 // set up routes for user authentication
 app.use("/auth", authRoutes);
+
+// set up routes for nutrition section
+app.use("/questions", questionRoutes);
 
 app.use((err, req, res, next) => {
   const status = err.status || 500;

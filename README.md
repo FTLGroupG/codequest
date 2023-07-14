@@ -2,7 +2,7 @@
 
 SITE Course Year: **2023**
 
-Cohort: 1 **Salesforce x CodePath**
+Cohort 1: **Salesforce x CodePath**
 
 Team Member Names: **Kennedy Parks, Favour Onukogu, Alejandro Irizarry**
 

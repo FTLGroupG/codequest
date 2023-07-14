@@ -13,6 +13,8 @@ app.use(security.extractUserFromJwt);
 // importing routes
 const authRoutes = require("./routes/auth");
 
+const questionRoutes = require("./routes/questions");
+
 // Enable CORS middleware to handle cros-sorigin requests
 app.use(cors());
 
@@ -24,6 +26,9 @@ app.use(express.json());
 
 // set up routes for user authentication
 app.use("/auth", authRoutes);
+
+// set up routes for nutrition section
+app.use("/questions", questionRoutes);
 
 //test GET request
 app.get("/", (req, res, next) => {

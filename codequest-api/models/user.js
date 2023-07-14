@@ -75,7 +75,7 @@ class User {
       credentials.email
     );
     if (existingUserWithEmail) {
-      throw new BadRequestError(`Duplicate email: ${credntials.email}`);
+      throw new BadRequestError(`Duplicate email: ${credentials.email}`);
     }
 
     const existingUsername = await User.fetchUserByUsername(
