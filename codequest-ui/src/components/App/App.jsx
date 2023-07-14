@@ -12,9 +12,11 @@ import Curriculum from "../Curriculum/Curriculum";
 import Finished from "../Finished/Finished";
 import Quiz from "../Quiz/Quiz";
 import apiClient from "../../services/apiClient";
+import QuestionSelect from "../QuestionSelect/QuestionSelect";
 
 // React Contexts
 import AuthContext from "../../contexts/auth";
+import QuestionDrag from "../QuestionDrag/QuestionDrag";
 
 function App() {
   const { userContext } = useContext(AuthContext);
@@ -44,6 +46,12 @@ function App() {
               path="/register"
               element={<Register errors={errors} setErrors={setErrors} />}
             />
+//             <Route path="/modules" element={<Modules />} />
+//             <Route path="/curriculum" element={<Curriculum />} />
+//             <Route path="/finished" element={<Finished />} />
+//            <Route path="/quiz" element={<Quiz />} />
+//            <Route path="/question" element={<QuestionSelect />} />
+//            <Route path="/question2" element={<QuestionDrag />} />
             <Route path="/modules/*" element={<Modules />} />
             <Route path="modules/:id/curriculum/*" element={<Curriculum />} />
             <Route

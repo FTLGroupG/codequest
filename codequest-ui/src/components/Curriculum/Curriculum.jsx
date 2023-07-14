@@ -1,5 +1,6 @@
 import React from "react";
 import "./Curriculum.css";
+
 import { Link, useParams } from "react-router-dom";
 import { useState, useContext } from "react";
 import Quiz from "../Quiz/Quiz";
@@ -25,6 +26,7 @@ export default function Curriculum() {
   return (
     <div className="Curriculum">
       <div className="curriculumCard">
+      
         {id == 1 && (
           <main>
             <h1>Learn Python</h1>
@@ -50,6 +52,7 @@ export default function Curriculum() {
                     print(coffee_price)
                     # Prints "4"
                     print(number_of_coffees) */}
+                    
               </code>
             </div>
             <div className="curriculumCardText">

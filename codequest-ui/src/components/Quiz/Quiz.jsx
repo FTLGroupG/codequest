@@ -1,4 +1,7 @@
 import React from "react";
+
+import QuestionSelect from "../QuestionSelect/QuestionSelect";
+import QuestionDrag from "../QuestionDrag/QuestionDrag";
 import "./Quiz.css";
 import { Link, useParams } from "react-router-dom";
 import { useState, useContext, useEffect } from "react";
@@ -81,6 +84,16 @@ export default function Quiz() {
           ) : null}
         </div>
       </div>
+    /*
+      <div className="curriculumCardButtonCard">
+        <a href="/curriculum">
+          <button className="curriculumCardButton">Back</button>
+        </a>
+
+        <a href="/question2">
+          <button className="curriculumCardButton">Next</button>
+        </a>
+        */
      </div>
     </div>
 
