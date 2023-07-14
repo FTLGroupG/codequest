@@ -1,3 +1,8 @@
+.Navbar {
+  box-shadow: 0 0 10px #ccc;
+}
+
+
 .Navbar .content .links {
     display: flex;
     flex-direction: row;
@@ -6,9 +11,12 @@
     list-style-type: none;
     margin-left: auto;
     flex: 1 1;
-    max-width: 650px;
     grid-gap: 50px;
     gap: 50px;
+  }
+
+  .Navbar .content .links li {
+    width: 70px;
   }
   
   .Navbar {
@@ -65,6 +73,11 @@
   
   .Navbar a {
     color: #000000;
+    font-weight: 600;
+  }
+
+  .Navbar a:hover {
+    color: #00c98e;
     font-weight: 600;
   }
   
@@ -139,4 +152,5 @@
       --border-color: #e4e4e4;
       --color-secondary: var(--bright-green);
   }
+
   
