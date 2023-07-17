@@ -6,7 +6,7 @@ class Question {
   static async fetch(module_id) {
     const parsedId = Number.parseInt(module_id);
     const result = await db.query(
-      `SELECT id, question, answer, incorrect_answers, question_spanish, answer_spanish, incorrect_answer_spanish
+      `SELECT id, question, answer, incorrect_answers, question_spanish, answer_spanish, incorrect_answers_spanish
             FROM questions 
             WHERE module_id=$1
             ORDER BY id DESC`,
@@ -24,7 +24,7 @@ class Question {
       throw new BadRequestError("Parameter is not a valid ID");
 
     const result = await db.query(
-      `SELECT id, question, answer, incorrect_answers, question_spanish, answer_spanish, incorrect_answer_spanish, module_id AS "module_id" 
+      `SELECT id, question, answer, incorrect_answers, question_spanish, answer_spanish, incorrect_answers_spanish, module_id AS "module_id" 
     FROM questions 
     WHERE id=$1`,
       [id]
@@ -38,52 +38,52 @@ class Question {
   }
 
   // creates question
-  static async create(module, data) {
-    const requiredFields = [
-      "question",
-      "answer",
-      "question_spanish",
-      "answer_spanish",
-      "module_id",
-    ];
+  //   static async create(module, data) {
+  //     const requiredFields = [
+  //       "question",
+  //       "answer",
+  //       "question_spanish",
+  //       "answer_spanish",
+  //       "module_id",
+  //     ];
 
-    const stringFields = [
-      "question",
-      "answer",
-      "question_spanish",
-      "answer_spanish",
-    ];
-    requiredFields.forEach((field) => {
-      if (!data.hasOwnProperty(field)) {
-        throw new BadRequestError(`Missing ${field}!`);
-      }
-    });
+  //     const stringFields = [
+  //       "question",
+  //       "answer",
+  //       "question_spanish",
+  //       "answer_spanish",
+  //     ];
+  //     requiredFields.forEach((field) => {
+  //       if (!data.hasOwnProperty(field)) {
+  //         throw new BadRequestError(`Missing ${field}!`);
+  //       }
+  //     });
 
-    if (data.module_id <= 0) {
-      throw new BadRequestError(`Module Id can't be 0`);
-    }
+  //     if (data.module_id <= 0) {
+  //       throw new BadRequestError(`Module Id can't be 0`);
+  //     }
 
-    const result = await db.query(
-      `INSERT INTO questions (
-                question,
-                answer,
-                question_spanish,
-                answer_spanish,
-                module_id
-            )
-            VALUES ($1,$2,$3,$4,$5)
-            RETURNING id, question, answer, question_spanish, answer_spanish, module_id;`,
-      [
-        data.question,
-        data.answer,
-        data.question_spanish,
-        data.answer_spanish,
-        Number(data.module_id),
-      ]
-    );
+  //     const result = await db.query(
+  //       `INSERT INTO questions (
+  //                 question,
+  //                 answer,
+  //                 question_spanish,
+  //                 answer_spanish,
+  //                 module_id
+  //             )
+  //             VALUES ($1,$2,$3,$4,$5)
+  //             RETURNING id, question, answer, question_spanish, answer_spanish, module_id;`,
+  //       [
+  //         data.question,
+  //         data.answer,
+  //         data.question_spanish,
+  //         data.answer_spanish,
+  //         Number(data.module_id),
+  //       ]
+  //     );
 
-    return result.rows[0];
-  }
+  //     return result.rows[0];
+  //   }
 }
 
 module.exports = Question;

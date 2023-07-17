@@ -62,30 +62,30 @@ export default function Quiz() {
   }, []);
 
   return (
-    <div className='Quiz'>
-      <div className='quizCard'>
-      {console.log(questions)}
-      <div className="quizContent">
-        <h2>Question 1/10</h2>
-        <div className="question">
-          <h2>{questions.length > 0 && questions[0].question}</h2>
-          <div className="answerRectangle"></div>
+    <div className="Quiz">
+      <div className="quizCard">
+        {console.log(questions)}
+        <div className="quizContent">
+          <h2>Question 1/10</h2>
+          <div className="question">
+            <h2>{questions.length > 0 && questions[0].question}</h2>
+            <div className="answerRectangle"></div>
+          </div>
+
+          <div className="horizontalAnswers">
+            {console.log(questions)}
+            {questions.length > 0 ? (
+              <>
+                <button>{questions[0].incorrect_answers[0]}</button>
+                <button>{questions[0].incorrect_answers[1]}</button>
+                <button>{questions[0].answer}</button>
+                <button>{questions[0].incorrect_answers_spanish[2]}</button>
+              </>
+            ) : null}
+          </div>
         </div>
 
-        <div className='horizontalAnswers'>
-          {console.log(questions)}
-          {questions.length > 0 ? (
-            <>
-              <button>{questions[0].incorrect_answers[0]}</button>
-              <button>{questions[0].incorrect_answers[1]}</button>
-              <button>{questions[0].answer}</button>
-              <button>{questions[0].incorrect_answer_spanish[2]}</button>
-            </>
-          ) : null}
-        </div>
-      </div>
-    /*
-      <div className="curriculumCardButtonCard">
+        {/* <div className="curriculumCardButtonCard">
         <a href="/curriculum">
           <button className="curriculumCardButton">Back</button>
         </a>
@@ -93,59 +93,55 @@ export default function Quiz() {
         <a href="/question2">
           <button className="curriculumCardButton">Next</button>
         </a>
-        */
-     </div>
-    </div>
 
-      <div className='quizCard'>
-        <div className='quizContent'>
+     </div> */}
+      </div>
+
+      <div className="quizCard">
+        <div className="quizContent">
           <h2>Question 1/10</h2>
-          <div className='question'>
+          <div className="question">
             <h2>What is a boolean?</h2>
           </div>
 
-          <div className='verticalAnswers'>
-            <button><h5>a data type that is used to represent text rather than numbers</h5></button>
-            <button>a result that can only have one of two possible values: true or false</button>
-            <button>a data type used to represent numbers that don’t have fractional values</button>
+          <div className="verticalAnswers">
+            <button>
+              <h5>
+                a data type that is used to represent text rather than numbers
+              </h5>
+            </button>
+            <button>
+              a result that can only have one of two possible values: true or
+              false
+            </button>
+            <button>
+              a data type used to represent numbers that don’t have fractional
+              values
+            </button>
             <button>a data type used to represent numbers with decimals</button>
           </div>
         </div>
       </div>
 
-      <div className='quizCard'>
-      <div className='quizContent'>
-        <h2>Question 12/12</h2>
-        <div className='question'>
-          <h2>Which code block correctly uses an integer?</h2>
-        </div>
-        <div className='horizontalAnswers'>
-            <div className='questionRectangle'>
+      <div className="quizCard">
+        <div className="quizContent">
+          <h2>Question 12/12</h2>
+          <div className="question">
+            <h2>Which code block correctly uses an integer?</h2>
+          </div>
+          <div className="horizontalAnswers">
+            <div className="questionRectangle">
               <pre>
                 <code>
-
-my_integer = 42
-
-
-print(my_integer)
-
-
-result = my_integer + 10
-print(result)
-
-
-if my_integer  50:
-    print("The integer is greater than 50")
-else:
-    print("The integer is not greater than 50")
-
+                  my_integer = 42 print(my_integer) result = my_integer + 10
+                  print(result) if my_integer 50: print("The integer is greater
+                  than 50") else: print("The integer is not greater than 50")
                 </code>
               </pre>
             </div>
+          </div>
         </div>
       </div>
-      </div>
-
     </div>
   );
 }
