@@ -1,15 +1,16 @@
 #question {
-  color: rgb(7, 205, 0);
+  color: rgb(0, 0, 0);
 }
 
 #tab {
   text-indent: 4em;
-  color: rgb(7, 205, 0);
+  color: rgb(0, 0, 0);
 }
 
 #blank {
-  color: rgb(7, 205, 0);
-  border: 3px solid rgb(7, 205, 0);
+  color: rgb(0, 0, 0);
+  border: solid 2.5px rgb(117, 117, 117);
+  border-radius: 5px;
   padding: 0px 50px;
 }
 
@@ -28,6 +29,7 @@
 
 .correct-answer {
   background-color: rgb(190, 234, 188);
+  border: solid 2.5px rgb(92, 199, 86);
 }
 
 .wrong-answer {

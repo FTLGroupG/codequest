@@ -52,69 +52,151 @@ const QuestionDrag = () => {
 
   return (
     <div id="content">
-      <div className="first-question-type">
-        <h2 id="message"></h2>
-        <h1 id="question">
-          <span
-            id="blank"
-            onDrop={drop}
-            onDragOver={allowDrop}
-            onDragEnter={dragEnter}
-            onDragLeave={dragLeave}
-          ></span>
-          i in array:
-        </h1>
-        <h1 id="tab"> print (array[i]) </h1>
+      <div className="quizCard">
+        <div className="quizContent">
+          <div className="question">
+            <h2>Answer this </h2>
+          </div>
+          <div className="first-question-type">
+            <h2 id="message"></h2>
+            <h2 id="question">
+            <span
+              id="blank"
+              onDrop={drop}
+              onDragOver={allowDrop}
+              onDragEnter={dragEnter}
+              onDragLeave={dragLeave}
+            ></span>
+            i in array:
+            </h2>
+            <h2 id="tab"> print (array[i]) </h2>
 
-        <br />
-        <div id="options-list">
-          <h1>
-            <span
-              className="option"
-              id="for"
-              onDragStart={drag}
-              draggable="true"
-            >
-              for
-            </span>
-            <span
-              className="option"
-              id="let"
-              onDragStart={drag}
-              draggable="true"
-            >
-              let
-            </span>
-            <span
-              className="option"
-              id="def"
-              onDragStart={drag}
-              draggable="true"
-            >
-              def
-            </span>
-            <span
-              className="option"
-              id="if"
-              onDragStart={drag}
-              draggable="true"
-            >
-              if
-            </span>
-          </h1>
+            <br />
+              <div id="options-list">
+                  <h2>
+                    <span
+                      className="option"
+                      id="for"
+                      onDragStart={drag}
+                      draggable="true"
+                    >
+                      for
+                    </span>
+                    <span
+                      className="option"
+                      id="let"
+                      onDragStart={drag}
+                      draggable="true"
+                    >
+                      let
+                    </span>
+                    <span
+                      className="option"
+                      id="def"
+                      onDragStart={drag}
+                      draggable="true"
+                    >
+                      def
+                    </span>
+                    <span
+                      className="option"
+                      id="if"
+                      onDragStart={drag}
+                      draggable="true"
+                    >
+                      if
+                    </span>
+                  </h2>
+              </div>
+          </div>
+
+          <div className="curriculumCardButtonCard">
+            <a href="/quiz">
+              <button className="curriculumCardButton">Back</button>
+            </a>
+
+            <a href="/finished">
+              <button className="curriculumCardButton">Next</button>
+            </a>
+          </div>
         </div>
       </div>
 
-      <div className="curriculumCardButtonCard">
-        <a href="/quiz">
-          <button className="curriculumCardButton">Back</button>
-        </a>
 
-        <a href="/finished">
-          <button className="curriculumCardButton">Next</button>
-        </a>
+
+
+      <div className="quizCard">
+        <div className="quizContent">
+          <div className="question">
+            <h2>A data type that represents a whole number is a(n) </h2>
+          </div>
+          <div className="first-question-type">
+            <h2 id="message"></h2>
+            <h2 id="question">
+            <span
+              id="blank"
+              onDrop={drop}
+              onDragOver={allowDrop}
+              onDragEnter={dragEnter}
+              onDragLeave={dragLeave}
+            ></span>
+
+            </h2>
+            
+
+            <br />
+              <div id="options-list">
+                  <h2>
+                    <span
+                      className="option"
+                      id="for"
+                      onDragStart={drag}
+                      draggable="true"
+                    >
+                      Float
+                    </span>
+                    <span
+                      className="option"
+                      id="let"
+                      onDragStart={drag}
+                      draggable="true"
+                    >
+                      String
+                    </span>
+                    <span
+                      className="option"
+                      id="def"
+                      onDragStart={drag}
+                      draggable="true"
+                    >
+                      Integer
+                    </span>
+                    <span
+                      className="option"
+                      id="if"
+                      onDragStart={drag}
+                      draggable="true"
+                    >
+                      Boolean
+                    </span>
+                  </h2>
+              </div>
+          </div>
+
+          <div className="curriculumCardButtonCard">
+            <a href="/quiz">
+              <button className="curriculumCardButton">Back</button>
+            </a>
+
+            <a href="/finished">
+              <button className="curriculumCardButton">Next</button>
+            </a>
+          </div>
+        </div>
       </div>
+
     </div>
+      
   );
 };
 
