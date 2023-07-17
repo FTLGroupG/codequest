@@ -13,8 +13,9 @@ export default function Finished(props) {
   return (
     <div className="Finished">
       <div className="finishedContent">
-        <h1>🎉 Congratulations! 🎉</h1>
-        <h2>You have finished this lesson!</h2>
+        <h1>🎉 Good job! 🎉</h1>
+        <h2>You have finished the reading portion for this lesson!</h2>
+        <h2>Now let's move onto the quiz!</h2>
         <Link to={`/modules/${moduleId}/curriculum/question`}>
           <button>Start Quiz</button>
         </Link>
