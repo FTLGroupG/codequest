@@ -1,0 +1,12 @@
+.loading-page {
+  margin: 25%;
+  text-align: center;
+}
+
+.loading-content {
+  background: rgb(255, 111, 0);
+}
+
+.loading-content h1 {
+  color: rgb(244, 235, 214);
+}

@@ -20,8 +20,11 @@ import QuestionDrag from "../QuestionDrag/QuestionDrag";
 
 function App() {
   const { userContext } = useContext(AuthContext);
-
   const [user, setUser] = userContext;
+
+  const { moduleContext } = useContext(AuthContext);
+  const [moduleId, setModuleId] = moduleContext;
+
   const [errors, setErrors] = useState();
 
   const handleOnLogout = () => {
@@ -29,6 +32,7 @@ function App() {
 
     //remove token from localStorage
     localStorage.removeItem(apiClient.tokenName);
+    localStorage.removeItem("moduleId");
   };
 
   return (
@@ -46,22 +50,15 @@ function App() {
               path="/register"
               element={<Register errors={errors} setErrors={setErrors} />}
             />
-//             <Route path="/modules" element={<Modules />} />
-//             <Route path="/curriculum" element={<Curriculum />} />
-//             <Route path="/finished" element={<Finished />} />
-//            <Route path="/quiz" element={<Quiz />} />
-//            <Route path="/question" element={<QuestionSelect />} />
-//            <Route path="/question2" element={<QuestionDrag />} />
+            {/* <Route path="/question" element={<QuestionSelect />} />
+            <Route path="/question2" element={<QuestionDrag />} /> */}
             <Route path="/modules/*" element={<Modules />} />
             <Route path="modules/:id/curriculum/*" element={<Curriculum />} />
             <Route
               path="/modules/:id/curriculum/finished/"
               element={<Finished />}
             />
-            <Route
-              path="/modules/:id/curriculum/finished/question"
-              element={<Quiz />}
-            />
+            <Route path="/modules/:id/curriculum/question" element={<Quiz />} />
           </Routes>
           <Footer />
         </BrowserRouter>

@@ -4,10 +4,6 @@ import apiClient from "../../services/apiClient";
 import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
-  const handleLoggedIn = () => {
-    localStorage.removeItem(apiClient.tokenName);
-  };
-
   const handleOnClickLogout = () => {
     props.handleOnLogout();
   };
@@ -38,7 +34,7 @@ export default function Navbar(props) {
               </li>
             </>
           ) : (
-            <Link to="/">
+            <Link to="/login">
               <button
                 type="button"
                 className="nav-btn-content"

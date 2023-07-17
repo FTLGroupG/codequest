@@ -12,11 +12,16 @@ export default function Curriculum() {
   const { moduleContext } = useContext(AuthContext);
   const [moduleId, setModuleId] = moduleContext;
 
+  const handleSetModuleId = () => {
+    setModuleId(id);
+    localStorage.setItem("moduleId", id);
+  };
+
   const buttons = (
     <div className="curriculumCardButtonCard">
       <button className="curriculumCardButton">Back</button>
       <Link to={`/modules/${id}/curriculum/finished`}>
-        <button className="curriculumCardButton" onClick={setModuleId(id)}>
+        <button className="curriculumCardButton" onClick={handleSetModuleId}>
           Next
         </button>
       </Link>
@@ -26,7 +31,6 @@ export default function Curriculum() {
   return (
     <div className="Curriculum">
       <div className="curriculumCard">
-      
         {id == 1 && (
           <main>
             <h1>Learn Python</h1>
@@ -52,7 +56,6 @@ export default function Curriculum() {
                     print(coffee_price)
                     # Prints "4"
                     print(number_of_coffees) */}
-                    
               </code>
             </div>
             <div className="curriculumCardText">
@@ -86,12 +89,6 @@ export default function Curriculum() {
           </>
         )}
       </div>
-      <Routes>
-        <Route
-          path="/modules/:id/curriculum/finished/question/"
-          element={<Quiz />}
-        />
-      </Routes>
     </div>
   );
 }

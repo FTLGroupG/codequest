@@ -3,6 +3,7 @@ import "./Modules.css";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Finished from "../Finished/Finished";
+import Quiz from "../Quiz/Quiz";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export default function Modules() {

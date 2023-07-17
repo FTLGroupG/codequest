@@ -6,47 +6,36 @@ import "./Quiz.css";
 import { Link, useParams } from "react-router-dom";
 import { useState, useContext, useEffect } from "react";
 import AuthContext from "../../contexts/auth";
+import QuestionContext from "../../contexts/question";
 import apiClient from "../../services/apiClient";
 
-export default function Quiz() {
+export default function Quiz(props) {
   const { moduleContext } = useContext(AuthContext);
   const [moduleId, setModuleId] = moduleContext;
-  const id = moduleId;
   const { userContext } = useContext(AuthContext);
   const [user, setUser] = userContext;
   const [isLoading, setIsLoading] = useState(true);
   const [questionItem, setQuestionItem] = useState({});
   const [errorMessage, setErrorMessage] = useState();
   const [initialiazed, setInitialized] = useState();
-  let [questions, setQuestions] = useState([]);
   const [questionId, setQuestionId] = useState(1);
 
-  // useEffect(() => {
-  //   const fetchQuestion = async () => {
-  //     setIsLoading(true);
+  const { questionContext } = useContext(QuestionContext);
+  const [questions, setQuestions] = questionContext;
 
-  //     const { data, error } = await apiClient.fetchQuestionById(questionId);
-  //     if (data) {
-  //       setQuestionItem(data);
-  //     } else {
-  //       setErrorMessage(error);
-  //     }
-  //     setIsLoading(false);
-  //   };
-
-  //   fetchQuestion();
-  // }, []);
   useEffect(() => {
     const fetchQuestions = async () => {
       setIsLoading(true);
 
       try {
         const { data, errorQuestion } = await apiClient.fetchQuestionByModule(
-          id
+          moduleId
         );
 
         if (errorQuestion) setError(errorQuestion);
-        if (data?.questions) setQuestions(data?.questions);
+        if (data?.questions) {
+          setQuestions(data?.questions);
+        }
       } catch (error) {
         console.error("Fetching data error:", error);
       }
