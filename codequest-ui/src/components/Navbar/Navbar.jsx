@@ -14,8 +14,8 @@ export default function Navbar(props) {
         <div className="logo">
           <Link to="/">
             <img
-              src="http://codepath-lifetracker.surge.sh/static/media/codepath.70a9a31f.svg"
-              alt="logo"
+              src="src/assets/codequest-logo2.png" 
+              alt="logo" width="100px"
             />
           </Link>
         </div>
