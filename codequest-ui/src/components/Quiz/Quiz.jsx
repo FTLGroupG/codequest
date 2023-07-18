@@ -26,23 +26,14 @@ export default function Quiz() {
   const [counter, setCounter] = counterContext;
 
   const incrementCounter = () => {
-    if (counter < questions.length - 1) setCounter(counter + 1);
+    if (counter < questions.length - 1) {
+      setCounter(counter + 1);
+    }
   };
 
   const decrementCounter = () => {
     if (counter > 0) setCounter(counter - 1);
   };
-
-  const buttons = (
-    <div className="curriculumCardButtonCard">
-      <button className="curriculumCardButton" onClick={decrementCounter}>
-        Back
-      </button>
-      <button className="curriculumCardButton" onClick={incrementCounter}>
-        Next
-      </button>
-    </div>
-  );
 
   const { id } = useParams();
   useEffect(() => {
@@ -92,7 +83,6 @@ export default function Quiz() {
       ) : (
         <QuestionDrag />
       )}
-      {buttons}
     </div>
   );
 }

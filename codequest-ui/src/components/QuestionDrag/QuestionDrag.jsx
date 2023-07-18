@@ -10,16 +10,45 @@ export default function QuestionDrag(props) {
   const { counterContext } = useContext(QuestionContext);
   const [counter, setCounter] = counterContext;
 
+  const addVisibility = () => {
+    const nextBtn = document.getElementById("curriculum-next-btn");
+    nextBtn.classList.add("visible");
+    nextBtn.classList.remove("hidden");
+  };
+
+  const removeVisibility = () => {
+    const nextBtn = document.getElementById("curriculum-next-btn");
+    nextBtn.classList.add("hidden");
+    nextBtn.classList.remove("visible");
+  };
+
+  const incrementCounter = () => {
+    if (counter < questions.length - 1) {
+      setCounter(counter + 1);
+      removeVisibility();
+      document.getElementById("message").innerHTML = "";
+    }
+  };
+
+  const decrementCounter = () => {
+    if (counter > 0) setCounter(counter - 1);
+    document.getElementById("message").innerHTML = "";
+    removeVisibility();
+  };
+
   const correctResult = () => {
     // console.log("Correct!");
     document.getElementById("message").innerHTML = "Correct!";
     document.getElementById("blank").className = "correct-answer";
+
+    addVisibility();
   };
 
   const wrongResult = () => {
     // console.log("You'll get it next time!");
     document.getElementById("message").innerHTML = "You'll get it next time!";
     document.getElementById("blank").className = "wrong-answer";
+    removeVisibility();
   };
 
   const drag = (event) => {
@@ -62,8 +91,9 @@ export default function QuestionDrag(props) {
   };
 
   return (
-    <div id="content">
-      {/* <div className="quizCard">
+    <>
+      <div id="content">
+        {/* <div className="quizCard">
         <div className="quizContent">
           <div className="question">
             <h2>Answer this </h2>
@@ -123,67 +153,98 @@ export default function QuestionDrag(props) {
         </div>
       </div> */}
 
-      <div className="quizCard">
-        <div className="quizContent">
-          <div className="question">
-            <h2>{questions.length > 0 ? questions[counter].question : null}</h2>
-          </div>
-          <div className="first-question-type">
-            <h2 id="message"></h2>
-            <h2 id="question">
-              <span
-                id="blank"
-                onDrop={drop}
-                onDragOver={allowDrop}
-                onDragEnter={dragEnter}
-                onDragLeave={dragLeave}
-              ></span>
-            </h2>
-
-            <br />
-            <div id="options-list">
+        <div className="quizCard">
+          <div className="quizContent">
+            <div className="question">
               <h2>
-                {questions.length > 0 ? (
-                  <>
-                    <span
-                      className="option"
-                      id="for"
-                      onDragStart={drag}
-                      draggable="true"
-                    >
-                      {questions[counter].incorrect_answers[0]}
-                    </span>
-                    <span
-                      className="option"
-                      id="let"
-                      onDragStart={drag}
-                      draggable="true"
-                    >
-                      {questions[counter].incorrect_answers[1]}
-                    </span>
-                    <span
-                      className="option"
-                      id="def"
-                      onDragStart={drag}
-                      draggable="true"
-                    >
-                      {questions[counter].answer}
-                    </span>
-                    <span
-                      className="option"
-                      id="if"
-                      onDragStart={drag}
-                      draggable="true"
-                    >
-                      {questions[counter].incorrect_answers[2]}
-                    </span>
-                  </>
-                ) : null}
+                {questions.length > 0 ? questions[counter].question : null}
               </h2>
+            </div>
+            <div className="first-question-type">
+              <h2 id="message"></h2>
+              <h2 id="question">
+                <span
+                  id="blank"
+                  onDrop={drop}
+                  onDragOver={allowDrop}
+                  onDragEnter={dragEnter}
+                  onDragLeave={dragLeave}
+                ></span>
+              </h2>
+
+              <br />
+              <div id="options-list">
+                <h2>
+                  {questions.length > 0 ? (
+                    <>
+                      <span
+                        className="option"
+                        id="for"
+                        onDragStart={drag}
+                        draggable="true"
+                      >
+                        {questions[counter].incorrect_answers[0]}
+                      </span>
+                      <span
+                        className="option"
+                        id="let"
+                        onDragStart={drag}
+                        draggable="true"
+                      >
+                        {questions[counter].incorrect_answers[1]}
+                      </span>
+                      <span
+                        className="option"
+                        id="def"
+                        onDragStart={drag}
+                        draggable="true"
+                      >
+                        {questions[counter].answer}
+                      </span>
+                      <span
+                        className="option"
+                        id="if"
+                        onDragStart={drag}
+                        draggable="true"
+                      >
+                        {questions[counter].incorrect_answers[2]}
+                      </span>
+                    </>
+                  ) : null}
+                </h2>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+
+      <div className="curriculumCardButtonCard">
+        {counter > 0 ? (
+          <button
+            id="curriculum-back-btn"
+            className="curriculumCardButton"
+            onClick={decrementCounter}
+          >
+            Back
+          </button>
+        ) : null}
+        <button
+          id="curriculum-next-btn"
+          className="curriculumCardButton hidden"
+          onClick={incrementCounter}
+        >
+          Next
+        </button>
+        {counter === questions.length - 1 ? (
+          <button
+            id="curriculum-finish-btn"
+            className="curriculumCardButton hidden"
+            onClick={incrementCounter}
+          >
+            Finish
+          </button>
+        ) : null}
+      </div>
+    </>
   );
 }

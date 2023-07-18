@@ -54,3 +54,11 @@
   margin-bottom: 20px;
   display: block;
 } */
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}

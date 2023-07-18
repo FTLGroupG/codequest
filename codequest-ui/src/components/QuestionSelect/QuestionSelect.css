@@ -39,3 +39,11 @@
 .wrong-answer-2:focus {
   background-color: rgb(216, 143, 143);
 }
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
