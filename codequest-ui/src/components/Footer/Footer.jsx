@@ -1,6 +1,6 @@
 import React from "react";
 import "./Footer.css"
-
+import { Link } from "react-router-dom";
 
 
 
@@ -8,7 +8,15 @@ export default function Footer() {
     return (
         <div className="Footer">
         <div className="content">
-            <h3>Footer</h3>
+            <Link to="/">
+            <img
+              src="/src/assets/codequest-logo2.png"
+              alt="logo"
+              width="100px"
+            />
+          </Link>
+          <h3>Copyright © 2023</h3>
+          <h3>Privacy Policy</h3>
         </div>
         </div>
     );

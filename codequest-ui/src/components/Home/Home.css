@@ -14,6 +14,20 @@
     padding-bottom: 50px;
 }
 
+.Hero h1 {
+    color: white;
+}
+
+.fadeIn {
+ transform: translate3d(0, 20px, 0);
+ transition: 0.25s all ease-in-out;
+}
+
+.fadeIn:hover {
+	opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
 .Hero img {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.455);
     border-radius: 1%;
@@ -22,30 +36,37 @@
 
 .Card{
     width: 100%;
-    background-color: rgb(172, 173, 173);
+    background-color: #F2AC2A;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px;
+    margin-top: 20px;
     padding: 30px;
-    box-shadow: 0 0 10px #ccc;
+}
+
+.Card h2 {
+    color: white;
+}
+
+.signUpHomeButton {
+    background-color: #F2AC2A;
 }
 
 .pythonCard{
-    background-color: #ffffff;
+    background-color: #F15757;
     color: #fff;
     padding: 2em;
     border-radius: 4px;
     margin-bottom: 2em;
     width: 400px;
     text-align: center;
-    box-shadow: 0 0 20px rgba(0,0,0,.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,.1);
 }
 
 .pythonCard h5 {
     margin-top: 0;
     margin-bottom: 1em;
-
+    color: white;
 }
 
 .pythonCard img {
@@ -53,13 +74,18 @@
     margin: 20px;
 }
 .playGamesCard{
-    background-color: #ffffff;
+    background-color: #EFE8E2;
     color: #fff;
     padding: 2em;
     border-radius: 4px;
     margin-bottom: 2em;
     text-align: center;
     box-shadow: 0 0 20px rgba(0,0,0,.1);
+    margin-top: 2em;
+}
+
+.pinkH2 {
+    color: #F15757;
 }
 
 .cardTextFloatRight{
@@ -67,7 +93,7 @@
 }
 
 .playGamesCard button {
-    background-color: #000000;
+    background-color: #F15757;
     color: #fff;
     padding: 1em 2em;
     border-radius: 4px;

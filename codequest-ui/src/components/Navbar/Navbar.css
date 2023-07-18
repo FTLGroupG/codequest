@@ -1,5 +1,14 @@
 .Navbar {
-  box-shadow: 0 0 10px #ccc;
+  width: 100%;
+  max-width: 100vw;
+  box-shadow: 0 0 10px #000000;
+  background: #F15757;
+  height: var(--navbar-height);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 var(--side-padding);
+  color: #fff;
 }
 
 
@@ -16,19 +25,21 @@
   }
 
   .Navbar .content .links li {
-    width: 70px;
+    width: 80px;
   }
-  
-  .Navbar {
-    width: 100%;
-    max-width: 100vw;
-    background: #ffffff;
-    height: var(--navbar-height);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0 var(--side-padding);
-    color: #fff;
+
+  .signUp {
+    border: solid 2px white;
+    border-radius: 5px;
+    padding: 5px;
+  }
+
+  .signUp:hover {
+    border: solid 2px white;
+    background-color: #00c98e;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
   }
   
   * {
@@ -72,12 +83,12 @@
   }
   
   .Navbar a {
-    color: #000000;
+    color: #ffffff;
     font-weight: 600;
   }
 
   .Navbar a:hover {
-    color: #00c98e;
+
     font-weight: 600;
   }
   

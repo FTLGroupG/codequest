@@ -30,7 +30,7 @@ export default function Navbar(props) {
                 <Link to="/login">Log In</Link>
               </li>
 
-              <li>
+              <li className="signUp">
                 <Link to="/register">Sign Up</Link>
               </li>
             </>
