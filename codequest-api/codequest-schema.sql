@@ -28,6 +28,15 @@ CREATE TABLE questions (
     FOREIGN KEY (module_id) REFERENCES modules(id)
 );
 
+CREATE TABLE user_profiles (
+    id          SERIAL PRIMARY KEY,
+    first_name  TEXT NOT NULL,
+    created_at  TIMESTAMP DEFAULT NOW (),
+    updated_at  TIMESTAMP DEFAULT NOW (),
+    user_id     INTEGER NOT NULL, 
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
 INSERT INTO modules (name, description)
 VALUES('Learn Python','Learn Python basics.');
 

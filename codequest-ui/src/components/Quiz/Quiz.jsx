@@ -23,13 +23,14 @@ export default function Quiz(props) {
   const { questionContext } = useContext(QuestionContext);
   const [questions, setQuestions] = questionContext;
 
+  const { id } = useParams();
   useEffect(() => {
     const fetchQuestions = async () => {
       setIsLoading(true);
 
       try {
         const { data, errorQuestion } = await apiClient.fetchQuestionByModule(
-          moduleId
+          id
         );
 
         if (errorQuestion) setError(errorQuestion);
@@ -60,7 +61,6 @@ export default function Quiz(props) {
             <h2>{questions.length > 0 && questions[0].question}</h2>
             <div className="answerRectangle"></div>
           </div>
-
           <div className="horizontalAnswers">
             {console.log(questions)}
             {questions.length > 0 ? (
