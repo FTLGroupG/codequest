@@ -17,6 +17,7 @@ export const QuestionContextProvider = ({ children }) => {
 
   // useEffect hooks
   const [questions, setQuestions] = React.useState([]);
+  const [counter, setCounter] = React.useState(0);
   const [initialized, setInitialized] = React.useState(false);
   const [error, setError] = React.useState();
   const [isLoading, setIsLoading] = React.useState(false);
@@ -66,7 +67,10 @@ export const QuestionContextProvider = ({ children }) => {
   // check if the nutrition data has been initialized, if not display a loading message
   return (
     <QuestionContext.Provider
-      value={{ questionContext: [questions, setQuestions] }}
+      value={{
+        questionContext: [questions, setQuestions],
+        counterContext: [counter, setCounter],
+      }}
     >
       {children}
     </QuestionContext.Provider>

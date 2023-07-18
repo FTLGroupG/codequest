@@ -14,8 +14,9 @@ export default function Navbar(props) {
         <div className="logo">
           <Link to="/">
             <img
-              src="src/assets/codequest-logo2.png" 
-              alt="logo" width="100px"
+              src="/src/assets/codequest-logo2.png"
+              alt="logo"
+              width="100px"
             />
           </Link>
         </div>

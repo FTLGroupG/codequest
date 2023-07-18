@@ -1,15 +1,26 @@
 import React from "react";
 import "./QuestionSelect.css";
+import QuestionContext from "../../contexts/question";
+import { useState, useContext, useEffect } from "react";
 
-const QuestionSelect = () => {
-  const correctResult2 = () => {
-    // console.log("Correct!");
-    document.getElementById("message").innerHTML = "Correct!";
-  };
+export default function QuestionSelect() {
+  const { questionContext } = useContext(QuestionContext);
+  const [questions, setQuestions] = questionContext;
 
-  const wrongResult2 = () => {
-    // console.log("You'll get it next time!");
-    document.getElementById("message").innerHTML = "You'll get it next time!";
+  const { counterContext } = useContext(QuestionContext);
+  const [counter, setCounter] = counterContext;
+
+  const handleResult = (event) => {
+    var element = event.target; // Get the clicked element
+    var content = element.innerHTML; // Get the content of the element
+
+    if (content === questions[counter].answer) {
+      document.getElementById("message").innerHTML = "Correct!";
+      element.classList.add("correct-answer-2");
+    } else {
+      document.getElementById("message").innerHTML = "You'll get it next time!";
+      element.classList.add("wrong-answer-2");
+    }
   };
 
   return (
@@ -17,27 +28,30 @@ const QuestionSelect = () => {
       {/* SECOND QUESTION TYPE */}
       <div className="second-question-type">
         <h2 id="message"></h2>
-        <div className="question-2"> What is a boolean? </div>
+        <div className="question-2">
+          {questions.length > 0 && questions[counter].question}
+        </div>
 
-        <button className="wrong-answer-2" onClick={wrongResult2}>
-          a data type that is used to represent text rather than numbers
-        </button>
-        <br />
-        <button className="correct-answer-2" onClick={correctResult2}>
-          a result that can only have one of two possible values: true or false
-        </button>
-        <br />
-        <button className="wrong-answer-2" onClick={wrongResult2}>
-          a data type used to represent numbers that don’t have fractional
-          values
-        </button>
-        <br />
-        <button className="wrong-answer-2" onClick={wrongResult2}>
-          a data type used to represent numbers with decimals
-        </button>
+        {questions.length > 0 ? (
+          <>
+            <button onClick={(event) => handleResult(event)}>
+              {questions[counter].answer}
+            </button>
+            <br />
+            <button onClick={(event) => handleResult(event)}>
+              {questions[counter].incorrect_answers[0]}
+            </button>
+            <br />
+            <button onClick={(event) => handleResult(event)}>
+              {questions[counter].incorrect_answers[1]}
+            </button>
+            <br />
+            <button onClick={(event) => handleResult(event)}>
+              {questions[counter].incorrect_answers_spanish[2]}
+            </button>
+          </>
+        ) : null}
       </div>
     </div>
   );
-};
-
-export default QuestionSelect;
+}

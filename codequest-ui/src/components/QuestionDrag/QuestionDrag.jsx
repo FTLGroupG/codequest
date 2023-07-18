@@ -1,7 +1,15 @@
 import React from "react";
 import "./QuestionDrag.css";
+import QuestionContext from "../../contexts/question";
+import { useState, useContext, useEffect } from "react";
 
-const QuestionDrag = () => {
+export default function QuestionDrag(props) {
+  const { questionContext } = useContext(QuestionContext);
+  const [questions, setQuestions] = questionContext;
+
+  const { counterContext } = useContext(QuestionContext);
+  const [counter, setCounter] = counterContext;
+
   const correctResult = () => {
     // console.log("Correct!");
     document.getElementById("message").innerHTML = "Correct!";
@@ -29,7 +37,10 @@ const QuestionDrag = () => {
     document.getElementById("blank").innerHTML =
       document.getElementById(selectedId).innerHTML;
 
-    if (document.getElementById(selectedId).innerHTML === "for") {
+    if (
+      document.getElementById(selectedId).innerHTML ===
+      questions[counter].answer
+    ) {
       event.target.style.backgroundColor = "";
       correctResult();
     } else {
@@ -52,7 +63,7 @@ const QuestionDrag = () => {
 
   return (
     <div id="content">
-      <div className="quizCard">
+      {/* <div className="quizCard">
         <div className="quizContent">
           <div className="question">
             <h2>Answer this </h2>
@@ -60,100 +71,87 @@ const QuestionDrag = () => {
           <div className="first-question-type">
             <h2 id="message"></h2>
             <h2 id="question">
-            <span
-              id="blank"
-              onDrop={drop}
-              onDragOver={allowDrop}
-              onDragEnter={dragEnter}
-              onDragLeave={dragLeave}
-            ></span>
-            i in array:
+              <span
+                id="blank"
+                onDrop={drop}
+                onDragOver={allowDrop}
+                onDragEnter={dragEnter}
+                onDragLeave={dragLeave}
+              ></span>
+              i in array:
             </h2>
             <h2 id="tab"> print (array[i]) </h2>
 
             <br />
-              <div id="options-list">
-                  <h2>
-                    <span
-                      className="option"
-                      id="for"
-                      onDragStart={drag}
-                      draggable="true"
-                    >
-                      for
-                    </span>
-                    <span
-                      className="option"
-                      id="let"
-                      onDragStart={drag}
-                      draggable="true"
-                    >
-                      let
-                    </span>
-                    <span
-                      className="option"
-                      id="def"
-                      onDragStart={drag}
-                      draggable="true"
-                    >
-                      def
-                    </span>
-                    <span
-                      className="option"
-                      id="if"
-                      onDragStart={drag}
-                      draggable="true"
-                    >
-                      if
-                    </span>
-                  </h2>
-              </div>
-          </div>
-
-          <div className="curriculumCardButtonCard">
-            <a href="/quiz">
-              <button className="curriculumCardButton">Back</button>
-            </a>
-
-            <a href="/finished">
-              <button className="curriculumCardButton">Next</button>
-            </a>
+            <div id="options-list">
+              <h2>
+                <span
+                  className="option"
+                  id="for"
+                  onDragStart={drag}
+                  draggable="true"
+                >
+                  for
+                </span>
+                <span
+                  className="option"
+                  id="let"
+                  onDragStart={drag}
+                  draggable="true"
+                >
+                  let
+                </span>
+                <span
+                  className="option"
+                  id="def"
+                  onDragStart={drag}
+                  draggable="true"
+                >
+                  def
+                </span>
+                <span
+                  className="option"
+                  id="if"
+                  onDragStart={drag}
+                  draggable="true"
+                >
+                  if
+                </span>
+              </h2>
+            </div>
           </div>
         </div>
-      </div>
-
-
-
+      </div> */}
 
       <div className="quizCard">
         <div className="quizContent">
           <div className="question">
-            <h2>A data type that represents a whole number is a(n) </h2>
+            <h2>{questions.length > 0 ? questions[counter].question : null}</h2>
           </div>
           <div className="first-question-type">
             <h2 id="message"></h2>
             <h2 id="question">
-            <span
-              id="blank"
-              onDrop={drop}
-              onDragOver={allowDrop}
-              onDragEnter={dragEnter}
-              onDragLeave={dragLeave}
-            ></span>
-
+              <span
+                id="blank"
+                onDrop={drop}
+                onDragOver={allowDrop}
+                onDragEnter={dragEnter}
+                onDragLeave={dragLeave}
+              ></span>
             </h2>
-            
 
             <br />
-              <div id="options-list">
-                  <h2>
+            <div id="options-list">
+              <h2>
+                {questions.length > 0 ? (
+                  <>
                     <span
                       className="option"
                       id="for"
                       onDragStart={drag}
                       draggable="true"
                     >
-                      Float
+                      {questions[counter].incorrect_answers[0]}
                     </span>
                     <span
                       className="option"
@@ -161,7 +159,7 @@ const QuestionDrag = () => {
                       onDragStart={drag}
                       draggable="true"
                     >
-                      String
+                      {questions[counter].incorrect_answers[1]}
                     </span>
                     <span
                       className="option"
@@ -169,7 +167,7 @@ const QuestionDrag = () => {
                       onDragStart={drag}
                       draggable="true"
                     >
-                      Integer
+                      {questions[counter].answer}
                     </span>
                     <span
                       className="option"
@@ -177,27 +175,15 @@ const QuestionDrag = () => {
                       onDragStart={drag}
                       draggable="true"
                     >
-                      Boolean
+                      {questions[counter].incorrect_answers[2]}
                     </span>
-                  </h2>
-              </div>
-          </div>
-
-          <div className="curriculumCardButtonCard">
-            <a href="/quiz">
-              <button className="curriculumCardButton">Back</button>
-            </a>
-
-            <a href="/finished">
-              <button className="curriculumCardButton">Next</button>
-            </a>
+                  </>
+                ) : null}
+              </h2>
+            </div>
           </div>
         </div>
       </div>
-
     </div>
-      
   );
-};
-
-export default QuestionDrag;
+}

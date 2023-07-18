@@ -8,20 +8,41 @@ import { useState, useContext, useEffect } from "react";
 import AuthContext from "../../contexts/auth";
 import QuestionContext from "../../contexts/question";
 import apiClient from "../../services/apiClient";
+import Loading from "../Loading/Loading";
 
-export default function Quiz(props) {
+export default function Quiz() {
   const { moduleContext } = useContext(AuthContext);
   const [moduleId, setModuleId] = moduleContext;
   const { userContext } = useContext(AuthContext);
   const [user, setUser] = userContext;
   const [isLoading, setIsLoading] = useState(true);
-  const [questionItem, setQuestionItem] = useState({});
-  const [errorMessage, setErrorMessage] = useState();
+  const [error, setError] = useState();
   const [initialiazed, setInitialized] = useState();
-  const [questionId, setQuestionId] = useState(1);
 
   const { questionContext } = useContext(QuestionContext);
   const [questions, setQuestions] = questionContext;
+
+  const { counterContext } = useContext(QuestionContext);
+  const [counter, setCounter] = counterContext;
+
+  const incrementCounter = () => {
+    if (counter < questions.length - 1) setCounter(counter + 1);
+  };
+
+  const decrementCounter = () => {
+    if (counter > 0) setCounter(counter - 1);
+  };
+
+  const buttons = (
+    <div className="curriculumCardButtonCard">
+      <button className="curriculumCardButton" onClick={decrementCounter}>
+        Back
+      </button>
+      <button className="curriculumCardButton" onClick={incrementCounter}>
+        Next
+      </button>
+    </div>
+  );
 
   const { id } = useParams();
   useEffect(() => {
@@ -51,86 +72,27 @@ export default function Quiz(props) {
     // }
   }, []);
 
+  if (error) {
+    return (
+      <h1 style={{ color: "red" }}>
+        An error has ocurred while fetching questions!
+      </h1>
+    );
+  }
+
+  // check if it is loading before rendering main component
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
     <div className="Quiz">
-      <div className="quizCard">
-        {console.log(questions)}
-        <div className="quizContent">
-          <h2>Question 1/10</h2>
-          <div className="question">
-            <h2>{questions.length > 0 && questions[0].question}</h2>
-            <div className="answerRectangle"></div>
-          </div>
-          <div className="horizontalAnswers">
-            {console.log(questions)}
-            {questions.length > 0 ? (
-              <>
-                <button>{questions[0].incorrect_answers[0]}</button>
-                <button>{questions[0].incorrect_answers[1]}</button>
-                <button>{questions[0].answer}</button>
-                <button>{questions[0].incorrect_answers_spanish[2]}</button>
-              </>
-            ) : null}
-          </div>
-        </div>
-
-        {/* <div className="curriculumCardButtonCard">
-        <a href="/curriculum">
-          <button className="curriculumCardButton">Back</button>
-        </a>
-
-        <a href="/question2">
-          <button className="curriculumCardButton">Next</button>
-        </a>
-
-     </div> */}
-      </div>
-
-      <div className="quizCard">
-        <div className="quizContent">
-          <h2>Question 1/10</h2>
-          <div className="question">
-            <h2>What is a boolean?</h2>
-          </div>
-
-          <div className="verticalAnswers">
-            <button>
-              <h5>
-                a data type that is used to represent text rather than numbers
-              </h5>
-            </button>
-            <button>
-              a result that can only have one of two possible values: true or
-              false
-            </button>
-            <button>
-              a data type used to represent numbers that don’t have fractional
-              values
-            </button>
-            <button>a data type used to represent numbers with decimals</button>
-          </div>
-        </div>
-      </div>
-
-      <div className="quizCard">
-        <div className="quizContent">
-          <h2>Question 12/12</h2>
-          <div className="question">
-            <h2>Which code block correctly uses an integer?</h2>
-          </div>
-          <div className="horizontalAnswers">
-            <div className="questionRectangle">
-              <pre>
-                <code>
-                  my_integer = 42 print(my_integer) result = my_integer + 10
-                  print(result) if my_integer 50: print("The integer is greater
-                  than 50") else: print("The integer is not greater than 50")
-                </code>
-              </pre>
-            </div>
-          </div>
-        </div>
-      </div>
+      {questions[counter].type === "select" ? (
+        <QuestionSelect />
+      ) : (
+        <QuestionDrag />
+      )}
+      {buttons}
     </div>
   );
 }

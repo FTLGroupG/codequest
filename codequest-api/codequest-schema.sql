@@ -16,14 +16,17 @@ CREATE TABLE modules (
     resources      TEXT []
 );
 
+CREATE TYPE question_type AS ENUM ('select', 'drag');
+
 CREATE TABLE questions (
     id                   SERIAL PRIMARY KEY,
     question             TEXT NOT NULL,
     answer               TEXT NOT NULL,
-    incorrect_answers    TEXT [] NOT NULL,
     question_spanish     TEXT NOT NULL,
     answer_spanish       TEXT NOT NULL,  
-    incorrect_answers_spanish TEXT [] NOT NULL,  
+    incorrect_answers    TEXT [] NOT NULL,
+    incorrect_answers_spanish TEXT [] NOT NULL,
+    type                 question_type,
     module_id            INTEGER NOT NULL, 
     FOREIGN KEY (module_id) REFERENCES modules(id)
 );
@@ -40,5 +43,16 @@ CREATE TABLE user_profiles (
 INSERT INTO modules (name, description)
 VALUES('Learn Python','Learn Python basics.');
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',ARRAY ['Float', 'String', 'Boolean'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 1);
+INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
+VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
+ARRAY ['Float', 'String', 'Boolean'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 1);
+
+INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
+VALUES('What is a boolean?','a true or false', 'Que es un booleano?', 'un true o falso',
+ARRAY ['a text', 'an integer', 'a decimal number'], ARRAY [ 'un texto', 'un entero', 'un decimal'], 'select', 1);
+
+INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
+VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
+ARRAY ['Float', 'String', 'Boolean'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'drag', 1);
+
+
