@@ -40,6 +40,18 @@ CREATE TABLE user_profiles (
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
+CREATE TABLE userprogress (
+    id                     SERIAL PRIMARY KEY,
+    user_id                INTEGER NOT NULL,
+    FOREIGN KEY (user_id)  REFERENCES users(id),
+    module_one             BOOLEAN DEFAULT 'f',
+    module_two             BOOLEAN DEFAULT 'f',
+    module_three           BOOLEAN DEFAULT 'f',
+    module_four            BOOLEAN DEFAULT 'f',
+    module_five            BOOLEAN DEFAULT 'f',
+    module_six             BOOLEAN DEFAULT 'f'
+);
+
 INSERT INTO modules (name, description)
 VALUES('Learn Python','Learn Python basics.');
 
