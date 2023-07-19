@@ -88,6 +88,31 @@ export default function Curriculum() {
             {buttons}
           </>
         )}
+
+        {id == 3 && (
+          <>
+            <div>Curriculum 3</div>
+            {buttons}
+          </>
+        )}
+        {id == 4 && (
+          <>
+            <div>Curriculum 4</div>
+            {buttons}
+          </>
+        )}
+        {id == 5 && (
+          <>
+            <div>Curriculum 5</div>
+            {buttons}
+          </>
+        )}
+        {id == 6 && (
+          <>
+            <div>Curriculum 6</div>
+            {buttons}
+          </>
+        )}
       </div>
     </div>
   );
