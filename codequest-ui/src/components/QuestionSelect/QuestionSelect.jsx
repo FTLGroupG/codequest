@@ -10,13 +10,25 @@ export default function QuestionSelect() {
   const { counterContext } = useContext(QuestionContext);
   const [counter, setCounter] = counterContext;
 
-  const addVisibility = () => {
+  const addNext = () => {
     const nextBtn = document.getElementById("curriculum-next-btn");
     nextBtn.classList.add("visible");
     nextBtn.classList.remove("hidden");
   };
 
-  const removeVisibility = () => {
+  const addFinal = () => {
+    const finishBtn = document.getElementById("curriculum-finish-btn");
+    finishBtn.classList.add("visibile");
+    finishBtn.classList.remove("hidden");
+  };
+
+  const removeFinal = () => {
+    const finishBtn = document.getElementById("curriculum-finish-btn");
+    finishBtn.classList.add("hidden");
+    finishBtn.classList.remove("visible");
+  };
+
+  const removeNext = () => {
     const nextBtn = document.getElementById("curriculum-next-btn");
     nextBtn.classList.add("hidden");
     nextBtn.classList.remove("visible");
@@ -29,18 +41,18 @@ export default function QuestionSelect() {
     if (content === questions[counter].answer) {
       document.getElementById("message").innerHTML = "Correct!";
       element.classList.add("correct-answer-2");
-      addVisibility();
+      counter < questions.length - 1 ? addNext() : addFinal();
     } else {
       document.getElementById("message").innerHTML = "You'll get it next time!";
       element.classList.add("wrong-answer-2");
-      removeVisibility();
+      counter < questions.length - 1 ? removeNext() : removeFinal();
     }
   };
 
   const incrementCounter = () => {
     if (counter < questions.length - 1) {
       setCounter(counter + 1);
-      removeVisibility();
+      removeNext();
       document.getElementById("message").innerHTML = "";
     }
   };
@@ -48,7 +60,7 @@ export default function QuestionSelect() {
   const decrementCounter = () => {
     if (counter > 0) setCounter(counter - 1);
     document.getElementById("message").innerHTML = "";
-    removeVisibility();
+    counter < questions.length - 1 ? removeNext() : removeFinal();
   };
 
   return (
@@ -91,22 +103,22 @@ export default function QuestionSelect() {
               Back
             </button>
           ) : null}
-          <button
-            id="curriculum-next-btn"
-            className="curriculumCardButton hidden"
-            onClick={incrementCounter}
-          >
-            Next
-          </button>
-          {counter === questions.length ? (
+          {counter == questions.length - 1 ? (
             <button
               id="curriculum-finish-btn"
               className="curriculumCardButton hidden"
-              onClick={incrementCounter}
             >
               Finish
             </button>
-          ) : null}
+          ) : (
+            <button
+              id="curriculum-next-btn"
+              className="curriculumCardButton hidden"
+              onClick={incrementCounter}
+            >
+              Next
+            </button>
+          )}
         </div>
       </div>
     </>
