@@ -33,8 +33,8 @@ export default function Curriculum() {
       <div className="curriculumCard">
         {id == 1 && (
           <main>
-            <h1>Learn Python</h1>
-            <h2>Data Types</h2>
+            <h2>Learn Python</h2>
+            <h1>Data Types</h1>
             <div className="curriculumCardCode">
               <code>
                 {/* coffee_price = 1.50

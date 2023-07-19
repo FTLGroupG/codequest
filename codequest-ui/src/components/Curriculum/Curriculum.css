@@ -10,7 +10,7 @@
     border: 1px solid #ccc;
     box-shadow: 0 0 10px #ccc;
     border-radius: 5px;
-    background-color: #fff;
+    background-color: #45BE91;
     height: 100%;
 }
 
@@ -20,6 +20,14 @@
   margin: 30px;
   text-align: left;
   max-width: 800px;
+}
+
+.curriculumCard h1, h2 {
+  color: white;
+}
+
+.curriculumCard h1 {
+  text-decoration: underline;
 }
 
 .curriculumCardCode {

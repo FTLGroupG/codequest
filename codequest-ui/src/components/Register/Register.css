@@ -9,7 +9,7 @@
     max-height: calc(100vh - var(--navbar-height));
     width: 100%;
     max-width: 100vw;
-
+    margin-bottom: 50px;
     justify-content: center;
 }
 
@@ -39,7 +39,7 @@ a, div, h1, h2, h3, h4, h5, h6, ol, p, span, ul {
     font-size: 42px;
     margin-bottom: 4px;
     font-weight: 600;
-    color: black;
+    color: white;
 }
 
 h2 {
@@ -48,6 +48,10 @@ h2 {
     margin-block-end: 0.83em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
+}
+
+.footer p {
+    color: #fff;
 }
 
 .Register .card a {
@@ -81,6 +85,13 @@ h2 {
     background: transparent;
     color: rgb(0, 0, 0);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.182);
+    background-color: #fff;
+  }
+
+  .Register .card .form .input-field label {
+    margin-bottom: 5px;
+    color: var(--pure-white);
+    color: rgb(255, 255, 255);
   }
   
   input {
