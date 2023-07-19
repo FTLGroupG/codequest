@@ -17,23 +17,31 @@ export default function Modules() {
               <h4>Data Types</h4>
             </span>
           </Link>
-          <span className="circle">
-            <Link to={`/modules/2/curriculum`}>
+          <Link to={`/modules/2/curriculum`}>
+            <span className="circle">
               <h4>Variables</h4>
-            </Link>
-          </span>
-          <span className="circle">
-            <h4>Conditionals</h4>
-          </span>
-          <span className="circle">
-            <h4>Lists</h4>
-          </span>
-          <span className="circle">
-            <h4>Loops</h4>
-          </span>
-          <span className="circle">
-            <h4>Functions</h4>
-          </span>
+            </span>
+          </Link>
+          <Link to={`/modules/3/curriculum`}>
+            <span className="circle">
+              <h4>Conditionals</h4>
+            </span>
+          </Link>
+          <Link to={`/modules/4/curriculum`}>
+            <span className="circle">
+              <h4>Lists</h4>
+            </span>
+          </Link>
+          <Link to={`/modules/5/curriculum`}>
+            <span className="circle">
+              <h4>Loops</h4>
+            </span>
+          </Link>
+          <Link to={`/modules/6/curriculum`}>
+            <span className="circle">
+              <h4>Functions</h4>
+            </span>
+          </Link>
         </div>
       </div>
 
