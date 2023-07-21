@@ -41,4 +41,16 @@ router.post("/register", async (req, res, next) => {
   }
 });
 
+router.put("/userprogress/:moduleid", async (req, res, next) => {
+  try {
+    const { moduleid } = req.params;
+    const { email } = res.locals.user;
+    const user = await User.fetchUserByEmail(email);
+    await User.editUserProgress(moduleid, user.id);
+    return res.status(201).json({});
+  } catch (err) {
+    next(err);
+  }
+});
+
 module.exports = router;

@@ -55,10 +55,17 @@ export default function Login(props) {
       <div className="card">
         <h2>Log into CodeQuest!</h2>
         {user?.email && (
-          <Navigate
-            to={`/modules/${leftOff + 1}/curriculum/*`}
-            replace={true}
-          />
+          <>
+            {console.log(leftOff)}
+            {leftOff == 6 ? (
+              <Navigate to={`/modules`} replace={true} />
+            ) : (
+              <Navigate
+                to={`/modules/${leftOff + 1}/curriculum/*`}
+                replace={true}
+              />
+            )}
+          </>
         )}
         <br />
 

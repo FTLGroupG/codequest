@@ -2,6 +2,7 @@ import React from "react";
 import "./QuestionDrag.css";
 import QuestionContext from "../../contexts/question";
 import { useState, useContext, useEffect } from "react";
+import apiClient from "../../services/apiClient";
 
 export default function QuestionDrag(props) {
   const { questionContext } = useContext(QuestionContext);
@@ -10,13 +11,37 @@ export default function QuestionDrag(props) {
   const { counterContext } = useContext(QuestionContext);
   const [counter, setCounter] = counterContext;
 
-  const addVisibility = () => {
+  const finishModule = async (module_id) => {
+    // update module in user progress table
+    const { data, error } = await apiClient.completeModule(module_id);
+    if (error) {
+      console.log("error in apiclient finish module", error);
+    }
+    if (data?.user) {
+      console.log(data?.user);
+      console.log("module has been completed");
+    }
+  };
+
+  const addFinal = () => {
+    const finishBtn = document.getElementById("curriculum-finish-btn");
+    finishBtn.classList.add("visibile");
+    finishBtn.classList.remove("hidden");
+  };
+
+  const removeFinal = () => {
+    const finishBtn = document.getElementById("curriculum-finish-btn");
+    finishBtn.classList.add("hidden");
+    finishBtn.classList.remove("visible");
+  };
+
+  const addNext = () => {
     const nextBtn = document.getElementById("curriculum-next-btn");
     nextBtn.classList.add("visible");
     nextBtn.classList.remove("hidden");
   };
 
-  const removeVisibility = () => {
+  const removeNext = () => {
     const nextBtn = document.getElementById("curriculum-next-btn");
     nextBtn.classList.add("hidden");
     nextBtn.classList.remove("visible");
@@ -25,7 +50,7 @@ export default function QuestionDrag(props) {
   const incrementCounter = () => {
     if (counter < questions.length - 1) {
       setCounter(counter + 1);
-      removeVisibility();
+      removeNext();
       document.getElementById("message").innerHTML = "";
     }
   };
@@ -33,22 +58,21 @@ export default function QuestionDrag(props) {
   const decrementCounter = () => {
     if (counter > 0) setCounter(counter - 1);
     document.getElementById("message").innerHTML = "";
-    removeVisibility();
+    counter < questions.length - 1 ? removeNext() : removeFinal();
   };
 
   const correctResult = () => {
     // console.log("Correct!");
     document.getElementById("message").innerHTML = "Correct!";
     document.getElementById("blank").className = "correct-answer";
-
-    addVisibility();
+    counter < questions.length - 1 ? addNext() : addFinal();
   };
 
   const wrongResult = () => {
     // console.log("You'll get it next time!");
     document.getElementById("message").innerHTML = "You'll get it next time!";
     document.getElementById("blank").className = "wrong-answer";
-    removeVisibility();
+    counter < questions.length - 1 ? removeNext() : removeFinal();
   };
 
   const drag = (event) => {
@@ -235,15 +259,23 @@ export default function QuestionDrag(props) {
         >
           Next
         </button>
-        {counter === questions.length - 1 ? (
+        {counter == questions.length - 1 ? (
           <button
             id="curriculum-finish-btn"
             className="curriculumCardButton hidden"
-            onClick={incrementCounter}
+            onClick={() => finishModule(questions[0].module_id)}
           >
             Finish
           </button>
-        ) : null}
+        ) : (
+          <button
+            id="curriculum-next-btn"
+            className="curriculumCardButton hidden"
+            onClick={incrementCounter}
+          >
+            Next
+          </button>
+        )}
       </div>
     </>
   );
