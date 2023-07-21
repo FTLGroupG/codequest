@@ -13,6 +13,7 @@ import Finished from "../Finished/Finished";
 import Quiz from "../Quiz/Quiz";
 import apiClient from "../../services/apiClient";
 import QuestionSelect from "../QuestionSelect/QuestionSelect";
+import UserProfile from "../UserProfile/UserProfile";
 
 // React Contexts
 import AuthContext from "../../contexts/auth";
@@ -34,6 +35,24 @@ function App() {
     localStorage.removeItem(apiClient.tokenName);
     localStorage.removeItem("moduleId");
   };
+
+  function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+  
+    for (var i = 0; i < reveals.length; i++) {
+      var windowHeight = window.innerHeight;
+      var elementTop = reveals[i].getBoundingClientRect().top;
+      var elementVisible = 150;
+  
+      if (elementTop < windowHeight - elementVisible) {
+        reveals[i].classList.add("active");
+      } else {
+        reveals[i].classList.remove("active");
+      }
+    }
+  }
+  
+  window.addEventListener("scroll", reveal);
 
   return (
     <>
@@ -59,6 +78,7 @@ function App() {
               element={<Finished />}
             />
             <Route path="/modules/:id/curriculum/question" element={<Quiz />} />
+            <Route path="/userProfile" element={<UserProfile />} />
           </Routes>
           <Footer />
         </BrowserRouter>

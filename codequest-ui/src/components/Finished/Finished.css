@@ -1,8 +1,12 @@
 .Finished {
     align-items: center;
-    height: 600px;
+    height: 850px;
     display: flex;
     justify-content: center;
+}
+
+.Finished h1 {
+    color: white;
 }
 
 .Finished button {
