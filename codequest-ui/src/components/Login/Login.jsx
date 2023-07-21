@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Login.css";
 import AuthContext from "../../contexts/auth";
@@ -10,6 +10,12 @@ export default function Login(props) {
   const [user, setUser] = userContext;
 
   const [isLoading, setisLoading] = useState();
+
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    navigate("/modules");
+  };
 
   const loginFormInit = {
     email: "",
@@ -46,7 +52,7 @@ export default function Login(props) {
 
       <div className="card">
         <h2>Log into CodeQuest!</h2>
-        {user?.email && <Navigate to="/modules" replace={true} />}
+        {user?.email && handleLogin()}
         <br />
 
         <div className="form">
