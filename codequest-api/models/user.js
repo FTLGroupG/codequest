@@ -158,6 +158,29 @@ class User {
 
     return userName;
   }
+
+  static async createUserProgress(user_id) {
+    const result = await db.query(
+      `INSERT INTO userprogress(
+            user_id
+            )
+            VALUES($1)
+            RETURNING id, user_id, module_one, module_two, module_three, module_four, module_five, module_six;
+        `,
+      [user_id]
+    );
+    const userprogress = result.rows[0];
+    return userprogress;
+  }
+
+  static async getUserProgress(user_id) {
+    const result = await db.query(
+      `SELECT * FROM userprogress WHERE user_id = $1`,
+      [user_id]
+    );
+    const userprogress = result.rows[0];
+    return userprogress;
+  }
 }
 
 module.exports = User;

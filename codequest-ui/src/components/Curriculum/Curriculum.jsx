@@ -1,29 +1,24 @@
 import React from "react";
 import "./Curriculum.css";
 
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, Outlet } from "react-router-dom";
 import { useState, useContext } from "react";
 import Quiz from "../Quiz/Quiz";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthContext from "../../contexts/auth";
+import AccessForbidden from "../AccessForbidden/AccessForbidden";
 
 export default function Curriculum() {
   const { id } = useParams();
-  const { moduleContext } = useContext(AuthContext);
-  const [moduleId, setModuleId] = moduleContext;
 
-  const handleSetModuleId = () => {
-    setModuleId(id);
-    localStorage.setItem("moduleId", id);
-  };
+  const { userContext } = useContext(AuthContext);
+  const [user, setUser] = userContext;
 
   const buttons = (
     <div className="curriculumCardButtonCard">
       <button className="curriculumCardButton">Back</button>
       <Link to={`/modules/${id}/curriculum/finished`}>
-        <button className="curriculumCardButton" onClick={handleSetModuleId}>
-          Next
-        </button>
+        <button className="curriculumCardButton">Next</button>
       </Link>
     </div>
   );
@@ -31,8 +26,10 @@ export default function Curriculum() {
   return (
     <div className="Curriculum">
       <div className="curriculumCard">
-        {id == 1 && (
-          <main>
+        {console.log(id)}
+        {id == 1 ? (
+          <>
+            {console.log("hi")}
             <h2>Learn Python</h2>
             <h1>Data Types</h1>
             <div className="curriculumCardCode">
@@ -80,12 +77,45 @@ export default function Curriculum() {
               </p>
               {buttons}
             </div>
-          </main>
-        )}
-        {id == 2 && (
+          </>
+        ) : (
           <>
-            <div>Curriculum 2</div>
-            {buttons}
+            {user.email ? (
+              <>
+                {id == 2 && (
+                  <>
+                    <div>Curriculum 2</div>
+                    {buttons}
+                  </>
+                )}
+                {id == 3 && (
+                  <>
+                    <div>Curriculum 3</div>
+                    {buttons}
+                  </>
+                )}
+                {id == 4 && (
+                  <>
+                    <div>Curriculum 4</div>
+                    {buttons}
+                  </>
+                )}
+                {id == 5 && (
+                  <>
+                    <div>Curriculum 5</div>
+                    {buttons}
+                  </>
+                )}
+                {id == 6 && (
+                  <>
+                    <div>Curriculum 6</div>
+                    {buttons}
+                  </>
+                )}
+              </>
+            ) : (
+              <AccessForbidden />
+            )}
           </>
         )}
       </div>

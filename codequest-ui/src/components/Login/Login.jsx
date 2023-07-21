@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Login.css";
 import AuthContext from "../../contexts/auth";
@@ -8,8 +8,11 @@ import apiClient from "../../services/apiClient";
 export default function Login(props) {
   const { userContext } = useContext(AuthContext);
   const [user, setUser] = userContext;
+  const [userProgress, setUserProgress] = useState({});
 
   const [isLoading, setisLoading] = useState();
+
+  const navigate = useNavigate();
 
   const loginFormInit = {
     email: "",
@@ -20,7 +23,7 @@ export default function Login(props) {
 
   useEffect(() => {
     props.setErrors();
-  }, []);
+  }, [userProgress]);
 
   const onFormChange = (event) => {
     setLoginForm((prevForm) => ({
@@ -35,9 +38,14 @@ export default function Login(props) {
     if (error) props.setErrors(error);
     if (data?.user) {
       setUser(data.user);
+      setUserProgress(data.userprogress);
       apiClient.setToken(data.token);
     }
   };
+
+  const leftOff = Object.values(userProgress)
+    .filter((key) => typeof key === "boolean")
+    .filter(Boolean).length;
 
   // Render the login form
   return (
@@ -46,7 +54,12 @@ export default function Login(props) {
 
       <div className="card">
         <h2>Log into CodeQuest!</h2>
-        {user?.email && <Navigate to="/modules" replace={true} />}
+        {user?.email && (
+          <Navigate
+            to={`/modules/${leftOff + 1}/curriculum/*`}
+            replace={true}
+          />
+        )}
         <br />
 
         <div className="form">

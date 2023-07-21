@@ -3,10 +3,14 @@ import "./Modules.css";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Finished from "../Finished/Finished";
+import { useContext } from "react";
 import Quiz from "../Quiz/Quiz";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import AuthContext from "../../contexts/auth";
 
 export default function Modules() {
+  const { userContext } = useContext(AuthContext);
+  const [user, setUser] = userContext;
   return (
     <div className="Modules">
       <div className="moduleCard">
@@ -17,23 +21,31 @@ export default function Modules() {
               <h4>Data Types</h4>
             </span>
           </Link>
-          <span className="circle">
-            <Link to={`/modules/2/curriculum`}>
+          <Link to={`/modules/2/curriculum`}>
+            <span className="circle">
               <h4>Variables</h4>
-            </Link>
-          </span>
-          <span className="circle">
-            <h4>Conditionals</h4>
-          </span>
-          <span className="circle">
-            <h4>Lists</h4>
-          </span>
-          <span className="circle">
-            <h4>Loops</h4>
-          </span>
-          <span className="circle">
-            <h4>Functions</h4>
-          </span>
+            </span>
+          </Link>
+          <Link to={`/modules/3/curriculum`}>
+            <span className="circle">
+              <h4>Conditionals</h4>
+            </span>
+          </Link>
+          <Link to={`/modules/4/curriculum`}>
+            <span className="circle">
+              <h4>Lists</h4>
+            </span>
+          </Link>
+          <Link to={`/modules/5/curriculum`}>
+            <span className="circle">
+              <h4>Loops</h4>
+            </span>
+          </Link>
+          <Link to={`/modules/6/curriculum`}>
+            <span className="circle">
+              <h4>Functions</h4>
+            </span>
+          </Link>
         </div>
       </div>
 

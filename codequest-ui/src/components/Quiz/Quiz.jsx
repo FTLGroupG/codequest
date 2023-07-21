@@ -11,8 +11,6 @@ import apiClient from "../../services/apiClient";
 import Loading from "../Loading/Loading";
 
 export default function Quiz() {
-  const { moduleContext } = useContext(AuthContext);
-  const [moduleId, setModuleId] = moduleContext;
   const { userContext } = useContext(AuthContext);
   const [user, setUser] = userContext;
   const [isLoading, setIsLoading] = useState(true);
@@ -26,23 +24,14 @@ export default function Quiz() {
   const [counter, setCounter] = counterContext;
 
   const incrementCounter = () => {
-    if (counter < questions.length - 1) setCounter(counter + 1);
+    if (counter < questions.length - 1) {
+      setCounter(counter + 1);
+    }
   };
 
   const decrementCounter = () => {
     if (counter > 0) setCounter(counter - 1);
   };
-
-  const buttons = (
-    <div className="curriculumCardButtonCard">
-      <button className="curriculumCardButton" onClick={decrementCounter}>
-        Back
-      </button>
-      <button className="curriculumCardButton" onClick={incrementCounter}>
-        Next
-      </button>
-    </div>
-  );
 
   const { id } = useParams();
   useEffect(() => {
@@ -87,12 +76,13 @@ export default function Quiz() {
 
   return (
     <div className="Quiz">
+      {console.log(counter)}
+      {console.log(questions.length)}
       {questions[counter].type === "select" ? (
         <QuestionSelect />
       ) : (
         <QuestionDrag />
       )}
-      {buttons}
     </div>
   );
 }

@@ -7,18 +7,10 @@ const AuthContext = React.createContext({});
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState({});
-  const [moduleId, setModuleId] = useState({});
 
   const [isProcessing, setIsProcessing] = React.useState(false);
   const [initialized, setInitialized] = React.useState(false);
   const [error, setError] = React.useState();
-
-  useEffect(() => {
-    const storedModuleId = localStorage.getItem("moduleId");
-    if (storedModuleId) {
-      setModuleId(parseInt(storedModuleId));
-    }
-  }, []);
 
   const fetchUserFromToken = async () => {
     setIsProcessing(true);
@@ -60,7 +52,6 @@ export const AuthProvider = ({ children }) => {
     <AuthContext.Provider
       value={{
         userContext: [user, setUser],
-        moduleContext: [moduleId, setModuleId],
       }}
     >
       {children}
