@@ -19,6 +19,8 @@ import Finished from "../Finished/Finished";
 import Quiz from "../Quiz/Quiz";
 import AccessForbidden from "../AccessForbidden/AccessForbidden";
 import apiClient from "../../services/apiClient";
+import QuestionSelect from "../QuestionSelect/QuestionSelect";
+import UserProfile from "../UserProfile/UserProfile";
 import { AuthProvider } from "../../contexts/auth";
 
 // React Contexts
@@ -35,6 +37,24 @@ function App() {
     //remove token from localStorage
     localStorage.removeItem(apiClient.tokenName);
   };
+
+  function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+  
+    for (var i = 0; i < reveals.length; i++) {
+      var windowHeight = window.innerHeight;
+      var elementTop = reveals[i].getBoundingClientRect().top;
+      var elementVisible = 150;
+  
+      if (elementTop < windowHeight - elementVisible) {
+        reveals[i].classList.add("active");
+      } else {
+        reveals[i].classList.remove("active");
+      }
+    }
+  }
+  
+  window.addEventListener("scroll", reveal);
 
   return (
     <>
@@ -92,6 +112,7 @@ function App() {
               path="/modules/:id/curriculum/finished/"
               element={<Finished />}
             />
+            <Route path="/userProfile" element={<UserProfile />} />
             <Route
               exact
               path="/modules/:id/curriculum/question"

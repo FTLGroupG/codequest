@@ -63,6 +63,10 @@
     box-shadow: 0 10px 20px rgba(0,0,0,.1);
 }
 
+.pythonCard h3 {
+    text-decoration: underline;
+}
+
 .pythonCard h5 {
     margin-top: 0;
     margin-bottom: 1em;
@@ -104,6 +108,16 @@
     transition: all .1s ease;
     margin-top: 1em;
     float: right;
+    margin-right: 20px;
+}
+
+.robot-signup {
+    display: flex;
+    align-items: center;
+}
+
+#floating-robot {
+    width: 200px;
     margin-right: 20px;
 }
 

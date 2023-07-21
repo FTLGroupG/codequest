@@ -2,7 +2,6 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
@@ -12,6 +11,15 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+html {
+  height: 100vh;
+}
+
+body {
+ 
+  position: relative;
 }
 
 a {
@@ -26,6 +34,11 @@ a:hover {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  font-family: 'Lilita One', cursive;
+  font-size: 4em;
+}
+h2 {
+  font-family: 'Lilita One', cursive;
 }
 
 button {
@@ -48,15 +61,44 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.reveal{
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: 2s all ease;
+}
+.reveal.active{
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.animate-on-load {
+  animation: 0.35s fade-up-enter;
+}
+
+@keyframes fade-up-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(20px)
   }
-  a:hover {
-    color: #747bff;
+  100% {
+    opacity: 1;
+    transform: translateY(0)
   }
-  button {
-    background-color: #f9f9f9;
-  }
+}
+
+
+.floating { 
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  margin-left: 30px;
+  margin-top: 5px;
+}
+
+@keyframes floating {
+  0% { transform: translate(0,  0px); }
+  50%  { transform: translate(0, 15px); }
+  100%   { transform: translate(0, -0px); }   
 }

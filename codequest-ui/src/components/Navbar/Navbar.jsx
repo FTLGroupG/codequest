@@ -29,6 +29,11 @@ export default function Navbar(props) {
           </li>
           {!props?.user?.email ? (
             <>
+
+              <li>
+                <Link to="userProfile">Profile</Link>
+              </li>
+
               <li>
                 <Link to="/login">Log In</Link>
               </li>
