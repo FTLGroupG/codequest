@@ -92,6 +92,13 @@ class ApiClient {
     });
   }
 
+  async completeModule(module_id) {
+    return await this.request({
+      endpoint: `auth/userprogress/${module_id}`,
+      method: `PUT`,
+    });
+  }
+
   /**
    * Fetches the user details using the stored token.
    * @returns {Promise<object>} The response data or an error object.

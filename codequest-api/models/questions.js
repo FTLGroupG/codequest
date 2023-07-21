@@ -5,7 +5,7 @@ class Question {
   // fetching questions by modules
   static async fetch(module_id) {
     const result = await db.query(
-      `SELECT id, question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type
+      `SELECT id, question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id 
             FROM questions 
             WHERE module_id=$1
             ORDER BY id DESC`,

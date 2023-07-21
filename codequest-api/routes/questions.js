@@ -4,7 +4,6 @@ const Question = require("../models/questions");
 const security = require("../middleware/security");
 
 router.get("/id/:id", async (req, res, next) => {
-  console.log("here");
   try {
     const id = req.params.id;
 

@@ -78,8 +78,6 @@ export default function Quiz() {
 
   return (
     <div className="Quiz">
-      {console.log(counter)}
-      {console.log(questions.length)}
       {questions[counter].type === "select" ? (
         <QuestionSelect />
       ) : (

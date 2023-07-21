@@ -181,6 +181,30 @@ class User {
     const userprogress = result.rows[0];
     return userprogress;
   }
+
+  static async editUserProgress(module, user_id) {
+    const modules_list = [
+      "module_one",
+      "module_two",
+      "module_three",
+      "module_four",
+      "module_five",
+      "module_six",
+    ];
+    const query = `UPDATE userprogress SET ${
+      modules_list[module - 1]
+    } = 't' WHERE user_id = ${user_id}`;
+
+    // console.log(query);
+
+    const result = await db.query(query);
+
+    // console.log(result);
+
+    const userprogress = result.rows[0];
+
+    return userprogress;
+  }
 }
 
 module.exports = User;

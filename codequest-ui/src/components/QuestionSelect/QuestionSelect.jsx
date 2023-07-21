@@ -1,6 +1,7 @@
 import React from "react";
 import "./QuestionSelect.css";
 import QuestionContext from "../../contexts/question";
+import apiClient from "../../services/apiClient";
 import { useState, useContext, useEffect } from "react";
 
 export default function QuestionSelect() {
@@ -10,10 +11,16 @@ export default function QuestionSelect() {
   const { counterContext } = useContext(QuestionContext);
   const [counter, setCounter] = counterContext;
 
-  const addNext = () => {
-    const nextBtn = document.getElementById("curriculum-next-btn");
-    nextBtn.classList.add("visible");
-    nextBtn.classList.remove("hidden");
+  const finishModule = async (module_id) => {
+    // update module in user progress table
+    const { data, error } = await apiClient.completeModule(module_id);
+    if (error) {
+      console.log("error in apiclient finish module", error);
+    }
+    if (data?.user) {
+      console.log(data?.user);
+      console.log("module has been completed");
+    }
   };
 
   const addFinal = () => {
@@ -28,10 +35,30 @@ export default function QuestionSelect() {
     finishBtn.classList.remove("visible");
   };
 
+  const addNext = () => {
+    const nextBtn = document.getElementById("curriculum-next-btn");
+    nextBtn.classList.add("visible");
+    nextBtn.classList.remove("hidden");
+  };
+
   const removeNext = () => {
     const nextBtn = document.getElementById("curriculum-next-btn");
     nextBtn.classList.add("hidden");
     nextBtn.classList.remove("visible");
+  };
+
+  const incrementCounter = () => {
+    if (counter < questions.length - 1) {
+      setCounter(counter + 1);
+      removeNext();
+      document.getElementById("message").innerHTML = "";
+    }
+  };
+
+  const decrementCounter = () => {
+    if (counter > 0) setCounter(counter - 1);
+    document.getElementById("message").innerHTML = "";
+    counter < questions.length - 1 ? removeNext() : removeFinal();
   };
 
   const handleResult = (event) => {
@@ -47,20 +74,6 @@ export default function QuestionSelect() {
       element.classList.add("wrong-answer-2");
       counter < questions.length - 1 ? removeNext() : removeFinal();
     }
-  };
-
-  const incrementCounter = () => {
-    if (counter < questions.length - 1) {
-      setCounter(counter + 1);
-      removeNext();
-      document.getElementById("message").innerHTML = "";
-    }
-  };
-
-  const decrementCounter = () => {
-    if (counter > 0) setCounter(counter - 1);
-    document.getElementById("message").innerHTML = "";
-    counter < questions.length - 1 ? removeNext() : removeFinal();
   };
 
   return (
@@ -107,6 +120,7 @@ export default function QuestionSelect() {
             <button
               id="curriculum-finish-btn"
               className="curriculumCardButton hidden"
+              onClick={() => finishModule(questions[0].module_id)}
             >
               Finish
             </button>
