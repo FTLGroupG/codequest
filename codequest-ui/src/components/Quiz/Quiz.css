@@ -1,9 +1,15 @@
+.Quiz {
+    height: 850px;
+}
+
 .quizCard {
     width: 90%;
     padding: 30px 0px;
     margin: auto;
     margin-top: 20px;
+    border-radius: 5px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.282);
+    background-color: #45BE91;
 }
 
 
@@ -63,4 +69,36 @@
 
 .questionRectangle pre code {
     color: white;
+}
+
+#options-list .option{
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 1.2em, 2em;
+    font-size: 1em;
+    font-weight: 600;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    color: white;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.282);
+}
+
+#options-list .option:hover{
+    background-color: #F2AC2A;
+}
+
+#blank {
+    border-radius: 8px;
+    border: 2px solid white;
+}
+
+.second-question-type .question-2{
+    color: white;
+    font-weight: 700;
+}
+
+.second-question-type #message{
+    color: #F2AC2A;
 }

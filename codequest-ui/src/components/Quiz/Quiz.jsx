@@ -11,8 +11,6 @@ import apiClient from "../../services/apiClient";
 import Loading from "../Loading/Loading";
 
 export default function Quiz() {
-  const { moduleContext } = useContext(AuthContext);
-  const [moduleId, setModuleId] = moduleContext;
   const { userContext } = useContext(AuthContext);
   const [user, setUser] = userContext;
   const [isLoading, setIsLoading] = useState(true);

@@ -44,6 +44,10 @@
   font-family: "Courier New", monospace;
 }
 
+.first-question-type #message {
+  color: #F2AC2A;
+}
+
 /* #content button {
   background-color: transparent;
   color: black;
