@@ -96,8 +96,6 @@ export default function Curriculum() {
               </ul>
               {buttons}
             </div>
-          </main>
-        )}
           </>
         ) : (
           <>
