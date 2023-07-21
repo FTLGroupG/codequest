@@ -1,0 +1,18 @@
+.access-forbidden {
+  background: #efe8e2;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  padding-inline-start: 6px;
+  padding-inline-end: 6px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.access-forbidden > h1 {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: center;
+  color: #1410f496;
+  font-size: 20px;
+}

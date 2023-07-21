@@ -3,10 +3,14 @@ import "./Modules.css";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Finished from "../Finished/Finished";
+import { useContext } from "react";
 import Quiz from "../Quiz/Quiz";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import AuthContext from "../../contexts/auth";
 
 export default function Modules() {
+  const { userContext } = useContext(AuthContext);
+  const [user, setUser] = userContext;
   return (
     <div className="Modules">
       <div className="moduleCard">

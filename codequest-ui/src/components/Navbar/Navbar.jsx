@@ -1,11 +1,14 @@
 import React from "react";
 import "./Navbar.css";
 import apiClient from "../../services/apiClient";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Navbar(props) {
+  const navigate = useNavigate();
   const handleOnClickLogout = () => {
     props.handleOnLogout();
+    navigate("/");
+    navigate(0);
   };
 
   return (
@@ -35,15 +38,13 @@ export default function Navbar(props) {
               </li>
             </>
           ) : (
-            <Link to="/login">
-              <button
-                type="button"
-                className="nav-btn-content"
-                onClick={(e) => handleOnClickLogout()}
-              >
-                Log Out
-              </button>
-            </Link>
+            <button
+              type="button"
+              className="nav-btn-content"
+              onClick={(e) => handleOnClickLogout()}
+            >
+              Log Out
+            </button>
           )}
         </ul>
       </div>

@@ -12,9 +12,6 @@ export const QuestionContextProvider = ({ children }) => {
   const { userContext } = React.useContext(AuthContext);
   const [user, setUser] = userContext;
 
-  const { moduleContext } = React.useContext(AuthContext);
-  const [moduleId, setModuleId] = moduleContext;
-
   // useEffect hooks
   const [questions, setQuestions] = React.useState([]);
   const [counter, setCounter] = React.useState(0);
@@ -23,32 +20,32 @@ export const QuestionContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = React.useState(false);
 
   // after component is mounted after authenticating user, fetch all the data if possible
-  React.useEffect(() => {
-    const fetchQuestions = async () => {
-      setIsLoading(true);
+  // React.useEffect(() => {
+  //   const fetchQuestions = async () => {
+  //     setIsLoading(true);
 
-      try {
-        const { data, errorQuestion } = await apiClient.fetchQuestionByModule(
-          moduleId
-        );
+  //     try {
+  //       const { data, errorQuestion } = await apiClient.fetchQuestionByModule(
+  //         id
+  //       );
 
-        if (errorQuestion) setError(errorQuestion);
-        if (data?.questions) {
-          setQuestions(data?.questions);
-        }
-      } catch (error) {
-        console.error("Fetching data error:", error);
-      }
-      setIsLoading(false);
-    };
+  //       if (errorQuestion) setError(errorQuestion);
+  //       if (data?.questions) {
+  //         setQuestions(data?.questions);
+  //       }
+  //     } catch (error) {
+  //       console.error("Fetching data error:", error);
+  //     }
+  //     setIsLoading(false);
+  //   };
 
-    // check if user is logged in
-    if (user?.email) {
-      fetchQuestions();
-    } else {
-      setInitialized(true);
-    }
-  }, [user]);
+  //   // check if user is logged in
+  //   if (user?.email) {
+  //     fetchQuestions();
+  //   } else {
+  //     setInitialized(true);
+  //   }
+  // }, [user]);
 
   // check if there where any errors after doing a request
   if (error) {

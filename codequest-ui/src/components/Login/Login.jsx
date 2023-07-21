@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Login.css";
 import AuthContext from "../../contexts/auth";
@@ -11,6 +11,8 @@ export default function Login(props) {
   const [userProgress, setUserProgress] = useState({});
 
   const [isLoading, setisLoading] = useState();
+
+  const navigate = useNavigate();
 
   const loginFormInit = {
     email: "",
