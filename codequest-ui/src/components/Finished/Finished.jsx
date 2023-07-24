@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Finished.css";
 import { Link, useParams } from "react-router-dom";
 import { useState, useContext } from "react";
@@ -7,6 +7,9 @@ import Quiz from "../Quiz/Quiz";
 import AuthContext from "../../contexts/auth";
 import QuestionContext from "../../contexts/question";
 import AccessForbidden from "../AccessForbidden/AccessForbidden";
+import useSound from "use-sound";
+import cheerSound from "../../assets/mixkit-classroom-spontaneous-applause-500.wav";
+import Confetti from "react-confetti"; 
 
 export default function Finished(props) {
   const { id } = useParams();
@@ -21,6 +24,9 @@ export default function Finished(props) {
     setCounter(0);
   };
 
+
+  const [play] = useSound(cheerSound);
+
   const displayFinishContent = () => {
     return (
       <div className="finishedContent">
@@ -33,8 +39,17 @@ export default function Finished(props) {
       </div>
     );
   };
+
+  // Ensure the useSound hook is only initialized after a user gesture
+  useEffect(() => {
+    // Initialize useSound hook here to trigger AudioContext creation
+    play();
+  }, [play]);
+
   return (
     <div className="Finished">
+      {/* Render the Confetti component to trigger the animation */}
+      <Confetti width={window.innerWidth} height={window.innerHeight} />
       {id == 1 ? (
         displayFinishContent()
       ) : (
@@ -43,3 +58,6 @@ export default function Finished(props) {
     </div>
   );
 }
+
+
+

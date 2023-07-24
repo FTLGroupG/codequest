@@ -22,6 +22,8 @@ import apiClient from "../../services/apiClient";
 import QuestionSelect from "../QuestionSelect/QuestionSelect";
 import UserProfile from "../UserProfile/UserProfile";
 import { AuthProvider } from "../../contexts/auth";
+import NotFound from "../NotFound/NotFound";
+import Loading from "../Loading/Loading";
 
 // React Contexts
 import AuthContext from "../../contexts/auth";
@@ -73,6 +75,8 @@ function App() {
             />
             <Route path="/forbidden" element={<AccessForbidden />} />
             <Route path="/modules/*" element={<Modules />} />
+            <Route path="/notFound" element={<NotFound />} />
+            <Route path ="/loading" element={<Loading />} />
             {/* <Route element={<PrivateRoute />}>
                 <Route
                   path="/modules/:id/curriculum"

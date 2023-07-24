@@ -3,11 +3,14 @@ import "./QuestionDrag.css";
 import QuestionContext from "../../contexts/question";
 import { useState, useContext, useEffect } from "react";
 import apiClient from "../../services/apiClient";
+import useSound from "use-sound";
+import correctSound from "../../assets/correct-6033.mp3";
 
 export default function QuestionDrag(props) {
   const { questionContext } = useContext(QuestionContext);
   const [questions, setQuestions] = questionContext;
 
+  const [playCorrectSound] = useSound(correctSound);
   const { counterContext } = useContext(QuestionContext);
   const [counter, setCounter] = counterContext;
 
@@ -63,6 +66,7 @@ export default function QuestionDrag(props) {
 
   const correctResult = () => {
     // console.log("Correct!");
+    playCorrectSound()
     document.getElementById("message").innerHTML = "Correct!";
     document.getElementById("blank").className = "correct-answer";
     counter < questions.length - 1 ? addNext() : addFinal();

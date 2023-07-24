@@ -3,11 +3,14 @@ import "./QuestionSelect.css";
 import QuestionContext from "../../contexts/question";
 import apiClient from "../../services/apiClient";
 import { useState, useContext, useEffect } from "react";
+import useSound from "use-sound";
+import correctSound from "../../assets/correct-6033.mp3";
 
 export default function QuestionSelect() {
   const { questionContext } = useContext(QuestionContext);
   const [questions, setQuestions] = questionContext;
 
+  const [playCorrectSound] = useSound(correctSound);
   const { counterContext } = useContext(QuestionContext);
   const [counter, setCounter] = counterContext;
 
@@ -66,6 +69,7 @@ export default function QuestionSelect() {
     var content = element.innerHTML; // Get the content of the element
 
     if (content === questions[counter].answer) {
+      playCorrectSound();
       document.getElementById("message").innerHTML = "Correct!";
       element.classList.add("correct-answer-2");
       counter < questions.length - 1 ? addNext() : addFinal();
