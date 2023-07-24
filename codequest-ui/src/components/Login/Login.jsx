@@ -61,7 +61,7 @@ export default function Login(props) {
               <Navigate to={`/modules`} replace={true} />
             ) : (
               <Navigate
-                to={`/modules/${leftOff + 1}/curriculum/*`}
+                to={`/modules/${leftOff + 1}/curriculum`}
                 replace={true}
               />
             )}

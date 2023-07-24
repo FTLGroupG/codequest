@@ -18,15 +18,15 @@ export default function UserProfile() {
 
       <div className="userAnalyticsContainer">
         <div className="userAnalytics">
-            <div className="userAnalyticsData">
-              <h3>Achievements</h3>
-            </div>
+          <div className="userAnalyticsData">
+            <h3>Achievements</h3>
+          </div>
         </div>
 
         <div className="userAnalytics">
-            <div className="userAnalyticsData">
+          <div className="userAnalyticsData">
             <h3>Badges</h3>
-            </div>
+          </div>
         </div>
       </div>
     </div>

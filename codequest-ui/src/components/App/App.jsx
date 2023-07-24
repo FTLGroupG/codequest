@@ -40,12 +40,12 @@ function App() {
 
   function reveal() {
     var reveals = document.querySelectorAll(".reveal");
-  
+
     for (var i = 0; i < reveals.length; i++) {
       var windowHeight = window.innerHeight;
       var elementTop = reveals[i].getBoundingClientRect().top;
       var elementVisible = 150;
-  
+
       if (elementTop < windowHeight - elementVisible) {
         reveals[i].classList.add("active");
       } else {
@@ -53,7 +53,7 @@ function App() {
       }
     }
   }
-  
+
   window.addEventListener("scroll", reveal);
 
   return (
@@ -101,23 +101,14 @@ function App() {
                   element={<Quiz />}
                 />
               </Route> */}
-            <Route
-              exact
-              path="/modules/:id/curriculum"
-              element={<Curriculum />}
-            />
+            <Route path="/modules/:id/curriculum" element={<Curriculum />} />
 
             <Route
-              exact
               path="/modules/:id/curriculum/finished/"
               element={<Finished />}
             />
             <Route path="/userProfile" element={<UserProfile />} />
-            <Route
-              exact
-              path="/modules/:id/curriculum/question"
-              element={<Quiz />}
-            />
+            <Route path="/modules/:id/curriculum/question" element={<Quiz />} />
           </Routes>
           <Footer />
         </Router>

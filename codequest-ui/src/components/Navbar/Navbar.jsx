@@ -29,11 +29,6 @@ export default function Navbar(props) {
           </li>
           {!props?.user?.email ? (
             <>
-
-              <li>
-                <Link to="userProfile">Profile</Link>
-              </li>
-
               <li>
                 <Link to="/login">Log In</Link>
               </li>
@@ -43,13 +38,18 @@ export default function Navbar(props) {
               </li>
             </>
           ) : (
-            <button
-              type="button"
-              className="nav-btn-content"
-              onClick={(e) => handleOnClickLogout()}
-            >
-              Log Out
-            </button>
+            <>
+              <li>
+                <Link to="userProfile">Profile</Link>
+              </li>
+              <button
+                type="button"
+                className="nav-btn-content"
+                onClick={(e) => handleOnClickLogout()}
+              >
+                Log Out
+              </button>
+            </>
           )}
         </ul>
       </div>
