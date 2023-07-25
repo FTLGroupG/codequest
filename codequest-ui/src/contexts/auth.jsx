@@ -45,7 +45,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   if (!initialized) {
-    return <Loading message="Authenticating user..." />;
+    return <Loading message="Loading..." />;
   }
 
   return (

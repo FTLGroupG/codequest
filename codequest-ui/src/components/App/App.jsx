@@ -23,6 +23,9 @@ import apiClient from "../../services/apiClient";
 import ProfilesPage from "../ProfilesPage/ProfilesPage";
 import ProfilesNew from "../ProfilesNew/ProfilesNew";
 import ProfilesSelection from "../ProfilesSelection/ProfilesSelection";
+import { AuthProvider } from "../../contexts/auth";
+import NotFound from "../NotFound/NotFound";
+import Loading from "../Loading/Loading";
 
 // React Contexts
 import AuthContext from "../../contexts/auth";
@@ -78,36 +81,9 @@ function App() {
             <Route path="/profile/create" element={<ProfilesNew />} />
             <Route path="/forbidden" element={<AccessForbidden />} />
             <Route path="/modules/*" element={<Modules />} />
-            {/* <Route element={<PrivateRoute />}>
-                <Route
-                  path="/modules/:id/curriculum"
-                  element={<Curriculum />}
-                />
-              </Route>
-              <Route
-                exact
-                path="/modules/:id/curriculum/finished/"
-                element={<PrivateRoute />}
-              >
-                <Route
-                  exact
-                  path="/modules/:id/curriculum/finished/"
-                  element={<Finished />}
-                />
-              </Route>
-              <Route
-                exact
-                path="/modules/:id/curriculum/question"
-                element={<PrivateRoute />}
-              >
-                <Route
-                  exact
-                  path="/modules/:id/curriculum/question"
-                  element={<Quiz />}
-                />
-              </Route> */}
+            <Route path="/notFound" element={<NotFound />} />
+            <Route path ="/loading" element={<Loading />} />
             <Route path="/modules/:id/curriculum" element={<Curriculum />} />
-
             <Route
               path="/modules/:id/curriculum/finished/"
               element={<Finished />}

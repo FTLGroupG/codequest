@@ -1,12 +1,30 @@
+.loading {
+  height: 800px;
+  background-color: #8d6fda;
+}
+
 .loading-page {
-  margin: 25%;
+  width: 100%;
+  height: 100%;
   text-align: center;
 }
 
 .loading-content {
-  background: rgb(255, 111, 0);
+  background-color: #8d6fda;
+  height: 800px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.loading-content h1 {
+.loading-content h2 {
   color: rgb(244, 235, 214);
+  font-size: 2.5em;
+}
+
+.loading-gif {
+  opacity: 0.5;
+  width: 50px;
 }

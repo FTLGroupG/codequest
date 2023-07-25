@@ -6,12 +6,15 @@ import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ProfileContext from "../../contexts/profile";
 import AuthContext from "../../contexts/auth";
+import useSound from "use-sound";
+import correctSound from "../../assets/correct-6033.mp3";
 
 export default function QuestionSelect() {
   const navigate = useNavigate();
   const { questionContext } = useContext(QuestionContext);
   const [questions, setQuestions] = questionContext;
 
+  const [playCorrectSound] = useSound(correctSound);
   const { counterContext } = useContext(QuestionContext);
   const [counter, setCounter] = counterContext;
 
@@ -83,6 +86,7 @@ export default function QuestionSelect() {
     var content = element.innerHTML; // Get the content of the element
 
     if (content === questions[counter].answer) {
+      playCorrectSound();
       document.getElementById("message").innerHTML = "Correct!";
       element.classList.add("correct-answer-2");
       counter < questions.length - 1 ? addNext() : addFinal();
