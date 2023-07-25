@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Modules.css";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -7,6 +7,7 @@ import { useContext, useEffect } from "react";
 import Quiz from "../Quiz/Quiz";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import AuthContext from "../../contexts/auth";
+import ProfileContext from "../../contexts/profile";
 
 export default function Modules({ userProgress, leftOff, getProgress }) {
   const { userContext } = useContext(AuthContext);
@@ -19,9 +20,44 @@ export default function Modules({ userProgress, leftOff, getProgress }) {
     getProgress();
   }, []);
 
+  // Use the context to access profiles state
+  const { setSelectedProfile, userProgress, setUserProgress } =
+    useContext(ProfileContext);
+  const [showContent, setShowContent] = useState(false);
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const selectedProfileId = searchParams.get("selectedProfile");
+    if (selectedProfileId) {
+      setSelectedProfile(parseInt(selectedProfileId, 10));
+      localStorage.setItem("selectedProfile", selectedProfileId);
+
+      setTimeout(() => {
+        setShowContent(true);
+      }, 1000);
+    }
+  }, [location.search, setSelectedProfile]);
+
+  const leftOff = Object.values(userProgress)
+    .filter((key) => typeof key === "boolean")
+    .filter(Boolean).length;
+  console.log("leftOff" + leftOff);
+  console.log("userProgress: " + userProgress);
+  
   return (
     <div className="Modules">
       <div className="moduleCard">
+        {showContent
+          ? user?.email &&
+            (leftOff === 6 ? (
+              <Navigate to={`/modules`} replace={true} />
+            ) : (
+              <Navigate
+                to={`/modules/${leftOff + 1}/curriculum`}
+                replace={true}
+              />
+            ))
+          : null}
         <h1>Learn Python</h1>
         <div className="moduleCircles">
           <Link to={`/modules/1/curriculum`}>

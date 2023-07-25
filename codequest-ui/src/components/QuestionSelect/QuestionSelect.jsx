@@ -4,20 +4,40 @@ import QuestionContext from "../../contexts/question";
 import apiClient from "../../services/apiClient";
 import { useState, useContext, useEffect } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
+import ProfileContext from "../../contexts/profile";
+import AuthContext from "../../contexts/auth";
+import useSound from "use-sound";
+import correctSound from "../../assets/correct-6033.mp3";
 
-export default function QuestionSelect({ user }) {
+export default function QuestionSelect({user) {
+  const navigate = useNavigate();
   const { questionContext } = useContext(QuestionContext);
   const [questions, setQuestions] = questionContext;
 
+  const [playCorrectSound] = useSound(correctSound);
   const { counterContext } = useContext(QuestionContext);
   const [counter, setCounter] = counterContext;
   const navigate = useNavigate();
 
+  const { profileContext, removeProfile, selectedProfile, setSelectedProfile } =
+    useContext(ProfileContext);
+
+  const { userContext } = useContext(AuthContext);
+  const [user, setUser] = userContext;
+
   const finishModule = async (module_id) => {
     // update module in user progress table
-    // completeCircle(module_id)
-    const { data, error } = await apiClient.completeModule(module_id);
+
+//    const { data, error } = await apiClient.completeModule(module_id);
     // error handling here
+    console.log(
+      "module id:" + module_id,
+      "selected profile" + localStorage.getItem("selectedProfile")
+    );
+    const { data, error } = await apiClient.completeModule(
+      module_id,
+      localStorage.getItem("selectedProfile")
+    );
     if (error) {
       console.error("error in apiclient finish module", error);
     }
@@ -70,6 +90,7 @@ export default function QuestionSelect({ user }) {
     var content = element.innerHTML; // Get the content of the element
 
     if (content === questions[counter].answer) {
+      playCorrectSound();
       document.getElementById("message").innerHTML = "Correct!";
       element.classList.add("correct-answer-2");
       counter < questions.length - 1 ? addNext() : addFinal();
@@ -121,6 +142,7 @@ export default function QuestionSelect({ user }) {
             </button>
           ) : null}
           {counter == questions.length - 1 ? (
+
             <button
               id="curriculum-finish-btn"
               className="curriculumCardButton hidden"
@@ -128,7 +150,7 @@ export default function QuestionSelect({ user }) {
                 Object.keys(user).length !== 0
                   ? () =>
                       finishModule(
-                        questions[0].module_id,
+                        questions[counter].module_id,
                         (window.location.href = "/modules")
                       )
                   : (window.location.href = "/register")

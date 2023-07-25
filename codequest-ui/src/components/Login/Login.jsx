@@ -38,6 +38,7 @@ export default function Login(props) {
       setUser(data.user);
       props.setUserProgress(data.userprogress);
       apiClient.setToken(data.token);
+      navigate("/account-profiles");
     }
   };
 
@@ -45,9 +46,10 @@ export default function Login(props) {
   return (
     <div className="Login">
       <div className="media"></div>
+      {user?.email && <Navigate to="/modules" replace={true} />}
       <div className="card">
         <h2>Log into CodeQuest!</h2>
-        {user?.email && (
+        {/* {user?.email && (
           <>
             {props.leftOff == 6 ? (
               <Navigate to={`/modules`} replace={true} />
@@ -58,7 +60,7 @@ export default function Login(props) {
               />
             )}
           </>
-        )}
+        )} */}
         <br />
 
         <div className="form">

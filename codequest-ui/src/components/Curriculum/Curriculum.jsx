@@ -10,7 +10,6 @@ export default function Curriculum() {
   const { id } = useParams();
   const { userContext } = useContext(AuthContext);
   const [user, setUser] = userContext;
-
   const buttons = (
     <div className="curriculumCardButtonCard">
       <button className="curriculumCardButton">Back</button>
@@ -19,11 +18,9 @@ export default function Curriculum() {
       </Link>
     </div>
   );
-
   return (
     <div className="Curriculum">
       <div className="curriculumCard">
-        {/* {console.log(id)} */}
         {id == 1 ? (
           <>
             <h2>Learn Python</h2>
@@ -72,7 +69,8 @@ export default function Curriculum() {
                 different types of data. So, you can use an integer variable to
                 store your score as a number. But what if you want to add your
                 name to the score? You can use a string variable to hold your
-                name. Python is smart, so it knows which type of data is inside
+                name.{" "}
+                {/*Python is smart, so it knows which type of data is inside
                 each variable. This way, you can do different things with your
                 score, like adding or subtracting numbers or even combining your
                 name with the score. It's like having different boxes for
@@ -81,12 +79,12 @@ export default function Curriculum() {
                 of problems and create amazing things with Python. Happy coding!
               </p> */}
               <br />
-              <ul>
+              {/* <ul>
                 <li>Integers</li>
                 <li>Strings</li>
                 <li>Floats</li>
                 <li>Booleans</li>
-              </ul>
+              </ul> */}
               {buttons}
             </div>
           </>

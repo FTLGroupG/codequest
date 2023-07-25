@@ -51,7 +51,7 @@ export const QuestionContextProvider = ({ children }) => {
   if (error) {
     return (
       <h1 style={{ color: "red" }}>
-        An error has ocurred while fetching nutrition items!
+        An error has ocurred while fetching question items!
       </h1>
     );
   }

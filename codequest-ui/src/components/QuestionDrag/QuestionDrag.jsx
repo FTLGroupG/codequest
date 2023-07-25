@@ -3,17 +3,27 @@ import "./QuestionDrag.css";
 import QuestionContext from "../../contexts/question";
 import { useState, useContext, useEffect } from "react";
 import apiClient from "../../services/apiClient";
+import ProfileContext from "../../contexts/profile";
+import useSound from "use-sound";
+import correctSound from "../../assets/correct-6033.mp3";
 
 export default function QuestionDrag({ user }) {
   const { questionContext } = useContext(QuestionContext);
   const [questions, setQuestions] = questionContext;
 
+  const [playCorrectSound] = useSound(correctSound);
   const { counterContext } = useContext(QuestionContext);
   const [counter, setCounter] = counterContext;
 
+  const { profileContext, removeProfile, selectedProfile, setSelectedProfile } =
+    useContext(ProfileContext);
+
   const finishModule = async (module_id) => {
     // update module in user progress table
-    const { data, error } = await apiClient.completeModule(module_id);
+    const { data, error } = await apiClient.completeModule(
+      module_id,
+      selectedProfile
+    );
     if (error) {
       console.error("error in apiclient finish module", error);
     }
@@ -63,6 +73,7 @@ export default function QuestionDrag({ user }) {
 
   const correctResult = () => {
     // console.log("Correct!");
+    playCorrectSound()
     document.getElementById("message").innerHTML = "Correct!";
     document.getElementById("blank").className = "correct-answer";
     counter < questions.length - 1 ? addNext() : addFinal();
@@ -267,7 +278,7 @@ export default function QuestionDrag({ user }) {
               Object.keys(user).length !== 0
                 ? () =>
                     finishModule(
-                      questions[0].module_id,
+                      questions[counter].module_id,
                       (window.location.href = "/modules")
                     )
                 : (window.location.href = "/register")

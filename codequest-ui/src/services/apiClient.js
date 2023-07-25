@@ -92,11 +92,66 @@ class ApiClient {
     });
   }
 
-  async completeModule(module_id) {
+  async completeModule(module_id, user_profile_id) {
     return await this.request({
-      endpoint: `auth/userprogress/${module_id}`,
+      endpoint: `auth/userprogress/${user_profile_id}/${module_id}`,
       method: `PUT`,
     });
+  }
+
+  async createProfile(credentials) {
+    return await this.request({
+      endpoint: `profiles/create`,
+      method: `POST`,
+      data: credentials,
+    });
+  }
+
+  async fetchProfiles() {
+    return await this.request({ endpoint: `profiles/`, method: `GET` });
+  }
+
+  async fetchProfileById(id) {
+    return await this.request({
+      endpoint: `profiles/id/${id}`,
+      method: `GET`,
+    });
+  }
+
+  async remove(id) {
+    try {
+      return await this.request({
+        endpoint: `profiles/id/${id}`,
+        method: `DELETE`,
+      });
+    } catch (error) {
+      console.error({ errorResponse: error.response });
+
+      const message = error?.response?.data?.error?.message;
+      return { data: null, error: message || String(error) };
+    }
+  }
+
+  // New method to fetch additional data for a profile
+  async fetchData(profileId) {
+    try {
+      // Call the API endpoint to fetch additional data for the profile
+      const { data, error } = await this.request({
+        endpoint: `profiles/id/${profileId}`, // Replace "additionalData" with the actual endpoint to fetch additional data
+        method: `GET`, // Replace with the appropriate HTTP method to fetch additional data
+      });
+
+      if (error) {
+        console.error("Error fetching additional data:", error);
+        return null;
+      }
+
+      return data; // Return the additional data fetched from the server
+    } catch (error) {
+      console.error({ errorResponse: error.response });
+      const message = error?.response?.data?.error?.message;
+      return { data: null, error: message || String(error) };
+    }
   }
 
   /**
