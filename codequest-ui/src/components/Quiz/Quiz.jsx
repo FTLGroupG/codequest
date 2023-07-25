@@ -10,9 +10,9 @@ import QuestionContext from "../../contexts/question";
 import apiClient from "../../services/apiClient";
 import Loading from "../Loading/Loading";
 
-export default function Quiz() {
+export default function Quiz({ user }) {
   const { userContext } = useContext(AuthContext);
-  const [user, setUser] = userContext;
+  // const [user, setUser] = userContext;
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState();
   const [initialiazed, setInitialized] = useState();
@@ -77,9 +77,9 @@ export default function Quiz() {
   return (
     <div className="Quiz">
       {questions[counter].type === "select" ? (
-        <QuestionSelect />
+        <QuestionSelect user={user} />
       ) : (
-        <QuestionDrag />
+        <QuestionDrag user={user} />
       )}
     </div>
   );

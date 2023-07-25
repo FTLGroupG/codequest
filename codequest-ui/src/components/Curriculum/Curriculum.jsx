@@ -21,10 +21,8 @@ export default function Curriculum() {
   return (
     <div className="Curriculum">
       <div className="curriculumCard">
-        {console.log(id)}
         {id == 1 ? (
           <>
-            {console.log("hi")}
             <h2>Learn Python</h2>
             <h1>Data Types</h1>
             <div className="curriculumCardCode">
@@ -64,7 +62,7 @@ export default function Curriculum() {
                 with data in our programs. Isn't that cool?"
               </p>
               <br />
-              <p>
+              {/* <p>
                 "Now, let's imagine you're playing a game where you need to keep
                 track of your score. You can use a box called 'variable' to
                 store your score. Variables are like special boxes that can hold
@@ -78,8 +76,8 @@ export default function Curriculum() {
                 name with the score. It's like having different boxes for
                 different things, all inside your program!" Remember, you can
                 use these different data types and variables to solve all sorts
-                of problems and create amazing things with Python. Happy coding! */}
-              </p>
+                of problems and create amazing things with Python. Happy coding!
+              </p> */}
               <br />
               {/* <ul>
                 <li>Integers</li>

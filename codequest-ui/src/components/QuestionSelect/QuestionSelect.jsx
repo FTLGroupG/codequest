@@ -3,13 +3,13 @@ import "./QuestionSelect.css";
 import QuestionContext from "../../contexts/question";
 import apiClient from "../../services/apiClient";
 import { useState, useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import ProfileContext from "../../contexts/profile";
 import AuthContext from "../../contexts/auth";
 import useSound from "use-sound";
 import correctSound from "../../assets/correct-6033.mp3";
 
-export default function QuestionSelect() {
+export default function QuestionSelect({user) {
   const navigate = useNavigate();
   const { questionContext } = useContext(QuestionContext);
   const [questions, setQuestions] = questionContext;
@@ -17,6 +17,7 @@ export default function QuestionSelect() {
   const [playCorrectSound] = useSound(correctSound);
   const { counterContext } = useContext(QuestionContext);
   const [counter, setCounter] = counterContext;
+  const navigate = useNavigate();
 
   const { profileContext, removeProfile, selectedProfile, setSelectedProfile } =
     useContext(ProfileContext);
@@ -26,6 +27,9 @@ export default function QuestionSelect() {
 
   const finishModule = async (module_id) => {
     // update module in user progress table
+
+//    const { data, error } = await apiClient.completeModule(module_id);
+    // error handling here
     console.log(
       "module id:" + module_id,
       "selected profile" + localStorage.getItem("selectedProfile")
@@ -35,7 +39,7 @@ export default function QuestionSelect() {
       localStorage.getItem("selectedProfile")
     );
     if (error) {
-      console.log("error in apiclient finish module", error);
+      console.error("error in apiclient finish module", error);
     }
     if (data?.user) {
       console.log(data?.user);
@@ -138,25 +142,22 @@ export default function QuestionSelect() {
             </button>
           ) : null}
           {counter == questions.length - 1 ? (
-            <>
-              {user.email ? (
-                <button
-                  id="curriculum-finish-btn"
-                  className="curriculumCardButton hidden"
-                  onClick={() => finishModule(questions[counter].module_id)}
-                >
-                  Finish
-                </button>
-              ) : (
-                <button
-                  id="curriculum-finish-btn"
-                  className="curriculumCardButton hidden"
-                  onClick={() => navigate("/modules")}
-                >
-                  Finish
-                </button>
-              )}
-            </>
+
+            <button
+              id="curriculum-finish-btn"
+              className="curriculumCardButton hidden"
+              onClick={
+                Object.keys(user).length !== 0
+                  ? () =>
+                      finishModule(
+                        questions[counter].module_id,
+                        (window.location.href = "/modules")
+                      )
+                  : (window.location.href = "/register")
+              }
+            >
+              Finish
+            </button>
           ) : (
             <button
               id="curriculum-next-btn"

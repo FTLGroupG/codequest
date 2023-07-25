@@ -7,7 +7,7 @@ import ProfileContext from "../../contexts/profile";
 import useSound from "use-sound";
 import correctSound from "../../assets/correct-6033.mp3";
 
-export default function QuestionDrag(props) {
+export default function QuestionDrag({ user }) {
   const { questionContext } = useContext(QuestionContext);
   const [questions, setQuestions] = questionContext;
 
@@ -25,7 +25,7 @@ export default function QuestionDrag(props) {
       selectedProfile
     );
     if (error) {
-      console.log("error in apiclient finish module", error);
+      console.error("error in apiclient finish module", error);
     }
     if (data?.user) {
       console.log(data?.user);
@@ -274,7 +274,15 @@ export default function QuestionDrag(props) {
           <button
             id="curriculum-finish-btn"
             className="curriculumCardButton hidden"
-            onClick={() => finishModule(questions[counter].module_id)}
+            onClick={
+              Object.keys(user).length !== 0
+                ? () =>
+                    finishModule(
+                      questions[counter].module_id,
+                      (window.location.href = "/modules")
+                    )
+                : (window.location.href = "/register")
+            }
           >
             Finish
           </button>

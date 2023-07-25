@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import React from "react";
 import {
   useNavigate,
@@ -33,8 +33,31 @@ import AuthContext from "../../contexts/auth";
 function App() {
   const { userContext } = useContext(AuthContext);
   const [user, setUser] = userContext;
-
+  const [userProgress, setUserProgress] = useState({});
   const [errors, setErrors] = useState();
+
+  const leftOff = Object.values(userProgress)
+    .filter((key) => typeof key === "boolean")
+    .filter(Boolean).length;
+
+  const getProgress = async () => {
+    try {
+      const { data, error } = await apiClient.fetchUserFromToken();
+      if (data) {
+        console.log("inside get progress");
+        setUserProgress(data.userprogress);
+      }
+      // if (error) {
+      //   console.log("error getting userprogress", error);
+      // }
+    } catch (error) {
+      console.error("Error fetching userprogrss from me", error);
+    }
+  };
+
+  useEffect(() => {
+    getProgress();
+  }, []);
 
   const handleOnLogout = () => {
     setUser({});
@@ -70,7 +93,15 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route
               path="/login"
-              element={<Login errors={errors} setErrors={setErrors} />}
+              element={
+                <Login
+                  errors={errors}
+                  setErrors={setErrors}
+                  userProgress={userProgress}
+                  setUserProgress={setUserProgress}
+                  leftOff={leftOff}
+                />
+              }
             />
             <Route
               path="/register"
@@ -80,7 +111,17 @@ function App() {
             <Route path="/profiles/*" element={<ProfilesPage user={user} />} />
             <Route path="/profile/create" element={<ProfilesNew />} />
             <Route path="/forbidden" element={<AccessForbidden />} />
-            <Route path="/modules/*" element={<Modules />} />
+            <Route
+              path="/modules/*"
+              element={
+                <Modules
+                  userProgress={userProgress}
+                  leftOff={leftOff}
+                  getProgress={getProgress}
+                />
+              }
+            />
+            //<Route path="/modules/*" element={<Modules />} />
             <Route path="/notFound" element={<NotFound />} />
             <Route path ="/loading" element={<Loading />} />
             <Route path="/modules/:id/curriculum" element={<Curriculum />} />
@@ -88,7 +129,12 @@ function App() {
               path="/modules/:id/curriculum/finished/"
               element={<Finished />}
             />
-            <Route path="/modules/:id/curriculum/question" element={<Quiz />} />
+            <Route
+              exact
+              path="/modules/:id/curriculum/question"
+              element={<Quiz user={user} />}
+            />
+           // <Route path="/modules/:id/curriculum/question" element={<Quiz />} />
           </Routes>
           <Footer />
         </Router>
