@@ -159,30 +159,31 @@ class User {
     return userName;
   }
 
-  static async createUserProgress(user_id) {
+  static async createUserProgress(user_profile_id) {
+    console.log(user_profile_id);
     const result = await db.query(
       `INSERT INTO userprogress(
-            user_id
+            user_profile_id
             )
             VALUES($1)
-            RETURNING id, user_id, module_one, module_two, module_three, module_four, module_five, module_six;
+            RETURNING id, user_profile_id, module_one, module_two, module_three, module_four, module_five, module_six;
         `,
-      [user_id]
+      [user_profile_id]
     );
     const userprogress = result.rows[0];
     return userprogress;
   }
 
-  static async getUserProgress(user_id) {
+  static async getUserProgress(user_profile_id) {
     const result = await db.query(
-      `SELECT * FROM userprogress WHERE user_id = $1`,
-      [user_id]
+      `SELECT * FROM userprogress WHERE user_profile_id = $1`,
+      [user_profile_id]
     );
     const userprogress = result.rows[0];
     return userprogress;
   }
 
-  static async editUserProgress(module, user_id) {
+  static async editUserProgress(module, user_profile_id) {
     const modules_list = [
       "module_one",
       "module_two",
@@ -191,15 +192,12 @@ class User {
       "module_five",
       "module_six",
     ];
+
     const query = `UPDATE userprogress SET ${
       modules_list[module - 1]
-    } = 't' WHERE user_id = ${user_id}`;
+    } = 't' WHERE user_profile_id = $1`;
 
-    // console.log(query);
-
-    const result = await db.query(query);
-
-    // console.log(result);
+    const result = await db.query(query, [user_profile_id]);
 
     const userprogress = result.rows[0];
 

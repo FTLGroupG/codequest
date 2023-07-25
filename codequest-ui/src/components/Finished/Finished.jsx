@@ -7,6 +7,7 @@ import Quiz from "../Quiz/Quiz";
 import AuthContext from "../../contexts/auth";
 import QuestionContext from "../../contexts/question";
 import AccessForbidden from "../AccessForbidden/AccessForbidden";
+import ProfileContext from "../../contexts/profile";
 import useSound from "use-sound";
 import cheerSound from "../../assets/mixkit-classroom-spontaneous-applause-500.wav";
 import Confetti from "react-confetti"; 
@@ -20,8 +21,12 @@ export default function Finished(props) {
   const { userContext } = useContext(AuthContext);
   const [user, setUser] = userContext;
 
+  const { profileContext, removeProfile, selectedProfile, setSelectedProfile } =
+    useContext(ProfileContext);
+
   const handleCounterReset = () => {
     setCounter(0);
+    console.log(selectedProfile);
   };
 
 

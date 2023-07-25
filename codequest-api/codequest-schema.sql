@@ -36,14 +36,14 @@ CREATE TABLE user_profiles (
     first_name  TEXT NOT NULL,
     created_at  TIMESTAMP DEFAULT NOW (),
     updated_at  TIMESTAMP DEFAULT NOW (),
-    user_id     INTEGER NOT NULL, 
-    FOREIGN KEY (user_id) REFERENCES users(id)
+    user_email     TEXT NOT NULL, 
+    FOREIGN KEY (user_email) REFERENCES users(email)
 );
 
 CREATE TABLE userprogress (
     id                     SERIAL PRIMARY KEY,
-    user_id                INTEGER NOT NULL,
-    FOREIGN KEY (user_id)  REFERENCES users(id),
+    user_profile_id                INTEGER NOT NULL,
+    FOREIGN KEY (user_profile_id)  REFERENCES user_profiles(id),
     module_one             BOOLEAN DEFAULT 'f',
     module_two             BOOLEAN DEFAULT 'f',
     module_three           BOOLEAN DEFAULT 'f',

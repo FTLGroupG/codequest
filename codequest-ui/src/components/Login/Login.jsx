@@ -40,21 +40,22 @@ export default function Login(props) {
       setUser(data.user);
       setUserProgress(data.userprogress);
       apiClient.setToken(data.token);
+      navigate("/account-profiles");
     }
   };
 
-  const leftOff = Object.values(userProgress)
-    .filter((key) => typeof key === "boolean")
-    .filter(Boolean).length;
+  // const leftOff = Object.values(userProgress)
+  //   .filter((key) => typeof key === "boolean")
+  //   .filter(Boolean).length;
 
   // Render the login form
   return (
     <div className="Login">
       <div className="media"></div>
-
+      {user?.email && <Navigate to="/modules" replace={true} />}
       <div className="card">
         <h2>Log into CodeQuest!</h2>
-        {user?.email && (
+        {/* {user?.email && (
           <>
             {console.log(leftOff)}
             {leftOff == 6 ? (
@@ -66,7 +67,7 @@ export default function Login(props) {
               />
             )}
           </>
-        )}
+        )} */}
         <br />
 
         <div className="form">

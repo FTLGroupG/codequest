@@ -3,6 +3,7 @@ import "./QuestionDrag.css";
 import QuestionContext from "../../contexts/question";
 import { useState, useContext, useEffect } from "react";
 import apiClient from "../../services/apiClient";
+import ProfileContext from "../../contexts/profile";
 import useSound from "use-sound";
 import correctSound from "../../assets/correct-6033.mp3";
 
@@ -14,9 +15,15 @@ export default function QuestionDrag(props) {
   const { counterContext } = useContext(QuestionContext);
   const [counter, setCounter] = counterContext;
 
+  const { profileContext, removeProfile, selectedProfile, setSelectedProfile } =
+    useContext(ProfileContext);
+
   const finishModule = async (module_id) => {
     // update module in user progress table
-    const { data, error } = await apiClient.completeModule(module_id);
+    const { data, error } = await apiClient.completeModule(
+      module_id,
+      selectedProfile
+    );
     if (error) {
       console.log("error in apiclient finish module", error);
     }
@@ -267,7 +274,7 @@ export default function QuestionDrag(props) {
           <button
             id="curriculum-finish-btn"
             className="curriculumCardButton hidden"
-            onClick={() => finishModule(questions[0].module_id)}
+            onClick={() => finishModule(questions[counter].module_id)}
           >
             Finish
           </button>
