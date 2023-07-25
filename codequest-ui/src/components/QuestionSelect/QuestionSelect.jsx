@@ -3,17 +3,34 @@ import "./QuestionSelect.css";
 import QuestionContext from "../../contexts/question";
 import apiClient from "../../services/apiClient";
 import { useState, useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import ProfileContext from "../../contexts/profile";
+import AuthContext from "../../contexts/auth";
 
 export default function QuestionSelect() {
+  const navigate = useNavigate();
   const { questionContext } = useContext(QuestionContext);
   const [questions, setQuestions] = questionContext;
 
   const { counterContext } = useContext(QuestionContext);
   const [counter, setCounter] = counterContext;
 
+  const { profileContext, removeProfile, selectedProfile, setSelectedProfile } =
+    useContext(ProfileContext);
+
+  const { userContext } = useContext(AuthContext);
+  const [user, setUser] = userContext;
+
   const finishModule = async (module_id) => {
     // update module in user progress table
-    const { data, error } = await apiClient.completeModule(module_id);
+    console.log(
+      "module id:" + module_id,
+      "selected profile" + localStorage.getItem("selectedProfile")
+    );
+    const { data, error } = await apiClient.completeModule(
+      module_id,
+      localStorage.getItem("selectedProfile")
+    );
     if (error) {
       console.log("error in apiclient finish module", error);
     }
@@ -117,13 +134,25 @@ export default function QuestionSelect() {
             </button>
           ) : null}
           {counter == questions.length - 1 ? (
-            <button
-              id="curriculum-finish-btn"
-              className="curriculumCardButton hidden"
-              onClick={() => finishModule(questions[0].module_id)}
-            >
-              Finish
-            </button>
+            <>
+              {user.email ? (
+                <button
+                  id="curriculum-finish-btn"
+                  className="curriculumCardButton hidden"
+                  onClick={() => finishModule(questions[counter].module_id)}
+                >
+                  Finish
+                </button>
+              ) : (
+                <button
+                  id="curriculum-finish-btn"
+                  className="curriculumCardButton hidden"
+                  onClick={() => navigate("/modules")}
+                >
+                  Finish
+                </button>
+              )}
+            </>
           ) : (
             <button
               id="curriculum-next-btn"

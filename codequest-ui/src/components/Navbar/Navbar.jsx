@@ -40,7 +40,7 @@ export default function Navbar(props) {
           ) : (
             <>
               <li>
-                <Link to="userProfile">Profile</Link>
+                <Link to="/profiles">Profiles</Link>
               </li>
               <button
                 type="button"

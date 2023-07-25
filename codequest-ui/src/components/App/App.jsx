@@ -6,6 +6,7 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
+  Navigate,
 } from "react-router-dom";
 import "./App.css";
 import Navbar from "../Navbar/Navbar";
@@ -19,9 +20,9 @@ import Finished from "../Finished/Finished";
 import Quiz from "../Quiz/Quiz";
 import AccessForbidden from "../AccessForbidden/AccessForbidden";
 import apiClient from "../../services/apiClient";
-import QuestionSelect from "../QuestionSelect/QuestionSelect";
-import UserProfile from "../UserProfile/UserProfile";
-import { AuthProvider } from "../../contexts/auth";
+import ProfilesPage from "../ProfilesPage/ProfilesPage";
+import ProfilesNew from "../ProfilesNew/ProfilesNew";
+import ProfilesSelection from "../ProfilesSelection/ProfilesSelection";
 
 // React Contexts
 import AuthContext from "../../contexts/auth";
@@ -36,6 +37,7 @@ function App() {
     setUser({});
     //remove token from localStorage
     localStorage.removeItem(apiClient.tokenName);
+    localStorage.removeItem("selectedProfile");
   };
 
   function reveal() {
@@ -71,6 +73,9 @@ function App() {
               path="/register"
               element={<Register errors={errors} setErrors={setErrors} />}
             />
+            <Route path="/account-profiles" element={<ProfilesSelection />} />
+            <Route path="/profiles/*" element={<ProfilesPage user={user} />} />
+            <Route path="/profile/create" element={<ProfilesNew />} />
             <Route path="/forbidden" element={<AccessForbidden />} />
             <Route path="/modules/*" element={<Modules />} />
             {/* <Route element={<PrivateRoute />}>
@@ -107,7 +112,6 @@ function App() {
               path="/modules/:id/curriculum/finished/"
               element={<Finished />}
             />
-            <Route path="/userProfile" element={<UserProfile />} />
             <Route path="/modules/:id/curriculum/question" element={<Quiz />} />
           </Routes>
           <Footer />
