@@ -8,8 +8,6 @@ import apiClient from "../../services/apiClient";
 export default function Login(props) {
   const { userContext } = useContext(AuthContext);
   const [user, setUser] = userContext;
-  const [userProgress, setUserProgress] = useState({});
-
   const [isLoading, setisLoading] = useState();
 
   const navigate = useNavigate();
@@ -23,7 +21,7 @@ export default function Login(props) {
 
   useEffect(() => {
     props.setErrors();
-  }, [userProgress]);
+  }, [props.userProgress]);
 
   const onFormChange = (event) => {
     setLoginForm((prevForm) => ({
@@ -38,30 +36,24 @@ export default function Login(props) {
     if (error) props.setErrors(error);
     if (data?.user) {
       setUser(data.user);
-      setUserProgress(data.userprogress);
+      props.setUserProgress(data.userprogress);
       apiClient.setToken(data.token);
     }
   };
-
-  const leftOff = Object.values(userProgress)
-    .filter((key) => typeof key === "boolean")
-    .filter(Boolean).length;
 
   // Render the login form
   return (
     <div className="Login">
       <div className="media"></div>
-
       <div className="card">
         <h2>Log into CodeQuest!</h2>
         {user?.email && (
           <>
-            {console.log(leftOff)}
-            {leftOff == 6 ? (
+            {props.leftOff == 6 ? (
               <Navigate to={`/modules`} replace={true} />
             ) : (
               <Navigate
-                to={`/modules/${leftOff + 1}/curriculum/*`}
+                to={`/modules/${props.leftOff + 1}/curriculum`}
                 replace={true}
               />
             )}

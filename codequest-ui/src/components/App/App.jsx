@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import React from "react";
 import {
   useNavigate,
@@ -29,8 +29,31 @@ import AuthContext from "../../contexts/auth";
 function App() {
   const { userContext } = useContext(AuthContext);
   const [user, setUser] = userContext;
-
+  const [userProgress, setUserProgress] = useState({});
   const [errors, setErrors] = useState();
+
+  const leftOff = Object.values(userProgress)
+    .filter((key) => typeof key === "boolean")
+    .filter(Boolean).length;
+
+  const getProgress = async () => {
+    try {
+      const { data, error } = await apiClient.fetchUserFromToken();
+      if (data) {
+        console.log("inside get progress");
+        setUserProgress(data.userprogress);
+      }
+      // if (error) {
+      //   console.log("error getting userprogress", error);
+      // }
+    } catch (error) {
+      console.error("Error fetching userprogrss from me", error);
+    }
+  };
+
+  useEffect(() => {
+    getProgress();
+  }, []);
 
   const handleOnLogout = () => {
     setUser({});
@@ -40,12 +63,12 @@ function App() {
 
   function reveal() {
     var reveals = document.querySelectorAll(".reveal");
-  
+
     for (var i = 0; i < reveals.length; i++) {
       var windowHeight = window.innerHeight;
       var elementTop = reveals[i].getBoundingClientRect().top;
       var elementVisible = 150;
-  
+
       if (elementTop < windowHeight - elementVisible) {
         reveals[i].classList.add("active");
       } else {
@@ -53,7 +76,7 @@ function App() {
       }
     }
   }
-  
+
   window.addEventListener("scroll", reveal);
 
   return (
@@ -65,14 +88,31 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route
               path="/login"
-              element={<Login errors={errors} setErrors={setErrors} />}
+              element={
+                <Login
+                  errors={errors}
+                  setErrors={setErrors}
+                  userProgress={userProgress}
+                  setUserProgress={setUserProgress}
+                  leftOff={leftOff}
+                />
+              }
             />
             <Route
               path="/register"
               element={<Register errors={errors} setErrors={setErrors} />}
             />
             <Route path="/forbidden" element={<AccessForbidden />} />
-            <Route path="/modules/*" element={<Modules />} />
+            <Route
+              path="/modules/*"
+              element={
+                <Modules
+                  userProgress={userProgress}
+                  leftOff={leftOff}
+                  getProgress={getProgress}
+                />
+              }
+            />
             {/* <Route element={<PrivateRoute />}>
                 <Route
                   path="/modules/:id/curriculum"
@@ -116,7 +156,7 @@ function App() {
             <Route
               exact
               path="/modules/:id/curriculum/question"
-              element={<Quiz />}
+              element={<Quiz user={user} />}
             />
           </Routes>
           <Footer />

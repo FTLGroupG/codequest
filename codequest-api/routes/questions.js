@@ -4,7 +4,7 @@ const Question = require("../models/questions");
 const security = require("../middleware/security");
 
 router.get("/id/:id", security.verifyAuthUser, async (req, res, next) => {
-  console.log("here");
+  // console.log("here");
   try {
     const id = req.params.id;
 

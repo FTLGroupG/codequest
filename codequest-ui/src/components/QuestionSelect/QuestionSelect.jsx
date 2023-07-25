@@ -3,19 +3,23 @@ import "./QuestionSelect.css";
 import QuestionContext from "../../contexts/question";
 import apiClient from "../../services/apiClient";
 import { useState, useContext, useEffect } from "react";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
-export default function QuestionSelect() {
+export default function QuestionSelect({ user }) {
   const { questionContext } = useContext(QuestionContext);
   const [questions, setQuestions] = questionContext;
 
   const { counterContext } = useContext(QuestionContext);
   const [counter, setCounter] = counterContext;
+  const navigate = useNavigate();
 
   const finishModule = async (module_id) => {
     // update module in user progress table
+    // completeCircle(module_id)
     const { data, error } = await apiClient.completeModule(module_id);
+    // error handling here
     if (error) {
-      console.log("error in apiclient finish module", error);
+      console.error("error in apiclient finish module", error);
     }
     if (data?.user) {
       console.log(data?.user);
@@ -120,7 +124,15 @@ export default function QuestionSelect() {
             <button
               id="curriculum-finish-btn"
               className="curriculumCardButton hidden"
-              onClick={() => finishModule(questions[0].module_id)}
+              onClick={
+                Object.keys(user).length !== 0
+                  ? () =>
+                      finishModule(
+                        questions[0].module_id,
+                        (window.location.href = "/modules")
+                      )
+                  : (window.location.href = "/register")
+              }
             >
               Finish
             </button>

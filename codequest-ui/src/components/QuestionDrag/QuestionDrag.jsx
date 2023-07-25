@@ -4,7 +4,7 @@ import QuestionContext from "../../contexts/question";
 import { useState, useContext, useEffect } from "react";
 import apiClient from "../../services/apiClient";
 
-export default function QuestionDrag(props) {
+export default function QuestionDrag({ user }) {
   const { questionContext } = useContext(QuestionContext);
   const [questions, setQuestions] = questionContext;
 
@@ -15,7 +15,7 @@ export default function QuestionDrag(props) {
     // update module in user progress table
     const { data, error } = await apiClient.completeModule(module_id);
     if (error) {
-      console.log("error in apiclient finish module", error);
+      console.error("error in apiclient finish module", error);
     }
     if (data?.user) {
       console.log(data?.user);
@@ -263,7 +263,15 @@ export default function QuestionDrag(props) {
           <button
             id="curriculum-finish-btn"
             className="curriculumCardButton hidden"
-            onClick={() => finishModule(questions[0].module_id)}
+            onClick={
+              Object.keys(user).length !== 0
+                ? () =>
+                    finishModule(
+                      questions[0].module_id,
+                      (window.location.href = "/modules")
+                    )
+                : (window.location.href = "/register")
+            }
           >
             Finish
           </button>
