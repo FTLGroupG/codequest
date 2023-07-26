@@ -66,6 +66,9 @@ export default function Register(props) {
         <br />
 
         <div className="form">
+          <p className="error" style={{ color: "red" }}>
+            {props?.errors}
+          </p>
           <div className="split-inputs">
             <div className="input-field"></div>
 
