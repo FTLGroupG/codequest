@@ -1,1 +1,29 @@
+.profiles-form-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
+.profiles-form .profiles-form-content h2 {
+    font-size: 3em;
+}
+
+.profiles-form-section input{
+    height: 60px;
+    padding: 0 15px;
+    font-size: 16px;
+    font-family: 'Lilita One', cursive;
+    border: none;
+    border-radius: 5px;
+    width: 300px;
+    background: transparent;
+    color: #f18080;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.182);
+    background-color: #fff;
+}
+
+.profile-submit-registration-form-button {
+    margin: 20px;
+    background-color: #F2AC2A;
+}

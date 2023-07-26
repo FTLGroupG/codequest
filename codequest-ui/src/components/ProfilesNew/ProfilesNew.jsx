@@ -37,7 +37,7 @@ export default function ProfilesNew(props) {
   return (
     <div className="profiles-form">
       <div className="profiles-form-content">
-        <h1>Create Profile</h1>
+        <h2>Add your name</h2>
         <p style={{ color: "red" }}>{error}</p>
         <div className="profiles-form-section">
           <label htmlFor="name"></label>
@@ -51,7 +51,7 @@ export default function ProfilesNew(props) {
         </div>
         <button
           onClick={() => handleOnSubmit()}
-          className="profile-submit-registration form-button"
+          className="profile-submit-registration-form-button"
         >
           Save
         </button>

@@ -50,7 +50,22 @@
 
 .signUpHomeButton {
     background-color: #F2AC2A;
+    width: 400px;
+    margin-top: 60px;
 }
+
+.hero-text-and-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+}
+
+.robot-signup h2 {
+    font-size: 2.4em;
+    width: 400px;
+}
+
+
 
 .pythonCard{
     background-color: #F15757;
@@ -118,11 +133,13 @@
 
 .robot-signup {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
 }
 
 #floating-robot {
-    width: 200px;
+    width: 600px;
     margin-right: 20px;
 }
 

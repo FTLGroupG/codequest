@@ -106,11 +106,12 @@ element.style {
   height: 60px;
   padding: 0 15px;
   font-size: 16px;
+  font-family: 'Lilita One', cursive;
+  color: #f18080;
   border: none;
   border-radius: 5px;
   width: 100%;
   background: transparent;
-  color: black;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.182);
   background-color: #fff;
 }

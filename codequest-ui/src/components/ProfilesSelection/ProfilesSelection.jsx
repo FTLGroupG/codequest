@@ -98,7 +98,7 @@ export default function ProfilesSelection(props) {
           <div className="profile-container">
             {!user.email && <Navigate to="/forbidden" replace={true} />}
             <Link to="/profiles/create">
-              <button className="profile-create-btn">Create Profile</button>
+              <button className="profile-create-btn">Add New CodeQuest Profile</button>
             </Link>
             {profiles?.length > 0 ? (
               profiles.map((profile) => (
