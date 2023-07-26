@@ -24,11 +24,11 @@ export default function Navbar(props) {
           </Link>
         </div>
         <ul className="links">
-          <li>
-            <Link to="/modules">Modules</Link>
-          </li>
           {!props?.user?.email ? (
             <>
+              <li>
+                <Link to="/modules">Modules</Link>
+              </li>
               <li>
                 <Link to="/login">Log In</Link>
               </li>
@@ -39,9 +39,15 @@ export default function Navbar(props) {
             </>
           ) : (
             <>
+              {localStorage.getItem("selectedProfile") && (
+                <li>
+                  <Link to="/modules">Modules</Link>
+                </li>
+              )}
               <li>
                 <Link to="/account-profiles">Profiles</Link>
               </li>
+
               <button
                 type="button"
                 className="nav-btn-content"

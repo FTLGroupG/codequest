@@ -41,9 +41,6 @@ router.put(
   async (req, res, next) => {
     try {
       const { user_profile_id, module_id } = req.params;
-
-      console.log("user_profile_id:", user_profile_id);
-      console.log("module_id:", module_id);
       await User.editUserProgress(module_id, user_profile_id);
       return res.status(201).json({});
     } catch (err) {

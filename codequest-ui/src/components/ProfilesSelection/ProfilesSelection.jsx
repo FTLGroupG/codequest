@@ -67,9 +67,7 @@ export default function ProfilesSelection(props) {
 
       setSelectedProfile(profileId);
       setUserProgress(response.userprogress);
-      console.log(userProgress);
-
-      console.log(profileId);
+      localStorage.setItem("leftOff", 0);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
