@@ -7,7 +7,6 @@ const { authedUserIsProfileOwner } = require("../middleware/permissions");
 
 router.post("/create", security.verifyAuthUser, async (req, res, next) => {
   try {
-    console.log("here0");
     const { email } = res.locals.user;
 
     const user = await User.fetchUserByEmail(email);
@@ -20,9 +19,7 @@ router.post("/create", security.verifyAuthUser, async (req, res, next) => {
     // fetch again all the user profiles
     const profiles = await Profile.fetch(email);
 
-    console.log("here1");
     const userprogress = await User.createUserProgress(profileEntry.id);
-    console.log("here2");
     return res.status(201).json({
       profiles,
       userprogress,
@@ -64,8 +61,6 @@ router.get(
 
       const profile = await Profile.fetchById(id);
       const userprogress = await User.getUserProgress(id);
-      console.log(userprogress);
-
       return res.status(200).json({
         ...profile,
         userprogress,

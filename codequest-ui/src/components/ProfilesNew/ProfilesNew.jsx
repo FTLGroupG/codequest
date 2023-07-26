@@ -31,7 +31,7 @@ export default function ProfilesNew(props) {
     } else {
       setProfiles(data.profiles);
       setForm(formInit);
-      navigate("/profiles");
+      navigate("/account-profiles");
     }
   };
   return (

@@ -27,7 +27,6 @@ export default function ProfilesDetail() {
 
       if (data) {
         setProfileItem(data);
-        console.log(selectedProfile);
       } else {
         setErrorMessage(error);
       }

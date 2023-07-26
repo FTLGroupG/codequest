@@ -10,7 +10,7 @@ import AccessForbidden from "../AccessForbidden/AccessForbidden";
 import ProfileContext from "../../contexts/profile";
 import useSound from "use-sound";
 import cheerSound from "../../assets/mixkit-classroom-spontaneous-applause-500.wav";
-import Confetti from "react-confetti"; 
+import Confetti from "react-confetti";
 
 export default function Finished(props) {
   const { id } = useParams();
@@ -26,9 +26,7 @@ export default function Finished(props) {
 
   const handleCounterReset = () => {
     setCounter(0);
-    console.log(selectedProfile);
   };
-
 
   const [play] = useSound(cheerSound);
 
@@ -63,6 +61,3 @@ export default function Finished(props) {
     </div>
   );
 }
-
-
-

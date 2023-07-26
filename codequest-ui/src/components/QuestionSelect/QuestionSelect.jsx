@@ -27,12 +27,6 @@ export default function QuestionSelect() {
   const finishModule = async (module_id) => {
     // update module in user progress table
 
-    //    const { data, error } = await apiClient.completeModule(module_id);
-    // error handling here
-    console.log(
-      "module id:" + module_id,
-      "selected profile" + localStorage.getItem("selectedProfile")
-    );
     const { data, error } = await apiClient.completeModule(
       module_id,
       localStorage.getItem("selectedProfile")
