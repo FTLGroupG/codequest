@@ -39,7 +39,7 @@ export default function Modules() {
 
       setTimeout(() => {
         setShowContent(true);
-      }, 1000);
+      }, 100);
     }
   }, [location.search, setSelectedProfile]);
 
