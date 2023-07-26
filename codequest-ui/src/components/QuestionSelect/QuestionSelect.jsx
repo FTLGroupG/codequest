@@ -9,7 +9,7 @@ import AuthContext from "../../contexts/auth";
 import useSound from "use-sound";
 import correctSound from "../../assets/correct-6033.mp3";
 
-export default function QuestionSelect({user) {
+export default function QuestionSelect() {
   const navigate = useNavigate();
   const { questionContext } = useContext(QuestionContext);
   const [questions, setQuestions] = questionContext;
@@ -17,7 +17,6 @@ export default function QuestionSelect({user) {
   const [playCorrectSound] = useSound(correctSound);
   const { counterContext } = useContext(QuestionContext);
   const [counter, setCounter] = counterContext;
-  const navigate = useNavigate();
 
   const { profileContext, removeProfile, selectedProfile, setSelectedProfile } =
     useContext(ProfileContext);
@@ -28,7 +27,7 @@ export default function QuestionSelect({user) {
   const finishModule = async (module_id) => {
     // update module in user progress table
 
-//    const { data, error } = await apiClient.completeModule(module_id);
+    //    const { data, error } = await apiClient.completeModule(module_id);
     // error handling here
     console.log(
       "module id:" + module_id,
@@ -141,19 +140,14 @@ export default function QuestionSelect({user) {
               Back
             </button>
           ) : null}
-          {counter == questions.length - 1 ? (
-
+          {counter === questions.length - 1 ? (
             <button
               id="curriculum-finish-btn"
               className="curriculumCardButton hidden"
               onClick={
                 Object.keys(user).length !== 0
-                  ? () =>
-                      finishModule(
-                        questions[counter].module_id,
-                        (window.location.href = "/modules")
-                      )
-                  : (window.location.href = "/register")
+                  ? () => finishModule(questions[0].module_id)
+                  : () => (window.location.href = "/register")
               }
             >
               Finish

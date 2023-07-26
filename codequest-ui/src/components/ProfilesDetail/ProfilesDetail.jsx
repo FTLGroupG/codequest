@@ -88,7 +88,7 @@ export default function ProfilesDetail() {
       </div>
 
       {/* Add a button to remove the profile */}
-      <button onClick={handleRemoveProfile}>Remove Profile</button>
+      <button onClick={handleRemoveProfile}>Delete Profile</button>
     </div>
   );
 }

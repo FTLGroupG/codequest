@@ -36,7 +36,6 @@ export default function Login(props) {
     if (error) props.setErrors(error);
     if (data?.user) {
       setUser(data.user);
-      props.setUserProgress(data.userprogress);
       apiClient.setToken(data.token);
       navigate("/account-profiles");
     }

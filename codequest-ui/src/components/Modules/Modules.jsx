@@ -1,29 +1,34 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Modules.css";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Finished from "../Finished/Finished";
-import { useContext, useEffect } from "react";
 import Quiz from "../Quiz/Quiz";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import AuthContext from "../../contexts/auth";
 import ProfileContext from "../../contexts/profile";
 
-export default function Modules({ userProgress, leftOff, getProgress }) {
+export default function Modules() {
   const { userContext } = useContext(AuthContext);
   const [user, setUser] = userContext;
 
-  useEffect(() => {
-    // would need useEffect here when finish button is
-    // clicked and routed to module, fetch new userprogress
-    console.log("inside modules");
-    getProgress();
-  }, []);
-
-  // Use the context to access profiles state
-  const { setSelectedProfile, userProgress, setUserProgress } =
-    useContext(ProfileContext);
+  const {
+    selectedProfileId,
+    setSelectedProfile,
+    userProgress,
+    setUserProgress,
+    leftOff,
+    setLeftOff,
+  } = useContext(ProfileContext);
   const [showContent, setShowContent] = useState(false);
+
+  // Calculate the value for `leftOff` based on `userProgress`
+  useEffect(() => {
+    const leftOffValue = Object.values(userProgress)
+      .filter((key) => typeof key === "boolean")
+      .filter(Boolean).length;
+    setLeftOff(leftOffValue);
+  }, [userProgress]);
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
@@ -38,22 +43,28 @@ export default function Modules({ userProgress, leftOff, getProgress }) {
     }
   }, [location.search, setSelectedProfile]);
 
-  const leftOff = Object.values(userProgress)
-    .filter((key) => typeof key === "boolean")
-    .filter(Boolean).length;
   console.log("leftOff" + leftOff);
   console.log("userProgress: " + userProgress);
-  
+
+  // Store the leftOff value in localStorage
+  useEffect(() => {
+    if (leftOff) {
+      localStorage.setItem("leftOff", leftOff);
+    }
+    setLeftOff(localStorage.getItem("leftOff"));
+  }, [leftOff]);
+
   return (
     <div className="Modules">
+      {console.log("leftOff test: ", leftOff)}
       <div className="moduleCard">
-        {showContent
+        {showContent && leftOff
           ? user?.email &&
             (leftOff === 6 ? (
               <Navigate to={`/modules`} replace={true} />
             ) : (
               <Navigate
-                to={`/modules/${leftOff + 1}/curriculum`}
+                to={`/modules/${parseInt(leftOff) + 1}/curriculum`}
                 replace={true}
               />
             ))

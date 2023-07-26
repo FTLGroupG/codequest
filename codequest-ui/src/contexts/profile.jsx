@@ -12,6 +12,8 @@ export const ProfileContextProvider = ({ children }) => {
 
   const [selectedProfile, setSelectedProfile] = React.useState();
 
+  const [leftOff, setLeftOff] = React.useState(0);
+
   // useEffect hooks
   const [profiles, setProfiles] = React.useState({});
   const [initialized, setInitialized] = React.useState(false);
@@ -76,6 +78,8 @@ export const ProfileContextProvider = ({ children }) => {
         setSelectedProfile,
         userProgress,
         setUserProgress,
+        leftOff,
+        setLeftOff,
       }}
     >
       {children}

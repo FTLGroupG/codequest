@@ -5,7 +5,11 @@ export default function Loading(props) {
     <div className="loading-page">
       <div className="loading-content">
         <h2>{props.message || "Loading..."}</h2>
-        <img className="loading-gif" src="src/assets/loading-wheel.gif" width="100px"></img>
+        <img
+          className="loading-gif"
+          src="../src/assets/loading-wheel.gif"
+          width="100px"
+        ></img>
       </div>
     </div>
   );

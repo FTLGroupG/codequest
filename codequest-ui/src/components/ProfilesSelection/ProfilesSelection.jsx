@@ -1,7 +1,7 @@
 import React from "react";
 import "./ProfilesSelection.css";
 import { useContext, useEffect } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import ProfileContext from "../../contexts/profile";
 import profileNew from "../../assets/profileNew.svg";
 import ProfileCard from "../ProfileCard/ProfileCard";
@@ -9,6 +9,7 @@ import apiClient from "../../services/apiClient";
 import AuthContext from "../../contexts/auth";
 
 export default function ProfilesSelection(props) {
+  const navigate = useNavigate();
   const { userContext } = useContext(AuthContext);
   const [user, setUser] = userContext;
   // Use the context to access profiles state and removeProfile function
@@ -19,6 +20,8 @@ export default function ProfilesSelection(props) {
     setSelectedProfile,
     userProgress,
     setUserProgress,
+    leftOff,
+    setLeftOff,
   } = useContext(ProfileContext);
   const [profiles, setProfiles] = profileContext;
 
@@ -72,8 +75,21 @@ export default function ProfilesSelection(props) {
     }
 
     // Now navigate to the new route with the selected profile ID as a URL parameter
-    return <Navigate to={`/modules?selectedProfile=${profileId}`} />;
+    navigate(`/modules?selectedProfile=${profileId}`);
   };
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const selectedProfileId = searchParams.get("selectedProfile");
+    if (selectedProfileId) {
+      setSelectedProfile(parseInt(selectedProfileId, 10));
+      localStorage.setItem("selectedProfile", selectedProfileId);
+
+      setTimeout(() => {
+        setShowContent(true);
+      }, 1000);
+    }
+  }, [location.search, setSelectedProfile]);
 
   return (
     <div className="profile-overview">
@@ -81,6 +97,9 @@ export default function ProfilesSelection(props) {
         <div className="overview-content">
           <div className="profile-container">
             {!user.email && <Navigate to="/forbidden" replace={true} />}
+            <Link to="/profiles/create">
+              <button className="profile-create-btn">Create Profile</button>
+            </Link>
             {profiles?.length > 0 ? (
               profiles.map((profile) => (
                 <Link
@@ -94,7 +113,6 @@ export default function ProfilesSelection(props) {
             ) : (
               <></>
             )}
-
             {profiles?.length === 0 && (
               <img id="profile-icon" src={profileNew} alt="avatar icon" />
             )}

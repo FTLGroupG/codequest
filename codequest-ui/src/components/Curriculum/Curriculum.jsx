@@ -1,15 +1,25 @@
 import React from "react";
 import "./Curriculum.css";
-import { Link, useParams, Outlet } from "react-router-dom";
-import { useState, useContext } from "react";
+import { Link, useParams, Outlet, Navigate } from "react-router-dom";
+import { useState, useContext, useEffect } from "react";
 import Quiz from "../Quiz/Quiz";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthContext from "../../contexts/auth";
 import AccessForbidden from "../AccessForbidden/AccessForbidden";
+import ProfileContext from "../../contexts/profile";
 export default function Curriculum() {
   const { id } = useParams();
   const { userContext } = useContext(AuthContext);
   const [user, setUser] = userContext;
+
+  const {
+    selectedProfile,
+    setSelectedProfile,
+    userProgress,
+    setUserProgress,
+    leftOff,
+    setLeftOff,
+  } = useContext(ProfileContext);
   const buttons = (
     <div className="curriculumCardButtonCard">
       <button className="curriculumCardButton">Back</button>
@@ -18,8 +28,19 @@ export default function Curriculum() {
       </Link>
     </div>
   );
+
+  // Store the leftOff value in localStorage
+  useEffect(() => {
+    if (leftOff) {
+      localStorage.setItem("leftOff", leftOff);
+    }
+    setLeftOff(localStorage.getItem("leftOff"));
+  }, [leftOff]);
   return (
     <div className="Curriculum">
+      {user.email && !selectedProfile && (
+        <Navigate to="/account-profiles" replace={true} />
+      )}
       <div className="curriculumCard">
         {id == 1 ? (
           <>

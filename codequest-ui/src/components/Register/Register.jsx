@@ -52,7 +52,7 @@ export default function Register(props) {
 
   return (
     <div className="Register">
-      {user?.email && <Navigate to="/modules" replace={true} />}
+      {user?.email && <Navigate to="/account-profiles" replace={true} />}
       <div className="media"></div>
       <div className="card">
         <h2>Join CodeQuest!</h2>
