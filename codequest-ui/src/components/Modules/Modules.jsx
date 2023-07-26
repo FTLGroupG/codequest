@@ -43,9 +43,6 @@ export default function Modules() {
     }
   }, [location.search, setSelectedProfile]);
 
-  console.log("leftOff" + leftOff);
-  console.log("userProgress: " + userProgress);
-
   // Store the leftOff value in localStorage
   useEffect(() => {
     if (leftOff) {
@@ -56,7 +53,6 @@ export default function Modules() {
 
   return (
     <div className="Modules">
-      {console.log("leftOff test: ", leftOff)}
       <div className="moduleCard">
         {showContent && leftOff
           ? user?.email &&
@@ -115,33 +111,6 @@ export default function Modules() {
           </Link>
         </div>
       </div>
-
-      <div className="moduleCard">
-        <h1>Learn React</h1>
-        <div className="moduleCircles">
-          <span className="circle">
-            <h4>Data Types</h4>
-          </span>
-          <span className="circle">
-            <h4>Variables</h4>
-          </span>
-          <span className="circle">
-            <h4>Conditionals</h4>
-          </span>
-          <span className="circle">
-            <h4>Lists</h4>
-          </span>
-          <span className="circle">
-            <h4>Loops</h4>
-          </span>
-          <span className="circle">
-            <h4>Functions</h4>
-          </span>
-        </div>
-      </div>
-      {/* <Routes>
-        <Route path="curriculum/finished" element={<Finished />} />
-      </Routes> */}
     </div>
   );
 }

@@ -72,15 +72,13 @@ export default function QuestionDrag({ user }) {
   };
 
   const correctResult = () => {
-    // console.log("Correct!");
-    playCorrectSound()
+    playCorrectSound();
     document.getElementById("message").innerHTML = "Correct!";
     document.getElementById("blank").className = "correct-answer";
     counter < questions.length - 1 ? addNext() : addFinal();
   };
 
   const wrongResult = () => {
-    // console.log("You'll get it next time!");
     document.getElementById("message").innerHTML = "You'll get it next time!";
     document.getElementById("blank").className = "wrong-answer";
     counter < questions.length - 1 ? removeNext() : removeFinal();
@@ -88,7 +86,6 @@ export default function QuestionDrag({ user }) {
 
   const drag = (event) => {
     event.dataTransfer.setData("text", event.target.id);
-    // console.log("dragging");
   };
 
   const allowDrop = (event) => {

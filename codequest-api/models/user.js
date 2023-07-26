@@ -160,7 +160,6 @@ class User {
   }
 
   static async createUserProgress(user_profile_id) {
-    console.log(user_profile_id);
     const result = await db.query(
       `INSERT INTO userprogress(
             user_profile_id
