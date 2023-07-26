@@ -65,7 +65,10 @@
     width: 400px;
 }
 
-
+.redText {
+    color: #e46b6b;
+    font-family: 'Lilita One', cursive;
+}
 
 .pythonCard{
     background-color: #F15757;
