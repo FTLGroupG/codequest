@@ -17,7 +17,6 @@ export default function Home() {
         <img src='src/assets/waving-robot.gif' id="floating-robot" className='floating'></img>
         <h2 className='floating'>Learn with <span className="redText">QuestBot</span> our favorite coding teaching assistant!</h2>
         </div>
-      </div>
 
       {/* <div className='playGamesCard'>
 
