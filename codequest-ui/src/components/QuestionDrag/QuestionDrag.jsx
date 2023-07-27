@@ -6,12 +6,14 @@ import apiClient from "../../services/apiClient";
 import ProfileContext from "../../contexts/profile";
 import useSound from "use-sound";
 import correctSound from "../../assets/correct-6033.mp3";
+import incorrectSound from "../../assets/wrong-sound.wav";
 
 export default function QuestionDrag({ user }) {
   const { questionContext } = useContext(QuestionContext);
   const [questions, setQuestions] = questionContext;
 
   const [playCorrectSound] = useSound(correctSound);
+  const [playincorrectSound] = useSound(incorrectSound);
   const { counterContext } = useContext(QuestionContext);
   const [counter, setCounter] = counterContext;
 
@@ -79,6 +81,7 @@ export default function QuestionDrag({ user }) {
   };
 
   const wrongResult = () => {
+    playincorrectSound();
     document.getElementById("message").innerHTML = "You'll get it next time!";
     document.getElementById("blank").className = "wrong-answer";
     counter < questions.length - 1 ? removeNext() : removeFinal();
@@ -246,6 +249,7 @@ export default function QuestionDrag({ user }) {
                 </h2>
               </div>
             </div>
+            <h3>Click and drag your guess into the blank space!</h3>
           </div>
         </div>
       </div>

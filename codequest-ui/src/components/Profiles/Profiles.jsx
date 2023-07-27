@@ -3,7 +3,8 @@ import "./Profiles.css";
 import { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ProfileContext from "../../contexts/profile";
-import profileNew from "../../assets/profileNew.svg";
+// import profileNew from "../../assets/profileNew.svg"
+import robotProfile from "../../assets/robotProfile.png";
 import ProfileCard from "../ProfileCard/ProfileCard";
 import apiClient from "../../services/apiClient";
 
@@ -48,7 +49,7 @@ export default function Profiles(props) {
             )}
 
             {profiles?.length === 0 && (
-              <img id="profile-icon" src={profileNew} alt="avatar icon" />
+              <img id="profile-icon" src={robotProfile} alt="avatar icon" />
             )}
           </div>
         </div>

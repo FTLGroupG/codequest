@@ -8,6 +8,7 @@ import ProfileContext from "../../contexts/profile";
 import AuthContext from "../../contexts/auth";
 import useSound from "use-sound";
 import correctSound from "../../assets/correct-6033.mp3";
+import incorrectSound from "../../assets/wrong-sound.wav";
 
 export default function QuestionSelect() {
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ export default function QuestionSelect() {
   const [questions, setQuestions] = questionContext;
 
   const [playCorrectSound] = useSound(correctSound);
+  const [playincorrectSound] = useSound(incorrectSound);
   const { counterContext } = useContext(QuestionContext);
   const [counter, setCounter] = counterContext;
 
@@ -88,6 +90,7 @@ export default function QuestionSelect() {
       element.classList.add("correct-answer-2");
       counter < questions.length - 1 ? addNext() : addFinal();
     } else {
+      playincorrectSound();
       document.getElementById("message").innerHTML = "You'll get it next time!";
       element.classList.add("wrong-answer-2");
       counter < questions.length - 1 ? removeNext() : removeFinal();

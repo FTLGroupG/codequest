@@ -47,3 +47,7 @@
 .visible {
   display: block;
 }
+
+#message {
+  color: white;
+}

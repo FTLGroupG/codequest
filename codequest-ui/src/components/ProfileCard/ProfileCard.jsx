@@ -1,6 +1,6 @@
 import "./ProfileCard.css";
 import { capitalize } from "lodash";
-import avatar_icon from "../../assets/profile-icon.png";
+import avatar_icon from "../../assets/robotProfile.png";
 
 export default function ProfileCard(props) {
   return (
