@@ -24,11 +24,6 @@ export default function Navbar(props) {
           </Link>
         </div>
         <ul className="links">
-          {localStorage.getItem("selectedProfile") && (
-            <li>
-              <Link to="/modules">Modules</Link>
-            </li>
-          )}
           {!props?.user?.email ? (
             <>
               <li>
