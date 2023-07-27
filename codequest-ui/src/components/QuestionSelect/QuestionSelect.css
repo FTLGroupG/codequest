@@ -51,3 +51,21 @@
 #message {
   color: white;
 }
+
+.Quiz #content-2{
+  position: relative;
+}
+
+#content-2{
+  position: relative;
+}
+
+#testDiv {
+  position: relative;
+}
+
+#lottieQuestionSelectContainer {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+}

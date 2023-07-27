@@ -7,6 +7,28 @@ import ProfileContext from "../../contexts/profile";
 import useSound from "use-sound";
 import correctSound from "../../assets/correct-6033.mp3";
 import incorrectSound from "../../assets/wrong-sound.wav";
+import lottie from "lottie-web";
+import animationData from '/src/assets/correctAnimationNoLoop.json'
+
+const AnimationComponent = () => {
+  useEffect(() => {
+    // Lottie configuration
+    const animationContainer = document.getElementById('lottieQuestionDragContainer'); // Replace 'lottie-container' with your container's ID
+    const anim = lottie.loadAnimation({
+      container: animationContainer,
+      renderer: 'svg', // Choose the renderer (svg, canvas, html)
+      loop: false,
+      autoplay: true,
+      animationData: animationData,
+    });
+
+    return () => anim.destroy(); // Clean up on unmount
+  }, []);
+
+  return (
+    <div id="lottieQuestionDragContainer" className="floating" style={{ width: "200px" }}></div>
+  );
+};
 
 export default function QuestionDrag({ user }) {
   const { questionContext } = useContext(QuestionContext);
@@ -14,6 +36,7 @@ export default function QuestionDrag({ user }) {
 
   const [playCorrectSound] = useSound(correctSound);
   const [playincorrectSound] = useSound(incorrectSound);
+  const [isCorrect, setIsCorrect] = useState(false);
   const { counterContext } = useContext(QuestionContext);
   const [counter, setCounter] = counterContext;
 
@@ -75,6 +98,7 @@ export default function QuestionDrag({ user }) {
 
   const correctResult = () => {
     playCorrectSound();
+    setIsCorrect(true);
     document.getElementById("message").innerHTML = "Correct!";
     document.getElementById("blank").className = "correct-answer";
     counter < questions.length - 1 ? addNext() : addFinal();
@@ -82,7 +106,8 @@ export default function QuestionDrag({ user }) {
 
   const wrongResult = () => {
     playincorrectSound();
-    document.getElementById("message").innerHTML = "You'll get it next time!";
+    setIsCorrect(false);
+    document.getElementById("message").innerHTML = "Hmm, that's not quite right. Ty again!";
     document.getElementById("blank").className = "wrong-answer";
     counter < questions.length - 1 ? removeNext() : removeFinal();
   };
@@ -190,6 +215,7 @@ export default function QuestionDrag({ user }) {
 
         <div className="quizCard">
           <div className="quizContent">
+
             <div className="question">
               <h2>
                 {questions.length > 0 ? questions[counter].question : null}
@@ -249,6 +275,13 @@ export default function QuestionDrag({ user }) {
                 </h2>
               </div>
             </div>
+
+            {isCorrect && ( 
+              <div id="lottieAnimation">
+                <AnimationComponent />
+              </div>
+            )}
+
             <h3>Click and drag your guess into the blank space!</h3>
           </div>
         </div>

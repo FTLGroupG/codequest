@@ -66,3 +66,9 @@
 .visible {
   display: block;
 }
+
+#lottieQuestionDragContainer {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+}

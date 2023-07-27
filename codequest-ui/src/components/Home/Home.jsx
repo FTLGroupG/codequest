@@ -1,6 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
+import lottie from "lottie-web";
+import animationData from '/src/assets/heroAnimation.json'; // Replace with your animation file path
+
+const AnimationComponent = () => {
+  useEffect(() => {
+    // Lottie configuration
+    const animationContainer = document.getElementById('lottieHomeContainer');
+    const anim = lottie.loadAnimation({
+      container: animationContainer,
+      renderer: 'svg', // Choose the renderer (svg, canvas, html)
+      loop: true,
+      autoplay: true,
+      animationData: animationData,
+    });
+
+    return () => anim.destroy(); // Clean up on unmount
+  }, []);
+
+  return (
+    <div id="lottieHomeContainer" className="floating" style={{ width: "600px" }}></div>
+  );
+};
 
 export default function Home() {
   return (
@@ -11,7 +33,11 @@ export default function Home() {
             <Link to="/register"><button className="signUpHomeButton">Sign Up</button></Link>
           </div>
           
-          <img src="https://www.usnews.com/object/image/00000171-9ce7-d084-affd-9def28d10000/200421-boylaptop-stock.jpg?update-time=1587475425427&size=responsive640" alt="Child sitting at a desk working on a laptop"></img>
+          <div id="lottieAnimation">
+            <AnimationComponent />
+          </div>
+
+          {/* <img src="https://www.usnews.com/object/image/00000171-9ce7-d084-affd-9def28d10000/200421-boylaptop-stock.jpg?update-time=1587475425427&size=responsive640" alt="Child sitting at a desk working on a laptop"></img> */}
         </div>
         <div className="robot-signup">
         <img src='src/assets/waving-robot.gif' id="floating-robot" className='floating'></img>
