@@ -154,6 +154,13 @@ class ApiClient {
     }
   }
 
+  async fetchModule(module_id) {
+    return await this.request({
+      endpoint: `modules/${module_id}`,
+      method: `GET`,
+    });
+  }
+
   /**
    * Fetches the user details using the stored token.
    * @returns {Promise<object>} The response data or an error object.

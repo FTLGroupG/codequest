@@ -14,8 +14,10 @@ const questionRoutes = require("./routes/questions");
 
 const profileRoutes = require("./routes/profiles");
 
+const moduleRoutes = require("./routes/modules");
+
 // Enable CORS middleware to handle cross-origin requests
-app.use(cors());
+app.use(cors("http://localhost:5173"));
 
 // use Morgan middleware for request logging
 app.use(morgan("tiny"));
@@ -29,11 +31,14 @@ app.use(security.extractUserFromJwt);
 // set up routes for user authentication
 app.use("/auth", authRoutes);
 
-// set up routes for nutrition section
+// set up routes for questions
 app.use("/questions", questionRoutes);
 
 // set up routes for user profiles
 app.use("/profiles", profileRoutes);
+
+// set up routes for modules
+app.use("/modules", moduleRoutes);
 
 app.use((err, req, res, next) => {
   const status = err.status || 500;

@@ -9,10 +9,18 @@ import ProfileCard from "../ProfileCard/ProfileCard";
 import apiClient from "../../services/apiClient";
 import AuthContext from "../../contexts/auth";
 
+/**
+ * ProfilesSelection component displays the list of user profiles and allows selecting a profile.
+ * It fetches the user profiles from the backend API and displays them using ProfileCard component.
+ * It saves and loads the selected profile ID in localStorage to persist the user's last selected profile.
+ * The user can create a new profile using the "Add New CodeQuest Profile" button.
+ * Clicking on a profile card sets the selected profile and navigates to the "Modules" page.
+ */
 export default function ProfilesSelection(props) {
   const navigate = useNavigate();
   const { userContext } = useContext(AuthContext);
   const [user, setUser] = userContext;
+
   // Use the context to access profiles state and removeProfile function
   const {
     profileContext,
@@ -26,7 +34,10 @@ export default function ProfilesSelection(props) {
   } = useContext(ProfileContext);
   const [profiles, setProfiles] = profileContext;
 
-  // Load the selected item ID from localStorage on initial load
+  /**
+   * Load the selected item ID from localStorage on initial load.
+   * This effect runs only once during the component's initial render.
+   */
   useEffect(() => {
     const storedProfileId = localStorage.getItem("selectedProfile");
     if (storedProfileId) {
@@ -34,13 +45,20 @@ export default function ProfilesSelection(props) {
     }
   }, []);
 
-  // Save the selected item ID to localStorage whenever it changes
+  /**
+   * Save the selected item ID to localStorage whenever it changes.
+   * This effect runs whenever the `selectedProfile` changes.
+   */
   useEffect(() => {
     if (selectedProfile) {
       localStorage.setItem("selectedProfile", selectedProfile);
     }
   }, [selectedProfile]);
 
+  /**
+   * Fetch user profiles from the backend API when the component mounts.
+   * This effect runs only once during the component's initial render.
+   */
   useEffect(() => {
     // Fetch profiles when the component mounts
     const fetchProfiles = async () => {
@@ -58,6 +76,14 @@ export default function ProfilesSelection(props) {
     fetchProfiles();
   }, [setProfiles]);
 
+  /**
+   * Handle profile selection when a profile card is clicked.
+   * This function is triggered when a user clicks on a profile card.
+   * It fetches user progress data for the selected profile from the backend API.
+   * It sets the selected profile, user progress, and the leftOff value.
+   * It navigates to the "Modules" page with the selected profile ID as a URL parameter.
+   * @param {number} profileId - The ID of the selected profile.
+   */
   const handleProfileSelection = async (profileId) => {
     try {
       // Perform the API call here (replace fetchData with the appropriate function in apiClient)
@@ -69,6 +95,9 @@ export default function ProfilesSelection(props) {
       setSelectedProfile(profileId);
       setUserProgress(response.userprogress);
       localStorage.setItem("leftOff", 0);
+      console.log(userProgress);
+
+      console.log(profileId);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -76,19 +105,6 @@ export default function ProfilesSelection(props) {
     // Now navigate to the new route with the selected profile ID as a URL parameter
     navigate(`/modules?selectedProfile=${profileId}`);
   };
-
-  useEffect(() => {
-    const searchParams = new URLSearchParams(location.search);
-    const selectedProfileId = searchParams.get("selectedProfile");
-    if (selectedProfileId) {
-      setSelectedProfile(parseInt(selectedProfileId, 10));
-      localStorage.setItem("selectedProfile", selectedProfileId);
-
-      setTimeout(() => {
-        setShowContent(true);
-      }, 1000);
-    }
-  }, [location.search, setSelectedProfile]);
 
   return (
     <div className="profile-overview">
