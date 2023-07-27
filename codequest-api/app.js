@@ -17,6 +17,8 @@ const questionRoutes = require("./routes/questions");
 
 const profileRoutes = require("./routes/profiles");
 
+const moduleRoutes = require("./routes/modules");
+
 // Enable CORS middleware to handle cros-sorigin requests
 app.use(cors());
 
@@ -34,6 +36,9 @@ app.use("/questions", questionRoutes);
 
 // set up routes for user profiles
 app.use("/profiles", profileRoutes);
+
+// set up routes for modules
+app.use("/modules", moduleRoutes);
 
 //test GET request
 app.get("/", (req, res, next) => {

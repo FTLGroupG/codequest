@@ -27,6 +27,9 @@ export default function Navbar(props) {
           {!props?.user?.email ? (
             <>
               <li>
+                <Link to="/modules">Modules</Link>
+              </li>
+              <li>
                 <Link to="/login">Log In</Link>
               </li>
 

@@ -26,6 +26,7 @@ import ProfilesSelection from "../ProfilesSelection/ProfilesSelection";
 import { AuthProvider } from "../../contexts/auth";
 import NotFound from "../NotFound/NotFound";
 import Loading from "../Loading/Loading";
+import Results from "../Results/Results";
 import ProfileContext from "../../contexts/profile";
 
 // React Contexts
@@ -107,6 +108,10 @@ function App() {
               element={<Quiz user={user} />}
             />
             <Route path="/modules/:id/curriculum/question" element={<Quiz />} />
+            <Route
+              path="/modules/:id/curriculum/results"
+              element={<Results />}
+            ></Route>
           </Routes>
           <Footer />
         </Router>

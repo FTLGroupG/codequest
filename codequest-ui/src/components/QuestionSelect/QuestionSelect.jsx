@@ -3,7 +3,7 @@ import "./QuestionSelect.css";
 import QuestionContext from "../../contexts/question";
 import apiClient from "../../services/apiClient";
 import { useState, useContext, useEffect } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import ProfileContext from "../../contexts/profile";
 import AuthContext from "../../contexts/auth";
 import useSound from "use-sound";
@@ -34,6 +34,7 @@ export default function QuestionSelect() {
       console.log(data?.user);
       console.log("module has been completed");
     }
+    navigate(`/modules/${questions[0].module_id}/curriculum/results`);
   };
 
   const addFinal = () => {
