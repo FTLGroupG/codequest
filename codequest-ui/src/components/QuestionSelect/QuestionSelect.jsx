@@ -8,6 +8,29 @@ import ProfileContext from "../../contexts/profile";
 import AuthContext from "../../contexts/auth";
 import useSound from "use-sound";
 import correctSound from "../../assets/correct-6033.mp3";
+import incorrectSound from "../../assets/wrong-sound.wav";
+import lottie from "lottie-web";
+import animationData from '/src/assets/correctAnimationNoLoop.json';
+
+const AnimationComponent = () => {
+  useEffect(() => {
+    // Lottie configuration
+    const animationContainer = document.getElementById('lottieQuestionSelectContainer'); // Replace 'lottie-container' with your container's ID
+    const anim = lottie.loadAnimation({
+      container: animationContainer,
+      renderer: 'svg', // Choose the renderer (svg, canvas, html)
+      loop: false,
+      autoplay: true,
+      animationData: animationData,
+    });
+
+    return () => anim.destroy(); // Clean up on unmount
+  }, []);
+
+  return (
+    <div id="lottieQuestionSelectContainer" className="floating" style={{ width: "200px" }}></div>
+  );
+};
 
 export default function QuestionSelect() {
   const navigate = useNavigate();
@@ -15,6 +38,8 @@ export default function QuestionSelect() {
   const [questions, setQuestions] = questionContext;
 
   const [playCorrectSound] = useSound(correctSound);
+  const [playincorrectSound] = useSound(incorrectSound);
+  const [isCorrect, setIsCorrect] = useState(false);
   const { counterContext } = useContext(QuestionContext);
   const [counter, setCounter] = counterContext;
 
@@ -81,11 +106,14 @@ export default function QuestionSelect() {
 
     if (content === questions[counter].answer) {
       playCorrectSound();
+      setIsCorrect(true);
       document.getElementById("message").innerHTML = "Correct!";
       element.classList.add("correct-answer-2");
       counter < questions.length - 1 ? addNext() : addFinal();
     } else {
-      document.getElementById("message").innerHTML = "You'll get it next time!";
+      playincorrectSound();
+      setIsCorrect(false);
+      document.getElementById("message").innerHTML = "Hmm, that's not quite right. Ty again!";
       element.classList.add("wrong-answer-2");
       counter < questions.length - 1 ? removeNext() : removeFinal();
     }
@@ -95,6 +123,17 @@ export default function QuestionSelect() {
     <>
       <div id="content-2">
         {/* SECOND QUESTION TYPE */}
+
+
+<div id="testDiv">
+{isCorrect && ( 
+              <div id="lottieAnimation">
+                <AnimationComponent />
+              </div>
+            )}
+</div>
+
+
         <div className="second-question-type">
           <h2 id="message"></h2>
           <div className="question-2">

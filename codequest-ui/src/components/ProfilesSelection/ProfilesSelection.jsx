@@ -3,7 +3,8 @@ import "./ProfilesSelection.css";
 import { useContext, useEffect } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import ProfileContext from "../../contexts/profile";
-import profileNew from "../../assets/profileNew.svg";
+// import profileNew from "../../assets/profileNew.svg";
+import robotProfile from "../../assets/robotProfile.png";
 import ProfileCard from "../ProfileCard/ProfileCard";
 import apiClient from "../../services/apiClient";
 import AuthContext from "../../contexts/auth";
@@ -110,28 +111,29 @@ export default function ProfilesSelection(props) {
       <div className="overview-container">
         <div className="overview-content">
           <div className="profile-container">
+            <div className="createdProfiles">
+              {profiles?.length > 0 ? (
+                profiles.map((profile) => (
+                  <Link
+                    to={`/modules?selectedProfile=${profile.id}`}
+                    key={profile.id}
+                    onClick={() => handleProfileSelection(profile.id)}
+                  >
+                    <ProfileCard id={profile.id} firstName={profile.first_name} />
+                  </Link>
+                ))
+              ) : (
+                <></>
+              )}
+              {profiles?.length === 0 && (
+                <img id="profile-icon" src={robotProfile} alt="avatar icon" />
+              )}
+            </div>
             {!user.email && <Navigate to="/forbidden" replace={true} />}
             <Link to="/profiles/create">
-              <button className="profile-create-btn">
-                Add New CodeQuest Profile
-              </button>
+              <button className="profile-create-btn">+</button>
             </Link>
-            {profiles?.length > 0 ? (
-              profiles.map((profile) => (
-                <Link
-                  to={`/modules?selectedProfile=${profile.id}`}
-                  key={profile.id}
-                  onClick={() => handleProfileSelection(profile.id)}
-                >
-                  <ProfileCard id={profile.id} firstName={profile.first_name} />
-                </Link>
-              ))
-            ) : (
-              <></>
-            )}
-            {profiles?.length === 0 && (
-              <img id="profile-icon" src={profileNew} alt="avatar icon" />
-            )}
+            <h4>Add Profile</h4>
           </div>
         </div>
       </div>

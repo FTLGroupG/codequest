@@ -45,7 +45,7 @@
 }
 
 .first-question-type #message {
-  color: #F2AC2A;
+  color: #ffffff;
 }
 
 /* #content button {
@@ -65,4 +65,10 @@
 
 .visible {
   display: block;
+}
+
+#lottieQuestionDragContainer {
+  z-index: 1;
+  position: absolute;
+  top: 0;
 }
