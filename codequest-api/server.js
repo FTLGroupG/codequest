@@ -15,7 +15,7 @@ const questionRoutes = require("./routes/questions");
 const profileRoutes = require("./routes/profiles");
 
 // Enable CORS middleware to handle cross-origin requests
-app.use(cors());
+app.use(cors("http://localhost:5173"));
 
 // use Morgan middleware for request logging
 app.use(morgan("tiny"));
