@@ -4,19 +4,32 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
-    <div className='Home'>
-        <div className="Hero">
-          <div className="hero-text-and-btn">
-            <h1 className='fadeIn'>Learn how to code in a fun and interactive way!</h1>
-            <Link to="/register"><button className="signUpHomeButton">Sign Up</button></Link>
-          </div>
-          
-          <img src="https://www.usnews.com/object/image/00000171-9ce7-d084-affd-9def28d10000/200421-boylaptop-stock.jpg?update-time=1587475425427&size=responsive640" alt="Child sitting at a desk working on a laptop"></img>
+    <div className="Home">
+      <div className="Hero">
+        <div className="hero-text-and-btn">
+          <h1 className="fadeIn">
+            Learn how to code in a fun and interactive way!
+          </h1>
+          <Link to="/register">
+            <button className="signUpHomeButton">Sign Up</button>
+          </Link>
         </div>
-        <div className="robot-signup">
-        <img src='src/assets/waving-robot.gif' id="floating-robot" className='floating'></img>
-        <h2 className='floating'>Learn with <span className="redText">QuestBot</span> our favorite coding teaching assistant!</h2>
-        </div>
+
+        <img
+          src="https://www.usnews.com/object/image/00000171-9ce7-d084-affd-9def28d10000/200421-boylaptop-stock.jpg?update-time=1587475425427&size=responsive640"
+          alt="Child sitting at a desk working on a laptop"
+        ></img>
+      </div>
+      <div className="robot-signup">
+        <img
+          src="src/assets/waving-robot.gif"
+          id="floating-robot"
+          className="floating"
+        ></img>
+        <h2 className="floating">
+          Learn with <span className="redText">QuestBot</span> our favorite
+          coding teaching assistant!
+        </h2>
       </div>
 
       {/* <div className='playGamesCard'>

@@ -7,22 +7,37 @@ import Quiz from "../Quiz/Quiz";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import AuthContext from "../../contexts/auth";
 import ProfileContext from "../../contexts/profile";
+import apiClient from "../../services/apiClient";
 
+/**
+ * Modules component displays the learning modules for a selected profile.
+ * It fetches the userProgress data for the selected profile from the backend API.
+ * It calculates the `leftOff` value based on the completed modules in `userProgress`.
+ * The selectedProfileId is retrieved from the URL query parameter 'selectedProfile'.
+ * The leftOff value is stored in localStorage to persist the user progress.
+ */
 export default function Modules() {
+  // User context from AuthContext
   const { userContext } = useContext(AuthContext);
   const [user, setUser] = userContext;
 
+  // Profile context from ProfileContext
   const {
-    selectedProfileId,
+    selectedProfile,
     setSelectedProfile,
     userProgress,
     setUserProgress,
     leftOff,
     setLeftOff,
   } = useContext(ProfileContext);
+
+  // State to control when to show content
   const [showContent, setShowContent] = useState(false);
 
-  // Calculate the value for `leftOff` based on `userProgress`
+  /**
+   * Calculate the value for `leftOff` based on the completed modules in `userProgress`.
+   * This effect runs whenever the `userProgress` changes.
+   */
   useEffect(() => {
     const leftOffValue = Object.values(userProgress)
       .filter((key) => typeof key === "boolean")
@@ -30,20 +45,52 @@ export default function Modules() {
     setLeftOff(leftOffValue);
   }, [userProgress]);
 
+  /**
+   * Fetch the `selectedProfile` from the URL query parameter 'selectedProfile'.
+   * Update the `selectedProfile` state and store it in localStorage.
+   * This effect runs when the URL query parameter 'selectedProfile' or the `setSelectedProfile` function changes.
+   */
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
-    const selectedProfileId = searchParams.get("selectedProfile");
-    if (selectedProfileId) {
-      setSelectedProfile(parseInt(selectedProfileId, 10));
-      localStorage.setItem("selectedProfile", selectedProfileId);
+    const selectedProfile = searchParams.get("selectedProfile");
+    if (selectedProfile) {
+      setSelectedProfile(parseInt(selectedProfile, 10));
+      localStorage.setItem("selectedProfile", selectedProfile);
 
-      setTimeout(() => {
-        setShowContent(true);
-      }, 100);
+      // setTimeout(() => {
+      //   setShowContent(true);
+      // }, 100);
     }
   }, [location.search, setSelectedProfile]);
 
-  // Store the leftOff value in localStorage
+  /**
+   * Fetch data from the backend API for the selected profile.
+   * Update the `selectedProfile` and `userProgress` state based on the API response.
+   * This effect runs when the `localStorage.getItem("selectedProfile")` changes.
+   */
+  useEffect(() => {
+    const fetchDataAndSetSelectedProfile = async () => {
+      try {
+        const profileId = localStorage.getItem("selectedProfile");
+        const response = await apiClient.fetchData(profileId);
+        setSelectedProfile(profileId);
+        setUserProgress(response.userprogress);
+      } catch (error) {
+        // Handle any error that might occur during the API call
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    // Call the new function when 'localStorage.getItem("selectedProfile")'
+    if (localStorage.getItem("selectedProfile")) {
+      fetchDataAndSetSelectedProfile();
+    }
+  }, [localStorage.getItem("selectedProfile")]);
+
+  /**
+   * Store the `leftOff` value in localStorage to persist user progress.
+   * This effect runs whenever the `leftOff` changes.
+   */
   useEffect(() => {
     if (leftOff) {
       localStorage.setItem("leftOff", leftOff);

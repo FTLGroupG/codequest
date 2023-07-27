@@ -18,15 +18,11 @@ export default function QuestionSelect() {
   const { counterContext } = useContext(QuestionContext);
   const [counter, setCounter] = counterContext;
 
-  const { profileContext, removeProfile, selectedProfile, setSelectedProfile } =
-    useContext(ProfileContext);
-
   const { userContext } = useContext(AuthContext);
   const [user, setUser] = userContext;
 
   const finishModule = async (module_id) => {
     // update module in user progress table
-
     const { data, error } = await apiClient.completeModule(
       module_id,
       localStorage.getItem("selectedProfile")
