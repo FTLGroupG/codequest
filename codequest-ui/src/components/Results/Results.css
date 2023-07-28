@@ -1,0 +1,18 @@
+.results-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.results-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.results-buttons button{
+    background-color: #F2AC2A;
+    margin: 20px;
+}
