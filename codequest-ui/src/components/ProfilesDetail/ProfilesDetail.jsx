@@ -8,44 +8,26 @@ import NotFound from "../NotFound/NotFound";
 import "./ProfilesDetail.css";
 import ProfileContext from "../../contexts/profile";
 
-export default function ProfilesDetail() {
-  const [errorMessage, setErrorMessage] = useState();
-  const [profileItem, setProfileItem] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
-  const { profileId } = useParams();
+export default function ProfilesDetail({
+  profileItem,
+  errorMessage,
+  isLoading,
+}) {
   // Use the context to access profiles state and removeProfile function
   const { profileContext, removeProfile, selectedProfile, setSelectedProfile } =
     useContext(ProfileContext);
   const { profiles } = profileContext;
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchProfile = async () => {
-      setIsLoading(true);
-
-      const { data, error } = await apiClient.fetchProfileById(profileId);
-
-      if (data) {
-        setProfileItem(data);
-      } else {
-        setErrorMessage(error);
-      }
-
-      setIsLoading(false);
-    };
-
-    fetchProfile();
-  }, [profileId]);
-
   // Function to handle profile removal
   const handleRemoveProfile = async () => {
     try {
-      await apiClient.remove(profileId);
+      await apiClient.remove(profileItem.id);
       // Redirect to the profiles list after successful removal
       navigate("/profiles");
 
       // Update the profiles list in the context after successful deletion
-      removeProfile(profileId);
+      removeProfile(profileItem.id);
     } catch (error) {
       console.error("Error removing profile:", error);
       // Handle error if needed
@@ -62,11 +44,6 @@ export default function ProfilesDetail() {
 
   return (
     <div className="userProfile">
-      <div className="userProfileName">
-        <h3>{profileItem.first_name}</h3>
-        <img src="/src/assets/profile-icon.png"></img>
-      </div>
-
       <div className="coins">
         <img src="/src/assets/spinning-coin.gif"></img>
         <h3>550 Coins</h3>

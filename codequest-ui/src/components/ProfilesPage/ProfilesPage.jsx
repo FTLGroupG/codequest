@@ -22,7 +22,16 @@ export default function ProfilesPage(props) {
       <Routes>
         <Route path="/" element={<Profiles />} />
         <Route path="/create" element={<ProfilesNew />} />
-        <Route path="/id/:profileId" element={<ProfilesDetail />} />
+        <Route
+          path="/id/:profileId"
+          element={
+            <ProfilesDetail
+              profileItem={props.profileItem}
+              erroMessage={props.erroMessage}
+              isLoading={props.isLoading}
+            />
+          }
+        />
       </Routes>
     </div>
   );
