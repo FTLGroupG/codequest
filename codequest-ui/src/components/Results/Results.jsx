@@ -4,6 +4,28 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import "./Results.css";
 import AuthContext from "../../contexts/auth";
 import apiClient from "../../services/apiClient";
+import lottie from "lottie-web";
+import animationData from '/src/assets/trophyAnimation.json'; // Replace with your animation file path
+
+const AnimationComponent = () => {
+  useEffect(() => {
+    // Lottie configuration
+    const animationContainer = document.getElementById('lottieTrophyContainer');
+    const anim = lottie.loadAnimation({
+      container: animationContainer,
+      renderer: 'svg', // Choose the renderer (svg, canvas, html)
+      loop: false,
+      autoplay: true,
+      animationData: animationData,
+    });
+
+    return () => anim.destroy(); // Clean up on unmount
+  }, []);
+
+  return (
+    <div id="lottieTrophyContainer" className="floating" style={{ width: "500px" }}></div>
+  );
+};
 
 export default function Register() {
   const { userContext } = useContext(AuthContext);
@@ -32,10 +54,16 @@ export default function Register() {
       {!user?.email && <Navigate to="/" replace={true} />}
       <div className="results-container">
         <div className="results-content">
-          <h2>
-            Congratulations! You have completed the {module?.name} module!
-          </h2>
-          <h3>You succesfully have been able to {module?.description}</h3>
+
+        <div id="lottieAnimation">
+            <AnimationComponent />
+          </div>
+
+<h1>
+            Congratulations, {user?.first_name}! <br></br>You completed the {module?.name} module!
+</h1>
+
+          <h2>This achievement has been added to your profile.</h2>
           <p>Here are some resources to learn more: {module?.resources}</p>
           {/* Use 'module?.title' to display the title of the completed module */}
         </div>
