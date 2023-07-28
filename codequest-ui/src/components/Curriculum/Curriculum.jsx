@@ -22,7 +22,6 @@ export default function Curriculum() {
   } = useContext(ProfileContext);
   const buttons = (
     <div className="curriculumCardButtonCard">
-      <button className="curriculumCardButton">Back</button>
       <Link to={`/modules/${id}/curriculum/finished`}>
         <button className="curriculumCardButton">Next</button>
       </Link>
