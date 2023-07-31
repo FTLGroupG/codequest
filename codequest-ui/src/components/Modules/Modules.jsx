@@ -119,7 +119,7 @@ export default function Modules() {
                 </span>
               </Link>
             ) : (
-              <>
+              <React.Fragment key={number}>
                 {leftOff && (
                   <>
                     {number === parseInt(leftOff) + 1 ? (
@@ -148,24 +148,18 @@ export default function Modules() {
                   <>
                     {number === 1 ? (
                       <Link key={number} to={`/modules/${number}/curriculum`}>
-                        <span
-                          className={`module-${number} circle todo
-                          }`}
-                        >
+                        <span className={`module-${number} circle todo`}>
                           <h4>{value}</h4>
                         </span>
                       </Link>
                     ) : (
-                      <span
-                        className={`module-${number} circle
-                          }`}
-                      >
+                      <span key={number} className={`module-${number} circle`}>
                         <h4>{value}</h4>
                       </span>
                     )}
                   </>
                 )}
-              </>
+              </React.Fragment>
             );
           })}
         </div>
