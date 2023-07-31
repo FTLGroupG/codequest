@@ -18,14 +18,7 @@ export default function Curriculum() {
   const { userContext } = useContext(AuthContext);
   const [user, setUser] = userContext;
 
-  const {
-    selectedProfile,
-    setSelectedProfile,
-    userProgress,
-    setUserProgress,
-    leftOff,
-    setLeftOff,
-  } = useContext(ProfileContext);
+  const { selectedProfile, leftOff, setLeftOff } = useContext(ProfileContext);
   const buttons = (
     <div className="curriculumCardButtonCard">
       <Link to={`/modules/${id}/curriculum/finished`}>
