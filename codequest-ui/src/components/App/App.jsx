@@ -80,6 +80,15 @@ function App() {
   const [profileItem, setProfileItem] = useState({});
 
   useEffect(() => {
+    // Check if there is a selectedProfile in localStorage
+    const selectedProfile = localStorage.getItem("selectedProfile");
+
+    if (!selectedProfile) {
+      // If there's no selectedProfile, you may choose to return early or do something else
+      return;
+    }
+
+    // If selectedProfile exists, proceed with the fetch
     const fetchProfile = async () => {
       setIsLoading(true);
 
@@ -96,7 +105,6 @@ function App() {
 
     fetchProfile();
   }, [profileId]);
-
   return (
     <>
       <div className="App">

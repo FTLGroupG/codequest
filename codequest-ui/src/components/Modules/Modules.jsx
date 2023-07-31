@@ -31,9 +31,6 @@ export default function Modules() {
     setLeftOff,
   } = useContext(ProfileContext);
 
-  // State to control when to show content
-  const [showContent, setShowContent] = useState(false);
-
   /**
    * Calculate the value for `leftOff` based on the completed modules in `userProgress`.
    * This effect runs whenever the `userProgress` changes.
@@ -108,22 +105,9 @@ export default function Modules() {
   return (
     <div className="Modules">
       <div className="moduleCard">
-        {showContent && leftOff
-          ? user?.email &&
-            (leftOff === 6 ? (
-              <Navigate to={`/modules`} replace={true} />
-            ) : (
-              <Navigate
-                to={`/modules/${parseInt(leftOff) + 1}/curriculum`}
-                replace={true}
-              />
-            ))
-          : null}
         <h1>Learn Python</h1>
         <div className="moduleCircles">
-          {console.log("left off", leftOff)}
           {module_id_name.map(({ number, value }) => {
-            console.log(value);
             return number <= leftOff ? (
               <Link key={number} to={`/modules/${number}/curriculum`}>
                 <span
@@ -135,28 +119,47 @@ export default function Modules() {
                 </span>
               </Link>
             ) : (
-              <>
-                {number === parseInt(leftOff) + 1 ? (
-                  <Link key={number} to={`/modules/${number}/curriculum`}>
-                    <span
-                      className={`module-${number} circle ${
-                        number <= leftOff ? "completed" : "todo"
-                      }`}
-                    >
-                      <h4>{value}</h4>
-                    </span>
-                  </Link>
-                ) : (
-                  <span
-                    key={number}
-                    className={`module-${number} circle ${
-                      number <= leftOff ? "completed" : ""
-                    }`}
-                  >
-                    <h4>{value}</h4>
-                  </span>
-                )}{" "}
-              </>
+              <React.Fragment key={number}>
+                {leftOff && (
+                  <>
+                    {number === parseInt(leftOff) + 1 ? (
+                      <Link key={number} to={`/modules/${number}/curriculum`}>
+                        <span
+                          className={`module-${number} circle ${
+                            number <= leftOff ? "completed" : "todo"
+                          }`}
+                        >
+                          <h4>{value}</h4>
+                        </span>
+                      </Link>
+                    ) : (
+                      <span
+                        key={number}
+                        className={`module-${number} circle ${
+                          number <= leftOff ? "completed" : ""
+                        }`}
+                      >
+                        <h4>{value}</h4>
+                      </span>
+                    )}
+                  </>
+                )}
+                {!leftOff && (
+                  <>
+                    {number === 1 ? (
+                      <Link key={number} to={`/modules/${number}/curriculum`}>
+                        <span className={`module-${number} circle todo`}>
+                          <h4>{value}</h4>
+                        </span>
+                      </Link>
+                    ) : (
+                      <span key={number} className={`module-${number} circle`}>
+                        <h4>{value}</h4>
+                      </span>
+                    )}
+                  </>
+                )}
+              </React.Fragment>
             );
           })}
         </div>

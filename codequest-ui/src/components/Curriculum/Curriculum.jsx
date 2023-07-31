@@ -46,7 +46,7 @@ export default function Curriculum() {
   const buttons = (
     <div className="curriculumCardButtonCard">
       <Link to={`/modules/${id}/curriculum/finished`}>
-        <button className="curriculumCardButton">Next</button>
+        <button className="curriculumCardButton">Go to Quiz</button>
       </Link>
     </div>
   );

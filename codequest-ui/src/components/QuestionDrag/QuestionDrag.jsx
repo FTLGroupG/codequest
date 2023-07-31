@@ -8,15 +8,18 @@ import useSound from "use-sound";
 import correctSound from "../../assets/correct-6033.mp3";
 import incorrectSound from "../../assets/wrong-sound.wav";
 import lottie from "lottie-web";
-import animationData from '/src/assets/correctAnimationNoLoop.json'
+import animationData from "/src/assets/correctAnimationNoLoop.json";
+import { Link, useNavigate } from "react-router-dom";
 
 const AnimationComponent = () => {
   useEffect(() => {
     // Lottie configuration
-    const animationContainer = document.getElementById('lottieQuestionDragContainer'); // Replace 'lottie-container' with your container's ID
+    const animationContainer = document.getElementById(
+      "lottieQuestionDragContainer"
+    ); // Replace 'lottie-container' with your container's ID
     const anim = lottie.loadAnimation({
       container: animationContainer,
-      renderer: 'svg', // Choose the renderer (svg, canvas, html)
+      renderer: "svg", // Choose the renderer (svg, canvas, html)
       loop: false,
       autoplay: true,
       animationData: animationData,
@@ -26,11 +29,16 @@ const AnimationComponent = () => {
   }, []);
 
   return (
-    <div id="lottieQuestionDragContainer" className="floating" style={{ width: "200px" }}></div>
+    <div
+      id="lottieQuestionDragContainer"
+      className="floating"
+      style={{ width: "200px" }}
+    ></div>
   );
 };
 
 export default function QuestionDrag({ user }) {
+  const navigate = useNavigate();
   const { questionContext } = useContext(QuestionContext);
   const [questions, setQuestions] = questionContext;
 
@@ -52,10 +60,7 @@ export default function QuestionDrag({ user }) {
     if (error) {
       console.error("error in apiclient finish module", error);
     }
-    if (data?.user) {
-      console.log(data?.user);
-      console.log("module has been completed");
-    }
+    navigate(`/modules/${questions[0].module_id}/curriculum/results`);
   };
 
   const addFinal = () => {
@@ -107,7 +112,8 @@ export default function QuestionDrag({ user }) {
   const wrongResult = () => {
     playincorrectSound();
     setIsCorrect(false);
-    document.getElementById("message").innerHTML = "Hmm, that's not quite right. Ty again!";
+    document.getElementById("message").innerHTML =
+      "Hmm, that's not quite right. Ty again!";
     document.getElementById("blank").className = "wrong-answer";
     counter < questions.length - 1 ? removeNext() : removeFinal();
   };
@@ -215,11 +221,8 @@ export default function QuestionDrag({ user }) {
 
         <div className="quizCard">
           <div className="quizContent">
-
             <div className="question">
-              <h2>
-                {questions.length > 0 ? questions[counter].question : null}
-              </h2>
+              <h2>{questions.length > 0 && questions[counter].question}</h2>
             </div>
             <div className="first-question-type">
               <h2 id="message"></h2>
@@ -236,7 +239,7 @@ export default function QuestionDrag({ user }) {
               <br />
               <div id="options-list">
                 <h2>
-                  {questions.length > 0 ? (
+                  {questions.length > 0 && (
                     <>
                       <span
                         className="option"
@@ -271,12 +274,12 @@ export default function QuestionDrag({ user }) {
                         {questions[counter].incorrect_answers[2]}
                       </span>
                     </>
-                  ) : null}
+                  )}
                 </h2>
               </div>
             </div>
 
-            {isCorrect && ( 
+            {isCorrect && (
               <div id="lottieAnimation">
                 <AnimationComponent />
               </div>
@@ -288,7 +291,7 @@ export default function QuestionDrag({ user }) {
       </div>
 
       <div className="curriculumCardButtonCard">
-        {counter > 0 ? (
+        {counter > 0 && (
           <button
             id="curriculum-back-btn"
             className="curriculumCardButton"
@@ -296,26 +299,16 @@ export default function QuestionDrag({ user }) {
           >
             Back
           </button>
-        ) : null}
-        <button
-          id="curriculum-next-btn"
-          className="curriculumCardButton hidden"
-          onClick={incrementCounter}
-        >
-          Next
-        </button>
+        )}
+
         {counter == questions.length - 1 ? (
           <button
             id="curriculum-finish-btn"
             className="curriculumCardButton hidden"
             onClick={
               Object.keys(user).length !== 0
-                ? () =>
-                    finishModule(
-                      questions[counter].module_id,
-                      (window.location.href = "/modules")
-                    )
-                : (window.location.href = "/register")
+                ? () => finishModule(questions[0].module_id)
+                : () => navigate("/register")
             }
           >
             Finish
