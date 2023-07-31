@@ -28,6 +28,8 @@ export default function ProfilesDetail({
 
       // Update the profiles list in the context after successful deletion
       removeProfile(profileItem.id);
+      localStorage.removeItem("selectedProfile");
+      localStorage.removeItem("leftOff");
     } catch (error) {
       console.error("Error removing profile:", error);
       // Handle error if needed

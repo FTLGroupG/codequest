@@ -31,9 +31,6 @@ export default function Modules() {
     setLeftOff,
   } = useContext(ProfileContext);
 
-  // State to control when to show content
-  const [showContent, setShowContent] = useState(false);
-
   /**
    * Calculate the value for `leftOff` based on the completed modules in `userProgress`.
    * This effect runs whenever the `userProgress` changes.
@@ -108,17 +105,6 @@ export default function Modules() {
   return (
     <div className="Modules">
       <div className="moduleCard">
-        {/* {showContent && leftOff
-          ? user?.email &&
-            (leftOff === 6 ? (
-              <Navigate to={`/modules`} replace={true} />
-            ) : (
-              <Navigate
-                to={`/modules/${parseInt(leftOff) + 1}/curriculum`}
-                replace={true}
-              />
-            ))
-          : null} */}
         <h1>Learn Python</h1>
         <div className="moduleCircles">
           {module_id_name.map(({ number, value }) => {
