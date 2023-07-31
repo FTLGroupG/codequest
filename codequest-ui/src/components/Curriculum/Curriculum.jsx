@@ -7,6 +7,29 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthContext from "../../contexts/auth";
 import AccessForbidden from "../AccessForbidden/AccessForbidden";
 import ProfileContext from "../../contexts/profile";
+import lottie from "lottie-web";
+import animationData from '/src/assets/spyAnimation.json'; // Replace with your animation file path
+
+const AnimationComponent = () => {
+  useEffect(() => {
+    // Lottie configuration
+    const animationContainer = document.getElementById('lottieAnimationContainer');
+    const anim = lottie.loadAnimation({
+      container: animationContainer,
+      renderer: 'svg', // Choose the renderer (svg, canvas, html)
+      loop: true,
+      autoplay: true,
+      animationData: animationData,
+    });
+
+    return () => anim.destroy(); // Clean up on unmount
+  }, []);
+
+  return (
+    <div id="lottieAnimationContainer" className="floating" style={{ width: "500px" }}></div>
+  );
+};
+
 export default function Curriculum() {
   const { id } = useParams();
   const { userContext } = useContext(AuthContext);
@@ -162,26 +185,43 @@ export default function Curriculum() {
                     <h2>Learn Python</h2>
                     <h1>Conditionals</h1>
                     <div className="curriculumCardText">
-                      <h3>How do we perform functions based conditionally?</h3>
+                      <h2> Fun with Conditionals in Python </h2>
                       <br />
+                      <div className="curriculumFlex">
                       <p>
-                        "Hey, let's learn about a special power that Python has
-                        called 'conditional statements.' It's like having a
-                        super-smart robot friend who can make decisions! Imagine
-                        you have a robot friend named Robo-Bot, and you want to
-                        teach it to do certain things in different situations.
-                        For example, you can say, 'Robo-Bot, if it's daytime,
-                        say 'Good morning!' If it's nighttime, say 'Good night!'
-                        So, Robo-Bot looks outside, checks if it's daytime or
-                        nighttime, and then says the right thing. Conditional
-                        statements in Python work just like that! They help us
-                        tell the computer what to do based on different
-                        conditions. It's like having your very own robot friend
-                        who knows how to act in different situations. How cool
-                        is that?"
+                        Welcome, young coders, to an exciting adventure into the world of Python coding! Today, we'll learn about "Conditionals" - the secret to making decisions in code! Imagine being a super spy who needs to decode secret messages to save the day. Well, that's exactly what we're going to do!
+                      </p>
+                      
+                      <div id="lottieSpyAnimation">
+                          <AnimationComponent />
+                      </div>
+                    </div>
+                      <p>
+                      What are Conditionals? <br></br>
+Conditionals are like "if" questions for your computer. They help your code decide what to do based on certain conditions. Think of it as your code's superpower - making it smarter and more interactive! Let's see how it works with our secret code-breaking mission.
+                      </p>
+                      <h2>Detective task:  Guess the Secret Number</h2>
+                      <p>We've intercepted a coded message from the evil mastermind Dr. Enigma! Your mission is to help our detective PythonBot guess the secret number. Here's how it works:
+                      </p>
+                      <iframe src="https://trinket.io/embed/python/800b73ea65?start=result" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+                      <p>
+                        Let's Understand the Code: In the code, we set a secret number and ask the player (that's you!) to guess the number. The "if" statement checks if your guess is equal to the secret number. If it is, you cracked the code and get a congratulatory message! If not, you'll get a clue to try again. Keep guessing until you unlock the secret!
+                      </p>
+                      <p>
+                      Let's Make Choices with "if" and "else" <br></br>
+In our secret code-breaking mission, PythonBot used the "if" and "else" statements to make choices. When your guess is correct, the "if" block runs, and if your guess is wrong, the "else" block runs. It's like magic, right?
+                      </p>
+                      <p>
+                      Your Turn: Create Your Secret Code <br></br>
+Now it's your turn to be the mastermind! Use conditionals to create your secret code. You can make a guessing game like we did or make your own fun adventure with PythonBot!
+                      </p>
+                      <p>
+                      Unlock the Treasure Challenge: <br></br>
+Let's have some more fun! PythonBot has reached a treasure chest, but it's locked with a secret code. Help PythonBot crack the code using conditionals, and the treasure will be all yours!
                       </p>
                       {buttons}
                     </div>
+                    
                   </main>
                 )}
                 {id == 4 && (

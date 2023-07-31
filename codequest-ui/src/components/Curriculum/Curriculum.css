@@ -21,16 +21,28 @@
   font-weight: 600;
   margin: 30px;
   text-align: left;
-  max-width: 800px;
+  max-width: 70%;
 }
 
 .curriculumCard h1, h2 {
   color: white;
 }
 
+.curriculumCard h2 {
+  color: #7e6ab0;
+}
+
 .curriculumCard h1 {
   text-decoration: underline;
   margin-bottom: 20px;
+}
+
+.curriculumCard p {
+  font-family: 'Lilita One', cursive;
+  color: white;
+  font-size: 1.3em;
+  line-height: 50px;
+  margin-bottom: 50px;
 }
 
 .curriculumCardCode {
@@ -58,4 +70,14 @@
   background-color: #F2AC2A;
   color: rgb(0, 0, 0);
   font-size: 1rem;
+}
+
+/* Animations */
+
+.lottieAnimationContainer {
+  float: right;
+}
+
+.curriculumFlex {
+  display: flex;
 }
