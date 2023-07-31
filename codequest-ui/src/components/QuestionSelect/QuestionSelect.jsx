@@ -61,10 +61,7 @@ export default function QuestionSelect() {
     if (error) {
       console.error("error in apiclient finish module", error);
     }
-    if (data?.user) {
-      console.log(data?.user);
-      console.log("module has been completed");
-    }
+
     navigate(`/modules/${questions[0].module_id}/curriculum/results`);
   };
 
@@ -166,7 +163,7 @@ export default function QuestionSelect() {
           ) : null}
         </div>
         <div className="curriculumCardButtonCard">
-          {counter > 0 ? (
+          {counter > 0 && (
             <button
               id="curriculum-back-btn"
               className="curriculumCardButton"
@@ -174,7 +171,7 @@ export default function QuestionSelect() {
             >
               Back
             </button>
-          ) : null}
+          )}
           {counter === questions.length - 1 ? (
             <button
               id="curriculum-finish-btn"

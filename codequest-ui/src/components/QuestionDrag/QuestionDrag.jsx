@@ -60,10 +60,7 @@ export default function QuestionDrag({ user }) {
     if (error) {
       console.error("error in apiclient finish module", error);
     }
-    if (data?.user) {
-      console.log(data?.user);
-      console.log("module has been completed");
-    }
+    navigate(`/modules/${questions[0].module_id}/curriculum/results`);
   };
 
   const addFinal = () => {
@@ -225,9 +222,7 @@ export default function QuestionDrag({ user }) {
         <div className="quizCard">
           <div className="quizContent">
             <div className="question">
-              <h2>
-                {questions.length > 0 ? questions[counter].question : null}
-              </h2>
+              <h2>{questions.length > 0 && questions[counter].question}</h2>
             </div>
             <div className="first-question-type">
               <h2 id="message"></h2>
@@ -244,7 +239,7 @@ export default function QuestionDrag({ user }) {
               <br />
               <div id="options-list">
                 <h2>
-                  {questions.length > 0 ? (
+                  {questions.length > 0 && (
                     <>
                       <span
                         className="option"
@@ -279,7 +274,7 @@ export default function QuestionDrag({ user }) {
                         {questions[counter].incorrect_answers[2]}
                       </span>
                     </>
-                  ) : null}
+                  )}
                 </h2>
               </div>
             </div>
@@ -296,7 +291,7 @@ export default function QuestionDrag({ user }) {
       </div>
 
       <div className="curriculumCardButtonCard">
-        {counter > 0 ? (
+        {counter > 0 && (
           <button
             id="curriculum-back-btn"
             className="curriculumCardButton"
@@ -304,26 +299,16 @@ export default function QuestionDrag({ user }) {
           >
             Back
           </button>
-        ) : null}
-        <button
-          id="curriculum-next-btn"
-          className="curriculumCardButton hidden"
-          onClick={incrementCounter}
-        >
-          Next
-        </button>
+        )}
+
         {counter == questions.length - 1 ? (
           <button
             id="curriculum-finish-btn"
             className="curriculumCardButton hidden"
             onClick={
               Object.keys(user).length !== 0
-                ? () =>
-                    finishModule(
-                      questions[counter].module_id,
-                      navigate("/modules")
-                    )
-                : navigate("/register")
+                ? () => finishModule(questions[0].module_id)
+                : () => navigate("/register")
             }
           >
             Finish
