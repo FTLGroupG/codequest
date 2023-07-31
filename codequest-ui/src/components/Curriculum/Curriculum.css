@@ -81,3 +81,10 @@
 .curriculumFlex {
   display: flex;
 }
+
+.codeSnippet {
+  width: 100%;
+  min-width: 500px;
+  border: solid 5px rgb(200, 200, 200);
+  border-radius: 5px;
+}
