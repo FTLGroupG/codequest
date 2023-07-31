@@ -95,9 +95,6 @@ export default function ProfilesSelection(props) {
       setSelectedProfile(profileId);
       setUserProgress(response.userprogress);
       localStorage.setItem("leftOff", 0);
-      console.log(userProgress);
-
-      console.log(profileId);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -119,7 +116,10 @@ export default function ProfilesSelection(props) {
                     key={profile.id}
                     onClick={() => handleProfileSelection(profile.id)}
                   >
-                    <ProfileCard id={profile.id} firstName={profile.first_name} />
+                    <ProfileCard
+                      id={profile.id}
+                      firstName={profile.first_name}
+                    />
                   </Link>
                 ))
               ) : (

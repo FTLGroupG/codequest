@@ -108,7 +108,7 @@ export default function Modules() {
   return (
     <div className="Modules">
       <div className="moduleCard">
-        {showContent && leftOff
+        {/* {showContent && leftOff
           ? user?.email &&
             (leftOff === 6 ? (
               <Navigate to={`/modules`} replace={true} />
@@ -118,12 +118,10 @@ export default function Modules() {
                 replace={true}
               />
             ))
-          : null}
+          : null} */}
         <h1>Learn Python</h1>
         <div className="moduleCircles">
-          {console.log("left off", leftOff)}
           {module_id_name.map(({ number, value }) => {
-            console.log(value);
             return number <= leftOff ? (
               <Link key={number} to={`/modules/${number}/curriculum`}>
                 <span
@@ -136,26 +134,51 @@ export default function Modules() {
               </Link>
             ) : (
               <>
-                {number === parseInt(leftOff) + 1 ? (
-                  <Link key={number} to={`/modules/${number}/curriculum`}>
-                    <span
-                      className={`module-${number} circle ${
-                        number <= leftOff ? "completed" : "todo"
-                      }`}
-                    >
-                      <h4>{value}</h4>
-                    </span>
-                  </Link>
-                ) : (
-                  <span
-                    key={number}
-                    className={`module-${number} circle ${
-                      number <= leftOff ? "completed" : ""
-                    }`}
-                  >
-                    <h4>{value}</h4>
-                  </span>
-                )}{" "}
+                {leftOff && (
+                  <>
+                    {number === parseInt(leftOff) + 1 ? (
+                      <Link key={number} to={`/modules/${number}/curriculum`}>
+                        <span
+                          className={`module-${number} circle ${
+                            number <= leftOff ? "completed" : "todo"
+                          }`}
+                        >
+                          <h4>{value}</h4>
+                        </span>
+                      </Link>
+                    ) : (
+                      <span
+                        key={number}
+                        className={`module-${number} circle ${
+                          number <= leftOff ? "completed" : ""
+                        }`}
+                      >
+                        <h4>{value}</h4>
+                      </span>
+                    )}
+                  </>
+                )}
+                {!leftOff && (
+                  <>
+                    {number === 1 ? (
+                      <Link key={number} to={`/modules/${number}/curriculum`}>
+                        <span
+                          className={`module-${number} circle todo
+                          }`}
+                        >
+                          <h4>{value}</h4>
+                        </span>
+                      </Link>
+                    ) : (
+                      <span
+                        className={`module-${number} circle
+                          }`}
+                      >
+                        <h4>{value}</h4>
+                      </span>
+                    )}
+                  </>
+                )}
               </>
             );
           })}
