@@ -8,15 +8,18 @@ import useSound from "use-sound";
 import correctSound from "../../assets/correct-6033.mp3";
 import incorrectSound from "../../assets/wrong-sound.wav";
 import lottie from "lottie-web";
-import animationData from '/src/assets/correctAnimationNoLoop.json'
+import animationData from "/src/assets/correctAnimationNoLoop.json";
+import { Link, useNavigate } from "react-router-dom";
 
 const AnimationComponent = () => {
   useEffect(() => {
     // Lottie configuration
-    const animationContainer = document.getElementById('lottieQuestionDragContainer'); // Replace 'lottie-container' with your container's ID
+    const animationContainer = document.getElementById(
+      "lottieQuestionDragContainer"
+    ); // Replace 'lottie-container' with your container's ID
     const anim = lottie.loadAnimation({
       container: animationContainer,
-      renderer: 'svg', // Choose the renderer (svg, canvas, html)
+      renderer: "svg", // Choose the renderer (svg, canvas, html)
       loop: false,
       autoplay: true,
       animationData: animationData,
@@ -26,11 +29,16 @@ const AnimationComponent = () => {
   }, []);
 
   return (
-    <div id="lottieQuestionDragContainer" className="floating" style={{ width: "200px" }}></div>
+    <div
+      id="lottieQuestionDragContainer"
+      className="floating"
+      style={{ width: "200px" }}
+    ></div>
   );
 };
 
 export default function QuestionDrag({ user }) {
+  const navigate = useNavigate();
   const { questionContext } = useContext(QuestionContext);
   const [questions, setQuestions] = questionContext;
 
@@ -107,7 +115,8 @@ export default function QuestionDrag({ user }) {
   const wrongResult = () => {
     playincorrectSound();
     setIsCorrect(false);
-    document.getElementById("message").innerHTML = "Hmm, that's not quite right. Ty again!";
+    document.getElementById("message").innerHTML =
+      "Hmm, that's not quite right. Ty again!";
     document.getElementById("blank").className = "wrong-answer";
     counter < questions.length - 1 ? removeNext() : removeFinal();
   };
@@ -215,7 +224,6 @@ export default function QuestionDrag({ user }) {
 
         <div className="quizCard">
           <div className="quizContent">
-
             <div className="question">
               <h2>
                 {questions.length > 0 ? questions[counter].question : null}
@@ -276,7 +284,7 @@ export default function QuestionDrag({ user }) {
               </div>
             </div>
 
-            {isCorrect && ( 
+            {isCorrect && (
               <div id="lottieAnimation">
                 <AnimationComponent />
               </div>
@@ -313,9 +321,9 @@ export default function QuestionDrag({ user }) {
                 ? () =>
                     finishModule(
                       questions[counter].module_id,
-                      (window.location.href = "/modules")
+                      navigate("/modules")
                     )
-                : (window.location.href = "/register")
+                : navigate("/register")
             }
           >
             Finish

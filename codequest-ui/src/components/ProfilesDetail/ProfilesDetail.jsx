@@ -24,7 +24,7 @@ export default function ProfilesDetail({
     try {
       await apiClient.remove(profileItem.id);
       // Redirect to the profiles list after successful removal
-      navigate("/profiles");
+      navigate("/account-profiles");
 
       // Update the profiles list in the context after successful deletion
       removeProfile(profileItem.id);
