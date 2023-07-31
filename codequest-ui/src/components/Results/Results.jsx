@@ -5,15 +5,15 @@ import "./Results.css";
 import AuthContext from "../../contexts/auth";
 import apiClient from "../../services/apiClient";
 import lottie from "lottie-web";
-import animationData from '/src/assets/trophyAnimation.json'; // Replace with your animation file path
+import animationData from "/src/assets/trophyAnimation.json"; // Replace with your animation file path
 
 const AnimationComponent = () => {
   useEffect(() => {
     // Lottie configuration
-    const animationContainer = document.getElementById('lottieTrophyContainer');
+    const animationContainer = document.getElementById("lottieTrophyContainer");
     const anim = lottie.loadAnimation({
       container: animationContainer,
-      renderer: 'svg', // Choose the renderer (svg, canvas, html)
+      renderer: "svg", // Choose the renderer (svg, canvas, html)
       loop: false,
       autoplay: true,
       animationData: animationData,
@@ -23,11 +23,15 @@ const AnimationComponent = () => {
   }, []);
 
   return (
-    <div id="lottieTrophyContainer" className="floating" style={{ width: "500px" }}></div>
+    <div
+      id="lottieTrophyContainer"
+      className="floating"
+      style={{ width: "500px" }}
+    ></div>
   );
 };
 
-export default function Register() {
+export default function Results({ profileItem }) {
   const { userContext } = useContext(AuthContext);
   const [user, setUser] = userContext;
   const { id } = useParams(); // Uncomment this line to get the 'id' from the URL parameters
@@ -54,17 +58,31 @@ export default function Register() {
       {!user?.email && <Navigate to="/" replace={true} />}
       <div className="results-container">
         <div className="results-content">
-
-        <div id="lottieAnimation">
+          <div id="lottieAnimation">
             <AnimationComponent />
           </div>
 
-<h1>
-            Congratulations, {user?.first_name}! <br></br>You completed the {module?.name} module!
-</h1>
+          <h1>
+            Congratulations,{" "}
+            <span id="results-name">{profileItem.first_name}</span>! <br></br>
+            You completed the {module?.name} module!
+          </h1>
 
           <h2>This achievement has been added to your profile.</h2>
-          <p>Here are some resources to learn more: {module?.resources}</p>
+          <h2>
+            Here are some resources to learn more: <br />
+            <ul>
+              {module?.resources.map((resource) => {
+                return (
+                  <li>
+                    <a target="_blank" href={resource}>
+                      {resource}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </h2>
           {/* Use 'module?.title' to display the title of the completed module */}
         </div>
         <div className="results-buttons">
@@ -76,7 +94,6 @@ export default function Register() {
               <button>Next Lesson</button>
             </Link>
           )}
-          {console.log(id)}
         </div>
       </div>
     </div>

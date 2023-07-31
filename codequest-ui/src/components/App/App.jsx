@@ -74,11 +74,46 @@ function App() {
 
   window.addEventListener("scroll", reveal);
 
+  const [isLoading, setIsLoading] = useState();
+  const profileId = localStorage.getItem("selectedProfile");
+  const [errorMessage, setErrorMessage] = useState();
+  const [profileItem, setProfileItem] = useState({});
+
+  useEffect(() => {
+    // Check if there is a selectedProfile in localStorage
+    const selectedProfile = localStorage.getItem("selectedProfile");
+
+    if (!selectedProfile) {
+      // If there's no selectedProfile, you may choose to return early or do something else
+      return;
+    }
+
+    // If selectedProfile exists, proceed with the fetch
+    const fetchProfile = async () => {
+      setIsLoading(true);
+
+      const { data, error } = await apiClient.fetchProfileById(profileId);
+
+      if (data) {
+        setProfileItem(data);
+      } else {
+        setErrorMessage(error);
+      }
+
+      setIsLoading(false);
+    };
+
+    fetchProfile();
+  }, [profileId]);
   return (
     <>
       <div className="App">
         <Router>
-          <Navbar handleOnLogout={handleOnLogout} user={user} />
+          <Navbar
+            handleOnLogout={handleOnLogout}
+            user={user}
+            profileItem={profileItem}
+          />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route
@@ -90,7 +125,17 @@ function App() {
               element={<Register errors={errors} setErrors={setErrors} />}
             />
             <Route path="/account-profiles" element={<ProfilesSelection />} />
-            <Route path="/profiles/*" element={<ProfilesPage user={user} />} />
+            <Route
+              path="/profiles/*"
+              element={
+                <ProfilesPage
+                  user={user}
+                  profileItem={profileItem}
+                  errorMessage={errorMessage}
+                  isLoading={isLoading}
+                />
+              }
+            />
             <Route path="/profile/create" element={<ProfilesNew />} />
             <Route path="/forbidden" element={<AccessForbidden />} />
             <Route path="/modules/*" element={<Modules />} />
@@ -110,7 +155,7 @@ function App() {
             <Route path="/modules/:id/curriculum/question" element={<Quiz />} />
             <Route
               path="/modules/:id/curriculum/results"
-              element={<Results />}
+              element={<Results profileItem={profileItem} />}
             ></Route>
           </Routes>
           <Footer />

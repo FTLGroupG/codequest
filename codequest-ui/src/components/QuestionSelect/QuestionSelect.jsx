@@ -10,15 +10,17 @@ import useSound from "use-sound";
 import correctSound from "../../assets/correct-6033.mp3";
 import incorrectSound from "../../assets/wrong-sound.wav";
 import lottie from "lottie-web";
-import animationData from '/src/assets/correctAnimationNoLoop.json';
+import animationData from "/src/assets/correctAnimationNoLoop.json";
 
 const AnimationComponent = () => {
   useEffect(() => {
     // Lottie configuration
-    const animationContainer = document.getElementById('lottieQuestionSelectContainer'); // Replace 'lottie-container' with your container's ID
+    const animationContainer = document.getElementById(
+      "lottieQuestionSelectContainer"
+    ); // Replace 'lottie-container' with your container's ID
     const anim = lottie.loadAnimation({
       container: animationContainer,
-      renderer: 'svg', // Choose the renderer (svg, canvas, html)
+      renderer: "svg", // Choose the renderer (svg, canvas, html)
       loop: false,
       autoplay: true,
       animationData: animationData,
@@ -28,7 +30,11 @@ const AnimationComponent = () => {
   }, []);
 
   return (
-    <div id="lottieQuestionSelectContainer" className="floating" style={{ width: "200px" }}></div>
+    <div
+      id="lottieQuestionSelectContainer"
+      className="floating"
+      style={{ width: "200px" }}
+    ></div>
   );
 };
 
@@ -55,10 +61,7 @@ export default function QuestionSelect() {
     if (error) {
       console.error("error in apiclient finish module", error);
     }
-    if (data?.user) {
-      console.log(data?.user);
-      console.log("module has been completed");
-    }
+
     navigate(`/modules/${questions[0].module_id}/curriculum/results`);
   };
 
@@ -113,7 +116,8 @@ export default function QuestionSelect() {
     } else {
       playincorrectSound();
       setIsCorrect(false);
-      document.getElementById("message").innerHTML = "Hmm, that's not quite right. Ty again!";
+      document.getElementById("message").innerHTML =
+        "Hmm, that's not quite right. Ty again!";
       element.classList.add("wrong-answer-2");
       counter < questions.length - 1 ? removeNext() : removeFinal();
     }
@@ -124,15 +128,13 @@ export default function QuestionSelect() {
       <div id="content-2">
         {/* SECOND QUESTION TYPE */}
 
-
-<div id="testDiv">
-{isCorrect && ( 
-              <div id="lottieAnimation">
-                <AnimationComponent />
-              </div>
-            )}
-</div>
-
+        <div id="testDiv">
+          {isCorrect && (
+            <div id="lottieAnimation">
+              <AnimationComponent />
+            </div>
+          )}
+        </div>
 
         <div className="second-question-type">
           <h2 id="message"></h2>
@@ -161,7 +163,7 @@ export default function QuestionSelect() {
           ) : null}
         </div>
         <div className="curriculumCardButtonCard">
-          {counter > 0 ? (
+          {counter > 0 && (
             <button
               id="curriculum-back-btn"
               className="curriculumCardButton"
@@ -169,7 +171,7 @@ export default function QuestionSelect() {
             >
               Back
             </button>
-          ) : null}
+          )}
           {counter === questions.length - 1 ? (
             <button
               id="curriculum-finish-btn"
@@ -177,7 +179,7 @@ export default function QuestionSelect() {
               onClick={
                 Object.keys(user).length !== 0
                   ? () => finishModule(questions[0].module_id)
-                  : () => (window.location.href = "/register")
+                  : () => navigate("/register")
               }
             >
               Finish

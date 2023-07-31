@@ -91,6 +91,10 @@
   background-color: #fce864;
 }
 
+.todo {
+  background-color: #f2f1ea;
+}
+
 .completed:hover {
   height: 150px;
   width: 150px;

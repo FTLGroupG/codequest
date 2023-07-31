@@ -2,6 +2,7 @@ import React from "react";
 import "./Navbar.css";
 import apiClient from "../../services/apiClient";
 import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export default function Navbar(props) {
   const navigate = useNavigate();
@@ -55,6 +56,17 @@ export default function Navbar(props) {
               >
                 Log Out
               </button>
+              {localStorage.getItem("selectedProfile") && (
+                <li className="nav-userProfileName">
+                  <Link
+                    className="nav-userProfileName-content"
+                    to={`/profiles/id/${props.profileItem.id}`}
+                  >
+                    <img src="/src/assets/robotProfile.png" />
+                    <h2>{props.profileItem.first_name}</h2>
+                  </Link>
+                </li>
+              )}
             </>
           )}
         </ul>

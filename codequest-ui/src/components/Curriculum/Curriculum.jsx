@@ -13,7 +13,6 @@ import animation2 from "/src/assets/treasureAnimation.json"
 import animation3 from "/src/assets/bookAnimation.json"
 import animation4 from "/src/assets/diamondAnimation.json"
 
-
 export default function Curriculum() {
   const { id } = useParams();
   const { userContext } = useContext(AuthContext);
@@ -29,9 +28,8 @@ export default function Curriculum() {
   } = useContext(ProfileContext);
   const buttons = (
     <div className="curriculumCardButtonCard">
-      <button className="curriculumCardButton">Back</button>
       <Link to={`/modules/${id}/curriculum/finished`}>
-        <button className="curriculumCardButton">Next</button>
+        <button className="curriculumCardButton">Go to Quiz</button>
       </Link>
     </div>
   );
@@ -172,6 +170,34 @@ export default function Curriculum() {
                     <div className="curriculumCardText">
                       <h3>Fun with Conditionals in Python</h3>
                       <br />
+                      <div className="curriculumFlex">
+                      <p>
+                        Welcome, young coders, to an exciting adventure into the world of Python coding! Today, we'll learn about "Conditionals" - the secret to making decisions in code! Imagine being a super spy who needs to decode secret messages to save the day. Well, that's exactly what we're going to do!
+                      </p>
+                      
+                      <div id="lottieSpyAnimation">
+                          <AnimationComponent />
+                      </div>
+                    </div>
+                      <p>
+                      What are Conditionals? <br></br>
+Conditionals are like "if" questions for your computer. They help your code decide what to do based on certain conditions. Think of it as your code's superpower - making it smarter and more interactive! Let's see how it works with our secret code-breaking mission.
+                      </p>
+                      <h2>Detective task:  Guess the Secret Number</h2>
+                      <p>We've intercepted a coded message from the evil mastermind Dr. Enigma! Your mission is to help our detective PythonBot guess the secret number. Here's how it works:
+                      </p>
+                      <iframe src="https://trinket.io/embed/python/800b73ea65?start=result" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+                      <p>
+                        Let's Understand the Code: In the code, we set a secret number and ask the player (that's you!) to guess the number. The "if" statement checks if your guess is equal to the secret number. If it is, you cracked the code and get a congratulatory message! If not, you'll get a clue to try again. Keep guessing until you unlock the secret!
+                      </p>
+                      <p>
+                      Let's Make Choices with "if" and "else" <br></br>
+In our secret code-breaking mission, PythonBot used the "if" and "else" statements to make choices. When your guess is correct, the "if" block runs, and if your guess is wrong, the "else" block runs. It's like magic, right?
+                      </p>
+                      <p>
+                      Your Turn: Create Your Secret Code <br></br>
+Now it's your turn to be the mastermind! Use conditionals to create your secret code. You can make a guessing game like we did or make your own fun adventure with PythonBot!
+                      </p>
                       <p>
                       What are Conditionals? <br></br>
 Conditionals are like "if" questions for your computer. They help your code decide what to do based on certain conditions. Think of it as your code's superpower - making it smarter and more interactive! Let's see how it works with our secret code-breaking mission.
@@ -187,6 +213,8 @@ We've intercepted a coded message from the evil mastermind Dr. Enigma! Your miss
                       <p>
                       Let's Understand the Code: <br></br>
 In the code, we set a secret number and ask the player (that's you!) to guess the number. The "if" statement checks if your guess is equal to the secret number. If it is, you cracked the code and get a congratulatory message! If not, you'll get a clue to try again. Keep guessing until you unlock the secret!
+                      Unlock the Treasure Challenge: <br></br>
+Let's have some more fun! PythonBot has reached a treasure chest, but it's locked with a secret code. Help PythonBot crack the code using conditionals, and the treasure will be all yours!
                       </p>
                       <p>
                       Let's Make Choices with "if" and "else" <br></br>
@@ -204,6 +232,7 @@ Let's have some more fun! PythonBot has reached a treasure chest, but it's locke
                       <iframe src="https://trinket.io/embed/python/795f03c073" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
                       {buttons}
                     </div>
+                    
                   </main>
                 )}
                 {id == 4 && (
