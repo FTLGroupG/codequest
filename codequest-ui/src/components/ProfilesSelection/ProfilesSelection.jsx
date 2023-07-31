@@ -49,11 +49,11 @@ export default function ProfilesSelection(props) {
    * Save the selected item ID to localStorage whenever it changes.
    * This effect runs whenever the `selectedProfile` changes.
    */
-  useEffect(() => {
-    if (selectedProfile) {
-      localStorage.setItem("selectedProfile", selectedProfile);
-    }
-  }, [selectedProfile]);
+  // useEffect(() => {
+  //   if (selectedProfile) {
+  //     localStorage.setItem("selectedProfile", selectedProfile);
+  //   }
+  // }, [selectedProfile]);
 
   /**
    * Fetch user profiles from the backend API when the component mounts.
@@ -109,7 +109,7 @@ export default function ProfilesSelection(props) {
         <div className="overview-content">
           <div className="profile-container">
             <div className="createdProfiles">
-              {profiles?.length > 0 ? (
+              {profiles?.length > 0 &&
                 profiles.map((profile) => (
                   <Link
                     to={`/modules?selectedProfile=${profile.id}`}
@@ -121,13 +121,7 @@ export default function ProfilesSelection(props) {
                       firstName={profile.first_name}
                     />
                   </Link>
-                ))
-              ) : (
-                <></>
-              )}
-              {profiles?.length === 0 && (
-                <img id="profile-icon" src={robotProfile} alt="avatar icon" />
-              )}
+                ))}
             </div>
             {!user.email && <Navigate to="/forbidden" replace={true} />}
             <Link to="/profiles/create">

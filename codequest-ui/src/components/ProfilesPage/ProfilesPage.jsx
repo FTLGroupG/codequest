@@ -6,7 +6,6 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import Profiles from "../Profiles/Profiles";
 import ProfilesNew from "../ProfilesNew/ProfilesNew";
 import ProfilesDetail from "../ProfilesDetail/ProfilesDetail";
 
@@ -20,7 +19,6 @@ export default function ProfilesPage(props) {
       </div>
       {!props.user.email && <Navigate to="/forbidden" replace={true} />}
       <Routes>
-        <Route path="/" element={<Profiles />} />
         <Route path="/create" element={<ProfilesNew />} />
         <Route
           path="/id/:profileId"
