@@ -47,6 +47,18 @@ export default function QuestionDrag({ user }) {
   const [isCorrect, setIsCorrect] = useState(false);
   const { counterContext } = useContext(QuestionContext);
   const [counter, setCounter] = counterContext;
+  const [optionsList, setOptionsList] = useState([]);
+
+  useEffect(() => {
+    const shuffle = (array) => {
+      for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    };
+    setOptionsList(shuffle(questions[counter].options));
+  }, [counter]);
 
   const { profileContext, removeProfile, selectedProfile, setSelectedProfile } =
     useContext(ProfileContext);
@@ -179,33 +191,20 @@ export default function QuestionDrag({ user }) {
               <br />
               <div id="options-list">
                 <h2>
-                  {questions.length > 0 && (
-                    <>
-                      <span
-                        className="option"
-                        id={questions[counter].answer}
-                        onDragStart={drag}
-                        draggable="true"
-                      >
-                        {questions[counter].answer}
-                      </span>
-
-                      {questions[counter].incorrect_answers.map(
-                        (wrong_answer) => {
-                          return (
-                            <span
-                              className="option"
-                              id={wrong_answer}
-                              onDragStart={drag}
-                              draggable="true"
-                            >
-                              {wrong_answer}
-                            </span>
-                          );
-                        }
-                      )}
-                    </>
-                  )}
+                  {questions.length > 0 &&
+                    optionsList.map((option) => {
+                      return (
+                        <span
+                          key={option}
+                          className="option"
+                          id={option}
+                          onDragStart={drag}
+                          draggable="true"
+                        >
+                          {option}
+                        </span>
+                      );
+                    })}
                 </h2>
               </div>
             </div>

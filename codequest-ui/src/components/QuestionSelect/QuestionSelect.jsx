@@ -51,6 +51,18 @@ export default function QuestionSelect() {
 
   const { userContext } = useContext(AuthContext);
   const [user, setUser] = userContext;
+  const [optionsList, setOptionsList] = useState([]);
+
+  useEffect(() => {
+    const shuffle = (array) => {
+      for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    };
+    setOptionsList(shuffle(questions[counter].options));
+  }, [counter]);
 
   const finishModule = async (module_id) => {
     // update module in user progress table
@@ -105,7 +117,7 @@ export default function QuestionSelect() {
 
   const handleResult = (event) => {
     var element = event.target; // Get the clicked element
-    var content = element.innerHTML; // Get the content of the element
+    var content = element.innerText; // Get the content of the element
 
     if (content === questions[counter].answer) {
       playCorrectSound();
@@ -145,17 +157,13 @@ export default function QuestionSelect() {
           {questions.length > 0 && (
             <>
               <img src={questions[counter].image_url} alt="" />
-              <button onClick={(event) => handleResult(event)}>
-                {questions[counter].answer}
-              </button>
-              <br />
 
-              {questions[counter].incorrect_answers.map((wrong_answer) => {
+              {optionsList.map((option) => {
                 return (
-                  <React.Fragment key={wrong_answer}>
+                  <React.Fragment key={option}>
                     <button onClick={(event) => handleResult(event)}>
                       {" "}
-                      {wrong_answer}
+                      {option}
                     </button>
                     <br />
                   </React.Fragment>
