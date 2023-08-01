@@ -8,13 +8,13 @@ import AuthContext from "../../contexts/auth";
 import AccessForbidden from "../AccessForbidden/AccessForbidden";
 import ProfileContext from "../../contexts/profile";
 import LottieAnimation from "../AnimationComponent/AnimationComponent";
-import animation1 from "/src/assets/spyAnimation.json"
-import animation2 from "/src/assets/treasureAnimation.json"
-import animation3 from "/src/assets/bookAnimation.json"
-import animation4 from "/src/assets/diamondAnimation.json"
-import animation5 from "/src/assets/boxAnimation.json"
-import animation6 from "/src/assets/loopAnimation.json"
-import animation7 from "/src/assets/chefAnimation.json"
+import animation1 from "/src/assets/spyAnimation.json";
+import animation2 from "/src/assets/treasureAnimation.json";
+import animation3 from "/src/assets/bookAnimation.json";
+import animation4 from "/src/assets/diamondAnimation.json";
+import animation5 from "/src/assets/boxAnimation.json";
+import animation6 from "/src/assets/loopAnimation.json";
+import animation7 from "/src/assets/chefAnimation.json";
 
 export default function Curriculum() {
   const { id } = useParams();
@@ -48,7 +48,7 @@ export default function Curriculum() {
             <h2>Learn Python</h2>
             <h1>Data Types</h1>
             <div className="curriculumCardAnimation">
-            <LottieAnimation animationData={animation5} />
+              <LottieAnimation animationData={animation5} />
             </div>
             <div className="curriculumCardText">
               <h3>Lesson 1: Fun with Data Types in Python</h3>
@@ -59,10 +59,6 @@ export default function Curriculum() {
                   Python! Today, we will embark on an exciting journey to
                   explore the enchanted land of Data Types!
                 </p>
-
-                <div id="lottieSpyAnimation">
-                  <AnimationComponent />
-                </div>
               </div>
               <p>
                 Imagine you have a treasure chest, and it can hold all sorts of
@@ -210,10 +206,6 @@ export default function Curriculum() {
                           exploring the enchanting concept of Variables in
                           Python!
                         </p>
-
-                        <div id="lottieSpyAnimation">
-                          <AnimationComponent />
-                        </div>
                       </div>
                       <p>
                         Imagine Variables as magical containers that can hold
@@ -376,18 +368,23 @@ export default function Curriculum() {
                     <h2>Learn Python</h2>
                     <h1>Conditionals</h1>
                     <div className="curriculumCardAnimation">
-                            <LottieAnimation animationData={animation1}/>
-                        </div>
+                      <LottieAnimation animationData={animation1} />
+                    </div>
                     <div className="curriculumCardText">
                       <h3>Fun with Conditionals in Python</h3>
                       <br />
 
                       <p>
-                        Welcome, young coders, to an exciting adventure into the world of Python coding! Today, we'll learn about "Conditionals" - the secret to making decisions in code! Imagine being a super spy who needs to decode secret messages to save the day. Well, that's exactly what we're going to do!
+                        Welcome, young coders, to an exciting adventure into the
+                        world of Python coding! Today, we'll learn about
+                        "Conditionals" - the secret to making decisions in code!
+                        Imagine being a super spy who needs to decode secret
+                        messages to save the day. Well, that's exactly what
+                        we're going to do!
                       </p>
                       <div className="curriculumCardAnimation">
                         <div id="lottieSpyAnimation">
-                            <LottieAnimation />
+                          <LottieAnimation />
                         </div>
                       </div>
                       <p>
@@ -399,8 +396,12 @@ export default function Curriculum() {
                         works with our secret code-breaking mission.
                       </p>
 
-                      <h2>Detective task:  Guess the Secret Number</h2>
-                      <p>We've intercepted a coded message from the evil mastermind Dr. Enigma! Your mission is to help our detective PythonBot guess the secret number. Here's how it works:
+                      <h2>Detective task: Guess the Secret Number</h2>
+                      <p>
+                        We've intercepted a coded message from the evil
+                        mastermind Dr. Enigma! Your mission is to help our
+                        detective PythonBot guess the secret number. Here's how
+                        it works:
                       </p>
                       <iframe
                         src="https://trinket.io/embed/python/800b73ea65?start=result"
@@ -431,11 +432,14 @@ export default function Curriculum() {
                         with PythonBot!
                       </p>
                       <p>
-
-                      What are Conditionals? <br></br>
-Conditionals are like "if" questions for your computer. They help your code decide what to do based on certain conditions. Think of it as your code's superpower - making it smarter and more interactive! Let's see how it works with our secret code-breaking mission.
+                        What are Conditionals? <br></br>
+                        Conditionals are like "if" questions for your computer.
+                        They help your code decide what to do based on certain
+                        conditions. Think of it as your code's superpower -
+                        making it smarter and more interactive! Let's see how it
+                        works with our secret code-breaking mission.
                       </p>
-                      
+
                       <p>
                         Detective Task: Guess the Secret Number <br></br>
                         We've intercepted a coded message from the evil
@@ -478,14 +482,24 @@ Conditionals are like "if" questions for your computer. They help your code deci
                         with PythonBot!
                       </p>
                       <div className="curriculumCardAnimation">
-                            <LottieAnimation animationData={animation2}/>
-                        </div>
+                        <LottieAnimation animationData={animation2} />
+                      </div>
                       <p>
-                      Unlock the Treasure Challenge: <br></br>
-Let's have some more fun! PythonBot has reached a treasure chest, but it's locked with a secret code. Help PythonBot crack the code using conditionals, and the treasure will be all yours!
-
+                        Unlock the Treasure Challenge: <br></br>
+                        Let's have some more fun! PythonBot has reached a
+                        treasure chest, but it's locked with a secret code. Help
+                        PythonBot crack the code using conditionals, and the
+                        treasure will be all yours!
                       </p>
-                      <iframe src="https://trinket.io/embed/python/795f03c073" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+                      <iframe
+                        src="https://trinket.io/embed/python/795f03c073"
+                        width="100%"
+                        height="356"
+                        frameborder="0"
+                        marginwidth="0"
+                        marginheight="0"
+                        allowfullscreen
+                      ></iframe>
                       {buttons}
                     </div>
                   </main>
@@ -495,7 +509,7 @@ Let's have some more fun! PythonBot has reached a treasure chest, but it's locke
                     <h2>Learn Python</h2>
                     <h1>Lists</h1>
                     <div className="curriculumCardAnimation">
-                        <LottieAnimation animationData={animation3} />
+                      <LottieAnimation animationData={animation3} />
                     </div>
                     <div className="curriculumCardText">
                       <h3>Fun with Lists in Python</h3>
@@ -566,8 +580,8 @@ Let's have some more fun! PythonBot has reached a treasure chest, but it's locke
                     <h2>Learn Python</h2>
                     <h1>Loops</h1>
                     <div className="curriculumCardAnimation">
-                        <LottieAnimation animationData={animation6} />
-                      </div>
+                      <LottieAnimation animationData={animation6} />
+                    </div>
                     <div className="curriculumCardText">
                       <p>Round and Round we go!</p>
                       <p>
@@ -638,8 +652,8 @@ Let's have some more fun! PythonBot has reached a treasure chest, but it's locke
                     <h2>Learn Python</h2>
                     <h1>Functions</h1>
                     <div className="curriculumCardAnimation">
-            <LottieAnimation animationData={animation7} />
-            </div>
+                      <LottieAnimation animationData={animation7} />
+                    </div>
                     <div className="curriculumCardText">
                       <p>What are Functions?</p>
                       <p>
