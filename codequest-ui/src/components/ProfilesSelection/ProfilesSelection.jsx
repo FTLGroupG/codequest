@@ -46,16 +46,6 @@ export default function ProfilesSelection(props) {
   }, []);
 
   /**
-   * Save the selected item ID to localStorage whenever it changes.
-   * This effect runs whenever the `selectedProfile` changes.
-   */
-  // useEffect(() => {
-  //   if (selectedProfile) {
-  //     localStorage.setItem("selectedProfile", selectedProfile);
-  //   }
-  // }, [selectedProfile]);
-
-  /**
    * Fetch user profiles from the backend API when the component mounts.
    * This effect runs only once during the component's initial render.
    */

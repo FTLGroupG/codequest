@@ -113,7 +113,7 @@ export default function QuestionDrag({ user }) {
     playincorrectSound();
     setIsCorrect(false);
     document.getElementById("message").innerHTML =
-      "Hmm, that's not quite right. Ty again!";
+      "Hmm, that's not quite right. Try again!";
     document.getElementById("blank").className = "wrong-answer";
     counter < questions.length - 1 ? removeNext() : removeFinal();
   };

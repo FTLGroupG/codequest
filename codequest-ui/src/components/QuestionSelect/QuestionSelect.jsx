@@ -117,7 +117,7 @@ export default function QuestionSelect() {
       playincorrectSound();
       setIsCorrect(false);
       document.getElementById("message").innerHTML =
-        "Hmm, that's not quite right. Ty again!";
+        "Hmm, that's not quite right. Try again!";
       element.classList.add("wrong-answer-2");
       counter < questions.length - 1 ? removeNext() : removeFinal();
     }
