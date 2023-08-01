@@ -71,8 +71,9 @@ export default function ProfilesDetail({
         </div>
       </div>
 
-      {/* Add a button to remove the profile */}
-      <button onClick={handleRemoveProfile}>Delete Profile</button>
+        <div className="deleteButton">
+          <button onClick={handleRemoveProfile}>Delete Profile</button>
+        </div>
     </div>
   );
 }
