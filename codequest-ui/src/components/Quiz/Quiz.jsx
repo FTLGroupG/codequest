@@ -85,6 +85,7 @@ export default function Quiz({ user }) {
       ) : (
         <QuestionDrag user={user} />
       )}
+
     </div>
   );
 }

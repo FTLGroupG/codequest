@@ -47,3 +47,9 @@ h1, h2, h3 {
     margin: 50px;
 }
 
+.deleteButton {
+  margin: auto;
+  margin-bottom: 30px;
+  width: 200px;
+  padding: 10px;
+}

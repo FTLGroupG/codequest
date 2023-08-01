@@ -7,6 +7,8 @@ import Loading from "../Loading/Loading";
 import NotFound from "../NotFound/NotFound";
 import "./ProfilesDetail.css";
 import ProfileContext from "../../contexts/profile";
+import LottieAnimation from "../AnimationComponent/AnimationComponent";
+import animation8 from "/src/assets/coinAnimation.json"
 
 export default function ProfilesDetail({
   user,
@@ -51,7 +53,11 @@ export default function ProfilesDetail({
         <Navigate to="/account-profiles" replace={true} />
       )}
       <div className="coins">
-        <img src="/src/assets/spinning-coin.gif"></img>
+        <div className="curriculumCardAnimation">
+          <div className="coinAnimation">
+            <LottieAnimation animationData={animation8}/>
+          </div>
+        </div>
         <h3>550 Coins</h3>
       </div>
 
@@ -69,8 +75,9 @@ export default function ProfilesDetail({
         </div>
       </div>
 
-      {/* Add a button to remove the profile */}
-      <button onClick={handleRemoveProfile}>Delete Profile</button>
+        <div className="deleteButton">
+          <button onClick={handleRemoveProfile}>Delete Profile</button>
+        </div>
     </div>
   );
 }

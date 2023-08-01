@@ -7,12 +7,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthContext from "../../contexts/auth";
 import AccessForbidden from "../AccessForbidden/AccessForbidden";
 import ProfileContext from "../../contexts/profile";
-import LottieAnimation from "../AnimationComponent/AnimationComponent"; // Import the LottieAnimation component
-import animation1 from "/src/assets/spyAnimation.json";
-import animation2 from "/src/assets/treasureAnimation.json";
-import animation3 from "/src/assets/bookAnimation.json";
-import animation4 from "/src/assets/diamondAnimation.json";
-import AnimationComponent from "../AnimationComponent/AnimationComponent";
+import LottieAnimation from "../AnimationComponent/AnimationComponent";
+import animation1 from "/src/assets/spyAnimation.json"
+import animation2 from "/src/assets/treasureAnimation.json"
+import animation3 from "/src/assets/bookAnimation.json"
+import animation4 from "/src/assets/diamondAnimation.json"
+import animation5 from "/src/assets/boxAnimation.json"
+import animation6 from "/src/assets/loopAnimation.json"
+import animation7 from "/src/assets/chefAnimation.json"
 
 export default function Curriculum() {
   const { id } = useParams();
@@ -45,6 +47,9 @@ export default function Curriculum() {
           <main>
             <h2>Learn Python</h2>
             <h1>Data Types</h1>
+            <div className="curriculumCardAnimation">
+            <LottieAnimation animationData={animation5} />
+            </div>
             <div className="curriculumCardText">
               <h3>Lesson 1: Fun with Data Types in Python</h3>
               <br />
@@ -370,21 +375,19 @@ export default function Curriculum() {
                   <main>
                     <h2>Learn Python</h2>
                     <h1>Conditionals</h1>
+                    <div className="curriculumCardAnimation">
+                            <LottieAnimation animationData={animation1}/>
+                        </div>
                     <div className="curriculumCardText">
                       <h3>Fun with Conditionals in Python</h3>
                       <br />
-                      <div className="curriculumFlex">
-                        <p>
-                          Welcome, young coders, to an exciting adventure into
-                          the world of Python coding! Today, we'll learn about
-                          "Conditionals" - the secret to making decisions in
-                          code! Imagine being a super spy who needs to decode
-                          secret messages to save the day. Well, that's exactly
-                          what we're going to do!
-                        </p>
 
+                      <p>
+                        Welcome, young coders, to an exciting adventure into the world of Python coding! Today, we'll learn about "Conditionals" - the secret to making decisions in code! Imagine being a super spy who needs to decode secret messages to save the day. Well, that's exactly what we're going to do!
+                      </p>
+                      <div className="curriculumCardAnimation">
                         <div id="lottieSpyAnimation">
-                          <AnimationComponent />
+                            <LottieAnimation />
                         </div>
                       </div>
                       <p>
@@ -395,12 +398,9 @@ export default function Curriculum() {
                         making it smarter and more interactive! Let's see how it
                         works with our secret code-breaking mission.
                       </p>
-                      <h2>Detective task: Guess the Secret Number</h2>
-                      <p>
-                        We've intercepted a coded message from the evil
-                        mastermind Dr. Enigma! Your mission is to help our
-                        detective PythonBot guess the secret number. Here's how
-                        it works:
+
+                      <h2>Detective task:  Guess the Secret Number</h2>
+                      <p>We've intercepted a coded message from the evil mastermind Dr. Enigma! Your mission is to help our detective PythonBot guess the secret number. Here's how it works:
                       </p>
                       <iframe
                         src="https://trinket.io/embed/python/800b73ea65?start=result"
@@ -431,14 +431,11 @@ export default function Curriculum() {
                         with PythonBot!
                       </p>
                       <p>
-                        What are Conditionals? <br></br>
-                        Conditionals are like "if" questions for your computer.
-                        They help your code decide what to do based on certain
-                        conditions. Think of it as your code's superpower -
-                        making it smarter and more interactive! Let's see how it
-                        works with our secret code-breaking mission.
+
+                      What are Conditionals? <br></br>
+Conditionals are like "if" questions for your computer. They help your code decide what to do based on certain conditions. Think of it as your code's superpower - making it smarter and more interactive! Let's see how it works with our secret code-breaking mission.
                       </p>
-                      <LottieAnimation animationData={animation1} />
+                      
                       <p>
                         Detective Task: Guess the Secret Number <br></br>
                         We've intercepted a coded message from the evil
@@ -480,20 +477,15 @@ export default function Curriculum() {
                         guessing game like we did or make your own fun adventure
                         with PythonBot!
                       </p>
+                      <div className="curriculumCardAnimation">
+                            <LottieAnimation animationData={animation2}/>
+                        </div>
                       <p>
-                        Unlock the Treasure Challenge: <br></br>
-                        Let's have some more fun! PythonBot has reached a
-                        treasure chest, but it's locked with a secret code. Help
-                        PythonBot crack the code using conditionals, and the
-                        treasure will be all yours!
+                      Unlock the Treasure Challenge: <br></br>
+Let's have some more fun! PythonBot has reached a treasure chest, but it's locked with a secret code. Help PythonBot crack the code using conditionals, and the treasure will be all yours!
+
                       </p>
-                      <LottieAnimation animationData={animation2} />
-                      <iframe
-                        src="https://trinket.io/embed/python/795f03c073"
-                        width="100%"
-                        height="356"
-                        allowFullScreen
-                      ></iframe>
+                      <iframe src="https://trinket.io/embed/python/795f03c073" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
                       {buttons}
                     </div>
                   </main>
@@ -502,6 +494,9 @@ export default function Curriculum() {
                   <main>
                     <h2>Learn Python</h2>
                     <h1>Lists</h1>
+                    <div className="curriculumCardAnimation">
+                        <LottieAnimation animationData={animation3} />
+                    </div>
                     <div className="curriculumCardText">
                       <h3>Fun with Lists in Python</h3>
                       <br />
@@ -514,7 +509,6 @@ export default function Curriculum() {
                         lists can store multiple items, such as numbers, words,
                         or even other lists!
                       </p>
-                      <LottieAnimation animationData={animation3} />
                       <p>
                         Creating a List: <br></br>
                         Let's see how PythonBot creates a list of gems found
@@ -532,7 +526,9 @@ export default function Curriculum() {
                         On the quest, PythonBot discovers a new gem, the
                         "Topaz." Let's add it to the list:
                       </p>
-                      <LottieAnimation animationData={animation4} />
+                      <div className="curriculumCardAnimation">
+                        <LottieAnimation animationData={animation4} />
+                      </div>
                       <p>
                         Counting the Gems: <br></br>
                         PythonBot wants to know how many gems have been found.
@@ -569,25 +565,69 @@ export default function Curriculum() {
                   <main>
                     <h2>Learn Python</h2>
                     <h1>Loops</h1>
+                    <div className="curriculumCardAnimation">
+                        <LottieAnimation animationData={animation6} />
+                      </div>
                     <div className="curriculumCardText">
-                      <h3>Round and Round we go!</h3>
-                      <br />
+                      <p>Round and Round we go!</p>
                       <p>
-                        "Hi there, young programmers! Let's talk about loops in
-                        Python. Have you ever had to do a task repeatedly? Well,
-                        loops help us with that! In Python, loops are like a set
-                        of instructions that we can repeat over and over again
-                        without writing them multiple times. There are two types
-                        of loops we'll learn: 'while' and 'for' loops. 'While'
-                        loops keep going until a condition is no longer true.
-                        It's like saying, 'Keep doing this until something
-                        changes!' For example, you can keep counting as long as
-                        the number is less than 10. 'For' loops, on the other
-                        hand, have a fixed number of times to repeat. They're
-                        like saying, 'Do this a certain number of times!' For
-                        instance, you can repeat an action five times. Loops are
-                        super helpful because they make our programs more
-                        efficient and save us time. Happy coding with loops!"
+                        Hello, young coders! Today, we are going to learn about
+                        an exciting concept called "Loops" in Python. Imagine
+                        you have a magical wand that can do the same action over
+                        and over again! That's what loops do in Python – they
+                        repeat a set of instructions as many times as you want!{" "}
+                        <br />
+                        <br />
+                        🌟 Magical Repeating Spells 🌟 <br />
+                        Think of loops as magical spells that can create wonders
+                        in your code. One popular type of loop is called a "for
+                        loop." Imagine you have a basket full of colorful
+                        candies. Let's use a for loop to pick one candy at a
+                        time and see its color. We'll start from the first candy
+                        and go until the last one in the basket.
+                        <br /> <br />
+                        Here's how the spell looks in Python:
+                      </p>
+                      <iframe
+                        src="https://trinket.io/embed/python/132da6e74f"
+                        width="100%"
+                        height="356"
+                        frameborder="0"
+                        marginwidth="0"
+                        marginheight="0"
+                        allowfullscreen
+                      ></iframe>
+                      <br /> <br />
+                      <br /> <br />
+                      <p>
+                        🌟Looping through a Rainbow! 🌟
+                        <br />
+                        Now, let's go on a magical journey through a rainbow
+                        using another type of loop called the "while loop."
+                        Imagine you're walking along the rainbow's colorful
+                        arches, and you'll keep walking until you reach the end
+                        of the rainbow! Here's the enchanting spell in Python:
+                      </p>
+                      <iframe
+                        src="https://trinket.io/embed/python/44e8d5e69f"
+                        width="100%"
+                        height="356"
+                        frameborder="0"
+                        marginwidth="0"
+                        marginheight="0"
+                        allowfullscreen
+                      ></iframe>
+                      <p>
+                        With this spell, you can dance along the colors of the
+                        rainbow forever!
+                        <br />
+                        <br />
+                        🌟 Challenge Yourself 🌟
+                        <br />
+                        Now, it's time for a magical challenge! Can you use a
+                        loop to count from 1 to 10 and say "Abracadabra" after
+                        each number? Give it a try and see the magic unfold in
+                        your code!
                       </p>
                       {buttons}
                     </div>
@@ -597,24 +637,85 @@ export default function Curriculum() {
                   <main>
                     <h2>Learn Python</h2>
                     <h1>Functions</h1>
+                    <div className="curriculumCardAnimation">
+            <LottieAnimation animationData={animation7} />
+            </div>
                     <div className="curriculumCardText">
-                      <h3>What are Functions?</h3>
+                      <p>What are Functions?</p>
+                      <p>
+                        Hey there! Today, we're going to embark on an exciting
+                        adventure into the world of Python functions. Think of
+                        functions as magic spells that make your code do
+                        incredible things!
+                        <br />
+                        <br />
+                        🌟 What is a Function? 🌟
+                        <br />
+                        Imagine you have a robot friend, and you want it to
+                        perform specific tasks for you. You would teach your
+                        robot how to do those tasks step by step, right? In
+                        Python, a function is like your friendly robot! It's a
+                        set of instructions that you give a name, so you can
+                        call on it whenever you need to perform that task.
+                        <br />
+                        <br />
+                        🌟How to Create a Function? 🌟
+                        <br />
+                        Creating a function is like making a new recipe for a
+                        delicious cake! First, you give it a name (like
+                        "bake_cake"), and then you list the instructions inside
+                        it. Remember, the computer will follow your instructions
+                        exactly as you write them! Once you've created your
+                        function, it's time to put it to work! Just like a chef
+                        follows a recipe, you can call your function to execute
+                        the instructions inside it. To call the "say_hello"
+                        function, simply use the function name followed by
+                        parentheses.
+                        <br />
+                        <br />
+                        Here's an example of a simple function to say "Hello!":
+                      </p>
+                      <iframe
+                        src="https://trinket.io/embed/python/d2d41fac28"
+                        width="100%"
+                        height="356"
+                        frameborder="0"
+                        marginwidth="0"
+                        marginheight="0"
+                        allowfullscreen
+                      ></iframe>
+                      <br />
+                      <br />
                       <br />
                       <p>
-                        "Imagine you're a chef in a big kitchen, preparing a
-                        delicious meal. Each dish requires a series of steps,
-                        like chopping vegetables, stirring sauces, and baking in
-                        the oven. In Python, functions are like your recipe
-                        instructions! You can create a function called
-                        'chopVegetables' that specifies how to chop them,
-                        another function called 'stirSauce' that explains how to
-                        mix ingredients, and so on. Functions help you organize
-                        your cooking process, making it easier to follow and
-                        reuse specific steps. Just like a chef relies on recipes
-                        to create amazing dishes, programmers use functions to
-                        create incredible programs. So put on your chef's hat
-                        and start cooking up some fantastic code with functions
-                        in Python!"
+                        🌟Functions with Parameters🌟
+                        <br />
+                        Sometimes, you need to tell your robot friend more
+                        details to get the job done. That's where parameters
+                        come in handy! Parameters are like giving your function
+                        extra instructions to work with.
+                        <br />
+                        <br />
+                        Let's create a function that says hello to someone
+                        specific and let's call the function and tell it who to
+                        greet:
+                      </p>
+                      <iframe
+                        src="https://trinket.io/embed/python/1cbf5b66e6"
+                        width="100%"
+                        height="356"
+                        frameborder="0"
+                        marginwidth="0"
+                        marginheight="0"
+                        allowfullscreen
+                      ></iframe>
+                      <p>
+                        You're doing fantastic! You've just unleashed the power
+                        of functions in Python. They make your code organized,
+                        reusable, and super fun to work with. 🌟 Keep practicing
+                        and exploring the magical world of Python functions. The
+                        more you learn, the more you'll be able to create
+                        exciting and creative programs!
                       </p>
                       {buttons}
                     </div>

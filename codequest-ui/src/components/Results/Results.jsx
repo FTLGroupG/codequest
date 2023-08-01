@@ -73,13 +73,13 @@ export default function Results({ profileItem }) {
           </h1>
 
           <h2>This achievement has been added to your profile.</h2>
-          <h2>
+          <h2 className="floating">
             Here are some resources to learn more: <br />
-            <ul key={key++}>
+            <ul id="resourceLinks" key={key++}>
               {module?.resources.map((resource) => {
                 return (
                   <li>
-                    <a target="_blank" href={resource}>
+                    <a target="_blank" className="resourceLink" href={resource}>
                       {resource}
                     </a>
                   </li>
