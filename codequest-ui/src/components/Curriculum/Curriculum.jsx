@@ -253,7 +253,7 @@ export default function Curriculum() {
                       What are Conditionals? <br></br>
 Conditionals are like "if" questions for your computer. They help your code decide what to do based on certain conditions. Think of it as your code's superpower - making it smarter and more interactive! Let's see how it works with our secret code-breaking mission.
                       </p>
-                      <LottieAnimation animationData={animation1} />
+                      
                       <p>
                       Detective Task: Guess the Secret Number <br></br>
 We've intercepted a coded message from the evil mastermind Dr. Enigma! Your mission is to help our detective PythonBot guess the secret number. Here's how it works:
@@ -280,7 +280,7 @@ Now it's your turn to be the mastermind! Use conditionals to create your secret 
 Let's have some more fun! PythonBot has reached a treasure chest, but it's locked with a secret code. Help PythonBot crack the code using conditionals, and the treasure will be all yours!
 
                       </p>
-                      <LottieAnimation animationData={animation2} />
+                      
                       <iframe src="https://trinket.io/embed/python/795f03c073" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
                       {buttons}
                     </div>
@@ -297,7 +297,7 @@ Let's have some more fun! PythonBot has reached a treasure chest, but it's locke
                       What are Lists? <br></br>
 Imagine you're going on an epic adventure, and you want to keep a record of all the cool stuff you find. A list is like your adventure journal, where you can write down everything you've discovered. Similarly, in Python, lists can store multiple items, such as numbers, words, or even other lists!
                       </p>
-                      <LottieAnimation animationData={animation3} />
+                      
                       <p>
                       Creating a List: <br></br>
 Let's see how PythonBot creates a list of gems found during the quest:
@@ -310,7 +310,7 @@ PythonBot wants to know what the first gem found was. In Python, we use "indexin
                       Adding More Gems: <br></br>
 On the quest, PythonBot discovers a new gem, the "Topaz." Let's add it to the list:
                       </p>
-                      <LottieAnimation animationData={animation4} />
+                      
                       <p>
                       Counting the Gems: <br></br>
 PythonBot wants to know how many gems have been found. Python can easily count the items in a list for us:

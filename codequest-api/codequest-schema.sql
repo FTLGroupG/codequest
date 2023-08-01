@@ -73,10 +73,9 @@ VALUES('Functions','Learn Python functions.', array ['https://www.programiz.com/
 
 
 -- Modules 1 data 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, image_url, module_id)
-
+INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
 VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['Float', 'String', 'Boolean'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', '.../src/assets/codequest-logo2.png', 1);
+ARRAY ['Float', 'String', 'Boolean'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 1);
 
 INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
 VALUES('What is a boolean?','a true or false', 'Que es un booleano?', 'un true o falso',
