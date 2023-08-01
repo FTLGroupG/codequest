@@ -1,7 +1,7 @@
 import React from "react";
 import "./ProfilesDetail.css";
-import { useEffect, useState, useContext } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { useNavigate, Navigate } from "react-router-dom";
 import apiClient from "../../services/apiClient";
 import Loading from "../Loading/Loading";
 import NotFound from "../NotFound/NotFound";
@@ -9,6 +9,7 @@ import "./ProfilesDetail.css";
 import ProfileContext from "../../contexts/profile";
 
 export default function ProfilesDetail({
+  user,
   profileItem,
   errorMessage,
   isLoading,
@@ -46,6 +47,9 @@ export default function ProfilesDetail({
 
   return (
     <div className="userProfile">
+      {user.email && !selectedProfile && (
+        <Navigate to="/account-profiles" replace={true} />
+      )}
       <div className="coins">
         <img src="/src/assets/spinning-coin.gif"></img>
         <h3>550 Coins</h3>

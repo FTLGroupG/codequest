@@ -3,10 +3,11 @@ import React from "react";
 import QuestionSelect from "../QuestionSelect/QuestionSelect";
 import QuestionDrag from "../QuestionDrag/QuestionDrag";
 import "./Quiz.css";
-import { Link, useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import { useState, useContext, useEffect } from "react";
 import AuthContext from "../../contexts/auth";
 import QuestionContext from "../../contexts/question";
+import ProfileContext from "../../contexts/profile";
 import apiClient from "../../services/apiClient";
 import Loading from "../Loading/Loading";
 
@@ -22,6 +23,8 @@ export default function Quiz({ user }) {
 
   const { counterContext } = useContext(QuestionContext);
   const [counter, setCounter] = counterContext;
+
+  const { selectedProfile } = useContext(ProfileContext);
 
   const incrementCounter = () => {
     if (counter < questions.length - 1) {
@@ -76,6 +79,7 @@ export default function Quiz({ user }) {
 
   return (
     <div className="Quiz">
+      {!selectedProfile && <Navigate to="/account-profiles" replace={true} />}
       {questions[counter].type === "select" ? (
         <QuestionSelect user={user} />
       ) : (

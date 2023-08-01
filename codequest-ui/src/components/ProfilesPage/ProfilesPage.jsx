@@ -26,6 +26,7 @@ export default function ProfilesPage(props) {
           path="/id/:profileId"
           element={
             <ProfilesDetail
+              user={props.user}
               profileItem={props.profileItem}
               erroMessage={props.erroMessage}
               isLoading={props.isLoading}
