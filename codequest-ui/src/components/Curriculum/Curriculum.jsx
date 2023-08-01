@@ -7,11 +7,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthContext from "../../contexts/auth";
 import AccessForbidden from "../AccessForbidden/AccessForbidden";
 import ProfileContext from "../../contexts/profile";
-import LottieAnimation from "../AnimationComponent/AnimationComponent"; // Import the LottieAnimation component
+import LottieAnimation from "../AnimationComponent/AnimationComponent";
 import animation1 from "/src/assets/spyAnimation.json"
 import animation2 from "/src/assets/treasureAnimation.json"
 import animation3 from "/src/assets/bookAnimation.json"
 import animation4 from "/src/assets/diamondAnimation.json"
+import animation5 from "/src/assets/boxAnimation.json"
+import animation6 from "/src/assets/loopAnimation.json"
+import animation7 from "/src/assets/chefAnimation.json"
 
 export default function Curriculum() {
   const { id } = useParams();
@@ -51,25 +54,8 @@ export default function Curriculum() {
           <>
             <h2>Learn Python</h2>
             <h1>Data Types</h1>
-            <div className="curriculumCardCode">
-              <code>
-                {/* coffee_price = 1.50
-                    number_of_coffees = 4
-                    # Prints "6.0"
-                    print(coffee_price * number_of_coffees)
-                    # Prints "1.5"
-                    print(coffee_price)
-                    # Prints "4"
-                    print(number_of_coffees)
-                    # Updating the price
-                    coffee_price = 2.00
-                    # Prints "8.0"
-                    print(coffee_price * number_of_coffees)
-                    # Prints "2.0"
-                    print(coffee_price)
-                    # Prints "4"
-                    print(number_of_coffees) */}
-              </code>
+            <div className="curriculumCardAnimation">
+            <LottieAnimation animationData={animation5} />
             </div>
             <div className="curriculumCardText">
               <h3>What is a data type?</h3>
@@ -88,29 +74,9 @@ export default function Curriculum() {
                 with data in our programs. Isn't that cool?"
               </p>
               <br />
-              {/* <p>
-                "Now, let's imagine you're playing a game where you need to keep
-                track of your score. You can use a box called 'variable' to
-                store your score. Variables are like special boxes that can hold
-                different types of data. So, you can use an integer variable to
-                store your score as a number. But what if you want to add your
-                name to the score? You can use a string variable to hold your
-                name.{" "}
-                {/*Python is smart, so it knows which type of data is inside
-                each variable. This way, you can do different things with your
-                score, like adding or subtracting numbers or even combining your
-                name with the score. It's like having different boxes for
-                different things, all inside your program!" Remember, you can
-                use these different data types and variables to solve all sorts
-                of problems and create amazing things with Python. Happy coding!
-              </p> */}
+
               <br />
-              {/* <ul>
-                <li>Integers</li>
-                <li>Strings</li>
-                <li>Floats</li>
-                <li>Booleans</li>
-              </ul> */}
+
               {buttons}
             </div>
           </>
@@ -167,24 +133,27 @@ export default function Curriculum() {
                   <main>
                     <h2>Learn Python</h2>
                     <h1>Conditionals</h1>
+                    <div className="curriculumCardAnimation">
+                            <LottieAnimation animationData={animation1}/>
+                        </div>
                     <div className="curriculumCardText">
                       <h3>Fun with Conditionals in Python</h3>
                       <br />
-                      <div className="curriculumFlex">
+
                       <p>
                         Welcome, young coders, to an exciting adventure into the world of Python coding! Today, we'll learn about "Conditionals" - the secret to making decisions in code! Imagine being a super spy who needs to decode secret messages to save the day. Well, that's exactly what we're going to do!
                       </p>
-                      
-                      <div id="lottieSpyAnimation">
-                          <LottieAnimation />
+                      <div className="curriculumCardAnimation">
+                        <div id="lottieSpyAnimation">
+                            <LottieAnimation />
+                        </div>
                       </div>
-                    </div>
+
                       <p>
                       What are Conditionals? <br></br>
 Conditionals are like "if" questions for your computer. They help your code decide what to do based on certain conditions. Think of it as your code's superpower - making it smarter and more interactive! Let's see how it works with our secret code-breaking mission.
                       </p>
 
-                      <LottieAnimation animationData={animation1} />
 
                       <h2>Detective task:  Guess the Secret Number</h2>
                       <p>We've intercepted a coded message from the evil mastermind Dr. Enigma! Your mission is to help our detective PythonBot guess the secret number. Here's how it works:
@@ -227,11 +196,14 @@ In our secret code-breaking mission, PythonBot used the "if" and "else" statemen
                       Your Turn: Create Your Secret Code <br></br>
 Now it's your turn to be the mastermind! Use conditionals to create your secret code. You can make a guessing game like we did or make your own fun adventure with PythonBot!
                       </p>
+                      <div className="curriculumCardAnimation">
+                            <LottieAnimation animationData={animation2}/>
+                        </div>
                       <p>
                       Unlock the Treasure Challenge: <br></br>
 Let's have some more fun! PythonBot has reached a treasure chest, but it's locked with a secret code. Help PythonBot crack the code using conditionals, and the treasure will be all yours!
                       </p>
-                      <LottieAnimation animationData={animation2} />
+      
                       <iframe src="https://trinket.io/embed/python/795f03c073" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
                       {buttons}
                     </div>
@@ -242,6 +214,9 @@ Let's have some more fun! PythonBot has reached a treasure chest, but it's locke
                   <main>
                     <h2>Learn Python</h2>
                     <h1>Lists</h1>
+                    <div className="curriculumCardAnimation">
+                        <LottieAnimation animationData={animation3} />
+                    </div>
                     <div className="curriculumCardText">
                       <h3>Fun with Lists in Python</h3>
                       <br />
@@ -249,7 +224,7 @@ Let's have some more fun! PythonBot has reached a treasure chest, but it's locke
                       What are Lists? <br></br>
 Imagine you're going on an epic adventure, and you want to keep a record of all the cool stuff you find. A list is like your adventure journal, where you can write down everything you've discovered. Similarly, in Python, lists can store multiple items, such as numbers, words, or even other lists!
                       </p>
-                      <LottieAnimation animationData={animation3} />
+                    
                       <p>
                       Creating a List: <br></br>
 Let's see how PythonBot creates a list of gems found during the quest:
@@ -262,7 +237,9 @@ PythonBot wants to know what the first gem found was. In Python, we use "indexin
                       Adding More Gems: <br></br>
 On the quest, PythonBot discovers a new gem, the "Topaz." Let's add it to the list:
                       </p>
-                      <LottieAnimation animationData={animation4} />
+                      <div className="curriculumCardAnimation">
+                        <LottieAnimation animationData={animation4} />
+                      </div>
                       <p>
                       Counting the Gems: <br></br>
 PythonBot wants to know how many gems have been found. Python can easily count the items in a list for us:
@@ -290,6 +267,9 @@ PythonBot wants to arrange the gems alphabetically. Python can sort the list for
                   <main>
                     <h2>Learn Python</h2>
                     <h1>Loops</h1>
+                    <div className="curriculumCardAnimation">
+                        <LottieAnimation animationData={animation6} />
+                      </div>
                     <div className="curriculumCardText">
                       <h3>Round and Round we go!</h3>
                       <br />
@@ -318,6 +298,9 @@ PythonBot wants to arrange the gems alphabetically. Python can sort the list for
                   <main>
                     <h2>Learn Python</h2>
                     <h1>Functions</h1>
+                    <div className="curriculumCardAnimation">
+            <LottieAnimation animationData={animation7} />
+            </div>
                     <div className="curriculumCardText">
                       <h3>What are Functions?</h3>
                       <br />

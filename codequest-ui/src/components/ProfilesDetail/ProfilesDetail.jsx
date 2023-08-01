@@ -7,6 +7,8 @@ import Loading from "../Loading/Loading";
 import NotFound from "../NotFound/NotFound";
 import "./ProfilesDetail.css";
 import ProfileContext from "../../contexts/profile";
+import LottieAnimation from "../AnimationComponent/AnimationComponent";
+import animation8 from "/src/assets/coinAnimation.json"
 
 export default function ProfilesDetail({
   profileItem,
@@ -47,7 +49,11 @@ export default function ProfilesDetail({
   return (
     <div className="userProfile">
       <div className="coins">
-        <img src="/src/assets/spinning-coin.gif"></img>
+        <div className="curriculumCardAnimation">
+          <div className="coinAnimation">
+            <LottieAnimation animationData={animation8}/>
+          </div>
+        </div>
         <h3>550 Coins</h3>
       </div>
 
