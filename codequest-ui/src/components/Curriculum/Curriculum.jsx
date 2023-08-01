@@ -176,13 +176,16 @@ export default function Curriculum() {
                       </p>
                       
                       <div id="lottieSpyAnimation">
-                          <AnimationComponent />
+                          <LottieAnimation />
                       </div>
                     </div>
                       <p>
                       What are Conditionals? <br></br>
 Conditionals are like "if" questions for your computer. They help your code decide what to do based on certain conditions. Think of it as your code's superpower - making it smarter and more interactive! Let's see how it works with our secret code-breaking mission.
                       </p>
+
+                      <LottieAnimation animationData={animation1} />
+
                       <h2>Detective task:  Guess the Secret Number</h2>
                       <p>We've intercepted a coded message from the evil mastermind Dr. Enigma! Your mission is to help our detective PythonBot guess the secret number. Here's how it works:
                       </p>
@@ -202,7 +205,7 @@ Now it's your turn to be the mastermind! Use conditionals to create your secret 
                       What are Conditionals? <br></br>
 Conditionals are like "if" questions for your computer. They help your code decide what to do based on certain conditions. Think of it as your code's superpower - making it smarter and more interactive! Let's see how it works with our secret code-breaking mission.
                       </p>
-                      <LottieAnimation animationData={animation1} />
+                      
                       <p>
                       Detective Task: Guess the Secret Number <br></br>
 We've intercepted a coded message from the evil mastermind Dr. Enigma! Your mission is to help our detective PythonBot guess the secret number. Here's how it works:
