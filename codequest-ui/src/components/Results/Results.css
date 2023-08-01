@@ -25,3 +25,27 @@ li {
   font-family: "Lilita One", cursive;
   color: #f2ac2a;
 }
+
+#resourceLinks {
+  background-color: #f15757;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: left;
+}
+
+#resourceLinks ul li a {
+  color: white;
+  text-decoration: underline;
+  /* background-color: #00c98e; */
+  
+}
+
+li a:hover {
+  color: #00c98e;
+}
+
+.resourceLink {
+  text-decoration: underline;
+  font-weight: 600;
+  font-size: .8em;
+}

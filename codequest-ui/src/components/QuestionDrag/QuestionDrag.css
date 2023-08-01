@@ -72,3 +72,9 @@
   position: absolute;
   top: 0;
 }
+
+
+#options-list .option {
+  display: inline-block;
+  margin: 20px;
+}

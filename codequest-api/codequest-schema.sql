@@ -100,29 +100,66 @@ ARRAY ['Float', 'String', 'Boolean'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 
 
 -- Modules 3 Conditionals data
 INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['Float', 'String', 'Boolean'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 3);
+VALUES('How many times can you use the "if" statement in your code?','Only once','El tipo de dato que representa a un numero es un','Entero',
+ARRAY ['As many times as you want', 'Two times', 'Five times'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 3);
 
 INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
-VALUES('What is a boolean?','a true or false', 'Que es un booleano?', 'un true o falso',
-ARRAY ['a text', 'an integer', 'a decimal number'], ARRAY [ 'un texto', 'un entero', 'un decimal'], 'select', 3);
+VALUES('What are the two parts of the "if" statement in Python?','If and Else','El tipo de dato que representa a un numero es un','Entero',
+ARRAY ['Sun and Moon', 'Left and Right', 'Start and End'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 3);
 
 INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['Float', 'String', 'Boolean'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'drag', 3);
+VALUES('What happens when your guess is correct in the secret number guessing game?','You get a congratulatory message','El tipo de dato que representa a un numero es un','Entero',
+ARRAY ['You get a clue to try again', 'You get a secret code for the next level', ' You get a magic spellbook'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 3);
+
+INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
+VALUES('How can you create your secret code using conditionals?','By using the "if" statement','El tipo de dato que representa a un numero es un','Entero',
+ARRAY ['By using the "for" loop', 'By saying "Abracadabra"', 'By using the "while" loop'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 3);
+
+INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
+VALUES('What is the mission in the detective task for QuestBot?','To crack the code and find the secret number','El tipo de dato que representa a un numero es un','Entero',
+ARRAY ['To become the best detective in the world', 'To eat ice cream', 'To learn the alphabet'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 3);
+
+INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
+VALUES('How does the "if" statement work in conditionals?','It runs the code inside the block if the condition is true', 'Que es un booleano?', 'un true o falso',
+ARRAY ['It always runs the code inside the block', 't runs the code inside the block if the condition is false', 'It makes QuestBot dance'], ARRAY [ 'un texto', 'un entero', 'un decimal'], 'select', 3);
+
+INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
+VALUES('What are conditionals in Python?','Superpowers for your code to make decisions','El tipo de dato que representa a un numero es un','Entero',
+ARRAY ['Bugs in your code', 'Decorations for your code', 'Magical potions for Python'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'drag', 3);
 
 -- Modules 4 Lists data
 INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['Float', 'String', 'Boolean'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 4);
+VALUES('What is the first index of a list in Python?','0','El tipo de dato que representa a un numero es un','Entero',
+ARRAY ['-1', '1', '10'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 4);
 
 INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
-VALUES('What is a boolean?','a true or false', 'Que es un booleano?', 'un true o falso',
-ARRAY ['a text', 'an integer', 'a decimal number'], ARRAY [ 'un texto', 'un entero', 'un decimal'], 'select', 4);
+VALUES('How can you remove an item from the list in Python?','gems_found.remove("Sapphire")','El tipo de dato que representa a un numero es un','Entero',
+ARRAY ['remove_item(gems_found, "Sapphire")', 'gems_found.delete("Sapphire")', 'delete_item(gems_found, "Sapphire")'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 4);
 
 INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['Float', 'String', 'Boolean'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'drag', 4);
+VALUES('How do you sort the gems in the list in alphabetical order?','gems_found.sort()','El tipo de dato que representa a un numero es un','Entero',
+ARRAY ['sorted(gems_found)', 'sort(gems_found)', 'gems_found.order()'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 4);
+
+INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
+VALUES('What does the following "for" loop do in Python?, "It prints "Found a gem:" for each gem in the list" How can you add it to the existing list of gems?','gems_found.append("Opal")','El tipo de dato que representa a un numero es un','Entero',
+ARRAY ['It prints "Found a gem" once', 'It prints the total number of gems found', 'It prints "Found a gem:" for the last gem only'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 4);
+
+INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
+VALUES('PythonBot wants to count the number of gems found. Which method will you use?','len(gems_found)','El tipo de dato que representa a un numero es un','Entero',
+ARRAY ['count_gems(gems_found)', 'gems_found.count()', 'total_gems(gems_found)'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 4);
+
+
+INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
+VALUES('QuestBot discovers a new gem, "Opal." How can you add it to the existing list of gems?','gems_found.append("Opal")','El tipo de dato que representa a un numero es un','Entero',
+ARRAY ['gems_found.add("Opal")', 'gems_found.insert("Opal")', 'gems_found.extend("Opal")'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 4);
+
+INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
+VALUES('How do you access items in a list in Python?','By using indexing, starting from 0', 'Que es un booleano?', 'un true o falso',
+ARRAY ['By using the "print" statement', 'By using the "if" statement', 'By using a magnifying glass'], ARRAY [ 'un texto', 'un entero', 'un decimal'], 'select', 4);
+
+INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
+VALUES('What is a list in Python?','A magical backpack for storing multiple items','El tipo de dato que representa a un numero es un','Entero',
+ARRAY ['A type of colorful snake', 'A secret map to hidden treasures', 'A powerful spellbook'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'drag', 4);
 
 
 -- Modules 5 Loops data 
