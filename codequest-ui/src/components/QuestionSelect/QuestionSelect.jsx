@@ -67,7 +67,7 @@ export default function QuestionSelect() {
 
   const addFinal = () => {
     const finishBtn = document.getElementById("curriculum-finish-btn");
-    finishBtn.classList.add("visibile");
+    finishBtn.classList.add("visible");
     finishBtn.classList.remove("hidden");
   };
 
@@ -142,7 +142,6 @@ export default function QuestionSelect() {
             {questions.length > 0 && questions[counter].question}
           </div>
 
-          {/* {console.log(questions[counter].answer)} */}
           {questions.length > 0 && (
             <>
               <button onClick={(event) => handleResult(event)}>

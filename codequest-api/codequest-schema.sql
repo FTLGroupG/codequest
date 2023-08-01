@@ -127,7 +127,7 @@ ARRAY ['Float', 'String', 'Boolean'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 
 -- Modules 5 Loops data 
 INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
 VALUES('What are loops in Python?','Repetition of a set of instructions','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['Magical spells that create colorful patterns', 'Instructions that are followed only once', 'Circular objects like wheels'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'drag', 5);
+ARRAY ['Magical spells that create colorful patterns', 'Instructions that are followed only once', 'Circular objects like wheels'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 5);
 
 INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
 VALUES('Which type of loop goes through a list of items one by one?','For loop', 'Que es un booleano?', 'un true o falso',
@@ -135,7 +135,7 @@ ARRAY ['While loop'], ARRAY [ 'un texto', 'un entero', 'un decimal'], 'select', 
 
 INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
 VALUES('Can you use loops to solve real-world problems?','Yes, loops are powerful tools for solving many tasks','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['No, loops are only used for fun'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'drag', 5);
+ARRAY ['No, loops are only used for fun'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 5);
 
 INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
 VALUES('What is the purpose of using loops in coding?','To repeat a set of instructions efficiently','El tipo de dato que representa a un numero es un','Entero',
@@ -160,7 +160,7 @@ ARRAY ['By creating a robot friend', 'By saying "Hello, future coders!"', 'By le
 
 INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
 VALUES('What is a parameter in a function?','Extra instructions for your robot friend','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['A way to bake a cake', 'A magic potion', 'The name of the function'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'drag', 6);
+ARRAY ['A way to bake a cake', 'A magic potion', 'The name of the function'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 6);
 
 INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
 VALUES('Which of the following is a valid function definition in Python?','def my_function():','El tipo de dato que representa a un numero es un','Entero',

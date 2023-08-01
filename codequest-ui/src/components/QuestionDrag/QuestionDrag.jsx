@@ -65,8 +65,7 @@ export default function QuestionDrag({ user }) {
 
   const addFinal = () => {
     const finishBtn = document.getElementById("curriculum-finish-btn");
-    finishBtn.classList.add("visibile");
-    console.log("in final");
+    finishBtn.classList.add("visible");
     finishBtn.classList.remove("hidden");
   };
 
@@ -160,66 +159,6 @@ export default function QuestionDrag({ user }) {
   return (
     <>
       <div id="content">
-        {/* <div className="quizCard">
-        <div className="quizContent">
-          <div className="question">
-            <h2>Answer this </h2>
-          </div>
-          <div className="first-question-type">
-            <h2 id="message"></h2>
-            <h2 id="question">
-              <span
-                id="blank"
-                onDrop={drop}
-                onDragOver={allowDrop}
-                onDragEnter={dragEnter}
-                onDragLeave={dragLeave}
-              ></span>
-              i in array:
-            </h2>
-            <h2 id="tab"> print (array[i]) </h2>
-
-            <br />
-            <div id="options-list">
-              <h2>
-                <span
-                  className="option"
-                  id="for"
-                  onDragStart={drag}
-                  draggable="true"
-                >
-                  for
-                </span>
-                <span
-                  className="option"
-                  id="let"
-                  onDragStart={drag}
-                  draggable="true"
-                >
-                  let
-                </span>
-                <span
-                  className="option"
-                  id="def"
-                  onDragStart={drag}
-                  draggable="true"
-                >
-                  def
-                </span>
-                <span
-                  className="option"
-                  id="if"
-                  onDragStart={drag}
-                  draggable="true"
-                >
-                  if
-                </span>
-              </h2>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
         <div className="quizCard">
           <div className="quizContent">
             <div className="question">
@@ -244,36 +183,27 @@ export default function QuestionDrag({ user }) {
                     <>
                       <span
                         className="option"
-                        id="for"
-                        onDragStart={drag}
-                        draggable="true"
-                      >
-                        {questions[counter].incorrect_answers[0]}
-                      </span>
-                      <span
-                        className="option"
-                        id="let"
-                        onDragStart={drag}
-                        draggable="true"
-                      >
-                        {questions[counter].incorrect_answers[1]}
-                      </span>
-                      <span
-                        className="option"
-                        id="def"
+                        id={questions[counter].answer}
                         onDragStart={drag}
                         draggable="true"
                       >
                         {questions[counter].answer}
                       </span>
-                      <span
-                        className="option"
-                        id="if"
-                        onDragStart={drag}
-                        draggable="true"
-                      >
-                        {questions[counter].incorrect_answers[2]}
-                      </span>
+
+                      {questions[counter].incorrect_answers.map(
+                        (wrong_answer) => {
+                          return (
+                            <span
+                              className="option"
+                              id={wrong_answer}
+                              onDragStart={drag}
+                              draggable="true"
+                            >
+                              {wrong_answer}
+                            </span>
+                          );
+                        }
+                      )}
                     </>
                   )}
                 </h2>
