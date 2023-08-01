@@ -127,7 +127,7 @@ ARRAY ['Float', 'String', 'Boolean'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 
 -- Modules 5 Loops data 
 INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
 VALUES('What are loops in Python?','Repetition of a set of instructions','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['Magical spells that create colorful patterns', 'Instructions that are followed only once', 'Repetition of a set of instructions', 'Circular objects like wheels'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 5);
+ARRAY ['Magical spells that create colorful patterns', 'Instructions that are followed only once', 'Circular objects like wheels'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'drag', 5);
 
 INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
 VALUES('Which type of loop goes through a list of items one by one?','For loop', 'Que es un booleano?', 'un true o falso',

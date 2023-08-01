@@ -66,6 +66,7 @@ export default function QuestionDrag({ user }) {
   const addFinal = () => {
     const finishBtn = document.getElementById("curriculum-finish-btn");
     finishBtn.classList.add("visibile");
+    console.log("in final");
     finishBtn.classList.remove("hidden");
   };
 

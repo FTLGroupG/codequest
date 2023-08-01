@@ -142,26 +142,29 @@ export default function QuestionSelect() {
             {questions.length > 0 && questions[counter].question}
           </div>
 
-          {questions.length > 0 ? (
+          {/* {console.log(questions[counter].answer)} */}
+          {questions.length > 0 && (
             <>
               <button onClick={(event) => handleResult(event)}>
                 {questions[counter].answer}
               </button>
               <br />
-              <button onClick={(event) => handleResult(event)}>
-                {questions[counter].incorrect_answers[0]}
-              </button>
-              <br />
-              <button onClick={(event) => handleResult(event)}>
-                {questions[counter].incorrect_answers[1]}
-              </button>
-              <br />
-              <button onClick={(event) => handleResult(event)}>
-                {questions[counter].incorrect_answers[2]}
-              </button>
+
+              {questions[counter].incorrect_answers.map((wrong_answer) => {
+                return (
+                  <React.Fragment key={wrong_answer}>
+                    <button onClick={(event) => handleResult(event)}>
+                      {" "}
+                      {wrong_answer}
+                    </button>
+                    <br />
+                  </React.Fragment>
+                );
+              })}
             </>
-          ) : null}
+          )}
         </div>
+
         <div className="curriculumCardButtonCard">
           {counter > 0 && (
             <button
