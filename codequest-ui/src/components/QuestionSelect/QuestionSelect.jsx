@@ -145,6 +145,7 @@ export default function QuestionSelect() {
           {/* {console.log(questions[counter].answer)} */}
           {questions.length > 0 && (
             <>
+              <img src={questions[counter].image_url} alt="" />
               <button onClick={(event) => handleResult(event)}>
                 {questions[counter].answer}
               </button>

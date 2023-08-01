@@ -27,6 +27,7 @@ CREATE TABLE questions (
     incorrect_answers    TEXT [] NOT NULL,
     incorrect_answers_spanish TEXT [] NOT NULL,
     type                 question_type,
+    image_url            TEXT,
     module_id            INTEGER NOT NULL, 
     FOREIGN KEY (module_id) REFERENCES modules(id)
 );
@@ -71,10 +72,11 @@ INSERT INTO modules (name, description, resources)
 VALUES('Functions','Learn Python functions.', array ['https://www.programiz.com/python-programming/function', 'https://www.geeksforgeeks.org/python-functions/', 'https://www.w3schools.com/python/python_functions.asp']);
 
 
--- Modules 1 Data Types data 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
+-- Modules 1 data 
+INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, image_url, module_id)
+
 VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['Float', 'String', 'Boolean'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 1);
+ARRAY ['Float', 'String', 'Boolean'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', '.../src/assets/codequest-logo2.png', 1);
 
 INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
 VALUES('What is a boolean?','a true or false', 'Que es un booleano?', 'un true o falso',

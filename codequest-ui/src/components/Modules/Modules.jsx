@@ -1,10 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./Modules.css";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
-import Finished from "../Finished/Finished";
-import Quiz from "../Quiz/Quiz";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AuthContext from "../../contexts/auth";
 import ProfileContext from "../../contexts/profile";
 import apiClient from "../../services/apiClient";
@@ -17,13 +14,13 @@ import apiClient from "../../services/apiClient";
  * The leftOff value is stored in localStorage to persist the user progress.
  */
 export default function Modules() {
+  const navigate = useNavigate();
   // User context from AuthContext
   const { userContext } = useContext(AuthContext);
   const [user, setUser] = userContext;
 
   // Profile context from ProfileContext
   const {
-    selectedProfile,
     setSelectedProfile,
     userProgress,
     setUserProgress,
@@ -144,7 +141,7 @@ export default function Modules() {
                     )}
                   </>
                 )}
-                {!leftOff && (
+                {!leftOff && !user.email ? (
                   <>
                     {number === 1 ? (
                       <Link key={number} to={`/modules/${number}/curriculum`}>
@@ -158,7 +155,7 @@ export default function Modules() {
                       </span>
                     )}
                   </>
-                )}
+                ) : null}
               </React.Fragment>
             );
           })}

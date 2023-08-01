@@ -3,7 +3,7 @@ import "./ProfilesSelection.css";
 import { useContext, useEffect } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import ProfileContext from "../../contexts/profile";
-// import profileNew from "../../assets/profileNew.svg";
+import profile_icon from "../../assets/profile-icon.png";
 import robotProfile from "../../assets/robotProfile.png";
 import ProfileCard from "../ProfileCard/ProfileCard";
 import apiClient from "../../services/apiClient";
@@ -46,6 +46,7 @@ export default function ProfilesSelection(props) {
   }, []);
 
   /**
+
    * Fetch user profiles from the backend API when the component mounts.
    * This effect runs only once during the component's initial render.
    */
