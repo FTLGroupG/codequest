@@ -21,11 +21,8 @@ CREATE TYPE question_type AS ENUM ('select', 'drag');
 CREATE TABLE questions (
     id                   SERIAL PRIMARY KEY,
     question             TEXT NOT NULL,
-    answer               TEXT NOT NULL,
-    question_spanish     TEXT NOT NULL,
-    answer_spanish       TEXT NOT NULL,  
+    answer               TEXT NOT NULL, 
     incorrect_answers    TEXT [] NOT NULL,
-    incorrect_answers_spanish TEXT [] NOT NULL,
     type                 question_type,
     image_url            TEXT,
     module_id            INTEGER NOT NULL, 
@@ -73,30 +70,91 @@ VALUES('Functions','Learn Python functions.', array ['https://www.programiz.com/
 
 
 -- Modules 1 data 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['Float', 'String', 'Boolean'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 1);
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
-VALUES('What is a boolean?','a true or false', 'Que es un booleano?', 'un true o falso',
-ARRAY ['a text', 'an integer', 'a decimal number'], ARRAY [ 'un texto', 'un entero', 'un decimal'], 'select', 1);
+INSERT INTO questions (question, answer, incorrect_answers, type, image_url, module_id)
+VALUES('What is the correct way to create a Variable called "magical_number" and assign it the value 7.','spell1, spell2 = spell2, spell1',
+ARRAY ['spell1.swap(spell2)', 'swap(spell1, spell2)'], 'select', 'http://localhost:5173/src/assets/quiz2_q11.png', 2);
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['Float', 'String', 'Boolean'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'drag', 1);
+INSERT INTO questions (question, answer, incorrect_answers, type, module_id)
+VALUES('What is the purpose of using Lists in Python?','Store collections of items',
+ARRAY ['Store numbers with decimal points', 'Hold pairs of items', 'Create treasure maps'], 'select', 1);
 
--- Modules 2 Variables data
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['Float', 'String', 'Boolean'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 2);
+INSERT INTO questions (question, answer, incorrect_answers, type, module_id)
+VALUES('What can you use Dictionaries for in Python?','Holding information with unique keys',
+ARRAY ['Storing numbers with decimal points', 'Answering True or False questions', 'Holding collections of items'], 'select', 1);
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
-VALUES('What is a boolean?','a true or false', 'Que es un booleano?', 'un true o falso',
-ARRAY ['a text', 'an integer', 'a decimal number'], ARRAY [ 'un texto', 'un entero', 'un decimal'], 'select', 2);
+INSERT INTO questions (question, answer, incorrect_answers, type, module_id)
+VALUES('Which Data Type can be used to create a treasure map?','Dictionaries',
+ARRAY ['Lists', 'Tuples', 'Numbers'], 'drag', 1);
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['Float', 'String', 'Boolean'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'drag', 2);
+INSERT INTO questions (question, answer, incorrect_answers, type, module_id)
+VALUES('What are Booleans used for in Python?',' Answer True or False questions',
+ARRAY ['Hold words and sentences', 'Store information like an encyclopedia', 'Hold numbers and calculations'], 'select', 1);
+
+INSERT INTO questions (question, answer, incorrect_answers, type, module_id)
+VALUES('Which Data Type can be used to count the stars in the night sky?','Numbers (Integers)',
+ARRAY ['Booleans', 'Strings', 'Lists'], 'drag', 1);
+
+INSERT INTO questions (question, answer, incorrect_answers, type, module_id)
+VALUES('Which Data Type can store a pair of items together?','Tuples',
+ARRAY ['Dictionaries', 'Strings', 'Numbers'], 'drag', 1);
+
+INSERT INTO questions (question, answer, incorrect_answers, type, module_id)
+VALUES('What are "Strings" in Python?','Magical potions that hold words and sentences',
+ARRAY ['Collections of items like favorite toys', 'Numbers with decimal points', 'Pairs of items that stick together'], 'select', 1);
+
+INSERT INTO questions (question, answer, incorrect_answers, type, module_id)
+VALUES('Which Data Type can hold numbers with decimal points?','Floating-point numbers',
+ARRAY ['Booleans', 'Strings', 'Lists'], 'drag', 1);
+
+-- Modules 2 data
+
+INSERT INTO questions (question, answer, incorrect_answers, type, image_url, module_id)
+VALUES('What is the correct way to create a Variable called "magical_number" and assign it the value 7.','spell1, spell2 = spell2, spell1',
+ARRAY ['spell1.swap(spell2)', 'swap(spell1, spell2)'], 'select', 'http://localhost:5173/src/assets/quiz2_q11.png', 2);
+
+INSERT INTO questions (question, answer, incorrect_answers, type, module_id)
+VALUES('You found three enchanted gems and want to keep track of them. Create a list called "enchanted_gems" and store the names of the gems in it: "Opal," "Amethyst," and "Sapphire."','enchanted_gems = ["Opal", "Amethyst", "Sapphire"]',
+ARRAY ['enchanted_gems = "Opal", "Amethyst", "Sapphire"', 'gem_list = ("Opal", "Amethyst", "Sapphire")','gem_list = "Opal", "Amethyst", "Sapphire"'], 'select', 2);
+
+INSERT INTO questions (question, answer, incorrect_answers, type, module_id)
+VALUES('What is the correct way to create a Variable called "magical_number" and assign it the value 7.','magical_number = 7',
+ARRAY ['variable(magical_number) = 7', 'new Variable = magical_number(7)', 'magic = 7'], 'select', 2);
+
+INSERT INTO questions (question, answer, incorrect_answers, type, module_id)
+VALUES('What else can you store in a Variable besides single values like Numbers and Strings?','Lists of items, such as a collection of spells',
+ARRAY [' Only other Variables', 'Only Booleans', 'Only Numbers'], 'drag', 2);
+
+INSERT INTO questions (question, answer, incorrect_answers, type, module_id)
+VALUES('What is a forgetfulness charm in the context of Variables?','A method to delete a Variable from Python memory',
+ARRAY ['A magical spell to remember a Variables value forever', 'A way to change a Variable value without using code', 'A method to create new Variables'], 'select', 2);
+
+INSERT INTO questions (question, answer, incorrect_answers, type, module_id)
+VALUES('If you have a Variable called "apples" and another called "oranges," how can you find out the total number of fruits you have?','By creating a new Variable called "fruits" and assigning it the sum of "apples" and "oranges"',
+ARRAY ['By adding the names of the Variables together', 'By deleting one of the Variables and keeping the other', 'By using a magical function that combines Variables'], 'select', 2);
+
+INSERT INTO questions (question, answer, incorrect_answers, type, module_id)
+VALUES('How can you use Variables to perform calculations?','By combining Variables with magical math operations',
+ARRAY ['By using Variables to store lists of items', 'By giving the Variable a unique name', 'By assigning a special Data Type to the Variable'], 'select', 2);
+
+
+INSERT INTO questions (question, answer, incorrect_answers, type, module_id)
+VALUES('Can you change the name of a Variable after it is created?','Nope!',
+ARRAY ['Only if the Variable is storing a String.', 'Only if the Variable is storing a Number', 'Yes!'], 'drag', 2);
+
+INSERT INTO questions (question, answer, incorrect_answers, type, module_id)
+VALUES('What can you store in a Variable?','All of the above',
+ARRAY ['Booleans', 'Strings', 'Numbers'], 'drag', 2);
+
+INSERT INTO questions (question, answer, incorrect_answers, type, module_id)
+VALUES('How do you create a Variable in Python?','By giving it a special name and a Data Type',
+ARRAY ['By using a built-in Python function', 'By using a forgetfulness charm', 'By naming it "Variable" in your code'], 'select', 2);
+
+INSERT INTO questions (question, answer, incorrect_answers, type, module_id)
+VALUES('What are Variables in Python?','Enchanted books in Python',
+ARRAY ['Special names given to Python functions', 'Numbers with decimal points', 'Magical containers that hold treasures' ], 'select', 2);
+
+
 
 -- Modules 3 Conditionals data
 INSERT INTO questions (question, answer, question_spanish, answer_spanish, incorrect_answers, incorrect_answers_spanish, type, module_id)

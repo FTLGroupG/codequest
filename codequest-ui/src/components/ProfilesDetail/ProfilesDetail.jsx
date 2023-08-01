@@ -1,7 +1,7 @@
 import React from "react";
 import "./ProfilesDetail.css";
-import { useEffect, useState, useContext } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { useNavigate, Navigate } from "react-router-dom";
 import apiClient from "../../services/apiClient";
 import Loading from "../Loading/Loading";
 import NotFound from "../NotFound/NotFound";
@@ -11,6 +11,7 @@ import LottieAnimation from "../AnimationComponent/AnimationComponent";
 import animation8 from "/src/assets/coinAnimation.json"
 
 export default function ProfilesDetail({
+  user,
   profileItem,
   errorMessage,
   isLoading,
@@ -48,6 +49,9 @@ export default function ProfilesDetail({
 
   return (
     <div className="userProfile">
+      {user.email && !selectedProfile && (
+        <Navigate to="/account-profiles" replace={true} />
+      )}
       <div className="coins">
         <div className="curriculumCardAnimation">
           <div className="coinAnimation">
