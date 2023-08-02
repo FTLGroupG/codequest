@@ -22,10 +22,7 @@ CREATE TABLE questions (
     id                   SERIAL PRIMARY KEY,
     question             TEXT NOT NULL,
     answer               TEXT NOT NULL,
-    question_spanish     TEXT NOT NULL,
-    answer_spanish       TEXT NOT NULL,  
     options    TEXT [] NOT NULL,
-    options_spanish TEXT [] NOT NULL, 
     type                 question_type,
     image_url            TEXT,
     module_id            INTEGER NOT NULL, 
@@ -73,111 +70,111 @@ VALUES('Functions','Learn Python functions.', array ['https://www.programiz.com/
 
 
 -- Modules 1 data 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['Float', 'String', 'Boolean'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 1);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('A data type that represents a whole number is a(n)','Integer',
+ARRAY ['Float', 'String', 'Boolean'], 'select', 1);
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('What is a boolean?','a true or false', 'Que es un booleano?', 'un true o falso',
-ARRAY ['a text', 'an integer', 'a decimal number'], ARRAY [ 'un texto', 'un entero', 'un decimal'], 'select', 1);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('What is a boolean?','a true or false',
+ARRAY ['a text', 'an integer', 'a decimal number'], 'select', 1);
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['Float', 'String', 'Boolean'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'drag', 1);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('A data type that represents a whole number is a(n)','Integer',
+ARRAY ['Float', 'String', 'Boolean'], 'drag', 1);
 
 -- Modules 2 Variables data
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['Float', 'String', 'Boolean'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 2);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('A data type that represents a whole number is a(n)','Integer',
+ARRAY ['Float', 'String', 'Boolean'], 'select', 2);
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('What is a boolean?','a true or false', 'Que es un booleano?', 'un true o falso',
-ARRAY ['a text', 'an integer', 'a decimal number'], ARRAY [ 'un texto', 'un entero', 'un decimal'], 'select', 2);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('What is a boolean?','a true or false',
+ARRAY ['a text', 'an integer', 'a decimal number'], 'select', 2);
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['Float', 'String', 'Boolean'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'drag', 2);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('A data type that represents a whole number is a(n)','Integer',
+ARRAY ['Float', 'String', 'Boolean'], 'drag', 2);
 
 -- Modules 3 Conditionals data
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['Float', 'String', 'Boolean'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 3);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('A data type that represents a whole number is a(n)','Integer',
+ARRAY ['Float', 'String', 'Boolean'], 'select', 3);
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('What is a boolean?','a true or false', 'Que es un booleano?', 'un true o falso',
-ARRAY ['a text', 'an integer', 'a decimal number'], ARRAY [ 'un texto', 'un entero', 'un decimal'], 'select', 3);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('What is a boolean?','a true or false',
+ARRAY ['a text', 'an integer', 'a decimal number'], 'select', 3);
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['Float', 'String', 'Boolean'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'drag', 3);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('A data type that represents a whole number is a(n)','Integer',
+ARRAY ['Float', 'String', 'Boolean'], 'drag', 3);
 
 -- Modules 4 Lists data
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['Float', 'String', 'Boolean'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 4);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('A data type that represents a whole number is a(n)','Integer',
+ARRAY ['Float', 'String', 'Boolean'], 'select', 4);
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('What is a boolean?','a true or false', 'Que es un booleano?', 'un true o falso',
-ARRAY ['a text', 'an integer', 'a decimal number'], ARRAY [ 'un texto', 'un entero', 'un decimal'], 'select', 4);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('What is a boolean?','a true or false',
+ARRAY ['a text', 'an integer', 'a decimal number'], 'select', 4);
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['Float', 'String', 'Boolean'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'drag', 4);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('A data type that represents a whole number is a(n)','Integer',
+ARRAY ['Float', 'String', 'Boolean'], 'drag', 4);
 
 
 -- Modules 5 Loops data 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('What are loops in Python?','Repetition of a set of instructions','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['Magical spells that create colorful patterns', 'Repetition of a set of instructions', 'Instructions that are followed only once', 'Circular objects like wheels'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 5);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('What are loops in Python?','Repetition of a set of instructions',
+ARRAY ['Magical spells that create colorful patterns', 'Repetition of a set of instructions', 'Instructions that are followed only once', 'Circular objects like wheels'], 'select', 5);
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('Which type of loop goes through a list of items one by one?','For loop', 'Que es un booleano?', 'un true o falso',
-ARRAY ['While loop', 'For loop'], ARRAY [ 'un texto', 'un entero', 'un decimal'], 'select', 5);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('Which type of loop goes through a list of items one by one?','For loop',
+ARRAY ['While loop', 'For loop'], 'select', 5);
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('Can you use loops to solve real-world problems?','Yes, loops are powerful tools for solving many tasks','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['No, loops are only used for fun', 'Yes, loops are powerful tools for solving many tasks'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 5);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('Can you use loops to solve real-world problems?','Yes, loops are powerful tools for solving many tasks',
+ARRAY ['No, loops are only used for fun', 'Yes, loops are powerful tools for solving many tasks'], 'select', 5);
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('What is the purpose of using loops in coding?','To repeat a set of instructions efficiently','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['To confuse others with complex patterns', 'To make the code look fancy', 'To repeat a set of instructions efficiently'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 5);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('What is the purpose of using loops in coding?','To repeat a set of instructions efficiently',
+ARRAY ['To confuse others with complex patterns', 'To make the code look fancy', 'To repeat a set of instructions efficiently'], 'select', 5);
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('Which loop would you use to repeat an action until a certain condition becomes false?','While loop','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['For loop', 'If statement', 'Else loop', 'While loop'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 5);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('Which loop would you use to repeat an action until a certain condition becomes false?','While loop',
+ARRAY ['For loop', 'If statement', 'Else loop', 'While loop'], 'select', 5);
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('What is the purpose of an index variable in a loop?','To keep track of the current loop iteration','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['To store the total number of iterations', 'To calculate the sum of all values in the loop', 'To keep track of the current loop iteration'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 5);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('What is the purpose of an index variable in a loop?','To keep track of the current loop iteration',
+ARRAY ['To store the total number of iterations', 'To calculate the sum of all values in the loop', 'To keep track of the current loop iteration'], 'select', 5);
 
 -- Modules 6 Functions data
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('What is a function in Python?','A set of instructions with a name','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['A robot friend', 'A magic spell', 'A delicious cake'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 6);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('What is a function in Python?','A set of instructions with a name',
+ARRAY ['A robot friend', 'A magic spell', 'A delicious cake'], 'select', 6);
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('How do you create a function in Python?','By giving it a name and instructions', 'Que es un booleano?', 'un true o falso',
-ARRAY ['By creating a robot friend', 'By saying "Hello, future coders!"', 'By learning magic spells'], ARRAY [ 'un texto', 'un entero', 'un decimal'], 'select', 6);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('How do you create a function in Python?','By giving it a name and instructions',
+ARRAY ['By creating a robot friend', 'By saying "Hello, future coders!"', 'By learning magic spells'], 'select', 6);
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('What is a parameter in a function?','Extra instructions for your robot friend','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['A way to bake a cake', 'A magic potion', 'The name of the function'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 6);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('What is a parameter in a function?','Extra instructions for your robot friend',
+ARRAY ['A way to bake a cake', 'A magic potion', 'The name of the function'], 'select', 6);
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('Which of the following is a valid function definition in Python?','def my_function():','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['def my_function:', 'function my_function():', 'create my_function():'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 6);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('Which of the following is a valid function definition in Python?','def my_function():',
+ARRAY ['def my_function:', 'function my_function():', 'create my_function():'], 'select', 6);
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('What happens if you don''t call a function after defining it in Python?','Nothing happens until you call the function.','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['The function will get angry and refuse to work.', 'Your computer will freeze.', 'The function will automatically execute.'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 6);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('What happens if you don''t call a function after defining it in Python?','Nothing happens until you call the function.',
+ARRAY ['The function will get angry and refuse to work.', 'Your computer will freeze.', 'The function will automatically execute.'], 'select', 6);
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('Can a function have multiple parameters in Python?',' Yes, a function can have any number of parameters.','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['No, a function can only have one parameter.', 'Yes, but only if they are all of the same type.', 'Yes, but only if they are numbers.'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 6);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('Can a function have multiple parameters in Python?',' Yes, a function can have any number of parameters.',
+ARRAY ['No, a function can only have one parameter.', 'Yes, but only if they are all of the same type.', 'Yes, but only if they are numbers.'], 'select', 6);
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('Which of the following is the correct way to call the function calculate_area with parameters ''width'' and ''height''?','calculate_area(width, height)','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['function calculate_area(width, height)', 'call calculate_area(width, height)', 'calculate_area width, height'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 6);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('Which of the following is the correct way to call the function calculate_area with parameters ''width'' and ''height''?','calculate_area(width, height)',
+ARRAY ['function calculate_area(width, height)', 'call calculate_area(width, height)', 'calculate_area width, height'], 'select', 6);
 
 
 
