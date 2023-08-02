@@ -1,9 +1,7 @@
 import React from "react";
 import "./Curriculum.css";
-import { Link, useParams, Outlet, Navigate } from "react-router-dom";
-import { useState, useContext, useEffect } from "react";
-import Quiz from "../Quiz/Quiz";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Link, useParams, Navigate } from "react-router-dom";
+import { useContext, useEffect } from "react";
 import AuthContext from "../../contexts/auth";
 import AccessForbidden from "../AccessForbidden/AccessForbidden";
 import ProfileContext from "../../contexts/profile";
