@@ -164,7 +164,7 @@ export default function ProfilesDetail({
         </div>
       </div>
 
-      <div className="deleteButton">
+      <div className="removeForm-deleteButton">
         <button onClick={showRemoveConfirmation}>Delete Profile</button>
       </div>
       {showConfirmation && (
@@ -172,9 +172,9 @@ export default function ProfilesDetail({
           <p className="error" style={{ color: "red" }}>
             {errorMessage}
           </p>
-          <div className="form-container">
-            <form onSubmit={handleSubmit} className="form">
-              <div className="form-content">
+          <div className="removeForm-container">
+            <form onSubmit={handleSubmit} className="removeForm">
+              <div className="removeForm-content">
                 <div>
                   <label htmlFor="password">Type password to continue:</label>
                   <input
@@ -182,16 +182,16 @@ export default function ProfilesDetail({
                     id="password"
                     value={password}
                     onChange={handleChange}
-                    className="input-field"
+                    className="removeForm-input-field"
                   />
                 </div>
-                <div className="passvisibility-icon">
+                <div className="removeForm-passvisibility-icon">
                   <img
                     src={showPassword ? opened_eye : closed_eye}
                     onClick={togglePasswordVisibility}
                   />
                 </div>
-                <div className="confirm-btn">
+                <div className="removeForm-confirm-btn">
                   <button type="submit">Confirm Delete</button>
                 </div>
               </div>

@@ -96,7 +96,7 @@ function App() {
       if (data) {
         setProfileItem(data);
       } else {
-        seterrors(error);
+        setErrors(error);
       }
 
       setIsLoading(false);

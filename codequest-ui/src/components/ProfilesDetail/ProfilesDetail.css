@@ -53,20 +53,20 @@ h3 {
   margin: 50px;
 }
 
-.deleteButton {
+.removeForm-deleteButton {
   margin: auto;
   margin-bottom: 30px;
   width: 200px;
   padding: 10px;
 }
 
-.form-container {
+.removeForm-container {
   display: flex;
   justify-content: center;
   margin: 5rem;
 }
 
-.form {
+.removeForm {
   display: flex;
   background-color: #efe8e2;
   width: 80%;
@@ -76,7 +76,7 @@ h3 {
   justify-content: center;
 }
 
-.form-content {
+.removeForm-content {
   height: 50%;
   margin-right: 5px;
   display: flex;
@@ -84,33 +84,33 @@ h3 {
   align-items: center;
 }
 
-.form-content label {
+.removeForm-content label {
   color: #f2ac2a;
   font-size: 25px;
   text-align: start;
   margin-right: 3rem;
 }
 
-.input-field {
+.removeForm-input-field {
   background-color: #f15757;
   color: white;
   height: 40px;
   padding: 10px;
 }
 
-.confirm-btn button {
+.removeForm-confirm-btn button {
   background-color: #f15757;
 }
 
-.confirm-btn button:hover {
+.removeForm-confirm-btn button:hover {
   background-color: #f10000c1;
 }
 
-.passvisibility-icon {
+.removeForm-passvisibility-icon {
   margin: 0 3rem 0 1rem;
 }
 
-.passvisibility-icon img {
+.removeForm-passvisibility-icon img {
   width: 35px;
   height: auto;
   padding-top: 20px;
