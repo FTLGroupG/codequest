@@ -51,6 +51,7 @@ CREATE TABLE userprogress (
     module_six             BOOLEAN DEFAULT 'f'
 );
 
+
 INSERT INTO modules (name, description, resources, placeholder)
 VALUES('Data Types','Learn Python data types.', array ['https://www.w3schools.com/python/python_datatypes.asp', 'https://www.programiz.com/python-programming/variables-datatypes', 'https://www.w3schools.com/python/python_numbers.asp', 'https://realpython.com/python-numbers/', 'https://www.programiz.com/python-programming/methods/built-in/float', 'https://blog.hubspot.com/website/float-python', 'https://www.geeksforgeeks.org/boolean-data-type-in-python/', 'https://www.w3schools.com/python/python_booleans.asp', 'https://www.w3schools.com/python/python_strings.asp', 'https://www.w3schools.com/python/python_strings_methods.asp', 'https://www.w3schools.com/python/python_strings_slicing.asp'], array ['Python Data Types', 'Learn more on Data Types', 'Python Number Type', 'Learn More on Numbers', 'Python Floats', 'Learn more on Python Floats', 'Boolean Data Type', 'How to use Booleans', 'Python Strings', 'Built-in methods for strings', 'Slicing Strings']);
 

@@ -26,7 +26,8 @@ export default function ProfilesPage(props) {
             <ProfilesDetail
               user={props.user}
               profileItem={props.profileItem}
-              erroMessage={props.erroMessage}
+              errors={props.errors}
+              setErrors={props.setErrors}
               isLoading={props.isLoading}
             />
           }

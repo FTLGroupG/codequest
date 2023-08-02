@@ -1,5 +1,7 @@
 const db = require("../db");
 const { BadRequestError, NotFoundError } = require("../utils/errors");
+const User = require("../models/user");
+const bcrypt = require("bcrypt");
 
 class Profile {
   // fetching profiles by user email
@@ -66,28 +68,43 @@ class Profile {
   }
 
   // Removes a user profile by ID
-  static async remove(id) {
+  static async remove(id, credentials, email) {
     const parsedId = Number.parseInt(id);
+    const user = await User.fetchUserByEmail(email);
+    console.log("here 3");
     // Check for invalid param
     if (typeof parsedId !== "number" || Number.isNaN(parsedId)) {
       throw new BadRequestError("Parameter is not a valid ID");
     }
 
-    // Check if the profile with the given ID exists
-    const existingProfile = await db.query(
-      `SELECT id FROM user_profiles WHERE id=$1`,
-      [parsedId]
-    );
-
-    if (existingProfile.rows.length === 0) {
-      throw new NotFoundError("No user profile found with provided ID");
+    console.log("here 2");
+    if (!credentials) {
+      throw new BadRequestError(`Missing password in request body`);
     }
 
-    // If the profile exists, delete it
-    await db.query(`DELETE FROM userprogress WHERE user_profile_id=$1`, [
-      parsedId,
-    ]);
-    await db.query(`DELETE FROM user_profiles WHERE id=$1`, [parsedId]);
+    console.log("here 1");
+
+    const isValid = await bcrypt.compare(credentials, user.password);
+    if (isValid) {
+      console.log("is Valid");
+      // Check if the profile with the given ID exists
+      const existingProfile = await db.query(
+        `SELECT id FROM user_profiles WHERE id=$1`,
+        [parsedId]
+      );
+
+      if (existingProfile.rows.length === 0) {
+        throw new NotFoundError("No user profile found with provided ID");
+      }
+
+      // If the profile exists, delete it
+      await db.query(`DELETE FROM userprogress WHERE user_profile_id=$1`, [
+        parsedId,
+      ]);
+      await db.query(`DELETE FROM user_profiles WHERE id=$1`, [parsedId]);
+    } else {
+      throw new UnauthorizedError("Invalid user credentials");
+    }
   }
 }
 
