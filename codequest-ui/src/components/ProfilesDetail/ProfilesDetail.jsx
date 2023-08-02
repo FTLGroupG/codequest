@@ -10,8 +10,8 @@ import AuthContext from "../../contexts/auth";
 import ProfileContext from "../../contexts/profile";
 import LottieAnimation from "../AnimationComponent/AnimationComponent";
 import animation8 from "/src/assets/coinAnimation.json";
-import opened_eye from "/src/assets/opened-eye.svg";
-import closed_eye from "/src/assets/closed-eye.svg";
+import opened_eye from "/src/assets/open-eye.svg";
+import closed_eye from "/src/assets/close-eye.svg";
 
 export default function ProfilesDetail({
   profileItem,
