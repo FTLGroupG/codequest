@@ -79,13 +79,14 @@ export default function Quiz({ user }) {
 
   return (
     <div className="Quiz">
-      {!selectedProfile && <Navigate to="/account-profiles" replace={true} />}
+      {!localStorage.getItem("selectedProfile") && (
+        <Navigate to="/account-profiles" replace={true} />
+      )}
       {questions[counter].type === "select" ? (
         <QuestionSelect user={user} />
       ) : (
         <QuestionDrag user={user} />
       )}
-
     </div>
   );
 }
