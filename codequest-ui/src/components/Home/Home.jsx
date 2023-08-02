@@ -1,19 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import "./Home.css";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import lottie from "lottie-web";
+
 import animationData from '/src/assets/heroAnimation.json'; // Replace with your animation file path
 import LottieAnimation from "../AnimationComponent/AnimationComponent";
 import animation8 from "/src/assets/codingGirlAnimation.json"
 import animation5 from "/src/assets/boxAnimation.json"
+import AuthContext from "../../contexts/auth";
+
 
 const AnimationComponent = () => {
   useEffect(() => {
     // Lottie configuration
-    const animationContainer = document.getElementById('lottieHomeContainer');
+    const animationContainer = document.getElementById("lottieHomeContainer");
     const anim = lottie.loadAnimation({
       container: animationContainer,
-      renderer: 'svg', // Choose the renderer (svg, canvas, html)
+      renderer: "svg", // Choose the renderer (svg, canvas, html)
       loop: false,
       autoplay: true,
       animationData: animationData,
@@ -23,22 +26,33 @@ const AnimationComponent = () => {
   }, []);
 
   return (
-    <div id="lottieHomeContainer" className="floating" style={{ width: "600px" }}></div>
+    <div
+      id="lottieHomeContainer"
+      className="floating"
+      style={{ width: "600px" }}
+    ></div>
   );
 };
 
 export default function Home() {
+  const { userContext } = useContext(AuthContext);
+  const [user, setUser] = userContext;
   return (
-    <div className='Home'>
-        <div className="Hero">
-          <div className="hero-text-and-btn">
-            <h1 className='fadeIn'>Learn how to code in a fun and interactive way!</h1>
-            <Link to="/register"><button className="signUpHomeButton">Sign Up</button></Link>
-          </div>
-          
-          <div id="lottieAnimation">
-            <AnimationComponent />
-          </div>
+    <div className="Home">
+      {user.email && <Navigate to="/account-profiles" replace={true} />}
+      <div className="Hero">
+        <div className="hero-text-and-btn">
+          <h1 className="fadeIn">
+            Learn how to code in a fun and interactive way!
+          </h1>
+          <Link to="/register">
+            <button className="signUpHomeButton">Sign Up</button>
+          </Link>
+        </div>
+
+        <div id="lottieAnimation">
+          <AnimationComponent />
+        </div>
 
           {/* <img src="https://www.usnews.com/object/image/00000171-9ce7-d084-affd-9def28d10000/200421-boylaptop-stock.jpg?update-time=1587475425427&size=responsive640" alt="Child sitting at a desk working on a laptop"></img> */}
         </div>

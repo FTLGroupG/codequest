@@ -21,15 +21,11 @@
   font-weight: 600;
   margin: 30px;
   text-align: left;
-  max-width: 70%;
+  max-width: 800px;
 }
 
 .curriculumCard h1, h2 {
   color: white;
-}
-
-.curriculumCard h2 {
-  color: #7e6ab0;
 }
 
 .curriculumCard h1 {
@@ -38,7 +34,7 @@
 }
 
 .curriculumCard p {
-  font-family: 'Lilita One', sans-serif;
+  font-family: 'Lilita One', cursive;
   color: white;
   font-size: 1.3em;
   line-height: 50px;
@@ -48,7 +44,20 @@
 .curriculumCardAnimation {
   float: right;
   margin-left: 10px;
+}
+
+.curriculumCardAnimationSmall {
+  float: right;
+  margin-left: 10px;
   margin-bottom: 30px;
+  width: 500px
+}
+
+.curriculumCardAnimationSmall {
+  float: right;
+  margin-left: 10px;
+  margin-bottom: 30px;
+  width: 500px
 }
 
 .curriculumCardAnimationSmall {
@@ -75,19 +84,4 @@
   background-color: #F2AC2A;
   color: rgb(0, 0, 0);
   font-size: 1rem;
-}
-
-/* Animations */
-
-
-
-.curriculumFlex {
-  display: flex;
-}
-
-.codeSnippet {
-  width: 100%;
-  min-width: 500px;
-  border: solid 5px rgb(200, 200, 200);
-  border-radius: 5px;
 }

@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./Modules.css";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 import AuthContext from "../../contexts/auth";
 import ProfileContext from "../../contexts/profile";
 import apiClient from "../../services/apiClient";
+import AccessForbidden from "../AccessForbidden/AccessForbidden";
 
 /**
  * Modules component displays the learning modules for a selected profile.
@@ -21,6 +22,7 @@ export default function Modules() {
 
   // Profile context from ProfileContext
   const {
+    selectedProfile,
     setSelectedProfile,
     userProgress,
     setUserProgress,
@@ -101,6 +103,9 @@ export default function Modules() {
   ];
   return (
     <div className="Modules">
+      {user.email && !selectedProfile && (
+        <Navigate to="/account-profiles" replace={true} />
+      )}
       <div className="moduleCard">
         <h1>Learn Python</h1>
         <div className="moduleCircles">
