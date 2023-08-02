@@ -13,7 +13,8 @@ CREATE TABLE modules (
     id             SERIAL PRIMARY KEY,
     name           TEXT NOT NULL,
     description    TEXT NOT NULL,
-    resources      TEXT []
+    resources      TEXT [],
+    placeholder    TEXT []
 );
 
 CREATE TYPE question_type AS ENUM ('select', 'drag');
@@ -50,76 +51,76 @@ CREATE TABLE userprogress (
     module_six             BOOLEAN DEFAULT 'f'
 );
 
-INSERT INTO modules (name, description, resources)
-VALUES('Data Types','Learn Python data types.', array ['https://www.w3schools.com/python/python_datatypes.asp', 'https://www.programiz.com/python-programming/variables-datatypes', 'https://realpython.com/python-data-types/', 'https://www.w3schools.com/python/python_numbers.asp', 'https://realpython.com/python-numbers/', 'https://blog.hubspot.com/website/float-python', 'https://www.programiz.com/python-programming/methods/built-in/float', 'https://www.geeksforgeeks.org/boolean-data-type-in-python/', 'https://www.w3schools.com/python/python_booleans.asp', 'https://www.w3schools.com/python/python_strings.asp', 'https://www.w3schools.com/python/python_strings_escape.asp', 'https://www.w3schools.com/python/python_strings_methods.asp', 'https://www.w3schools.com/python/python_strings_slicing.asp']);
+INSERT INTO modules (name, description, resources, placeholder)
+VALUES('Data Types','Learn Python data types.', array ['https://www.w3schools.com/python/python_datatypes.asp', 'https://www.programiz.com/python-programming/variables-datatypes', 'https://www.w3schools.com/python/python_numbers.asp', 'https://realpython.com/python-numbers/', 'https://www.programiz.com/python-programming/methods/built-in/float', 'https://blog.hubspot.com/website/float-python', 'https://www.geeksforgeeks.org/boolean-data-type-in-python/', 'https://www.w3schools.com/python/python_booleans.asp', 'https://www.w3schools.com/python/python_strings.asp', 'https://www.w3schools.com/python/python_strings_methods.asp', 'https://www.w3schools.com/python/python_strings_slicing.asp'], array ['Python Data Types', 'Learn more on Data Types', 'Python Number Type', 'Learn More on Numbers', 'Python Floats', 'Learn more on Python Floats', 'Boolean Data Type', 'How to use Booleans', 'Python Strings', 'Built-in methods for strings', 'Slicing Strings']);
 
-INSERT INTO modules (name, description, resources)
-VALUES('Variables','Learn Python variables.', array ['https://www.w3schools.com/python/python_variables.asp', 'https://realpython.com/python-variables/', 'https://www.w3schools.com/python/python_variables_names.asp', 'https://www.w3schools.com/python/python_variables_global.asp']);
+INSERT INTO modules (name, description, resources, placeholder)
+VALUES('Variables','Learn Python variables.', array ['https://www.w3schools.com/python/python_variables.asp', 'https://www.w3schools.com/python/python_variables_names.asp', 'https://www.w3schools.com/python/python_variables_global.asp'], array ['Python Variables', 'Variable Names', 'Global Variables']);
 
-INSERT INTO modules (name, description, resources)
-VALUES('Conditionals','Learn Python conditionals.', array ['https://realpython.com/python-conditional-statements/', 'https://www.freecodecamp.org/news/how-to-use-conditional-statements-if-else-elif-in-python/', 'https://www.w3schools.com/python/python_conditions.asp']);
+INSERT INTO modules (name, description, resources, placeholder)
+VALUES('Conditionals','Learn Python conditionals.', array ['https://realpython.com/python-conditional-statements/', 'https://www.freecodecamp.org/news/how-to-use-conditional-statements-if-else-elif-in-python/', 'https://www.w3schools.com/python/python_conditions.asp'], array ['Conditional Statements in Python', 'If, Else, Elif Conditionals', 'Interactive Lesson on Conditionals']);
 
-INSERT INTO modules (name, description, resources)
-VALUES('Lists','Learn Python data lists.', array ['https://www.programiz.com/python-programming/list', 'https://www.geeksforgeeks.org/python-lists/', 'https://www.w3schools.com/python/python_lists.asp', 'https://www.w3schools.com/python/python_lists_access.asp', 'https://www.w3schools.com/python/python_lists_change.asp', 'https://www.w3schools.com/python/python_lists_add.asp', 'https://www.w3schools.com/python/python_lists_remove.asp', 'https://www.w3schools.com/python/python_lists_methods.asp']);
+INSERT INTO modules (name, description, resources, placeholder)
+VALUES('Lists','Learn Python data lists.', array ['https://www.programiz.com/python-programming/list', 'https://www.geeksforgeeks.org/python-lists/', 'https://www.w3schools.com/python/python_lists.asp', 'https://www.w3schools.com/python/python_lists_access.asp', 'https://www.w3schools.com/python/python_lists_change.asp', 'https://www.w3schools.com/python/python_lists_add.asp', 'https://www.w3schools.com/python/python_lists_remove.asp', 'https://www.w3schools.com/python/python_lists_methods.asp'], array ['Learn more about Python Lists', 'Python Lists', 'Interactive lesson on Python Lists', 'Accessing items in a list', 'Changing items in a list', 'Adding items to a list', 'Removing items from a list', 'Built-in methods for lists']);
 
-INSERT INTO modules (name, description, resources)
-VALUES('Loops','Learn Python loops.', array ['https://www.programiz.com/python-programming/for-loop', 'https://www.w3schools.com/python/python_for_loops.asp', 'https://www.w3schools.com/python/python_while_loops.asp']);
+INSERT INTO modules (name, description, resources, placeholder)
+VALUES('Loops','Learn Python loops.', array ['https://www.programiz.com/python-programming/for-loop', 'https://www.w3schools.com/python/python_for_loops.asp', 'https://www.w3schools.com/python/python_while_loops.asp'], array ['For Loops', 'Interactive Lesson on For Loops', 'Learn More about While Loops']);
 
-INSERT INTO modules (name, description, resources)
-VALUES('Functions','Learn Python functions.', array ['https://www.programiz.com/python-programming/function', 'https://www.geeksforgeeks.org/python-functions/', 'https://www.w3schools.com/python/python_functions.asp']);
+INSERT INTO modules (name, description, resources, placeholder)
+VALUES('Functions','Learn Python functions.', array ['https://www.programiz.com/python-programming/function', 'https://www.geeksforgeeks.org/python-functions/', 'https://www.w3schools.com/python/python_functions.asp'], array ['Learn More about Python Functions', 'What are Python Functions?', 'Interactive Lesson on Python Functions']);
 
 
 -- Modules 1 data 
-INSERT INTO questions (question, answer, options, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer',
-ARRAY ['Float', 'String', 'Boolean'], 'select', 1);
+INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
+VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
+ARRAY ['Float', 'String', 'Boolean', 'Integer'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 1);
 
-INSERT INTO questions (question, answer, options, type, module_id)
-VALUES('What is a boolean?','a true or false',
-ARRAY ['a text', 'an integer', 'a decimal number'], 'select', 1);
+INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
+VALUES('What is a boolean?','a true or false', 'Que es un booleano?', 'un true o falso',
+ARRAY ['a text', 'an integer', 'a decimal number', 'a true or false'], ARRAY [ 'un texto', 'un entero', 'un decimal'], 'select', 1);
 
-INSERT INTO questions (question, answer, options, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer',
-ARRAY ['Float', 'String', 'Boolean'], 'drag', 1);
+INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
+VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
+ARRAY ['Float', 'String', 'Boolean', 'Integer'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'drag', 1);
 
 -- Modules 2 Variables data
-INSERT INTO questions (question, answer, options, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer',
-ARRAY ['Float', 'String', 'Boolean'], 'select', 2);
+INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
+VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
+ARRAY ['Float', 'String', 'Boolean', 'Integer'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 2);
 
-INSERT INTO questions (question, answer, options, type, module_id)
-VALUES('What is a boolean?','a true or false',
-ARRAY ['a text', 'an integer', 'a decimal number'], 'select', 2);
+INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
+VALUES('What is a boolean?','a true or false', 'Que es un booleano?', 'un true o falso',
+ARRAY ['a text', 'an integer', 'a decimal number', 'a true or false'], ARRAY [ 'un texto', 'un entero', 'un decimal'], 'select', 2);
 
-INSERT INTO questions (question, answer, options, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer',
-ARRAY ['Float', 'String', 'Boolean'], 'drag', 2);
+INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
+VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
+ARRAY ['Float', 'String', 'Boolean', 'Integer'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'drag', 2);
 
 -- Modules 3 Conditionals data
-INSERT INTO questions (question, answer, options, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer',
-ARRAY ['Float', 'String', 'Boolean'], 'select', 3);
+INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
+VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
+ARRAY ['Float', 'String', 'Boolean', 'Integer'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 3);
 
-INSERT INTO questions (question, answer, options, type, module_id)
-VALUES('What is a boolean?','a true or false',
-ARRAY ['a text', 'an integer', 'a decimal number'], 'select', 3);
+INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
+VALUES('What is a boolean?','a true or false', 'Que es un booleano?', 'un true o falso',
+ARRAY ['a text', 'an integer', 'a decimal number', 'a true or false'], ARRAY [ 'un texto', 'un entero', 'un decimal'], 'select', 3);
 
-INSERT INTO questions (question, answer, options, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer',
-ARRAY ['Float', 'String', 'Boolean'], 'drag', 3);
+INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
+VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
+ARRAY ['Float', 'String', 'Boolean', 'Integer'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'drag', 3);
 
 -- Modules 4 Lists data
-INSERT INTO questions (question, answer, options, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer',
-ARRAY ['Float', 'String', 'Boolean'], 'select', 4);
+INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
+VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
+ARRAY ['Float', 'String', 'Boolean', 'Integer'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 4);
 
-INSERT INTO questions (question, answer, options, type, module_id)
-VALUES('What is a boolean?','a true or false',
-ARRAY ['a text', 'an integer', 'a decimal number'], 'select', 4);
+INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
+VALUES('What is a boolean?','a true or false', 'Que es un booleano?', 'un true o falso',
+ARRAY ['a text', 'an integer', 'a decimal number', 'a true or false'], ARRAY [ 'un texto', 'un entero', 'un decimal'], 'select', 4);
 
-INSERT INTO questions (question, answer, options, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer',
-ARRAY ['Float', 'String', 'Boolean'], 'drag', 4);
+INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
+VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
+ARRAY ['Float', 'String', 'Boolean', 'Integer'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'drag', 4);
 
 
 -- Modules 5 Loops data 
