@@ -71,6 +71,10 @@
     font-family: 'Lilita One', sans-serif;
 }
 
+.floating h2 {
+    font-size: 2.4em;
+}
+
 .pythonCard{
     background-color: #F15757;
     color: #fff;
@@ -86,7 +90,8 @@
 }
 
 .pythonCard h3 {
-    text-decoration: underline;
+    font-family: Lilita One, sans-serif;
+    font-size: 2em;
 }
 
 .pythonCard h5 {

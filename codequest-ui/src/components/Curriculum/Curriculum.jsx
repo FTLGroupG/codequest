@@ -15,6 +15,23 @@ import animation4 from "/src/assets/diamondAnimation.json";
 import animation5 from "/src/assets/boxAnimation.json";
 import animation6 from "/src/assets/loopAnimation.json";
 import animation7 from "/src/assets/chefAnimation.json";
+import animation10 from "/src/assets/magicianAnimation.json";
+
+const DataTypeSection = ({ title, content }) => {
+  const [visible, setVisible] = useState(false);
+
+  return (
+    <div className="dataTypeSection">
+      <h2>{title}</h2>
+      <div className={`dataTypeContent ${visible ? 'visible' : 'hidden'}`}>
+        {content}
+      </div>
+      <button onClick={() => setVisible(!visible)}>
+        {visible ? 'Hide' : 'Show More'}
+      </button>
+    </div>
+  );
+};
 
 
 export default function Curriculum() {
@@ -45,12 +62,16 @@ export default function Curriculum() {
       )}
       <div className="curriculumCard">
         {id == 1 ? (
+
+          // DATE TYPES //
+
           <main>
             <h2>Learn Python</h2>
             <h1>Data Types</h1>
             <div className="curriculumCardAnimation">
               <LottieAnimation animationData={animation5} />
             </div>
+
             <div className="curriculumCardText">
               <h3>Lesson 1: Fun with Data Types in Python</h3>
               <br />
@@ -67,7 +88,12 @@ export default function Curriculum() {
                 world, just like this chest, we have different types to hold
                 different kinds of treasures - these are called "Data Types."
               </p>
-              <h2>Numbers</h2>
+
+              <h2>Lesson 1: Fun with Data Types in Python</h2>
+            <DataTypeSection 
+              title="Numbers"
+              content={
+                <>
               <p>
                 Let's start with the most magical Data Type of all: "Numbers!"
                 You can use Numbers to count the stars in the night sky or the
@@ -88,8 +114,14 @@ export default function Curriculum() {
                   allowFullScreen
                 ></iframe>
               </div>
+                </>
+              }
+            />
 
-              <h2>Strings</h2>
+              <DataTypeSection 
+                title="Strings"
+                content={
+                  <>
               <p>
                 Next, we have the "Strings" - a sparkling and colorful Data
                 Type! Strings are like potions that hold words, sentences, or
@@ -109,9 +141,15 @@ export default function Curriculum() {
                   allowFullScreen
                 ></iframe>
               </div>
+                  </>
+                }
+              />
 
-              <h2>Boolean</h2>
-              <p>
+              <DataTypeSection 
+                title="Booleans"
+                content={
+                  <>
+                                  <p>
                 Now, let's discover the "Booleans" - the guardians of True and
                 False! Booleans can answer questions like, "Is the sky blue?" or
                 "Do unicorns exist?" They are like magical knights that protect
@@ -129,9 +167,15 @@ export default function Curriculum() {
                   allowfullscreen
                 ></iframe>
               </div>
+                  </>
+                }
+              />
 
-              <h2>Lists</h2>
-              <p>
+              <DataTypeSection 
+                title="Lists"
+                content={
+                  <>
+                                  <p>
                 Moving on to the "Lists" - a treasure map leading to many
                 things! Lists are collections of items, just like your favorite
                 toys. You can put toys, candy names, or even your friends' names
@@ -147,9 +191,15 @@ export default function Curriculum() {
                   allowFullScreen
                 ></iframe>
               </div>
+                  </>
+                }
+              />
 
-              <h2>Tuples</h2>
-              <p>
+              <DataTypeSection 
+                title="Tuples"
+                content={
+                  <>
+                                  <p>
                 Now, let's meet the "Tuples" - a pair of magical socks! Tuples
                 are like pairs of items that stick together. You can use them to
                 store things like the X and Y coordinates of a magical map or
@@ -164,9 +214,15 @@ export default function Curriculum() {
                   allowFullScreen
                 ></iframe>
               </div>
+                  </>
+                }
+              />
 
-              <h2>Dictionaries</h2>
-              <p>
+              <DataTypeSection 
+                title="Dictionaries"
+                content={
+                  <>
+                                  <p>
                 Finally, we have the "Dictionaries" - a magical library with
                 enchanted books! Dictionaries hold information like a magical
                 encyclopedia. Each piece of information has a unique key, just
@@ -183,6 +239,9 @@ export default function Curriculum() {
               </div>
 
               <LottieAnimation animationData={animation2} />
+                  </>
+                }
+              />
               {buttons}
             </div>
           </main>
@@ -191,9 +250,15 @@ export default function Curriculum() {
             {user.email ? (
               <>
                 {id == 2 && (
+
+                // VARIABLES //
+
                   <main>
                     <h2>Learn Python</h2>
                     <h1>Variables</h1>
+                    <div className="curriculumCardAnimation">
+              <LottieAnimation animationData={animation10} />
+            </div>
                     <div className="curriculumCardText">
                       <h3>
                         Lesson 2: Unleash the Magic of Variables in Python
@@ -224,7 +289,11 @@ export default function Curriculum() {
                         assigning a unique name to a magical artifact that
                         you'll use throughout your quest!
                       </p>
-                      <h2>Numbers</h2>
+
+                      <DataTypeSection 
+                      title="Numbers"
+                      content={
+                        <>
                       <p>
                         Now, let's learn how to use Variables to store Numbers.
                         For example, you can have a Variable named "potions" and
@@ -245,9 +314,15 @@ export default function Curriculum() {
                           allowfullscreen
                         ></iframe>
                       </div>
+                        </>
+                      }
+                    />
 
-                      <h2>Strings</h2>
-                      <p>
+                      <DataTypeSection 
+                      title="Strings"
+                      content={
+                        <>
+                     <p>
                         Next, let's use Variables to store Strings. For
                         instance, you can have a Variable named "wizard_name"
                         and fill it with your magical name, like "Wizard
@@ -267,9 +342,15 @@ export default function Curriculum() {
                           allowfullscreen
                         ></iframe>
                       </div>
+                        </>
+                      }
+                    />
 
-                      <h2>Calculation</h2>
-                      <p>
+                      <DataTypeSection 
+                      title="Calculations"
+                      content={
+                        <>
+                        <p>
                         Now, let's combine the power of Variables with some
                         magical math! You can use Variables to perform
                         spellbinding calculations. For example, if you have two
@@ -289,9 +370,15 @@ export default function Curriculum() {
                           allowfullscreen
                         ></iframe>
                       </div>
+                        </>
+                      }
+                    />
 
-                      <h2>Updating your Variable</h2>
-                      <p>
+                      <DataTypeSection 
+                      title="Updating your Variable"
+                      content={
+                        <>
+                       <p>
                         Sometimes in your coding journey, you might need to
                         update the value stored in a Variable. Think of it as
                         replenishing your magical energy. You can increase or
@@ -310,8 +397,14 @@ export default function Curriculum() {
                           allowfullscreen
                         ></iframe>
                       </div>
+                        </>
+                      }
+                    />
 
-                      <h2>Lists</h2>
+                      <DataTypeSection 
+                      title="Lists"
+                      content={
+                        <>
                       <p>
                         Remember, young wizards, Variables are not only about
                         storing single treasures. You can also use them to store
@@ -332,8 +425,14 @@ export default function Curriculum() {
                           allowfullscreen
                         ></iframe>
                       </div>
+                        </>
+                      }
+                    />
 
-                      <h2>Delete your Variable</h2>
+                      <DataTypeSection 
+                      title="Delete your Variable"
+                      content={
+                        <>
                       <p>
                         Now, here's a magical spell to remember: if you ever
                         need to remove a Variable from your coding world, you
@@ -352,7 +451,9 @@ export default function Curriculum() {
                           allowfullscreen
                         ></iframe>
                       </div>
-
+                        </>
+                      }
+                    />
                       <p>
                         Congratulations, young apprentices! You've unlocked the
                         secrets of Variables in Python! Now, it's time for a
@@ -365,6 +466,9 @@ export default function Curriculum() {
                   </main>
                 )}
                 {id == 3 && (
+
+                  // CONDITIONALS //
+
                   <main>
                     <h2>Learn Python</h2>
                     <h1>Conditionals</h1>
@@ -372,7 +476,7 @@ export default function Curriculum() {
                       <LottieAnimation animationData={animation1} />
                     </div>
                     <div className="curriculumCardText">
-                      <h3>Fun with Conditionals in Python</h3>
+                      <h2>Fun with Conditionals in Python</h2>
                       <br />
 
                       <p>
@@ -397,8 +501,11 @@ export default function Curriculum() {
                         works with our secret code-breaking mission.
                       </p>
 
-                      <h2>Detective task: Guess the Secret Number</h2>
-                      <p>
+                      <DataTypeSection 
+                        title="Detective task: Guess the Secret Number"
+                        content={
+                          <> 
+                                                  <p>
                         We've intercepted a coded message from the evil
                         mastermind Dr. Enigma! Your mission is to help our
                         detective PythonBot guess the secret number. Here's how
@@ -418,75 +525,48 @@ export default function Curriculum() {
                         get a congratulatory message! If not, you'll get a clue
                         to try again. Keep guessing until you unlock the secret!
                       </p>
-                      <p>
-                        Let's Make Choices with "if" and "else" <br></br>
+                          </>
+                        }
+                      />
+
+                      <DataTypeSection 
+                        title="Let's Make Choices with if and else"
+                        content={
+                          <> 
+                       <p>
                         In our secret code-breaking mission, PythonBot used the
                         "if" and "else" statements to make choices. When your
                         guess is correct, the "if" block runs, and if your guess
                         is wrong, the "else" block runs. It's like magic, right?
                       </p>
-                      <p>
-                        Your Turn: Create Your Secret Code <br></br>
-                        Now it's your turn to be the mastermind! Use
-                        conditionals to create your secret code. You can make a
-                        guessing game like we did or make your own fun adventure
-                        with PythonBot!
-                      </p>
-                      <p>
-                        What are Conditionals? <br></br>
-                        Conditionals are like "if" questions for your computer.
-                        They help your code decide what to do based on certain
-                        conditions. Think of it as your code's superpower -
-                        making it smarter and more interactive! Let's see how it
-                        works with our secret code-breaking mission.
-                      </p>
+                          </>
+                        }
+                      />
 
-                      <p>
-                        Detective Task: Guess the Secret Number <br></br>
-                        We've intercepted a coded message from the evil
-                        mastermind Dr. Enigma! Your mission is to help our
-                        detective PythonBot guess the secret number. Here's how
-                        it works:
-                      </p>
-
-                      <img
-                        src="/src/assets/conditionalsCodeSnippet1.png"
-                        className="codeSnippet"
-                      ></img>
-
-                      <p>
-                        Let's Understand the Code: <br></br>
-                        In the code, we set a secret number and ask the player
-                        (that's you!) to guess the number. The "if" statement
-                        checks if your guess is equal to the secret number. If
-                        it is, you cracked the code and get a congratulatory
-                        message! If not, you'll get a clue to try again. Keep
-                        guessing until you unlock the secret! Unlock the
-                        Treasure Challenge: <br></br>
-                        Let's have some more fun! PythonBot has reached a
-                        treasure chest, but it's locked with a secret code. Help
-                        PythonBot crack the code using conditionals, and the
-                        treasure will be all yours!
-                      </p>
-                      <p>
-                        Let's Make Choices with "if" and "else" <br></br>
-                        In our secret code-breaking mission, PythonBot used the
-                        "if" and "else" statements to make choices. When your
-                        guess is correct, the "if" block runs, and if your guess
-                        is wrong, the "else" block runs. It's like magic, right?
-                      </p>
-                      <p>
-                        Your Turn: Create Your Secret Code <br></br>
-                        Now it's your turn to be the mastermind! Use
-                        conditionals to create your secret code. You can make a
-                        guessing game like we did or make your own fun adventure
-                        with PythonBot!
-                      </p>
-                      <div className="curriculumCardAnimation">
+                      {/* <div className="curriculumCardAnimation">
                         <LottieAnimation animationData={animation2} />
-                      </div>
-                      <p>
-                        Unlock the Treasure Challenge: <br></br>
+                      </div> */}
+
+                      <DataTypeSection 
+                        title="Detective task: Guess the Secret Number"
+                        content={
+                          <> 
+                        <p>
+                        Your Turn: Create Your Secret Code <br></br>
+                        Now it's your turn to be the mastermind! Use
+                        conditionals to create your secret code. You can make a
+                        guessing game like we did or make your own fun adventure
+                        with PythonBot!
+                      </p>
+                          </>
+                        }
+                      />
+
+                      <DataTypeSection 
+                        title="Unlock the Treasure Challenge:"
+                        content={
+                          <> 
+                        <p>
                         Let's have some more fun! PythonBot has reached a
                         treasure chest, but it's locked with a secret code. Help
                         PythonBot crack the code using conditionals, and the
@@ -501,11 +581,17 @@ export default function Curriculum() {
                         marginheight="0"
                         allowfullscreen
                       ></iframe>
+                          </>
+                        }
+                      />
                       {buttons}
                     </div>
                   </main>
                 )}
                 {id == 4 && (
+
+                  // LISTS //
+
                   <main>
                     <h2>Learn Python</h2>
                     <h1>Lists</h1>
@@ -513,7 +599,7 @@ export default function Curriculum() {
                       <LottieAnimation animationData={animation3} />
                     </div>
                     <div className="curriculumCardText">
-                      <h3>Fun with Lists in Python</h3>
+                      <h2>Fun with Lists in Python</h2>
                       <br />
                       <p>
                         What are Lists? <br></br>
@@ -524,7 +610,11 @@ export default function Curriculum() {
                         lists can store multiple items, such as numbers, words,
                         or even other lists!
                       </p>
-                      <p>
+                      <DataTypeSection 
+                        title="Creating Lists and Acessing Items"
+                        content={
+                          <>
+                       <p>
                         Creating a List: <br></br>
                         Let's see how PythonBot creates a list of gems found
                         during the quest:
@@ -536,34 +626,66 @@ export default function Curriculum() {
                         first item has an index of 0, the second has an index of
                         1, and so on.
                       </p>
+                          </>
+                        }
+                      />
+
+                      <DataTypeSection 
+                        title="Adding and Counting Gems"
+                        content={
+                          <>
                       <p>
                         Adding More Gems: <br></br>
                         On the quest, PythonBot discovers a new gem, the
                         "Topaz." Let's add it to the list:
                       </p>
-
                       <p>
                         Counting the Gems: <br></br>
                         PythonBot wants to know how many gems have been found.
                         Python can easily count the items in a list for us:
                       </p>
-                      <p>
+                          </>
+                        }
+                      />
+
+                      <DataTypeSection 
+                        title="Customize Your Quest"
+                        content={
+                          <>
+                        <p>
                         Your Turn: Customize Your Quest <br></br>
                         Create your own adventure! Make a list of items you'll
                         discover during your journey. You can have gems, magical
                         creatures, or even planets in your list. Let your
                         imagination run wild!
                       </p>
-                      <p>
+                          </>
+                        }
+                      />
+                      <DataTypeSection 
+                        title="The 'for' Loop"
+                        content={
+                          <>
+                        <p>
                         Magic with "for" Loop: <br></br>
                         PythonBot learns a powerful spell, the "for" loop, to go
                         through the list and find all the gems:
                       </p>
+                          </>
+                        }
+                      />
+                      <DataTypeSection 
+                        title="Sorting in Lists"
+                        content={
+                          <>
                       <p>
                         Sorting the Gems: <br></br>
                         PythonBot wants to arrange the gems alphabetically.
                         Python can sort the list for us:
                       </p>
+                          </>
+                        }
+                      />
                       <p>
                         Great job, young adventurers! You've conquered the world
                         of Python Lists and can now organize your data like a
@@ -575,6 +697,9 @@ export default function Curriculum() {
                   </main>
                 )}
                 {id == 5 && (
+
+                  // LOOPS //
+
                   <main>
                     <h2>Learn Python</h2>
                     <h1>Loops</h1>
@@ -614,41 +739,55 @@ export default function Curriculum() {
                       ></iframe>
                       <br /> <br />
                       <br /> <br />
-                      <p>
-                        🌟Looping through a Rainbow! 🌟
-                        <br />
-                        Now, let's go on a magical journey through a rainbow
-                        using another type of loop called the "while loop."
-                        Imagine you're walking along the rainbow's colorful
-                        arches, and you'll keep walking until you reach the end
-                        of the rainbow! Here's the enchanting spell in Python:
-                      </p>
-                      <iframe
-                        src="https://trinket.io/embed/python/44e8d5e69f"
-                        width="100%"
-                        height="356"
-                        frameborder="0"
-                        marginwidth="0"
-                        marginheight="0"
-                        allowfullscreen
-                      ></iframe>
-                      <p>
-                        With this spell, you can dance along the colors of the
+                      <DataTypeSection 
+                        title="🌟Looping through a Rainbow! 🌟"
+                        content={
+                          <>
+                        <p>
+                          <br />
+                          Now, let's go on a magical journey through a rainbow
+                          using another type of loop called the "while loop."
+                          Imagine you're walking along the rainbow's colorful
+                          arches, and you'll keep walking until you reach the end
+                          of the rainbow! Here's the enchanting spell in Python:
+                          <br>
+                          </br>
+                          With this spell, you can dance along the colors of the
                         rainbow forever!
-                        <br />
-                        <br />
-                        🌟 Challenge Yourself 🌟
-                        <br />
+                        </p>
+                        <iframe
+                          src="https://trinket.io/embed/python/44e8d5e69f"
+                          width="100%"
+                          height="356"
+                          frameborder="0"
+                          marginwidth="0"
+                          marginheight="0"
+                          allowfullscreen
+                        ></iframe>
+                          </>
+                        }
+                      />
+                      <DataTypeSection 
+                        title="🌟Challenge Yourself 🌟"
+                        content={
+                          <>
+                       <p>
                         Now, it's time for a magical challenge! Can you use a
                         loop to count from 1 to 10 and say "Abracadabra" after
                         each number? Give it a try and see the magic unfold in
                         your code!
                       </p>
+                          </>
+                        }
+                      />
                       {buttons}
                     </div>
                   </main>
                 )}
                 {id == 6 && (
+
+                  // FUNCTIONS //
+
                   <main>
                     <h2>Learn Python</h2>
                     <h1>Functions</h1>
@@ -674,11 +813,14 @@ export default function Curriculum() {
                         Python, a function is like your friendly robot! It's a
                         set of instructions that you give a name, so you can
                         call on it whenever you need to perform that task.
-                        <br />
-                        <br />
-                        🌟How to Create a Function? 🌟
-                        <br />
-                        Creating a function is like making a new recipe for a
+                        </p>
+
+                        <DataTypeSection 
+                        title="🌟How to Create a Function🌟"
+                        content={
+                          <>
+                          <p>
+                          Creating a function is like making a new recipe for a
                         delicious cake! First, you give it a name (like
                         "bake_cake"), and then you list the instructions inside
                         it. Remember, the computer will follow your instructions
@@ -688,9 +830,12 @@ export default function Curriculum() {
                         the instructions inside it. To call the "say_hello"
                         function, simply use the function name followed by
                         parentheses.
-                        <br />
-                        <br />
-                        Here's an example of a simple function to say "Hello!":
+                          </p>
+                          </>
+                        }
+                        />
+
+                        <p>Here's an example of a simple function to say "Hello!":
                       </p>
                       <iframe
                         src="https://trinket.io/embed/python/d2d41fac28"
@@ -701,18 +846,18 @@ export default function Curriculum() {
                         marginheight="0"
                         allowfullscreen
                       ></iframe>
-                      <br />
-                      <br />
-                      <br />
-                      <p>
-                        🌟Functions with Parameters🌟
-                        <br />
+
+                      <DataTypeSection 
+                        title="🌟Functions with Parameters🌟"
+                        content={
+                          <>
+                        <p>
                         Sometimes, you need to tell your robot friend more
                         details to get the job done. That's where parameters
                         come in handy! Parameters are like giving your function
                         extra instructions to work with.
-                        <br />
-                        <br />
+                        </p>
+                        <p>
                         Let's create a function that says hello to someone
                         specific and let's call the function and tell it who to
                         greet:
@@ -726,6 +871,9 @@ export default function Curriculum() {
                         marginheight="0"
                         allowfullscreen
                       ></iframe>
+                          </>
+                        }
+                      />
                       <p>
                         You're doing fantastic! You've just unleashed the power
                         of functions in Python. They make your code organized,

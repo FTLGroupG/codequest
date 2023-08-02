@@ -21,7 +21,6 @@
   font-weight: 600;
   margin: 30px;
   text-align: left;
-  max-width: 800px;
 }
 
 .curriculumCard h1, h2 {
@@ -84,4 +83,57 @@
   background-color: #F2AC2A;
   color: rgb(0, 0, 0);
   font-size: 1rem;
+}
+
+.dataTypeSection {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+
+.dataTypeContent {
+  display: none;
+}
+
+.dataTypeContent.visible {
+  display: flex;
+  flex-wrap: wrap; /* This will wrap the content to the next line when it overflows horizontally */
+  gap: 20px; /* Adjust this gap to control the spacing between the items */
+}
+
+.dataTypeContent.visible > * {
+  flex-basis: calc(50% - 10px); /* Adjust the flex-basis value to control the width of each item */
+  /* For two items per row, use 50%; for three items, use 33.33%; and so on */
+}
+
+/* .dataTypeContent.visible > *:nth-child(odd) {
+  
+}
+
+.dataTypeContent.visible > *:nth-child(even) {
+  
+} */
+
+.dataTypeContent.visible {
+  background-color: #f15757;
+  align-items: center;
+  padding: 15px;
+  border: solid 3px white;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.dataTypeSection button {
+  background-color: #F2AC2A;
+  width: 300px;
+}
+
+button {
+  margin-top: 10px;
+}
+
+iframe {
+
+  box-shadow: 0px 5px 10px #00000051;
 }

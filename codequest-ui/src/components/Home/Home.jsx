@@ -61,17 +61,6 @@ export default function Home() {
         <h2 className='floating'>Learn with <span className="redText">QuestBot</span> our favorite coding teaching assistant!</h2>
         </div>
 
-      {/* <div className='playGamesCard'>
-
-          <div className='cardTextFloatRight'>
-          <h4>Designed for kids aged 6-10</h4>
-          <h2 className="pinkH2">Play games and learn how to code at the same time!</h2>
-          <h4>CodeQuest is designed to give kids a fun and interactive environment to learning. Give it a try!</h4>
-        </div>
-        <button><Link to="/modules">Try Sample Lesson</Link></button>
-        <button><Link to="/register">Sign Up</Link></button>
-        </div> */}
-
       <div className="testSection">
         <div className="custom-shape-divider-top-1690233543">
           <svg

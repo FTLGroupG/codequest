@@ -106,8 +106,8 @@ export default function Modules() {
       {user.email && !selectedProfile && (
         <Navigate to="/account-profiles" replace={true} />
       )}
+      <h1>Learn Python</h1>
       <div className="moduleCard">
-        <h1>Learn Python</h1>
         <div className="moduleCircles">
           {module_id_name.map(({ number, value }) => {
             return number <= leftOff ? (

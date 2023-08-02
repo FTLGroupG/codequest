@@ -1,5 +1,4 @@
 import React from "react";
-
 import QuestionSelect from "../QuestionSelect/QuestionSelect";
 import QuestionDrag from "../QuestionDrag/QuestionDrag";
 import "./Quiz.css";
