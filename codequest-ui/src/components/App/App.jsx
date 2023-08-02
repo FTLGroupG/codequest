@@ -141,7 +141,6 @@ function App() {
             <Route path="/modules/*" element={<Modules />} />
             <Route path="/notFound" element={<NotFound />} />
             <Route path="/loading" element={<Loading />} />
-            <Route path="/modules/*" element={<Modules />} />
             <Route path="/modules/:id/curriculum" element={<Curriculum />} />
             <Route
               path="/modules/:id/curriculum/finished/"
