@@ -76,11 +76,11 @@ export default function Results({ profileItem }) {
           <h2 className="floating">
             Here are some resources to learn more: <br />
             <ul id="resourceLinks" key={key++}>
-              {module?.resources.map((resource) => {
+              {module?.resources.map((resource, index) => {
                 return (
                   <li>
                     <a target="_blank" className="resourceLink" href={resource}>
-                      {resource}
+                      {module?.placeholder[index]}
                     </a>
                   </li>
                 );

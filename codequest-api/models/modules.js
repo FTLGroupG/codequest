@@ -10,7 +10,7 @@ class Module {
       throw new BadRequestError("Parameter is not a valid ID");
 
     const result = await db.query(
-      `SELECT id, name, description, resources
+      `SELECT id, name, description, resources, placeholder
     FROM modules
     WHERE id=$1`,
       [id]
