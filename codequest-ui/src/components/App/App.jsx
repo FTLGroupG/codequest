@@ -76,7 +76,6 @@ function App() {
 
   const [isLoading, setIsLoading] = useState();
   const profileId = localStorage.getItem("selectedProfile");
-  const [errorMessage, setErrorMessage] = useState();
   const [profileItem, setProfileItem] = useState({});
 
   useEffect(() => {
@@ -97,7 +96,7 @@ function App() {
       if (data) {
         setProfileItem(data);
       } else {
-        setErrorMessage(error);
+        seterrors(error);
       }
 
       setIsLoading(false);
@@ -131,7 +130,8 @@ function App() {
                 <ProfilesPage
                   user={user}
                   profileItem={profileItem}
-                  errorMessage={errorMessage}
+                  errors={errors}
+                  setErrors={setErrors}
                   isLoading={isLoading}
                 />
               }

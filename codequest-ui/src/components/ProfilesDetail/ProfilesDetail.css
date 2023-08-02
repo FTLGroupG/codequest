@@ -1,50 +1,56 @@
-h1, h2, h3 {
-    color: white;
+h1,
+h2,
+h3 {
+  color: white;
+}
+
+* {
+  font-family: "Lilita One", cursive;
 }
 
 .userProfileName {
-    display: flex;
-    flex-direction: row;
-    height: 50px;
-    align-items: center;
-    justify-content: end;
-    margin-top: 20px;
-    margin-right: 50px;
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  align-items: center;
+  justify-content: end;
+  margin-top: 20px;
+  margin-right: 50px;
 }
 
 .userProfile img {
-    width: 60px;
+  width: 60px;
 }
 
 .userAnalyticsHeader {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .userAnalyticsHeader h2 {
-    margin: 20px;
+  margin: 20px;
 }
 
 .coins {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .userAnalyticsContainer {
-    width: 100%;
-    height: 500px;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
 }
 
 .userAnalytics {
-    width: 300px;
-    height: 300px;
-    background-color: rgb(19, 25, 78);
-    /* box-shadow: 0 0 10px #000000; */
-    border-radius: 5px;
-    margin: 50px;
+  width: 300px;
+  height: 300px;
+  background-color: rgb(19, 25, 78);
+  /* box-shadow: 0 0 10px #000000; */
+  border-radius: 5px;
+  margin: 50px;
 }
 
 .deleteButton {
@@ -52,4 +58,60 @@ h1, h2, h3 {
   margin-bottom: 30px;
   width: 200px;
   padding: 10px;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  margin: 5rem;
+}
+
+.form {
+  display: flex;
+  background-color: #efe8e2;
+  width: 80%;
+  border-radius: 15px;
+  padding: 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-content {
+  height: 50%;
+  margin-right: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.form-content label {
+  color: #f2ac2a;
+  font-size: 25px;
+  text-align: start;
+  margin-right: 3rem;
+}
+
+.input-field {
+  background-color: #f15757;
+  color: white;
+  height: 40px;
+  padding: 10px;
+}
+
+.confirm-btn button {
+  background-color: #f15757;
+}
+
+.confirm-btn button:hover {
+  background-color: #f10000c1;
+}
+
+.passvisibility-icon {
+  margin: 0 3rem 0 1rem;
+}
+
+.passvisibility-icon img {
+  width: 35px;
+  height: auto;
+  padding-top: 20px;
 }
