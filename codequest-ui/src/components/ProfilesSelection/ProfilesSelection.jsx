@@ -81,7 +81,7 @@ export default function ProfilesSelection(props) {
       const response = await apiClient.fetchData(profileId);
 
       // You can use the response if needed, but in this example, we are just logging it
-      console.log("Data fetched successfully:", response);
+      // console.log("Data fetched successfully:", response);
 
       setSelectedProfile(profileId);
       setUserProgress(response.userprogress);
