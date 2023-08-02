@@ -80,6 +80,8 @@ export default function ProfilesDetail({
 
   const handleChange = (event) => {
     setPassword(event.target.value);
+    setErrors("");
+    setErrorMessage("");
   };
 
   const handleSubmit = (event) => {
@@ -169,9 +171,6 @@ export default function ProfilesDetail({
       </div>
       {showConfirmation && (
         <>
-          <p className="error" style={{ color: "red" }}>
-            {errorMessage}
-          </p>
           <div className="removeForm-container">
             <form onSubmit={handleSubmit} className="removeForm">
               <div className="removeForm-content">
@@ -184,6 +183,9 @@ export default function ProfilesDetail({
                     onChange={handleChange}
                     className="removeForm-input-field"
                   />
+                  <p className="error" style={{ color: "red" }}>
+                    {errorMessage}
+                  </p>
                 </div>
                 <div className="removeForm-passvisibility-icon">
                   <img
