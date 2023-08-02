@@ -53,9 +53,13 @@ export default function Results({ profileItem }) {
     fetchModules();
   }, [id]); // Add 'id' to the dependency array of useEffect
 
+  let key = 0;
+
   return (
     <div className="results">
-      {!user?.email && <Navigate to="/" replace={true} />}
+      {!localStorage.getItem("selectedProfile") && (
+        <Navigate to="/account-profiles" replace={true} />
+      )}
       <div className="results-container">
         <div className="results-content">
           <div id="lottieAnimation">
@@ -63,19 +67,19 @@ export default function Results({ profileItem }) {
           </div>
 
           <h1>
-            Congratulations,{" "}
+            Congratulations,
             <span id="results-name">{profileItem.first_name}</span>! <br></br>
             You completed the {module?.name} module!
           </h1>
 
           <h2>This achievement has been added to your profile.</h2>
-          <h2>
+          <h2 className="floating">
             Here are some resources to learn more: <br />
-            <ul>
+            <ul id="resourceLinks" key={key++}>
               {module?.resources.map((resource) => {
                 return (
                   <li>
-                    <a target="_blank" href={resource}>
+                    <a target="_blank" className="resourceLink" href={resource}>
                       {resource}
                     </a>
                   </li>

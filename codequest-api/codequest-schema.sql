@@ -25,7 +25,7 @@ CREATE TABLE questions (
     question_spanish     TEXT NOT NULL,
     answer_spanish       TEXT NOT NULL,  
     options    TEXT [] NOT NULL,
-    options_spanish TEXT [] NOT NULL,
+    options_spanish TEXT [] NOT NULL, 
     type                 question_type,
     image_url            TEXT,
     module_id            INTEGER NOT NULL, 
@@ -178,6 +178,7 @@ ARRAY ['No, a function can only have one parameter.', 'Yes, but only if they are
 INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
 VALUES('Which of the following is the correct way to call the function calculate_area with parameters ''width'' and ''height''?','calculate_area(width, height)','El tipo de dato que representa a un numero es un','Entero',
 ARRAY ['function calculate_area(width, height)', 'call calculate_area(width, height)', 'calculate_area width, height'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 6);
+
 
 
 -- Fix this error: Cannot set headers after they are sent to the client
