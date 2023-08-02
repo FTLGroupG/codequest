@@ -11,7 +11,8 @@
     line-height: 1.5;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    
+    position: absolute;
+    bottom: 0;
 }
 
 .Footer h3 {

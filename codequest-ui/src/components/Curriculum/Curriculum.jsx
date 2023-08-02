@@ -10,11 +10,11 @@ import ProfileContext from "../../contexts/profile";
 import LottieAnimation from "../AnimationComponent/AnimationComponent";
 import animation1 from "/src/assets/spyAnimation.json"
 import animation2 from "/src/assets/treasureAnimation.json"
-import animation3 from "/src/assets/bookAnimation.json"
+import animation3 from "/src/assets/listAnimation.json"
 import animation4 from "/src/assets/diamondAnimation.json"
 import animation5 from "/src/assets/boxAnimation.json"
-import animation6 from "/src/assets/loopAnimation.json"
 import animation7 from "/src/assets/chefAnimation.json"
+import animation10 from "/src/assets/magicianAnimation.json"
 
 export default function Curriculum() {
   const { id } = useParams();
@@ -135,7 +135,7 @@ export default function Curriculum() {
                       <p>
                         Welcome, young coders, to an exciting adventure into the world of Python coding! Today, we'll learn about "Conditionals" - the secret to making decisions in code! Imagine being a super spy who needs to decode secret messages to save the day. Well, that's exactly what we're going to do!
                       </p>
-                      <div className="curriculumCardAnimation">
+                      <div className="curriculumCardAnimationSmall">
                         <div id="lottieSpyAnimation">
                             <LottieAnimation />
                         </div>
@@ -249,9 +249,7 @@ PythonBot wants to know what the first gem found was. In Python, we use "indexin
                       Adding More Gems: <br></br>
 On the quest, PythonBot discovers a new gem, the "Topaz." Let's add it to the list:
                       </p>
-                      <div className="curriculumCardAnimation">
-                        <LottieAnimation animationData={animation4} />
-                      </div>
+
                       <p>
                       Counting the Gems: <br></br>
 PythonBot wants to know how many gems have been found. Python can easily count the items in a list for us:
@@ -280,7 +278,7 @@ PythonBot wants to arrange the gems alphabetically. Python can sort the list for
                     <h2>Learn Python</h2>
                     <h1>Loops</h1>
                     <div className="curriculumCardAnimation">
-                        <LottieAnimation animationData={animation6} />
+                        <LottieAnimation animationData={animation10} />
                       </div>
                     <div className="curriculumCardText">
                       <p>Round and Round we go!</p>
@@ -351,7 +349,7 @@ PythonBot wants to arrange the gems alphabetically. Python can sort the list for
                   <main>
                     <h2>Learn Python</h2>
                     <h1>Functions</h1>
-                    <div className="curriculumCardAnimation">
+                    <div className="curriculumCardAnimationSmall">
             <LottieAnimation animationData={animation7} />
             </div>
                     <div className="curriculumCardText">

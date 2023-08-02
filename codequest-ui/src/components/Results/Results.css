@@ -1,3 +1,7 @@
+.results {
+  margin-bottom: 200px;
+}
+
 .results-content {
   display: flex;
   flex-direction: column;

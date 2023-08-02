@@ -1,6 +1,6 @@
 .Curriculum {
   align-items: center;
-
+  margin-bottom: 150px;
 }
 
 .curriculumCard {
@@ -49,6 +49,13 @@
   float: right;
   margin-left: 10px;
   margin-bottom: 30px;
+}
+
+.curriculumCardAnimationSmall {
+  float: right;
+  margin-left: 10px;
+  margin-bottom: 30px;
+  width: 500px
 }
 
 .curriculumCardButtonCard {
