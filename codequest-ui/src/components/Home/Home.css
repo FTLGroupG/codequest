@@ -79,6 +79,9 @@
     width: 400px;
     text-align: center;
     box-shadow: 0 10px 20px rgba(0,0,0,.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .pythonCard h3 {
@@ -237,6 +240,10 @@
 
 .testCard h2 {
     margin-top: 200px;
+}
+
+.codingGirlAnimation.floating{
+    width: 200px;
 }
 
 /* Home.css */

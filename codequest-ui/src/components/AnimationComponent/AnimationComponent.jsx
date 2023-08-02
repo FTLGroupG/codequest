@@ -24,7 +24,7 @@ const LottieAnimation = ({ animationData }) => {
     <div
       ref={animationContainerRef}
       className="floating"
-      style={{ width: "500px" }}
+      style={{ width: "auto" }}
     ></div>
   );
 };

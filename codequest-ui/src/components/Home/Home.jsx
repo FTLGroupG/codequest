@@ -3,6 +3,9 @@ import "./Home.css";
 import { Link } from "react-router-dom";
 import lottie from "lottie-web";
 import animationData from '/src/assets/heroAnimation.json'; // Replace with your animation file path
+import LottieAnimation from "../AnimationComponent/AnimationComponent";
+import animation8 from "/src/assets/codingGirlAnimation.json"
+import animation5 from "/src/assets/boxAnimation.json"
 
 const AnimationComponent = () => {
   useEffect(() => {
@@ -114,14 +117,18 @@ export default function Home() {
               In this lesson, we will learn the basics about the Python coding
               language!
             </h4>
-            <img
+            {/* <img
               src="https://idsb.tmgrup.com.tr/ly/uploads/images/2022/08/22/226382.jpg"
               alt="Python logo"
-            ></img>
-          </div>
-          <Link to="/modules">
+            ></img> */}
+            <div className="codingGirlAnimation">
+              <LottieAnimation animationData={animation8} />
+            </div>
+            <Link to="/modules">
             <button>Try Sample Lesson</button>
           </Link>
+          </div>
+          
         </div>
       </div>
     </div>
