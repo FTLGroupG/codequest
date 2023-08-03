@@ -152,10 +152,15 @@ export default function ProfilesDetail({
         <div className="userAnalytics">
           <div className="userAnalyticsData">
             <h3>Achievements</h3>
-            <LottieAnimation
-              animationData={animation9}
-              className="achievementAnimation"
-            />
+            {leftOff === 6 && (
+              <>
+                <LottieAnimation
+                  animationData={animation9}
+                  className="achievementAnimation"
+                />
+                <h2>Quest: Learn Python</h2>
+              </>
+            )}
           </div>
         </div>
 
