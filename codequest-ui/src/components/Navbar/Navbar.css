@@ -9,6 +9,7 @@
   align-items: center;
   padding: 0 var(--side-padding);
   color: #fff;
+  z-index: 2;
 }
 
 .Navbar .content .links {

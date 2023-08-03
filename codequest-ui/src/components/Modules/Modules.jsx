@@ -6,6 +6,9 @@ import AuthContext from "../../contexts/auth";
 import ProfileContext from "../../contexts/profile";
 import apiClient from "../../services/apiClient";
 import AccessForbidden from "../AccessForbidden/AccessForbidden";
+import LottieBackgroundAnimation from "../AnimationBackgroundComponent/AnimationBackgroundComponent";
+import animation12 from "/src/assets/scrollingBackgroundAnimation.json";
+import Lottie from "lottie-web";
 
 /**
  * Modules component displays the learning modules for a selected profile.
@@ -103,10 +106,11 @@ export default function Modules() {
   ];
   return (
     <div className="Modules">
+      <LottieBackgroundAnimation animationData={animation12} />
       {user.email && !localStorage.getItem("selectedProfile") && (
         <Navigate to="/account-profiles" replace={true} />
       )}
-      <h1>Learn Python</h1>
+      <h1 className="learnPythonH1">Learn Python</h1>
       <div className="moduleCard">
         <div className="moduleCircles">
           {module_id_name.map(({ number, value }) => {

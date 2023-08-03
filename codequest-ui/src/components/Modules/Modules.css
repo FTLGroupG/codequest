@@ -5,6 +5,12 @@
   justify-content: center;
   width: 100%;
   margin-top: 50px;
+  
+}
+
+.learnPythonH1 {
+  z-index: 2;
+  color: #9dd3a2;
 }
 
 .moduleCard {
@@ -17,8 +23,8 @@
   margin-bottom: 20px;
   padding: 70px;
   border-radius: 8px;
-  background-color: #f15757;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.282);
+  /* background-color: #f15757; */
+  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.282); */
   margin-top: 30px;
   height: 100%;
 }
@@ -38,9 +44,10 @@
   margin-bottom: 20px;
   padding: 20px;
   border-radius: 8px;
-  background-color: #f15757;
+  /* background-color: #f15757; */
   min-width: 300px;
   margin-top: 20px;
+  z-index: 2;
 }
 
 .circle {
@@ -90,17 +97,22 @@
 /* --------------------------------- */
 
 .completed {
-  background-color: #fce864;
+  background-color: #9fd5a4;
 }
 
 .todo {
   background-color: #f2f1ea;
 }
 
+.todo:hover {
+  background-color: #c8c8c8;
+  transition: 0.3s;
+}
+
 .completed:hover {
   height: 150px;
   width: 150px;
-  background-color: #fcd664;
+  background-color: #4c6d4c;
   border-radius: 50%;
   display: inline-block;
   margin: 20px;
@@ -114,4 +126,10 @@
   margin-top: 60px;
   font-size: 1.3em;
   color: black;
+}
+
+.lottieBackgroundAnimation {
+  position: fixed;
+  bottom: 0;
+
 }
