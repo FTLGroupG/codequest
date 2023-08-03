@@ -117,10 +117,6 @@ VALUES('What is the correct way to create a Variable called "magical_number" and
 ARRAY ['spell1, spell2 = spell2, spell1', 'spell1.swap(spell2)', 'swap(spell1, spell2)'], 'select', 'http://localhost:5173/src/assets/quiz2_q11.png', 2);
 
 INSERT INTO questions (question, answer, options, type, module_id)
-VALUES('You found three enchanted gems and want to keep track of them. Create a list called "enchanted_gems" and store the names of the gems in it: "Opal," "Amethyst," and "Sapphire."','enchanted_gems = ["Opal", "Amethyst", "Sapphire"]',
-ARRAY ['enchanted_gems = {"Opal", "Amethyst", "Sapphire"}', 'enchanted_gems = "Opal", "Amethyst", "Sapphire"', 'gem_list = ("Opal", "Amethyst", "Sapphire")','gem_list = "Opal", "Amethyst", "Sapphire"'], 'select', 2);
-
-INSERT INTO questions (question, answer, options, type, module_id)
 VALUES('What is the correct way to create a Variable called "magical_number" and assign it the value 7.','magical_number = 7',
 ARRAY ['magical_number = 7', 'variable(magical_number) = 7', 'new Variable = magical_number(7)', 'magic = 7'], 'select', 2);
 
