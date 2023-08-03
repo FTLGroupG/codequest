@@ -118,10 +118,11 @@ class ApiClient {
     });
   }
 
-  async remove(id) {
+  async remove(id, credentials) {
     try {
+      console.log("apiclient: " + id + "|" + credentials);
       return await this.request({
-        endpoint: `profiles/id/${id}`,
+        endpoint: `profiles/id/${id}/${credentials}`,
         method: `DELETE`,
       });
     } catch (error) {

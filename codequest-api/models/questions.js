@@ -5,7 +5,7 @@ class Question {
   // fetching questions by modules
   static async fetch(module_id) {
     const result = await db.query(
-      `SELECT id, question, answer, incorrect_answers, type, image_url, module_id 
+      `SELECT id, question, answer, options, type, image_url, module_id 
             FROM questions 
             WHERE module_id=$1
             ORDER BY id DESC`,
@@ -23,7 +23,7 @@ class Question {
       throw new BadRequestError("Parameter is not a valid ID");
 
     const result = await db.query(
-      `SELECT id, question, answer, incorrect_answers, image_url, module_id AS "module_id" 
+      `SELECT id, question, answer, options, image_url, module_id AS "module_id" 
     FROM questions 
     WHERE id=$1`,
       [id]

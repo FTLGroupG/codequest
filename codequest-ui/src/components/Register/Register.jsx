@@ -38,7 +38,7 @@ export default function Register(props) {
 
   const handleOnSubmit = async () => {
     if (registrationForm.password !== registrationForm.passwordConfirm) {
-      props.setErrorMessage("Passwords do not match!");
+      props.seterrors("Passwords do not match!");
       return 0;
     }
     // create request
