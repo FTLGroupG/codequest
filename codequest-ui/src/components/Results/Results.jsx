@@ -78,7 +78,7 @@ export default function Results({ profileItem }) {
             <ul id="resourceLinks" key={key++}>
               {module?.resources.map((resource, index) => {
                 return (
-                  <li>
+                  <li key={module?.placeholder[index]}>
                     <a target="_blank" className="resourceLink" href={resource}>
                       {module?.placeholder[index]}
                     </a>

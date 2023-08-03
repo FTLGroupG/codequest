@@ -1,6 +1,5 @@
 import "./ProfileCard.css";
 import { capitalize } from "lodash";
-import avatar_icon from "../../assets/robotProfile.png";
 
 export default function ProfileCard(props) {
   return (
@@ -8,7 +7,7 @@ export default function ProfileCard(props) {
       <div className="profile-card-content">
         <div className="profile-card-header">
           <span className="profile-img">
-            <img src={avatar_icon} />
+            <img src={props.img} />
           </span>
           <div className="profile-card-heading">
             <h2>{capitalize(props.firstName)}</h2>

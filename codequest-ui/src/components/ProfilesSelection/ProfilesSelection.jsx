@@ -8,6 +8,7 @@ import robotProfile from "../../assets/robotProfile.png";
 import ProfileCard from "../ProfileCard/ProfileCard";
 import apiClient from "../../services/apiClient";
 import AuthContext from "../../contexts/auth";
+import boy_icon from "../../assets/boy.png";
 
 /**
  * ProfilesSelection component displays the list of user profiles and allows selecting a profile.
@@ -111,6 +112,7 @@ export default function ProfilesSelection(props) {
                     <ProfileCard
                       id={profile.id}
                       firstName={profile.first_name}
+                      img={profile.profile_img}
                     />
                   </Link>
                 ))}

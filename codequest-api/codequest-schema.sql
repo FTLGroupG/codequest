@@ -33,6 +33,7 @@ CREATE TABLE questions (
 CREATE TABLE user_profiles (
     id          SERIAL PRIMARY KEY,
     first_name  TEXT NOT NULL,
+    profile_img TEXT NOT NULL,
     created_at  TIMESTAMP DEFAULT NOW (),
     updated_at  TIMESTAMP DEFAULT NOW (),
     user_email     TEXT NOT NULL, 
@@ -72,7 +73,6 @@ VALUES('Functions','Learn Python functions.', array ['https://www.programiz.com/
 
 
 -- Modules 1 data 
-
 INSERT INTO questions (question, answer, options, type, module_id)
 VALUES('What is the purpose of using Lists in Python?','Store collections of items',
 ARRAY ['Store collections of items', 'Store numbers with decimal points', 'Hold pairs of items', 'Create treasure maps'], 'select', 1);
@@ -211,7 +211,6 @@ ARRAY ['By using indexing, starting from 0', 'By using the "print" statement', '
 INSERT INTO questions (question, answer, options, type, module_id)
 VALUES('What is a list in Python?','A magical backpack for storing multiple items',
 ARRAY ['A magical backpack for storing multiple items', 'A type of colorful snake', 'A secret map to hidden treasures', 'A powerful spellbook'], 'drag', 4);
-
 
 -- Modules 5 Loops data 
 INSERT INTO questions (question, answer, options, type, module_id)

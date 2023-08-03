@@ -1,27 +1,37 @@
 .profile-create-btn {
-    background-color: #f2ac2ad9;
-    margin-bottom: 0px;
-    border: solid 3px white;
+  background-color: #f2ac2ad9;
+  margin-bottom: 0px;
+  border: solid 3px white;
 }
 
 .createdProfiles {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
-.profile-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 h4 {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  color: white;
+  font-family: "Lilita One", cursive;
+  font-size: 1.2em;
+}
+
+/* .createdProfiles {
+  margin: 100px;
+}
     margin-top: 10px;
     margin-bottom: 40px;
     color: white;
     font-family: 'Lilita One', sans-serif;
     font-size: 1.2em;
-}
+} */
