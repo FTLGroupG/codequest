@@ -10,6 +10,7 @@
 
 .learnPythonH1 {
   z-index: 2;
+  color: #9dd3a2;
 }
 
 .moduleCard {
@@ -96,17 +97,22 @@
 /* --------------------------------- */
 
 .completed {
-  background-color: #fce864;
+  background-color: #9fd5a4;
 }
 
 .todo {
   background-color: #f2f1ea;
 }
 
+.todo:hover {
+  background-color: #c8c8c8;
+  transition: 0.3s;
+}
+
 .completed:hover {
   height: 150px;
   width: 150px;
-  background-color: #fcd664;
+  background-color: #4c6d4c;
   border-radius: 50%;
   display: inline-block;
   margin: 20px;
