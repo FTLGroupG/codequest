@@ -9,7 +9,8 @@ import "./ProfilesDetail.css";
 import AuthContext from "../../contexts/auth";
 import ProfileContext from "../../contexts/profile";
 import LottieAnimation from "../AnimationComponent/AnimationComponent";
-import animation8 from "/src/assets/coinAnimation.json";
+import animation8 from "/src/assets/coinAnimation.json"
+import animation9 from "/src/assets/achievementAnimation.json"
 import opened_eye from "/src/assets/open-eye.svg";
 import closed_eye from "/src/assets/close-eye.svg";
 
@@ -146,13 +147,14 @@ export default function ProfilesDetail({
             <LottieAnimation animationData={animation8} />
           </div>
         </div>
-        <h3>550 Coins</h3>
+        <h3 className="profilesH3">550 Coins</h3>
       </div>
 
       <div className="userAnalyticsContainer">
         <div className="userAnalytics">
           <div className="userAnalyticsData">
             <h3>Achievements</h3>
+            <LottieAnimation animationData={animation9} className="achievementAnimation" />
           </div>
         </div>
 

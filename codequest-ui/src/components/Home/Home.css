@@ -2,6 +2,7 @@
     align-items: center;
     display: flex;
     flex-direction: column;
+    margin-bottom: 135px;
 }
 
 .Hero {
@@ -67,7 +68,11 @@
 
 .redText {
     color: #e46b6b;
-    font-family: 'Lilita One', cursive;
+    font-family: 'Lilita One', sans-serif;
+}
+
+.floating h2 {
+    font-size: 2.4em;
 }
 
 .pythonCard{
@@ -79,10 +84,14 @@
     width: 400px;
     text-align: center;
     box-shadow: 0 10px 20px rgba(0,0,0,.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .pythonCard h3 {
-    text-decoration: underline;
+    font-family: Lilita One, sans-serif;
+    font-size: 2em;
 }
 
 .pythonCard h5 {
@@ -237,6 +246,10 @@
 
 .testCard h2 {
     margin-top: 200px;
+}
+
+.codingGirlAnimation.floating{
+    width: 200px;
 }
 
 /* Home.css */

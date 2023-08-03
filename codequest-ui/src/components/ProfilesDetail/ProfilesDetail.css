@@ -8,6 +8,11 @@ h3 {
   font-family: "Lilita One", cursive;
 }
 
+.profilesH3 {
+    font-size: 2em;
+    font-family: 'Lilita One', sans-serif;
+}
+
 .userProfileName {
   display: flex;
   flex-direction: row;
@@ -51,6 +56,10 @@ h3 {
   /* box-shadow: 0 0 10px #000000; */
   border-radius: 5px;
   margin: 50px;
+}
+
+.achievementAnimation {
+    border: 1px solid red;
 }
 
 .removeForm-deleteButton {

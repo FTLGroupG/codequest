@@ -1,3 +1,4 @@
+
 import React from "react";
 import "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -26,7 +27,7 @@ export default function Navbar(props) {
           {!props?.user?.email ? (
             <>
               <li>
-                <Link to="/modules">Modules</Link>
+                <Link to="/modules">Try a Quest!</Link>
               </li>
               <li>
                 <Link to="/login">Log In</Link>
