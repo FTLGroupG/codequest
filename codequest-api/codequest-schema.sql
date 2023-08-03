@@ -33,6 +33,7 @@ CREATE TABLE questions (
 CREATE TABLE user_profiles (
     id          SERIAL PRIMARY KEY,
     first_name  TEXT NOT NULL,
+    profile_img TEXT NOT NULL,
     created_at  TIMESTAMP DEFAULT NOW (),
     updated_at  TIMESTAMP DEFAULT NOW (),
     user_email     TEXT NOT NULL, 
@@ -71,56 +72,56 @@ VALUES('Functions','Learn Python functions.', array ['https://www.programiz.com/
 
 
 -- Modules 1 data 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['Float', 'String', 'Boolean', 'Integer'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 1);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('A data type that represents a whole number is a(n)','Integer',
+ARRAY ['Float', 'String', 'Boolean', 'Integer'], 'select', 1);
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('What is a boolean?','a true or false', 'Que es un booleano?', 'un true o falso',
-ARRAY ['a text', 'an integer', 'a decimal number', 'a true or false'], ARRAY [ 'un texto', 'un entero', 'un decimal'], 'select', 1);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('What is a boolean?','a true or false', 
+ARRAY ['a text', 'an integer', 'a decimal number', 'a true or false'], 'select', 1);
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['Float', 'String', 'Boolean', 'Integer'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'drag', 1);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('A data type that represents a whole number is a(n)','Integer',
+ARRAY ['Float', 'String', 'Boolean', 'Integer'], 'drag', 1);
 
 -- Modules 2 Variables data
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['Float', 'String', 'Boolean', 'Integer'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 2);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('A data type that represents a whole number is a(n)','Integer',
+ARRAY ['Float', 'String', 'Boolean', 'Integer'], 'select', 2);
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('What is a boolean?','a true or false', 'Que es un booleano?', 'un true o falso',
-ARRAY ['a text', 'an integer', 'a decimal number', 'a true or false'], ARRAY [ 'un texto', 'un entero', 'un decimal'], 'select', 2);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('What is a boolean?','a true or false', 
+ARRAY ['a text', 'an integer', 'a decimal number', 'a true or false'], 'select', 2);
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['Float', 'String', 'Boolean', 'Integer'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'drag', 2);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('A data type that represents a whole number is a(n)','Integer',
+ARRAY ['Float', 'String', 'Boolean', 'Integer'], 'drag', 2);
 
 -- Modules 3 Conditionals data
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['Float', 'String', 'Boolean', 'Integer'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 3);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('A data type that represents a whole number is a(n)','Integer',
+ARRAY ['Float', 'String', 'Boolean', 'Integer'], 'select', 3);
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('What is a boolean?','a true or false', 'Que es un booleano?', 'un true o falso',
-ARRAY ['a text', 'an integer', 'a decimal number', 'a true or false'], ARRAY [ 'un texto', 'un entero', 'un decimal'], 'select', 3);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('What is a boolean?','a true or false', 
+ARRAY ['a text', 'an integer', 'a decimal number', 'a true or false'], 'select', 3);
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['Float', 'String', 'Boolean', 'Integer'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'drag', 3);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('A data type that represents a whole number is a(n)','Integer',
+ARRAY ['Float', 'String', 'Boolean', 'Integer'], 'drag', 3);
 
 -- Modules 4 Lists data
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['Float', 'String', 'Boolean', 'Integer'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'select', 4);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('A data type that represents a whole number is a(n)','Integer',
+ARRAY ['Float', 'String', 'Boolean', 'Integer'], 'select', 4);
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('What is a boolean?','a true or false', 'Que es un booleano?', 'un true o falso',
-ARRAY ['a text', 'an integer', 'a decimal number', 'a true or false'], ARRAY [ 'un texto', 'un entero', 'un decimal'], 'select', 4);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('What is a boolean?','a true or false',
+ARRAY ['a text', 'an integer', 'a decimal number', 'a true or false'], 'select', 4);
 
-INSERT INTO questions (question, answer, question_spanish, answer_spanish, options, options_spanish, type, module_id)
-VALUES('A data type that represents a whole number is a(n)','Integer','El tipo de dato que representa a un numero es un','Entero',
-ARRAY ['Float', 'String', 'Boolean', 'Integer'], ARRAY [ 'Flotante', 'Texto', 'Booleano'], 'drag', 4);
+INSERT INTO questions (question, answer, options, type, module_id)
+VALUES('A data type that represents a whole number is a(n)','Integer',
+ARRAY ['Float', 'String', 'Boolean', 'Integer'], 'drag', 4);
 
 
 -- Modules 5 Loops data 

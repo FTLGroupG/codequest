@@ -5,7 +5,7 @@ class Profile {
   // fetching profiles by user email
   static async fetch(email) {
     const result = await db.query(
-      `SELECT id, first_name 
+      `SELECT id, first_name, profile_img
             FROM user_profiles
             WHERE user_email=$1
             ORDER BY id DESC`,
@@ -23,7 +23,7 @@ class Profile {
       throw new BadRequestError("Parameter is not a valid ID");
 
     const result = await db.query(
-      `SELECT id, first_name, user_email AS "userEmail" 
+      `SELECT id, first_name, profile_img, user_email AS "userEmail" 
     FROM user_profiles 
     WHERE id=$1`,
       [id]
@@ -55,11 +55,12 @@ class Profile {
     const result = await db.query(
       `INSERT INTO user_profiles (
                 first_name,
+                profile_img,
                 user_email
             )
-            VALUES ($1,$2)
-            RETURNING id, first_name, user_email;`,
-      [data.firstName, email]
+            VALUES ($1,$2,$3)
+            RETURNING id, first_name, profile_img, user_email;`,
+      [data.firstName, data.profileImg, email]
     );
 
     return result.rows[0];

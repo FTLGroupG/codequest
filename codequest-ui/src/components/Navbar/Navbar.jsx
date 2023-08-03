@@ -60,7 +60,7 @@ export default function Navbar(props) {
                     className="nav-userProfileName-content"
                     to={`/profiles/id/${props.profileItem.id}`}
                   >
-                    <img src="/src/assets/robotProfile.png" />
+                    <img src={props.profileItem.profile_img} />
                     <h2>{props.profileItem.first_name}</h2>
                   </Link>
                 </li>

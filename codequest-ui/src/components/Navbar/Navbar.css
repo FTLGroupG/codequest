@@ -152,6 +152,7 @@ button {
   height: auto;
   display: flex;
   flex-direction: row;
+  margin-top: 30px;
 }
 
 .nav-userProfileName-content {
@@ -163,6 +164,9 @@ button {
   width: 80px;
   height: 80px;
   margin-right: 2rem;
+}
+.nav-userProfileName h2 {
+  margin: 0;
 }
 
 :root {

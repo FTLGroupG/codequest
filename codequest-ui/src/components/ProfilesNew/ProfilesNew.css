@@ -1,29 +1,62 @@
 .profiles-form-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .profiles-form .profiles-form-content h2 {
-    font-size: 3em;
+  font-size: 3em;
 }
 
-.profiles-form-section input{
-    height: 60px;
-    padding: 0 15px;
-    font-size: 16px;
-    font-family: 'Lilita One', cursive;
-    border: none;
-    border-radius: 5px;
-    width: 300px;
-    background: transparent;
-    color: #f18080;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.182);
-    background-color: #fff;
+.profiles-form-section input {
+  height: 60px;
+  padding: 0 15px;
+  font-size: 16px;
+  font-family: "Lilita One", cursive;
+  border: none;
+  border-radius: 5px;
+  width: 300px;
+  background: transparent;
+  color: #f18080;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.182);
+  background-color: #fff;
 }
 
 .profile-submit-registration-form-button {
-    margin: 20px;
-    background-color: #F2AC2A;
+  margin: 20px;
+  background-color: #f2ac2a;
+}
+
+.select-avatar {
+  display: inline-block;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.select-avatar:hover {
+  background-color: #977cda;
+}
+
+.select-avatar img {
+  text-align: center;
+  margin-top: 60px;
+  font-size: 1.3em;
+  color: #4b4b4b;
+  height: 100px;
+  width: 100px;
+}
+
+.select-profile-image {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  min-width: 300px;
+  margin-top: 20px;
 }
