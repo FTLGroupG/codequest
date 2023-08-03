@@ -72,11 +72,6 @@ VALUES('Functions','Learn Python functions.', array ['https://www.programiz.com/
 
 
 -- Modules 1 data 
--- Modules 1 data 
-
-INSERT INTO questions (question, answer, options, type, image_url, module_id)
-VALUES('What is the correct way to create a Variable called "magical_number" and assign it the value 7.','spell1, spell2 = spell2, spell1',
-ARRAY ['spell1, spell2 = spell2, spell1', 'spell1.swap(spell2)', 'swap(spell1, spell2)'], 'select', 'http://localhost:5173/src/assets/quiz2_q11.png', 2);
 
 INSERT INTO questions (question, answer, options, type, module_id)
 VALUES('What is the purpose of using Lists in Python?','Store collections of items',
@@ -135,7 +130,6 @@ ARRAY ['By creating a new Variable called "fruits" and assigning it the sum of "
 INSERT INTO questions (question, answer, options, type, module_id)
 VALUES('How can you use Variables to perform calculations?','By combining Variables with magical math operations',
 ARRAY ['By combining Variables with magical math operations', 'By using Variables to store lists of items', 'By giving the Variable a unique name', 'By assigning a special Data Type to the Variable'], 'select', 2);
-
 
 INSERT INTO questions (question, answer, options, type, module_id)
 VALUES('Can you change the name of a Variable after it is created?','Nope!',
@@ -259,7 +253,7 @@ ARRAY ['Extra instructions for your robot friend', 'A way to bake a cake', 'A ma
 
 INSERT INTO questions (question, answer, options, type, module_id)
 VALUES('Which of the following is a valid function definition in Python?','def my_function():',
-ARRAY ['def my_function:', 'function my_function():', 'create my_function():'], 'select', 6);
+ARRAY ['def my_function():', 'def my_function:', 'function my_function():', 'create my_function():'], 'select', 6);
 
 INSERT INTO questions (question, answer, options, type, module_id)
 VALUES('What happens if you don''t call a function after defining it in Python?','Nothing happens until you call the function.',
