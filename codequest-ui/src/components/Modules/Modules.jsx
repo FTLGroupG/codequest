@@ -103,7 +103,7 @@ export default function Modules() {
   ];
   return (
     <div className="Modules">
-      {user.email && !selectedProfile && (
+      {user.email && !localStorage.getItem("selectedProfile") && (
         <Navigate to="/account-profiles" replace={true} />
       )}
       <h1>Learn Python</h1>
