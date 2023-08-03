@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 .moduleCard {
@@ -15,10 +15,12 @@
   width: 90%;
   min-width: 300px;
   margin-bottom: 20px;
-  padding: 20px;
+  padding: 70px;
   border-radius: 8px;
   background-color: #f15757;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.282);
+  margin-top: 30px;
+  height: 100%;
 }
 
 .moduleCard h1 {

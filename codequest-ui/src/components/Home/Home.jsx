@@ -2,8 +2,13 @@ import React, { useEffect, useContext } from "react";
 import "./Home.css";
 import { Link, Navigate } from "react-router-dom";
 import lottie from "lottie-web";
-import animationData from "/src/assets/heroAnimation.json"; // Replace with your animation file path
+
+import animationData from '/src/assets/heroAnimation.json'; // Replace with your animation file path
+import LottieAnimation from "../AnimationComponent/AnimationComponent";
+import animation8 from "/src/assets/codingGirlAnimation.json"
+import animation5 from "/src/assets/boxAnimation.json"
 import AuthContext from "../../contexts/auth";
+
 
 const AnimationComponent = () => {
   useEffect(() => {
@@ -49,30 +54,12 @@ export default function Home() {
           <AnimationComponent />
         </div>
 
-        {/* <img src="https://www.usnews.com/object/image/00000171-9ce7-d084-affd-9def28d10000/200421-boylaptop-stock.jpg?update-time=1587475425427&size=responsive640" alt="Child sitting at a desk working on a laptop"></img> */}
-      </div>
-      <div className="robot-signup">
-        <img
-          src="src/assets/waving-robot.gif"
-          id="floating-robot"
-          className="floating"
-        ></img>
-        <h2 className="floating">
-          Learn with <span className="redText">QuestBot</span> our favorite
-          coding teaching assistant!
-        </h2>
-      </div>
-
-      {/* <div className='playGamesCard'>
-
-          <div className='cardTextFloatRight'>
-          <h4>Designed for kids aged 6-10</h4>
-          <h2 className="pinkH2">Play games and learn how to code at the same time!</h2>
-          <h4>CodeQuest is designed to give kids a fun and interactive environment to learning. Give it a try!</h4>
+          {/* <img src="https://www.usnews.com/object/image/00000171-9ce7-d084-affd-9def28d10000/200421-boylaptop-stock.jpg?update-time=1587475425427&size=responsive640" alt="Child sitting at a desk working on a laptop"></img> */}
         </div>
-        <button><Link to="/modules">Try Sample Lesson</Link></button>
-        <button><Link to="/register">Sign Up</Link></button>
-        </div> */}
+        <div className="robot-signup">
+        <img src='src/assets/waving-robot.gif' id="floating-robot" className='floating'></img>
+        <h2 className='floating'>Learn with <span className="redText">QuestBot</span> our favorite coding teaching assistant!</h2>
+        </div>
 
       <div className="testSection">
         <div className="custom-shape-divider-top-1690233543">
@@ -133,14 +120,18 @@ export default function Home() {
               In this lesson, we will learn the basics about the Python coding
               language!
             </h4>
-            <img
+            {/* <img
               src="https://idsb.tmgrup.com.tr/ly/uploads/images/2022/08/22/226382.jpg"
               alt="Python logo"
-            ></img>
-          </div>
-          <Link to="/modules">
+            ></img> */}
+            <div className="codingGirlAnimation">
+              <LottieAnimation animationData={animation8} />
+            </div>
+            <Link to="/modules">
             <button>Try Sample Lesson</button>
           </Link>
+          </div>
+          
         </div>
       </div>
     </div>

@@ -30,16 +30,16 @@ router.post("/create", security.verifyAuthUser, async (req, res, next) => {
 });
 
 router.delete(
-  "/id/:id",
+  "/id/:id/:credentials",
   security.verifyAuthUser,
   authedUserIsProfileOwner,
   async (req, res, next) => {
     try {
-      const id = req.params.id;
-
-      await Profile.remove(id);
+      const { id, credentials } = req.params;
 
       const { email } = res.locals.user;
+      await Profile.remove(id, credentials, email);
+
       const profiles = await Profile.fetch(email);
 
       return res.status(200).json({

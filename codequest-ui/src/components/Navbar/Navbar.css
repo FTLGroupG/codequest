@@ -28,6 +28,12 @@
   font-size: 1.3em;
 }
 
+.nav-btn-content {
+  padding: 10px;
+  background-color: #F2AC2A;
+  border: solid 2px white;
+}
+
 .signUp {
   border: solid 2px white;
   border-radius: 5px;

@@ -1,3 +1,7 @@
+.results {
+  margin-bottom: 200px;
+}
+
 .results-content {
   display: flex;
   flex-direction: column;
@@ -22,7 +26,7 @@ li {
 }
 
 #results-name {
-  font-family: "Lilita One", cursive;
+  font-family: "Lilita One", sans-serif;
   color: #f2ac2a;
 }
 

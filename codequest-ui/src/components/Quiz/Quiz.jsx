@@ -1,5 +1,4 @@
 import React from "react";
-
 import QuestionSelect from "../QuestionSelect/QuestionSelect";
 import QuestionDrag from "../QuestionDrag/QuestionDrag";
 import "./Quiz.css";
@@ -79,7 +78,7 @@ export default function Quiz({ user }) {
 
   return (
     <div className="Quiz">
-      {!localStorage.getItem("selectedProfile") && (
+      {user.email && !localStorage.getItem("selectedProfile") && (
         <Navigate to="/account-profiles" replace={true} />
       )}
       {questions[counter].type === "select" ? (

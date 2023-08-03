@@ -67,7 +67,7 @@ export default function Results({ profileItem }) {
           </div>
 
           <h1>
-            Congratulations,
+            Congratulations,&nbsp;
             <span id="results-name">{profileItem.first_name}</span>! <br></br>
             You completed the {module?.name} module!
           </h1>
