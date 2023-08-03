@@ -1,6 +1,6 @@
 import React from "react";
 import "./Curriculum.css";
-import { Link, useParams, Navigate } from "react-router-dom";
+import { Link, useParams, Navigate, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../contexts/auth";
 import AccessForbidden from "../AccessForbidden/AccessForbidden";
@@ -32,6 +32,7 @@ const DataTypeSection = ({ title, content }) => {
 };
 
 export default function Curriculum() {
+  const navigate = useNavigate();
   const { id } = useParams();
   const { userContext } = useContext(AuthContext);
   const [user, setUser] = userContext;
@@ -44,6 +45,24 @@ export default function Curriculum() {
       </Link>
     </div>
   );
+
+  const handleUnauthorizedAccess = () => {
+    // Render the AccessForbidden component
+    const accessForbiddenComponent = (
+      <AccessForbidden
+        message={`Wow! Don't feel rushed, fellow coder! Complete Quest #${leftOff} first!`}
+      />
+    );
+
+    // Render the AccessForbidden component immediately
+    // and then redirect to /modules after 5 seconds
+    setTimeout(() => {
+      // Redirect to /modules after 5 seconds
+      navigate("/modules");
+    }, 3000);
+
+    return accessForbiddenComponent;
+  };
 
   // Store the leftOff value in localStorage
   useEffect(() => {
@@ -246,7 +265,7 @@ export default function Curriculum() {
           </main>
         ) : (
           <>
-            {user.email ? (
+            {user.email && id === leftOff - 1 ? (
               <>
                 {id == 2 && (
                   // VARIABLES //
@@ -890,7 +909,7 @@ export default function Curriculum() {
                 )}
               </>
             ) : (
-              <AccessForbidden />
+              handleUnauthorizedAccess()
             )}
           </>
         )}
