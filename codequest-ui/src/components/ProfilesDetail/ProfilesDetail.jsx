@@ -36,7 +36,7 @@ export default function ProfilesDetail({
   const { profiles } = profileContext;
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-
+  const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState();
 
   /**
@@ -130,8 +130,6 @@ export default function ProfilesDetail({
     { number: 5, value: "badge 5" },
     { number: 6, value: "badge 6" },
   ];
-
-  const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
