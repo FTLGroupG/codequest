@@ -8,6 +8,10 @@ h3 {
   font-family: "Lilita One", cursive;
 }
 
+.userProfile {
+    height: 1800px;
+}
+
 .profilesH3 {
     font-size: 2em;
     font-family: 'Lilita One', sans-serif;

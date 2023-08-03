@@ -1,7 +1,7 @@
 import React from "react";
 import "./Curriculum.css";
 import { Link, useParams, Navigate } from "react-router-dom";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../contexts/auth";
 import AccessForbidden from "../AccessForbidden/AccessForbidden";
 import ProfileContext from "../../contexts/profile";
