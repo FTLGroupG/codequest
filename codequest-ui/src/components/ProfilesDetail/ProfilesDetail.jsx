@@ -9,8 +9,8 @@ import "./ProfilesDetail.css";
 import AuthContext from "../../contexts/auth";
 import ProfileContext from "../../contexts/profile";
 import LottieAnimation from "../AnimationComponent/AnimationComponent";
-import animation8 from "/src/assets/coinAnimation.json"
-import animation9 from "/src/assets/achievementAnimation.json"
+import animation8 from "/src/assets/coinAnimation.json";
+import animation9 from "/src/assets/achievementAnimation.json";
 import opened_eye from "/src/assets/open-eye.svg";
 import closed_eye from "/src/assets/close-eye.svg";
 
@@ -36,7 +36,7 @@ export default function ProfilesDetail({
   const { profiles } = profileContext;
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-
+  const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState();
 
   /**
@@ -131,8 +131,6 @@ export default function ProfilesDetail({
     { number: 6, value: "badge 6" },
   ];
 
-  const [showPassword, setShowPassword] = useState(false);
-
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
@@ -154,7 +152,10 @@ export default function ProfilesDetail({
         <div className="userAnalytics">
           <div className="userAnalyticsData">
             <h3>Achievements</h3>
-            <LottieAnimation animationData={animation9} className="achievementAnimation" />
+            <LottieAnimation
+              animationData={animation9}
+              className="achievementAnimation"
+            />
           </div>
         </div>
 
@@ -162,7 +163,7 @@ export default function ProfilesDetail({
           <div className="userAnalyticsData">
             <h3>Badges</h3>
             {badges.map(({ number, value }) => {
-              if (number <= leftOff) return <h2>{value}</h2>;
+              if (number <= leftOff) return <h2 key={number}>{value}</h2>;
             })}
           </div>
         </div>
