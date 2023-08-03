@@ -54,6 +54,10 @@ export default function QuestionSelect() {
   const [optionsList, setOptionsList] = useState([]);
 
   useEffect(() => {
+    // Reset isCorrect state when counter changes (i.e., user goes to the next question)
+    setIsCorrect(false);
+  
+    // Shuffle the options for the current question
     const shuffle = (array) => {
       for (let i = array.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
@@ -61,8 +65,10 @@ export default function QuestionSelect() {
       }
       return array;
     };
+  
     setOptionsList(shuffle(questions[counter].options));
   }, [counter]);
+  
 
   const finishModule = async (module_id) => {
     // update module in user progress table

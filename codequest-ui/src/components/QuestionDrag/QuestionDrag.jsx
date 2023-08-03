@@ -50,6 +50,10 @@ export default function QuestionDrag({ user }) {
   const [optionsList, setOptionsList] = useState([]);
 
   useEffect(() => {
+    // Reset isCorrect state when counter changes (i.e., user goes to the next question)
+    setIsCorrect(false);
+  
+    // Shuffle the options for the current question
     const shuffle = (array) => {
       for (let i = array.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
@@ -57,6 +61,7 @@ export default function QuestionDrag({ user }) {
       }
       return array;
     };
+  
     setOptionsList(shuffle(questions[counter].options));
   }, [counter]);
 
@@ -104,6 +109,8 @@ export default function QuestionDrag({ user }) {
       setCounter(counter + 1);
       removeNext();
       document.getElementById("message").innerHTML = "";
+      document.getElementById("blank").innerHTML = "";
+      document.getElementById("blank").className = "";
     }
   };
 
