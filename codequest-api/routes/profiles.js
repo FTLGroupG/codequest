@@ -34,17 +34,11 @@ router.delete(
   security.verifyAuthUser,
   authedUserIsProfileOwner,
   async (req, res, next) => {
-    console.log("hi");
     try {
       const { id, credentials } = req.params;
-      console.log(id);
-      console.log(credentials);
-      const { email } = res.locals.user;
 
-      console.log(email);
-      console.log("ken");
+      const { email } = res.locals.user;
       await Profile.remove(id, credentials, email);
-      console.log("bob");
 
       const profiles = await Profile.fetch(email);
 
