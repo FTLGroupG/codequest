@@ -42,6 +42,7 @@ ul {
   width: 520px;
   padding: 24px 36px 0;
   flex-direction: column;
+  z-index: 1;
 }
 
 .Register,
@@ -54,7 +55,8 @@ ul {
   font-size: 42px;
   margin-bottom: 4px;
   font-weight: 600;
-  color: white;
+  color: #ffffff;
+  text-shadow: rgb(102, 65, 153) 1px 0 10px;
 }
 
 h2 {
@@ -66,7 +68,7 @@ h2 {
 }
 
 .footer p {
-  color: #fff;
+  color: #363636;
 }
 
 .Register .card a {
@@ -124,4 +126,11 @@ input {
   appearance: auto;
   -webkit-rtl-ordering: logical;
   margin: 0em;
+}
+
+.animation13 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
 }

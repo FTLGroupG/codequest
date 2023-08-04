@@ -5,6 +5,8 @@ import axios from "axios";
 import "./Register.css";
 import AuthContext from "../../contexts/auth";
 import apiClient from "../../services/apiClient";
+import LottieBackgroundAnimation from "../AnimationBackgroundComponent/AnimationBackgroundComponent";
+import animation13 from "/src/assets/registerBackgroundAnimation.json";
 
 export default function Register(props) {
   const registrationFormInit = {
@@ -52,6 +54,9 @@ export default function Register(props) {
 
   return (
     <div className="Register">
+      <div className="animation13">
+      <LottieBackgroundAnimation animationData={animation13} />
+      </div>
       {user?.email && <Navigate to="/account-profiles" replace={true} />}
       <div className="media"></div>
       <div className="card">

@@ -38,6 +38,10 @@ const AnimationComponent = () => {
 };
 
 export default function QuestionDrag({ user }) {
+  const {
+    leftOff,
+    setLeftOff,
+  } = useContext(ProfileContext);
   const navigate = useNavigate();
   const { questionContext } = useContext(QuestionContext);
   const [questions, setQuestions] = questionContext;
@@ -77,6 +81,7 @@ export default function QuestionDrag({ user }) {
     if (error) {
       console.error("error in apiclient finish module", error);
     }
+    setLeftOff(parseInt(localStorage.getItem("leftOff")) + 1)
     navigate(`/modules/${questions[0].module_id}/curriculum/results`);
   };
 
@@ -129,7 +134,7 @@ export default function QuestionDrag({ user }) {
   };
 
   const wrongResult = () => {
-    playincorrectSound();
+    // playincorrectSound();
     setIsCorrect(false);
     document.getElementById("message").innerHTML =
       "Hmm, that's not quite right. Try again!";

@@ -4,6 +4,8 @@ import axios from "axios";
 import "./Login.css";
 import AuthContext from "../../contexts/auth";
 import apiClient from "../../services/apiClient";
+import LottieBackgroundAnimation from "../AnimationBackgroundComponent/AnimationBackgroundComponent";
+import animation14 from "/src/assets/loginBackgroundAnimation.json";
 
 export default function Login(props) {
   const { userContext } = useContext(AuthContext);
@@ -44,6 +46,7 @@ export default function Login(props) {
   // Render the login form
   return (
     <div className="Login">
+      <LottieBackgroundAnimation animationData={animation14} />
       <div className="media"></div>
       {user?.email && <Navigate to="/modules" replace={true} />}
       <div className="card">

@@ -7,8 +7,9 @@ import ProfileContext from "../../contexts/profile";
 import apiClient from "../../services/apiClient";
 import AccessForbidden from "../AccessForbidden/AccessForbidden";
 import LottieBackgroundAnimation from "../AnimationBackgroundComponent/AnimationBackgroundComponent";
+import LottieAnimation from "../AnimationComponent/AnimationComponent";
 import animation12 from "/src/assets/scrollingBackgroundAnimation.json";
-import Lottie from "lottie-web";
+import animation15 from "/src/assets/mountainBadgeAnimation.json";
 
 /**
  * Modules component displays the learning modules for a selected profile.
@@ -113,6 +114,10 @@ export default function Modules() {
       <h1 className="learnPythonH1">Learn Python</h1>
       <div className="moduleCard">
         <div className="moduleCircles">
+        {/* <Link to={`/modules/${leftOff + 1}/curriculum`} className="animation15">
+  <LottieAnimation animationData={animation15} />
+</Link> */}
+
           {module_id_name.map(({ number, value }) => {
             return number <= leftOff ? (
               <Link key={number} to={`/modules/${number}/curriculum`}>

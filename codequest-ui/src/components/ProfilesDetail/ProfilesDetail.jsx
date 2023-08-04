@@ -9,7 +9,7 @@ import "./ProfilesDetail.css";
 import AuthContext from "../../contexts/auth";
 import ProfileContext from "../../contexts/profile";
 import LottieAnimation from "../AnimationComponent/AnimationComponent";
-import animation8 from "/src/assets/coinAnimation.json";
+import animation8 from "/src/assets/badgeAnimation.json";
 import animation9 from "/src/assets/achievementAnimation.json";
 import opened_eye from "/src/assets/open-eye.svg";
 import closed_eye from "/src/assets/close-eye.svg";
@@ -123,12 +123,12 @@ export default function ProfilesDetail({
   }
 
   const badges = [
-    { number: 1, value: "badge 1" },
-    { number: 2, value: "badge 2" },
-    { number: 3, value: "badge 3" },
-    { number: 4, value: "badge 4" },
-    { number: 5, value: "badge 5" },
-    { number: 6, value: "badge 6" },
+    { number: 1, value: "Data Types" },
+    { number: 2, value: "Variables" },
+    { number: 3, value: "Conditionals" },
+    { number: 4, value: "Lists" },
+    { number: 5, value: "Loops" },
+    { number: 6, value: "Functions" },
   ];
 
   const togglePasswordVisibility = () => {
@@ -139,14 +139,14 @@ export default function ProfilesDetail({
       {user.email && !localStorage.getItem("selectedProfile") && (
         <Navigate to="/account-profiles" replace={true} />
       )}
-      <div className="coins">
+      {/* <div className="coins">
         <div className="curriculumCardAnimation">
           <div className="coinAnimation">
             <LottieAnimation animationData={animation8} />
           </div>
         </div>
         <h3 className="profilesH3">550 Coins</h3>
-      </div>
+      </div> */}
 
       <div className="userAnalyticsContainer">
         <div className="userAnalytics">
@@ -167,9 +167,21 @@ export default function ProfilesDetail({
         <div className="userAnalytics">
           <div className="userAnalyticsData">
             <h3>Badges</h3>
+
             {badges.map(({ number, value }) => {
-              if (number <= leftOff) return <h2 key={number}>{value}</h2>;
-            })}
+  // Check if the badge number is less than or equal to the leftOff value
+  const badgeCompleted = number <= leftOff;
+
+  return (
+    <div key={number} className="badge-item">
+      <h2 className={badgeCompleted ? "gold-badge" : ""}>{value}</h2>
+        <div className="badgeAnimation">
+          {badgeCompleted && <LottieAnimation animationData={animation8} />}
+        </div> 
+    </div>
+  );
+})}
+
           </div>
         </div>
       </div>
