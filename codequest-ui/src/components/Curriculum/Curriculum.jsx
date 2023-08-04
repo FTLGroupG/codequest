@@ -51,7 +51,9 @@ export default function Curriculum() {
     // Render the AccessForbidden component
     const accessForbiddenComponent = (
       <AccessForbidden
-        message={`Wow! Don't feel rushed, fellow coder! Complete Quest #${leftOff} first!`}
+        message={`Wow! Don't feel rushed, fellow coder! Complete Quest #${
+          leftOff + 1
+        } first!`}
       />
     );
 
@@ -266,10 +268,10 @@ export default function Curriculum() {
           </main>
         ) : (
           <>
-          {console.log(leftOff)}
-            {user.email ? (
+            {console.log(leftOff)}
+            {user.email && leftOff ? (
               <>
-                {id == 2 && leftOff >= 1 && (
+                {id == 2 && leftOff >= 1 ? (
                   // VARIABLES //
 
                   <main>
@@ -484,9 +486,11 @@ export default function Curriculum() {
                       {buttons}
                     </div>
                   </main>
+                ) : (
+                  leftOff >= 1 && handleUnauthorizedAccess()
                 )}
                 {console.log(leftOff)}
-                {id == 3 && leftOff >= 2 &&(
+                {id == 3 && leftOff >= 2 ? (
                   // CONDITIONALS //
 
                   <main>
@@ -609,8 +613,10 @@ export default function Curriculum() {
                       {buttons}
                     </div>
                   </main>
+                ) : (
+                  leftOff >= 2 && handleUnauthorizedAccess()
                 )}
-                {id == 4 && leftOff >= 3 && (
+                {id == 4 && leftOff >= 3 ? (
                   // LISTS //
 
                   <main>
@@ -717,8 +723,10 @@ export default function Curriculum() {
                       {buttons}
                     </div>
                   </main>
+                ) : (
+                  leftOff >= 3 && handleUnauthorizedAccess()
                 )}
-                {id == 5 && leftOff >= 4 && (
+                {id == 5 && leftOff >= 4 ? (
                   // LOOPS //
 
                   <main>
@@ -803,8 +811,10 @@ export default function Curriculum() {
                       {buttons}
                     </div>
                   </main>
+                ) : (
+                  leftOff >= 4 && handleUnauthorizedAccess()
                 )}
-                {id == 6 && leftOff >= 5 && (
+                {id == 6 && leftOff >= 5 ? (
                   // FUNCTIONS //
 
                   <main>
@@ -907,6 +917,8 @@ export default function Curriculum() {
                       {buttons}
                     </div>
                   </main>
+                ) : (
+                  leftOff >= 5 && handleUnauthorizedAccess()
                 )}
               </>
             ) : (
