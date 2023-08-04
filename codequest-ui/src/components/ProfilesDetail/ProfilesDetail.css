@@ -55,11 +55,18 @@ h3 {
 
 .userAnalytics {
   width: 300px;
-  height: 300px;
+  height: auto;
   background-color: rgb(19, 25, 78);
   box-shadow: 0 0 10px #000000;
   border-radius: 5px;
   margin: 50px;
+}
+
+.userAnalyticsData {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .achievementAnimation {
@@ -128,3 +135,29 @@ h3 {
   height: auto;
   padding-top: 20px;
 }
+
+
+.badge-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .badge-item h2 {
+    margin: 0;
+  }
+  
+  /* Adjust the width and height as per your animation size */
+  .badge-item .achievementAnimation {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .badgeAnimation {
+    width: 70px;
+  }
+
+  .gold-badge {
+    color: gold;
+  }

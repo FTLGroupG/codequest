@@ -14,6 +14,9 @@ import teddybear_icon from "../../assets/teddy-bear.png";
 import ball_icon from "../../assets/ball.png";
 import transport_icon from "../../assets/transport.png";
 
+import LottieAnimation from "../AnimationComponent/AnimationComponent";
+import animation10 from "/src/assets/magicianAnimation.json";
+
 const INITIAL_FORM = {
   firstName: "",
   profileImg: child_icon,
@@ -53,7 +56,7 @@ export default function ProfilesNew(props) {
     { icon_name: "aeroplane", icon: aeroplane_icon },
     { icon_name: "rubberduck", icon: rubberduck_icon },
     { icon_name: "teddybear", icon: teddybear_icon },
-    { icon_name: "ball", icon: ball_icon },
+    { icon_name: "ball", icon: animation10 },
     { icon_name: "transport", icon: transport_icon },
   ];
 
@@ -94,7 +97,9 @@ export default function ProfilesNew(props) {
           </Link>
           <Link onClick={() => selectProfileImage("ball")}>
             <span className="select-avatar">
-              <img src={ball_icon}></img>
+              <div className="lottieAvatar">
+                <LottieAnimation animationData={animation10} />
+              </div>
             </span>
           </Link>
           <Link onClick={() => selectProfileImage("rockinghorse")}>

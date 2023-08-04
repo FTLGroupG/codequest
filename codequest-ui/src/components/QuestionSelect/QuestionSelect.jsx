@@ -39,6 +39,10 @@ const AnimationComponent = () => {
 };
 
 export default function QuestionSelect() {
+  const {
+    leftOff,
+    setLeftOff,
+  } = useContext(ProfileContext);
   const navigate = useNavigate();
   const { questionContext } = useContext(QuestionContext);
   const [questions, setQuestions] = questionContext;
@@ -79,7 +83,7 @@ export default function QuestionSelect() {
     if (error) {
       console.error("error in apiclient finish module", error);
     }
-
+    setLeftOff(parseInt(localStorage.getItem("leftOff")) + 1)
     navigate(`/modules/${questions[0].module_id}/curriculum/results`);
   };
 
@@ -132,7 +136,7 @@ export default function QuestionSelect() {
       element.classList.add("correct-answer-2");
       counter < questions.length - 1 ? addNext() : addFinal();
     } else {
-      playincorrectSound();
+      // playincorrectSound();
       setIsCorrect(false);
       document.getElementById("message").innerHTML =
         "Hmm, that's not quite right. Try again!";

@@ -3,7 +3,9 @@
   display: flex;
   align-items: center;
 }
-
+.Login .card {
+  z-index: 1;
+}
 .Login {
   min-height: calc(100vh - var(--navbar-height));
   height: 100%;
@@ -179,4 +181,13 @@ a:-webkit-any-link {
     border-top: 1px solid var(--border-color);
     margin-top: auto;
     height: 100px;
+}
+
+.Login .card .footer p{
+  color: white;
+  font-weight: 600;
+}
+
+.Login .card .footer p a{
+  color: #f18080;
 }

@@ -36,6 +36,7 @@ export default function Curriculum() {
   const { id } = useParams();
   const { userContext } = useContext(AuthContext);
   const [user, setUser] = userContext;
+  let leftOffValue = parseInt(localStorage.getItem("leftOff"));
 
   const { selectedProfile, leftOff, setLeftOff } = useContext(ProfileContext);
   const buttons = (
@@ -69,7 +70,7 @@ export default function Curriculum() {
     if (leftOff) {
       localStorage.setItem("leftOff", leftOff);
     }
-    setLeftOff(localStorage.getItem("leftOff"));
+    setLeftOff(parseInt(localStorage.getItem("leftOff")));
   }, [leftOff]);
   return (
     <div className="Curriculum">
@@ -265,9 +266,10 @@ export default function Curriculum() {
           </main>
         ) : (
           <>
-            {user.email && id === leftOff - 1 ? (
+          {console.log(leftOff)}
+            {user.email ? (
               <>
-                {id == 2 && (
+                {id == 2 && leftOff >= 1 && (
                   // VARIABLES //
 
                   <main>
@@ -479,13 +481,12 @@ export default function Curriculum() {
                         secrets of Variables in Python! Now, it's time for a
                         mystical quiz to test your newfound Variable magic!
                       </p>
-
-                      <LottieAnimation animationData={animation2} />
                       {buttons}
                     </div>
                   </main>
                 )}
-                {id == 3 && (
+                {console.log(leftOff)}
+                {id == 3 && leftOff >= 2 &&(
                   // CONDITIONALS //
 
                   <main>
@@ -609,7 +610,7 @@ export default function Curriculum() {
                     </div>
                   </main>
                 )}
-                {id == 4 && (
+                {id == 4 && leftOff >= 3 && (
                   // LISTS //
 
                   <main>
@@ -717,7 +718,7 @@ export default function Curriculum() {
                     </div>
                   </main>
                 )}
-                {id == 5 && (
+                {id == 5 && leftOff >= 4 && (
                   // LOOPS //
 
                   <main>
@@ -803,7 +804,7 @@ export default function Curriculum() {
                     </div>
                   </main>
                 )}
-                {id == 6 && (
+                {id == 6 && leftOff >= 5 && (
                   // FUNCTIONS //
 
                   <main>

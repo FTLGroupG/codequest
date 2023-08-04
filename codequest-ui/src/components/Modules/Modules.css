@@ -11,6 +11,7 @@
 .learnPythonH1 {
   z-index: 2;
   color: #9dd3a2;
+  text-shadow: rgb(102, 65, 153) 1px 0 10px;
 }
 
 .moduleCard {
@@ -132,4 +133,8 @@
   position: fixed;
   bottom: 0;
 
+}
+
+.animation15 {
+  width: 200px;
 }
