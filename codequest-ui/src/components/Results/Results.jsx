@@ -6,6 +6,9 @@ import AuthContext from "../../contexts/auth";
 import apiClient from "../../services/apiClient";
 import lottie from "lottie-web";
 import animationData from "/src/assets/trophyAnimation.json"; // Replace with your animation file path
+import LottieBackgroundAnimation from "../AnimationBackgroundComponent/AnimationBackgroundComponent";
+import animation18 from "/src/assets/conquererBackgroundAnimation.json";
+
 
 const AnimationComponent = () => {
   useEffect(() => {
@@ -57,6 +60,9 @@ export default function Results({ profileItem }) {
 
   return (
     <div className="results">
+      <div className="animation18">
+       <LottieBackgroundAnimation animationData={animation18} />
+      </div>
       {!localStorage.getItem("selectedProfile") && (
         <Navigate to="/account-profiles" replace={true} />
       )}

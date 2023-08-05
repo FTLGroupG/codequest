@@ -49,6 +49,13 @@
     color: white;
 }
 
+.cardContent {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .signUpHomeButton {
     background-color: #F2AC2A;
     width: 400px;
@@ -277,4 +284,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .animation21 {
+    width: 30%;
   }

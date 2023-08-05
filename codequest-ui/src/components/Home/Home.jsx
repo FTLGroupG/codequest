@@ -6,7 +6,8 @@ import lottie from "lottie-web";
 import animationData from '/src/assets/heroAnimation.json'; // Replace with your animation file path
 import LottieAnimation from "../AnimationComponent/AnimationComponent";
 import animation8 from "/src/assets/codingGirlAnimation.json"
-import animation5 from "/src/assets/boxAnimation.json"
+import animation21 from "/src/assets/wavingPeopleAnimation.json"
+import animation22 from "/src/assets/codingKidAnimation.json"
 import AuthContext from "../../contexts/auth";
 
 
@@ -57,8 +58,8 @@ export default function Home() {
           {/* <img src="https://www.usnews.com/object/image/00000171-9ce7-d084-affd-9def28d10000/200421-boylaptop-stock.jpg?update-time=1587475425427&size=responsive640" alt="Child sitting at a desk working on a laptop"></img> */}
         </div>
         <div className="robot-signup">
-        <img src='src/assets/waving-robot.gif' id="floating-robot" className='floating'></img>
-        <h2 className='floating'>Learn with <span className="redText">QuestBot</span> our favorite coding teaching assistant!</h2>
+        <LottieAnimation animationData={animation21} />
+        <h2 className='floating'>Learn with fun characters and progress in your coding journey!</h2>
         </div>
 
       <div className="testSection">
@@ -76,15 +77,20 @@ export default function Home() {
           </svg>
         </div>
         <div className="fadeIn">
-          <div className="cardTextFloatRight">
-            <h3>Designed for kids aged 6-10</h3>
-            <h2 className="pinkH2">
-              Play games and learn how to code at the same time!
-            </h2>
-            <h3>
-              CodeQuest is designed to give kids a fun and interactive
-              environment to learning. Give it a try!
-            </h3>
+          <div className="cardContent">
+            <div className="animation21">
+              <LottieAnimation animationData={animation22} />
+            </div>
+            <div className="cardTextFloatRight">
+              <h3>Designed for kids aged 6-10</h3>
+              <h2 className="pinkH2">
+                Play games and learn how to code at the same time!
+              </h2>
+              <h3>
+                CodeQuest is designed to give kids a fun and interactive
+                environment to learning. Give it a try!
+              </h3>
+            </div>
           </div>
         </div>
         <div className="testSectionButtons">

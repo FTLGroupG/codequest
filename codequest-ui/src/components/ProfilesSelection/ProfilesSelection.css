@@ -1,5 +1,5 @@
 .profile-create-btn {
-  background-color: #f2ac2ad9;
+  background-color: #f2ac2a;
   margin-bottom: 0px;
   border: solid 3px white;
 }
@@ -9,6 +9,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 
 .profile-container {
@@ -18,12 +19,18 @@
   align-items: center;
 }
 
-h4 {
+.profile-container h4 {
   margin-top: 10px;
   margin-bottom: 40px;
   color: white;
   font-family: "Lilita One", cursive;
   font-size: 1.2em;
+  z-index: 1;
+}
+
+.animation20 {
+  width: 300px;
+  opacity: 70%;
 }
 
 /* .createdProfiles {

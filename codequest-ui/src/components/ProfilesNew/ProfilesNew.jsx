@@ -7,15 +7,15 @@ import { useNavigate, Link } from "react-router-dom";
 import boy_icon from "../../assets/boy.png";
 import girl_icon from "../../assets/girl.png";
 import child_icon from "../../assets/child.png";
-import rockinghorse_icon from "../../assets/rocking-horse.png";
-import aeroplane_icon from "../../assets/aeroplane.png";
-import rubberduck_icon from "../../assets/rubber-duck.png";
-import teddybear_icon from "../../assets/teddy-bear.png";
-import ball_icon from "../../assets/ball.png";
-import transport_icon from "../../assets/transport.png";
+import rockinghorse_icon from "../../assets/horseIcon.png";
+import aeroplane_icon from "../../assets/planeIcon.png";
+import rubberduck_icon from "../../assets/duckIcon.png";
+import teddybear_icon from "../../assets/codeyIcon.png";
+import ball_icon from "../../assets/baseballIcon.png";
+import carIcon from "../../assets/carIcon.svg";
 
-import LottieAnimation from "../AnimationComponent/AnimationComponent";
-import animation10 from "/src/assets/magicianAnimation.json";
+import LottieBackgroundAnimation from "../AnimationBackgroundComponent/AnimationBackgroundComponent";
+import animation17 from "/src/assets/skyBackgroundAnimation.json";
 
 const INITIAL_FORM = {
   firstName: "",
@@ -56,8 +56,8 @@ export default function ProfilesNew(props) {
     { icon_name: "aeroplane", icon: aeroplane_icon },
     { icon_name: "rubberduck", icon: rubberduck_icon },
     { icon_name: "teddybear", icon: teddybear_icon },
-    { icon_name: "ball", icon: animation10 },
-    { icon_name: "transport", icon: transport_icon },
+    { icon_name: "ball", icon: ball_icon },
+    { icon_name: "transport", icon: carIcon },
   ];
 
   const selectProfileImage = (img) => {
@@ -75,7 +75,11 @@ export default function ProfilesNew(props) {
 
   return (
     <div className="profiles-form">
+      
       <div className="profiles-form-content">
+
+        <LottieBackgroundAnimation animationData={animation17} />
+ 
         <h2>Add your name</h2>
         <p style={{ color: "red" }}>{error}</p>
         <div className="profiles-form-section">
@@ -90,16 +94,15 @@ export default function ProfilesNew(props) {
         </div>
         <h2>Choose Profile Image</h2>
         <div className="select-profile-image">
+          <div className="floating">
           <Link onClick={() => selectProfileImage("transport")}>
             <span className="select-avatar">
-              <img src={transport_icon}></img>
+              <img src={carIcon}></img>
             </span>
           </Link>
           <Link onClick={() => selectProfileImage("ball")}>
             <span className="select-avatar">
-              <div className="lottieAvatar">
-                <LottieAnimation animationData={animation10} />
-              </div>
+              <img src={ball_icon}></img>
             </span>
           </Link>
           <Link onClick={() => selectProfileImage("rockinghorse")}>
@@ -122,6 +125,7 @@ export default function ProfilesNew(props) {
               <img src={teddybear_icon}></img>
             </span>
           </Link>
+          </div>
         </div>
         <button
           onClick={() => handleOnSubmit()}

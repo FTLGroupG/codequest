@@ -1,12 +1,24 @@
+.profiles-form {
+margin-bottom: 200px;
+}
+
+
 .profiles-form-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  z-index: 1;
 }
 
 .profiles-form .profiles-form-content h2 {
   font-size: 3em;
+  z-index: 1;
+  text-shadow: rgb(73, 71, 75) 1px 0 10px;
+}
+
+.profiles-form-section {
+  z-index: 1;
 }
 
 .profiles-form-section input{
@@ -21,11 +33,13 @@
     color: #f18080;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.182);
     background-color: #fff;
+    z-index: 1;
 }
 
 .profile-submit-registration-form-button {
   margin: 20px;
   background-color: #f2ac2a;
+  z-index: 1;
 }
 
 .select-avatar {
@@ -43,8 +57,8 @@
   margin-top: 60px;
   font-size: 1.3em;
   color: #4b4b4b;
-  height: 100px;
-  width: 100px;
+  height: 200px;
+  width: 200px;
 }
 
 .select-profile-image {
@@ -59,8 +73,26 @@
   border-radius: 8px;
   min-width: 300px;
   margin-top: 20px;
+  z-index: 1;
 }
 
 .lottieAvatar {
   width: 300px;
+}
+
+.achievementAnimation {
+  width: 300px;
+}
+
+.select-avatar.bordered {
+  border: 2px solid white;
+}
+/* .animation17 {
+  z-index: 0;
+} */
+
+.select-profile-image .floating {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

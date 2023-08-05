@@ -57,9 +57,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.282);
+  position: relative;
 }
 button:hover {
   background-color: #51b97c;
+  transition: 0.3s;
 }
 button:focus,
 button:focus-visible {
