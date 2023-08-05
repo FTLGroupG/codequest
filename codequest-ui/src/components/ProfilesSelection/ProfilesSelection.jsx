@@ -8,7 +8,8 @@ import robotProfile from "../../assets/robotProfile.png";
 import ProfileCard from "../ProfileCard/ProfileCard";
 import apiClient from "../../services/apiClient";
 import AuthContext from "../../contexts/auth";
-import boy_icon from "../../assets/boy.png";
+import LottieAnimation from "../AnimationBackgroundComponent/AnimationBackgroundComponent";
+import animation20 from "/src/assets/cuteMountainsBackground.json";
 
 /**
  * ProfilesSelection component displays the list of user profiles and allows selecting a profile.
@@ -98,6 +99,9 @@ export default function ProfilesSelection(props) {
 
   return (
     <div className="profile-overview">
+      <div className="animation20">
+       <LottieAnimation animationData={animation20} />
+      </div>
       <div className="overview-container">
         <div className="overview-content">
           <div className="profile-container">

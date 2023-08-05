@@ -16,4 +16,9 @@
 .finishedContent {
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+.animation23 {
+    width: 500px;
 }

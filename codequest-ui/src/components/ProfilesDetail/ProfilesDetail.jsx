@@ -9,8 +9,10 @@ import "./ProfilesDetail.css";
 import AuthContext from "../../contexts/auth";
 import ProfileContext from "../../contexts/profile";
 import LottieAnimation from "../AnimationComponent/AnimationComponent";
-import animation8 from "/src/assets/badgeAnimation.json";
+import LottieBackgroundAnimation from "../AnimationBackgroundComponent/AnimationBackgroundComponent";
+import animation8 from "/src/assets/newBadgeAnimation.json";
 import animation9 from "/src/assets/achievementAnimation.json";
+import animation16 from "/src/assets/achievementsBackgroundAnimation.json";
 import opened_eye from "/src/assets/open-eye.svg";
 import closed_eye from "/src/assets/close-eye.svg";
 
@@ -136,6 +138,9 @@ export default function ProfilesDetail({
   };
   return (
     <div className="userProfile">
+      <div className="animation16">
+        <LottieBackgroundAnimation animationData={animation16} />
+      </div>
       {user.email && !localStorage.getItem("selectedProfile") && (
         <Navigate to="/account-profiles" replace={true} />
       )}
