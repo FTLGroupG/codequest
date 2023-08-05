@@ -7,6 +7,8 @@ import AuthContext from "../../contexts/auth";
 import apiClient from "../../services/apiClient";
 import LottieBackgroundAnimation from "../AnimationBackgroundComponent/AnimationBackgroundComponent";
 import animation13 from "/src/assets/registerBackgroundAnimation.json";
+import opened_eye from "/src/assets/open-eye.svg";
+import closed_eye from "/src/assets/close-eye.svg";
 
 export default function Register(props) {
   const registrationFormInit = {
@@ -22,6 +24,7 @@ export default function Register(props) {
   const [user, setUser] = userContext;
   const [registrationForm, setRegistrationForm] =
     useState(registrationFormInit);
+  const [showPassword, setShowPassword] = useState(false);
 
   const [isLoading, setisLoading] = useState();
 
@@ -40,7 +43,7 @@ export default function Register(props) {
 
   const handleOnSubmit = async () => {
     if (registrationForm.password !== registrationForm.passwordConfirm) {
-      props.seterrors("Passwords do not match!");
+      props.setErrors("Passwords do not match!");
       return 0;
     }
     // create request
@@ -52,10 +55,14 @@ export default function Register(props) {
     }
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div className="Register">
       <div className="animation13">
-      <LottieBackgroundAnimation animationData={animation13} />
+        <LottieBackgroundAnimation animationData={animation13} />
       </div>
       {user?.email && <Navigate to="/account-profiles" replace={true} />}
       <div className="media"></div>
@@ -71,9 +78,6 @@ export default function Register(props) {
         <br />
 
         <div className="form">
-          <p className="error" style={{ color: "red" }}>
-            {props?.errors}
-          </p>
           <div className="split-inputs">
             <div className="input-field"></div>
 
@@ -126,29 +130,38 @@ export default function Register(props) {
               onChange={onFormChange}
             />
           </div>
-
+          <label htmlFor="password">Password</label>
           <div className="input-field">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={registrationForm.password}
-              onChange={onFormChange}
-            />
-          </div>
+            <div className="password-input-field">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder="Password"
+                value={registrationForm.password}
+                onChange={onFormChange}
+              />
+              <div className="registerForm-passvisibility-icon">
+                <img
+                  src={showPassword ? opened_eye : closed_eye}
+                  onClick={togglePasswordVisibility}
+                />
+              </div>
+            </div>
 
-          <div className="input-field">
-            <label htmlFor="passwordConfirm">Confirm Password</label>
-            <input
-              type="password"
-              name="passwordConfirm"
-              placeholder="Confirm password"
-              value={registrationForm.passwordConfirm}
-              onChange={onFormChange}
-            />
+            <div className="input-field">
+              <label htmlFor="passwordConfirm">Confirm Password</label>
+              <input
+                type={showPassword ? "text" : "password"}
+                name="passwordConfirm"
+                placeholder="Confirm password"
+                value={registrationForm.passwordConfirm}
+                onChange={onFormChange}
+              />
+            </div>
           </div>
-
+          <p className="error" style={{ color: "red" }}>
+            {props?.errors}
+          </p>
           <button className="btn" disabled={isLoading} onClick={handleOnSubmit}>
             {isLoading ? "Loading..." : "Create Account"}
           </button>

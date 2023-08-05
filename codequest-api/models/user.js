@@ -39,7 +39,7 @@ class User {
         return User.makePublicUser(user);
       }
     }
-    throw new UnauthorizedError("Invalid user credentials");
+    throw new UnauthorizedError("Invalid password or email. Please try again!");
   }
 
   /**

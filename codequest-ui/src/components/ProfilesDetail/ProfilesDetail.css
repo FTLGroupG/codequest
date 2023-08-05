@@ -9,12 +9,12 @@ h3 {
 }
 
 .userProfile {
-    height: 1800px;
+  height: 1800px;
 }
 
 .profilesH3 {
-    font-size: 2em;
-    font-family: 'Lilita One', sans-serif;
+  font-size: 2em;
+  font-family: "Lilita One", sans-serif;
 }
 
 .userProfileName {
@@ -63,14 +63,14 @@ h3 {
 }
 
 .userAnalyticsData {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .achievementAnimation {
-    border: 1px solid red;
+  border: 1px solid red;
 }
 
 .removeForm-deleteButton {
@@ -88,7 +88,7 @@ h3 {
 
 .removeForm {
   display: flex;
-  background-color: #efe8e2;
+  background-color: rgb(19, 25, 78);
   width: 80%;
   border-radius: 15px;
   padding: 50px;
@@ -136,28 +136,27 @@ h3 {
   padding-top: 20px;
 }
 
-
 .badge-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 16px;
-  }
-  
-  .badge-item h2 {
-    margin: 0;
-  }
-  
-  /* Adjust the width and height as per your animation size */
-  .badge-item .achievementAnimation {
-    width: 30px;
-    height: 30px;
-  }
-  
-  .badgeAnimation {
-    width: 70px;
-  }
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
 
-  .gold-badge {
-    color: gold;
-  }
+.badge-item h2 {
+  margin: 0;
+}
+
+/* Adjust the width and height as per your animation size */
+.badge-item .achievementAnimation {
+  width: 30px;
+  height: 30px;
+}
+
+.badgeAnimation {
+  width: 70px;
+}
+
+.gold-badge {
+  color: gold;
+}
