@@ -36,7 +36,6 @@ export default function Curriculum() {
   const { id } = useParams();
   const { userContext } = useContext(AuthContext);
   const [user, setUser] = userContext;
-  let leftOffValue = parseInt(localStorage.getItem("leftOff"));
 
   const { selectedProfile, leftOff, setLeftOff } = useContext(ProfileContext);
   const buttons = (
@@ -49,36 +48,28 @@ export default function Curriculum() {
 
   const handleUnauthorizedAccess = () => {
     // Render the AccessForbidden component
-    const accessForbiddenComponent = (
-      <AccessForbidden
-        message={`Wow! Don't feel rushed, fellow coder! Complete Quest #${
-          leftOff + 1
-        } first!`}
-      />
-    );
-
-    // Render the AccessForbidden component immediately
-    // and then redirect to /modules after 5 seconds
-    setTimeout(() => {
-      // Redirect to /modules after 5 seconds
-      navigate("/modules");
-    }, 3000);
-
-    return accessForbiddenComponent;
+    // const accessForbiddenComponent = (
+    //   <AccessForbidden
+    //     message={`Wow! Don't feel rushed, fellow coder! Complete Quest #${
+    //       leftOff + 1
+    //     } first!`}
+    //   />
+    // );
+    // // Render the AccessForbidden component immediately
+    // // and then redirect to /modules after 5 seconds
+    // setTimeout(() => {
+    //   // Redirect to /modules after 5 seconds
+    //   navigate("/modules");
+    // }, 3000);
+    // return accessForbiddenComponent;
   };
 
-  // Store the leftOff value in localStorage
-  useEffect(() => {
-    if (leftOff) {
-      localStorage.setItem("leftOff", leftOff);
-    }
-    setLeftOff(parseInt(localStorage.getItem("leftOff")));
-  }, [leftOff]);
   return (
     <div className="Curriculum">
       {user.email && !localStorage.getItem("selectedProfile") && (
         <Navigate to="/account-profiles" replace={true} />
       )}
+      {console.log("leftOff" + leftOff)}
       <div className="curriculumCard">
         {id == 1 ? (
           // DATE TYPES //
@@ -614,7 +605,9 @@ export default function Curriculum() {
                     </div>
                   </main>
                 ) : (
-                  leftOff >= 2 && handleUnauthorizedAccess()
+                  leftOff >= 2 &&
+                  handleUnauthorizedAccess() &&
+                  console.log("here" + leftOff)
                 )}
                 {id == 4 && leftOff >= 3 ? (
                   // LISTS //

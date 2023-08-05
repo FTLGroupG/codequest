@@ -23,7 +23,8 @@ export default function Quiz({ user }) {
   const { counterContext } = useContext(QuestionContext);
   const [counter, setCounter] = counterContext;
 
-  const { selectedProfile } = useContext(ProfileContext);
+  const { selectedProfile, leftOff, setLeftOff, userProgress } =
+    useContext(ProfileContext);
 
   const incrementCounter = () => {
     if (counter < questions.length - 1) {
@@ -78,9 +79,16 @@ export default function Quiz({ user }) {
 
   return (
     <div className="Quiz">
+      {console.log(leftOff)}
+      {console.log(userProgress)}
       {user.email && !localStorage.getItem("selectedProfile") && (
         <Navigate to="/account-profiles" replace={true} />
       )}
+      {/* {user.email &&
+        localStorage.getItem("selectedProfile") &&
+        userProgress.module_one === true && (
+          <Navigate to="/account-profiles" replace={true} />
+        )} */}
       {questions[counter].type === "select" ? (
         <QuestionSelect user={user} />
       ) : (
