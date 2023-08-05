@@ -82,7 +82,6 @@ h2 {
 
 .Login .card .form .input-field {
   margin: 8px 0;
-  
 }
 
 .Login .card .form .input-field label {
@@ -107,8 +106,8 @@ element.style {
 .Login .card .form .input-field input {
   height: 60px;
   padding: 0 15px;
-  font-size: 16px;
-  font-family: 'Lilita One', sans-serif;
+  font-size: 20px;
+  font-family: "Lilita One", sans-serif;
   color: #f18080;
   border: none;
   border-radius: 5px;
@@ -161,33 +160,64 @@ button {
   background: var(--color-secondary);
 }
 
-.Login .card .footer, .Login .card .footer p, .Navbar {
-    color: rgb(0, 0, 0);
+.Login .card .footer,
+.Login .card .footer p,
+.Navbar {
+  color: rgb(0, 0, 0);
 }
 
-
 a {
-    text-decoration: none;
-    color: #00c98e;
-    color: var(--color-secondary);
+  text-decoration: none;
+  color: #00c98e;
+  color: var(--color-secondary);
 }
 
 a:-webkit-any-link {
-    cursor: pointer;
-    
+  cursor: pointer;
 }
 
 .Login .card .footer {
-    border-top: 1px solid var(--border-color);
-    margin-top: auto;
-    height: 100px;
+  border-top: 1px solid var(--border-color);
+  margin-top: auto;
+  height: 100px;
 }
 
-.Login .card .footer p{
+.Login .card .footer p {
   color: white;
   font-weight: 600;
 }
 
-.Login .card .footer p a{
+.Login .card .footer p a {
   color: #f18080;
+}
+
+.password-input-field input {
+  height: 60px;
+  padding: 0 15px;
+  font-size: 20px;
+  font-family: "Lilita One", sans-serif;
+  color: #f18080;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  background: transparent;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.182);
+  background-color: #fff;
+}
+
+.password-input-field {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.loginForm-passvisibility-icon {
+  margin: 0 0rem 0 1rem;
+}
+
+.loginForm-passvisibility-icon img {
+  width: 35px;
+  height: auto;
+  padding-top: 15px;
 }

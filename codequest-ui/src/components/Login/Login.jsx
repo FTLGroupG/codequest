@@ -6,11 +6,14 @@ import AuthContext from "../../contexts/auth";
 import apiClient from "../../services/apiClient";
 import LottieBackgroundAnimation from "../AnimationBackgroundComponent/AnimationBackgroundComponent";
 import animation14 from "/src/assets/loginBackgroundAnimation.json";
+import opened_eye from "/src/assets/open-eye.svg";
+import closed_eye from "/src/assets/close-eye.svg";
 
 export default function Login(props) {
   const { userContext } = useContext(AuthContext);
   const [user, setUser] = userContext;
   const [isLoading, setisLoading] = useState();
+  const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
 
@@ -43,6 +46,10 @@ export default function Login(props) {
     }
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   // Render the login form
   return (
     <div className="Login">
@@ -66,9 +73,6 @@ export default function Login(props) {
         <br />
 
         <div className="form">
-          <p className="error" style={{ color: "red" }}>
-            {props?.errors}
-          </p>
           <div className="input-field">
             <label htmlFor="email">Email</label>
             <input
@@ -81,17 +85,26 @@ export default function Login(props) {
             />
           </div>
 
-          <div className="input-field">
-            <label htmlFor="password">Password</label>
+          <label htmlFor="password">Password</label>
+          <div className="password-input-field">
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               name="password"
               placeholder="Password"
               value={loginForm.password}
               onChange={onFormChange}
               required
             />
+            <div className="loginForm-passvisibility-icon">
+              <img
+                src={showPassword ? opened_eye : closed_eye}
+                onClick={togglePasswordVisibility}
+              />
+            </div>
           </div>
+          <p className="error" style={{ color: "red" }}>
+            {props.errors}
+          </p>
           <button
             className="btn"
             disabled={isLoading}

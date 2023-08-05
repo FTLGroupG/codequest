@@ -9,12 +9,12 @@ h3 {
 }
 
 .userProfile {
-    height: 1800px;
+  height: 1800px;
 }
 
 .profilesH3 {
-    font-size: 2em;
-    font-family: 'Lilita One', sans-serif;
+  font-size: 2em;
+  font-family: "Lilita One", sans-serif;
 }
 
 .userProfileName {
@@ -71,10 +71,11 @@ h3 {
     justify-content: center;
     align-items: center;
     text-shadow: rgb(0, 0, 0) 1px 0 10px;
+
 }
 
 .achievementAnimation {
-    border: 1px solid red;
+  border: 1px solid red;
 }
 
 .removeForm-deleteButton {
@@ -99,7 +100,7 @@ h3 {
 
 .removeForm {
   display: flex;
-  background-color: #efe8e2;
+  background-color: rgb(19, 25, 78);
   width: 80%;
   border-radius: 15px;
   padding: 50px;
@@ -147,7 +148,6 @@ h3 {
   height: auto;
   padding-top: 20px;
 }
-
 
 .badge-item {
     display: flex;
