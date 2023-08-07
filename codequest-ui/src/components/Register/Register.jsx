@@ -1,7 +1,6 @@
 import * as React from "react";
 import { useState, useEffect, useContext } from "react";
 import { Link, Navigate } from "react-router-dom";
-import axios from "axios";
 import "./Register.css";
 import AuthContext from "../../contexts/auth";
 import apiClient from "../../services/apiClient";

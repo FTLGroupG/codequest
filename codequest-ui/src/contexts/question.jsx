@@ -19,34 +19,6 @@ export const QuestionContextProvider = ({ children }) => {
   const [error, setError] = React.useState();
   const [isLoading, setIsLoading] = React.useState(false);
 
-  // after component is mounted after authenticating user, fetch all the data if possible
-  // React.useEffect(() => {
-  //   const fetchQuestions = async () => {
-  //     setIsLoading(true);
-
-  //     try {
-  //       const { data, errorQuestion } = await apiClient.fetchQuestionByModule(
-  //         id
-  //       );
-
-  //       if (errorQuestion) setError(errorQuestion);
-  //       if (data?.questions) {
-  //         setQuestions(data?.questions);
-  //       }
-  //     } catch (error) {
-  //       console.error("Fetching data error:", error);
-  //     }
-  //     setIsLoading(false);
-  //   };
-
-  //   // check if user is logged in
-  //   if (user?.email) {
-  //     fetchQuestions();
-  //   } else {
-  //     setInitialized(true);
-  //   }
-  // }, [user]);
-
   // check if there where any errors after doing a request
   if (error) {
     return (

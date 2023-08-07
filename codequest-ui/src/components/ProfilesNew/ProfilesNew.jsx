@@ -1,11 +1,9 @@
 import React from "react";
 import "./ProfilesNew.css";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import ProfileContext from "../../contexts/profile";
 import apiClient from "../../services/apiClient";
 import { useNavigate, Link } from "react-router-dom";
-import boy_icon from "../../assets/boy.png";
-import girl_icon from "../../assets/girl.png";
 import child_icon from "../../assets/child.png";
 import rockinghorse_icon from "../../assets/horseIcon.png";
 import aeroplane_icon from "../../assets/planeIcon.png";
@@ -75,11 +73,9 @@ export default function ProfilesNew(props) {
 
   return (
     <div className="profiles-form">
-      
       <div className="profiles-form-content">
-
         <LottieBackgroundAnimation animationData={animation17} />
- 
+
         <h2>Add your name</h2>
         <p style={{ color: "red" }}>{error}</p>
         <div className="profiles-form-section">
@@ -95,36 +91,36 @@ export default function ProfilesNew(props) {
         <h2>Choose Profile Image</h2>
         <div className="select-profile-image">
           <div className="floating">
-          <Link onClick={() => selectProfileImage("transport")}>
-            <span className="select-avatar">
-              <img src={carIcon}></img>
-            </span>
-          </Link>
-          <Link onClick={() => selectProfileImage("ball")}>
-            <span className="select-avatar">
-              <img src={ball_icon}></img>
-            </span>
-          </Link>
-          <Link onClick={() => selectProfileImage("rockinghorse")}>
-            <span className="select-avatar">
-              <img src={rockinghorse_icon}></img>
-            </span>
-          </Link>
-          <Link onClick={() => selectProfileImage("aeroplane")}>
-            <span className="select-avatar">
-              <img src={aeroplane_icon}></img>
-            </span>
-          </Link>
-          <Link onClick={() => selectProfileImage("rubberduck")}>
-            <span className="select-avatar">
-              <img src={rubberduck_icon}></img>
-            </span>
-          </Link>
-          <Link onClick={() => selectProfileImage("teddybear")}>
-            <span className="select-avatar">
-              <img src={teddybear_icon}></img>
-            </span>
-          </Link>
+            <Link onClick={() => selectProfileImage("transport")}>
+              <span className="select-avatar">
+                <img src={carIcon}></img>
+              </span>
+            </Link>
+            <Link onClick={() => selectProfileImage("ball")}>
+              <span className="select-avatar">
+                <img src={ball_icon}></img>
+              </span>
+            </Link>
+            <Link onClick={() => selectProfileImage("rockinghorse")}>
+              <span className="select-avatar">
+                <img src={rockinghorse_icon}></img>
+              </span>
+            </Link>
+            <Link onClick={() => selectProfileImage("aeroplane")}>
+              <span className="select-avatar">
+                <img src={aeroplane_icon}></img>
+              </span>
+            </Link>
+            <Link onClick={() => selectProfileImage("rubberduck")}>
+              <span className="select-avatar">
+                <img src={rubberduck_icon}></img>
+              </span>
+            </Link>
+            <Link onClick={() => selectProfileImage("teddybear")}>
+              <span className="select-avatar">
+                <img src={teddybear_icon}></img>
+              </span>
+            </Link>
           </div>
         </div>
         <button
