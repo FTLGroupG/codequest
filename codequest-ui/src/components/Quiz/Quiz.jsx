@@ -74,7 +74,7 @@ export default function Quiz({ user }) {
       {user.email && !localStorage.getItem("selectedProfile") && (
         <Navigate to="/account-profiles" replace={true} />
       )}
-      {questions[counter].type === "select" ? (
+      {questions[counter].type === "select" && questions.length != 0 ? (
         <QuestionSelect user={user} />
       ) : (
         <QuestionDrag user={user} />
