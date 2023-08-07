@@ -67,6 +67,11 @@ export default function Quiz({ user }) {
     return <Loading />;
   }
 
+  // Check if questions array is populated before accessing it
+  if (!questions || questions.length === 0) {
+    return <h1>No questions available</h1>;
+  }
+
   return (
     <div className="Quiz">
       {console.log(leftOff)}
@@ -74,7 +79,7 @@ export default function Quiz({ user }) {
       {user.email && !localStorage.getItem("selectedProfile") && (
         <Navigate to="/account-profiles" replace={true} />
       )}
-      {questions[counter].type === "select" && questions.length != 0 ? (
+      {questions[counter]?.type === "select" ? (
         <QuestionSelect user={user} />
       ) : (
         <QuestionDrag user={user} />
