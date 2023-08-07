@@ -1,4 +1,3 @@
-
 import React from "react";
 import "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -17,7 +16,7 @@ export default function Navbar(props) {
         <div className="logo">
           <Link to={props?.user?.email ? `/modules` : `/`}>
             <img
-              src="/src/assets/codequest-logo2.png"
+              src="/src/assets/codequest-logo.png"
               alt="logo"
               width="100px"
             />
