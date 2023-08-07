@@ -49,22 +49,22 @@ export default function Curriculum() {
 
   const handleUnauthorizedAccess = () => {
     // Render the AccessForbidden component
-    const accessForbiddenComponent = (
-      <AccessForbidden
-        message={`Wow! Don't feel rushed, fellow coder! Complete Quest #${
-          leftOff + 1
-        } first!`}
-      />
-    );
+    // const accessForbiddenComponent = (
+    //   <AccessForbidden
+    //     message={`Wow! Don't feel rushed, fellow coder! Complete Quest #${
+    //       leftOff + 1
+    //     } first!`}
+    //   />
+    // );
 
-    // Render the AccessForbidden component immediately
-    // and then redirect to /modules after 5 seconds
-    setTimeout(() => {
-      // Redirect to /modules after 5 seconds
-      navigate("/modules");
-    }, 3000);
+    // // Render the AccessForbidden component immediately
+    // // and then redirect to /modules after 5 seconds
+    // setTimeout(() => {
+    //   // Redirect to /modules after 5 seconds
+    //   navigate("/modules");
+    // }, 3000);
 
-    return accessForbiddenComponent;
+    // return accessForbiddenComponent;
   };
 
   // Store the leftOff value in localStorage
