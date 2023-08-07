@@ -88,7 +88,7 @@ export default function ProfilesSelection(props) {
       setSelectedProfile(profileId);
       setUserProgress(response.userprogress);
       localStorage.setItem("selectedProfile", profileId);
-      localStorage.setItem("leftOff", 0);
+      //localStorage.setItem("leftOff", 0);
     } catch (error) {
       console.error("Error fetching data:", error);
     }

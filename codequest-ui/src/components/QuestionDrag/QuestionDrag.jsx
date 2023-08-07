@@ -38,10 +38,7 @@ const AnimationComponent = () => {
 };
 
 export default function QuestionDrag({ user }) {
-  const {
-    leftOff,
-    setLeftOff,
-  } = useContext(ProfileContext);
+  const { leftOff, setLeftOff } = useContext(ProfileContext);
   const navigate = useNavigate();
   const { questionContext } = useContext(QuestionContext);
   const [questions, setQuestions] = questionContext;
@@ -56,7 +53,7 @@ export default function QuestionDrag({ user }) {
   useEffect(() => {
     // Reset isCorrect state when counter changes (i.e., user goes to the next question)
     setIsCorrect(false);
-  
+
     // Shuffle the options for the current question
     const shuffle = (array) => {
       for (let i = array.length - 1; i > 0; i--) {
@@ -65,7 +62,7 @@ export default function QuestionDrag({ user }) {
       }
       return array;
     };
-  
+
     setOptionsList(shuffle(questions[counter].options));
   }, [counter]);
 
@@ -81,7 +78,7 @@ export default function QuestionDrag({ user }) {
     if (error) {
       console.error("error in apiclient finish module", error);
     }
-    setLeftOff(parseInt(localStorage.getItem("leftOff")) + 1)
+    setLeftOff(leftOff + 1);
     navigate(`/modules/${questions[0].module_id}/curriculum/results`);
   };
 
