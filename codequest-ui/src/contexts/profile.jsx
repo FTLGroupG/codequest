@@ -21,6 +21,9 @@ export const ProfileContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = React.useState(false);
   const [userProgress, setUserProgress] = React.useState({});
 
+  const profileId = selectedProfile;
+  const [profileItem, setProfileItem] = React.useState({});
+
   // Function to remove a profile by id
   const removeProfile = (id) => {
     setProfiles((prevProfiles) => {
@@ -29,6 +32,77 @@ export const ProfileContextProvider = ({ children }) => {
       return updatedProfiles;
     });
   };
+
+  /**
+   * Calculate the value for `leftOff` based on the completed modules in `userProgress`.
+   * This effect runs whenever the `userProgress` changes.
+   */
+  React.useEffect(() => {
+    const leftOffValue = Object.values(userProgress)
+      .filter((key) => typeof key === "boolean")
+      .filter(Boolean).length;
+    setLeftOff(leftOffValue);
+  }, [userProgress]);
+  /**
+   * Fetch data from the backend API for the selected profile.
+   * Update the `selectedProfile` and `userProgress` state based on the API response.
+   * This effect runs when the `localStorage.getItem("selectedProfile")` changes.
+   */
+  React.useEffect(() => {
+    const fetchDataAndSetSelectedProfile = async () => {
+      try {
+        const profileId = localStorage.getItem("selectedProfile");
+        const response = await apiClient.fetchData(profileId);
+        setSelectedProfile(profileId);
+        setUserProgress(response.userprogress);
+      } catch (error) {
+        // Handle any error that might occur during the API call
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    // Call the new function when 'localStorage.getItem("selectedProfile")'
+    if (localStorage.getItem("selectedProfile")) {
+      fetchDataAndSetSelectedProfile();
+    }
+  }, [localStorage.getItem("selectedProfile")]);
+
+  React.useEffect(() => {
+    // Check if there is a selectedProfile in localStorage;
+
+    if (!selectedProfile) {
+      // If there's no selectedProfile, you may choose to return early or do something else
+      return;
+    }
+
+    // If selectedProfile exists, proceed with the fetch
+    const fetchProfile = async () => {
+      setIsLoading(true);
+
+      const { data, error } = await apiClient.fetchProfileById(profileId);
+
+      if (data) {
+        setProfileItem(data);
+      } else {
+        setErrors(error);
+      }
+
+      setIsLoading(false);
+    };
+
+    fetchProfile();
+  }, [profileId]);
+
+  /**
+   * Calculate the value for `leftOff` based on the completed modules in `userProgress`.
+   * This effect runs whenever the `userProgress` changes.
+   */
+  React.useEffect(() => {
+    const leftOffValue = Object.values(userProgress)
+      .filter((key) => typeof key === "boolean")
+      .filter(Boolean).length;
+    setLeftOff(leftOffValue);
+  }, [userProgress]);
 
   // after component is mounted after authenticating user, fetch all the data if possible
   React.useEffect(() => {
@@ -53,6 +127,16 @@ export const ProfileContextProvider = ({ children }) => {
       setInitialized(true);
     }
   }, [user]);
+
+  /**
+   * Store the `leftOff` value in localStorage to persist user progress.
+   * This effect runs whenever the `leftOff` changes.
+   */
+  React.useEffect(() => {
+    if (leftOff) {
+      setLeftOff(leftOff);
+    }
+  }, [leftOff]);
 
   // check if there where any errors after doing a request
   if (error) {
