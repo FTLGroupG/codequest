@@ -67,9 +67,9 @@ export default function Quiz({ user }) {
     return <Loading />;
   }
 
-  // Check if questions array is populated before accessing it
-  if (!questions || questions.length === 0) {
-    return <h1>No questions available</h1>;
+  // Wait for questions to be fetched before rendering
+  if (isLoading || !questions) {
+    return <Loading />;
   }
 
   return (
