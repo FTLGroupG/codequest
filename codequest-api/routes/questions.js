@@ -22,11 +22,6 @@ router.get("/:id", async (req, res, next) => {
   try {
     const module_id = req.params.id;
 
-    // Perform the security check only if req.params.id is 1
-    // if (!(module_id == "1")) {
-    //   await security.verifyAuthUser(req, res, next);
-    // }
-
     const questions = await Question.fetch(module_id);
 
     return res.status(200).json({

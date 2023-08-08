@@ -170,5 +170,4 @@ class ApiClient {
     return await this.request({ endpoint: `auth/me`, method: `GET` });
   }
 }
-
 export default new ApiClient("https://codequest-api.onrender.com/");
