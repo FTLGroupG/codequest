@@ -107,9 +107,9 @@ ARRAY ['Floating-point numbers', 'Booleans', 'Strings', 'Lists'], 'drag', 1);
 
 -- Modules 2 data
 
-INSERT INTO questions (question, answer, options, type, image_url, module_id)
-VALUES('What is the correct way to create a Variable called "magical_number" and assign it the value 7.','spell1, spell2 = spell2, spell1',
-ARRAY ['spell1, spell2 = spell2, spell1', 'spell1.swap(spell2)', 'swap(spell1, spell2)'], 'select', 'http://localhost:5173/src/assets/quiz2_q11.png', 2);
+--INSERT INTO questions (question, answer, options, type, image_url, module_id)
+--VALUES('What is the correct way to create a Variable called "magical_number" and assign it the value 7.','spell1, spell2 = spell2, spell1',
+--ARRAY ['spell1, spell2 = spell2, spell1', 'spell1.swap(spell2)', 'swap(spell1, spell2)'], 'select', 'http://localhost:5173/src/assets/quiz2_q11.png', 2);
 
 INSERT INTO questions (question, answer, options, type, module_id)
 VALUES('What is the correct way to create a Variable called "magical_number" and assign it the value 7.','magical_number = 7',

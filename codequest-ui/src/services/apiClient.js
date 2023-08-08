@@ -171,4 +171,4 @@ class ApiClient {
   }
 }
 
-export default new ApiClient("https://codequest-api-0qep.onrender.com/");
+export default new ApiClient("https://codequest-api.onrender.com/");
