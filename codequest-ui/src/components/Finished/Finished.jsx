@@ -1,17 +1,20 @@
 import React, { useEffect } from "react";
 import "./Finished.css";
 import { Link, useParams } from "react-router-dom";
-import { useContext } from "react";
+import { useState, useContext } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Quiz from "../Quiz/Quiz";
 import AuthContext from "../../contexts/auth";
 import QuestionContext from "../../contexts/question";
 import AccessForbidden from "../AccessForbidden/AccessForbidden";
+import ProfileContext from "../../contexts/profile";
 import useSound from "use-sound";
 import cheerSound from "../../assets/mixkit-classroom-spontaneous-applause-500.wav";
 import Confetti from "react-confetti";
 import LottieAnimation from "../AnimationComponent/AnimationComponent";
 import animation23 from "/src/assets/highFiveAnimation.json";
 
-export default function Finished() {
+export default function Finished(props) {
   const { id } = useParams();
 
   const { counterContext } = useContext(QuestionContext);
@@ -19,6 +22,9 @@ export default function Finished() {
 
   const { userContext } = useContext(AuthContext);
   const [user, setUser] = userContext;
+
+  const { profileContext, removeProfile, selectedProfile, setSelectedProfile } =
+    useContext(ProfileContext);
 
   const handleCounterReset = () => {
     setCounter(0);
@@ -42,12 +48,15 @@ export default function Finished() {
     );
   };
 
+  // Ensure the useSound hook is only initialized after a user gesture
   useEffect(() => {
+    // Initialize useSound hook here to trigger AudioContext creation
     play();
   }, [play]);
 
   return (
     <div className="Finished">
+      {/* Render the Confetti component to trigger the animation */}
       <Confetti width={window.innerWidth} height={window.innerHeight} />
       {id == 1 ? (
         displayFinishContent()

@@ -4,14 +4,18 @@ import QuestionDrag from "../QuestionDrag/QuestionDrag";
 import "./Quiz.css";
 import { useParams, Navigate } from "react-router-dom";
 import { useState, useContext, useEffect } from "react";
+import AuthContext from "../../contexts/auth";
 import QuestionContext from "../../contexts/question";
 import ProfileContext from "../../contexts/profile";
 import apiClient from "../../services/apiClient";
 import Loading from "../Loading/Loading";
 
 export default function Quiz({ user }) {
+  const { userContext } = useContext(AuthContext);
+  // const [user, setUser] = userContext;
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState();
+  const [initialiazed, setInitialized] = useState();
 
   const { questionContext } = useContext(QuestionContext);
   const [questions, setQuestions] = questionContext;
@@ -19,7 +23,8 @@ export default function Quiz({ user }) {
   const { counterContext } = useContext(QuestionContext);
   const [counter, setCounter] = counterContext;
 
-  const { leftOff, userProgress } = useContext(ProfileContext);
+  const { selectedProfile, leftOff, setLeftOff, userProgress } =
+    useContext(ProfileContext);
 
   const incrementCounter = () => {
     if (counter < questions.length - 1) {
@@ -51,7 +56,12 @@ export default function Quiz({ user }) {
       setIsLoading(false);
     };
 
+    // check if user is logged in
+    //if (user?.email) {
     fetchQuestions();
+    //} else {
+    //  setInitialized(true);
+    // }
   }, []);
 
   if (error) {
@@ -67,11 +77,6 @@ export default function Quiz({ user }) {
     return <Loading />;
   }
 
-  // Wait for questions to be fetched before rendering
-  if (isLoading || !questions) {
-    return <Loading />;
-  }
-
   return (
     <div className="Quiz">
       {console.log(leftOff)}
@@ -79,7 +84,12 @@ export default function Quiz({ user }) {
       {user.email && !localStorage.getItem("selectedProfile") && (
         <Navigate to="/account-profiles" replace={true} />
       )}
-      {questions[counter]?.type === "select" ? (
+      {/* {user.email &&
+        localStorage.getItem("selectedProfile") &&
+        userProgress.module_one === true && (
+          <Navigate to="/account-profiles" replace={true} />
+        )} */}
+      {questions[counter].type === "select" ? (
         <QuestionSelect user={user} />
       ) : (
         <QuestionDrag user={user} />

@@ -13,7 +13,9 @@ export default function ProfilesPage(props) {
   return (
     <div className="profiles-page">
       <div className="profiles-page-header">
-        <div className="profiles-page-heading"></div>
+        <div className="profiles-page-heading">
+          {/* <h2 className="profiles-page-title">Profiles</h2> */}
+        </div>
       </div>
       {!props.user.email && <Navigate to="/forbidden" replace={true} />}
       <Routes>

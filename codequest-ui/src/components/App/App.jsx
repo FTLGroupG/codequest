@@ -27,6 +27,7 @@ import { AuthProvider } from "../../contexts/auth";
 import NotFound from "../NotFound/NotFound";
 import Loading from "../Loading/Loading";
 import Results from "../Results/Results";
+import ProfileContext from "../../contexts/profile";
 
 // React Contexts
 import AuthContext from "../../contexts/auth";
@@ -35,6 +36,17 @@ function App() {
   const { userContext } = useContext(AuthContext);
   const [user, setUser] = userContext;
   const [errors, setErrors] = useState();
+
+  const {
+    profileContext,
+    removeProfile,
+    selectedProfile,
+    setSelectedProfile,
+    userProgress,
+    setUserProgress,
+    leftOff,
+    setLeftOff,
+  } = useContext(ProfileContext);
 
   const handleOnLogout = () => {
     setUser({});

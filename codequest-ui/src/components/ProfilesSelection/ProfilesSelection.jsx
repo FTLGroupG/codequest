@@ -3,6 +3,8 @@ import "./ProfilesSelection.css";
 import { useContext, useEffect } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import ProfileContext from "../../contexts/profile";
+import profile_icon from "../../assets/profile-icon.png";
+import robotProfile from "../../assets/robotProfile.png";
 import ProfileCard from "../ProfileCard/ProfileCard";
 import apiClient from "../../services/apiClient";
 import AuthContext from "../../contexts/auth";
@@ -22,8 +24,16 @@ export default function ProfilesSelection(props) {
   const [user, setUser] = userContext;
 
   // Use the context to access profiles state and removeProfile function
-  const { profileContext, setSelectedProfile, setUserProgress } =
-    useContext(ProfileContext);
+  const {
+    profileContext,
+    removeProfile,
+    selectedProfile,
+    setSelectedProfile,
+    userProgress,
+    setUserProgress,
+    leftOff,
+    setLeftOff,
+  } = useContext(ProfileContext);
   const [profiles, setProfiles] = profileContext;
 
   /**
@@ -90,7 +100,7 @@ export default function ProfilesSelection(props) {
   return (
     <div className="profile-overview">
       <div className="animation20">
-        <LottieAnimation animationData={animation20} />
+       <LottieAnimation animationData={animation20} />
       </div>
       <div className="overview-container">
         <div className="overview-content">

@@ -9,7 +9,7 @@ import correctSound from "../../assets/correct-6033.mp3";
 import incorrectSound from "../../assets/wrong-sound.wav";
 import lottie from "lottie-web";
 import animationData from "/src/assets/correctAnimationNoLoop.json";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const AnimationComponent = () => {
   useEffect(() => {

@@ -9,6 +9,7 @@ import animationData from "/src/assets/trophyAnimation.json"; // Replace with yo
 import LottieBackgroundAnimation from "../AnimationBackgroundComponent/AnimationBackgroundComponent";
 import animation18 from "/src/assets/conquererBackgroundAnimation.json";
 
+
 const AnimationComponent = () => {
   useEffect(() => {
     // Lottie configuration
@@ -36,7 +37,7 @@ const AnimationComponent = () => {
 export default function Results({ profileItem }) {
   const { userContext } = useContext(AuthContext);
   const [user, setUser] = userContext;
-  const { id } = useParams();
+  const { id } = useParams(); // Uncomment this line to get the 'id' from the URL parameters
   const [module, setModule] = useState();
 
   // Fetch module when the component mounts
@@ -53,14 +54,14 @@ export default function Results({ profileItem }) {
 
   useEffect(() => {
     fetchModules();
-  }, [id]);
+  }, [id]); // Add 'id' to the dependency array of useEffect
 
   let key = 0;
 
   return (
     <div className="results">
       <div className="animation18">
-        <LottieBackgroundAnimation animationData={animation18} />
+       <LottieBackgroundAnimation animationData={animation18} />
       </div>
       {!localStorage.getItem("selectedProfile") && (
         <Navigate to="/account-profiles" replace={true} />
@@ -92,6 +93,7 @@ export default function Results({ profileItem }) {
               })}
             </ul>
           </h2>
+          {/* Use 'module?.title' to display the title of the completed module */}
         </div>
         <div className="results-buttons">
           <Link to="/modules">

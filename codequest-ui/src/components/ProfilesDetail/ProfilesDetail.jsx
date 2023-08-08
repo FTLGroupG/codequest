@@ -24,13 +24,13 @@ export default function ProfilesDetail({
 }) {
   const { userContext } = useContext(AuthContext);
   const [user, setUser] = userContext;
-
   // Use the context to access profiles state and removeProfile function
   const {
     userProgress,
     setUserProgress,
     profileContext,
     removeProfile,
+    selectedProfile,
     setSelectedProfile,
     leftOff,
     setLeftOff,
@@ -174,22 +174,19 @@ export default function ProfilesDetail({
             <h3>Badges</h3>
 
             {badges.map(({ number, value }) => {
-              // Check if the badge number is less than or equal to the leftOff value
-              const badgeCompleted = number <= leftOff;
+  // Check if the badge number is less than or equal to the leftOff value
+  const badgeCompleted = number <= leftOff;
 
-              return (
-                <div key={number} className="badge-item">
-                  <h2 className={badgeCompleted ? "gold-badge" : ""}>
-                    {value}
-                  </h2>
-                  <div className="badgeAnimation">
-                    {badgeCompleted && (
-                      <LottieAnimation animationData={animation8} />
-                    )}
-                  </div>
-                </div>
-              );
-            })}
+  return (
+    <div key={number} className="badge-item">
+      <h2 className={badgeCompleted ? "gold-badge" : ""}>{value}</h2>
+        <div className="badgeAnimation">
+          {badgeCompleted && <LottieAnimation animationData={animation8} />}
+        </div> 
+    </div>
+  );
+})}
+
           </div>
         </div>
       </div>
