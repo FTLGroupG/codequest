@@ -31,7 +31,7 @@
 
 .nav-btn-content {
   padding: 10px;
-  background-color: #F2AC2A;
+  background-color: #f2ac2a;
   border: solid 2px white;
 }
 
@@ -47,6 +47,10 @@
   color: white;
   border-radius: 5px;
   padding: 5px;
+}
+
+.signUp a:hover {
+  color: white !important;
 }
 
 * {
