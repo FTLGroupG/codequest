@@ -1,3 +1,12 @@
+## Copyright 📜
+
+    👨‍💻 CodeQuest Academy © 2024. All rights reserved. Unauthorized duplication,
+    distribution, or modification of this project is prohibited. For inquiries 
+    or permissions, please reach out to any of the repository owners.
+    Remember, any unauthorized actions may lead to serious legal consequences.
+    Let's keep it legal and respectful! 🚫🔨
+
+
 # SITE Capstone Project
 
 SITE Course Year: **2023**
